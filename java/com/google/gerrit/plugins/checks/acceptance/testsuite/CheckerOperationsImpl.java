@@ -115,6 +115,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
     checkerCreation.description().ifPresent(builder::setDescription);
     checkerCreation.url().ifPresent(builder::setUrl);
     checkerCreation.repository().ifPresent(builder::setRepository);
+    checkerCreation.query().ifPresent(builder::setQuery);
     return builder.build();
   }
 
@@ -194,6 +195,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
           .description(checker.getDescription())
           .url(checker.getUrl())
           .repository(checker.getRepository())
+          .query(checker.getQuery())
           .createdOn(checker.getCreatedOn())
           .updatedOn(checker.getUpdatedOn())
           .refState(checker.getRefState())
@@ -251,6 +253,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
       checkerUpdate.repository().ifPresent(builder::setRepository);
       checkerUpdate.status().ifPresent(builder::setStatus);
       checkerUpdate.blockingConditions().ifPresent(builder::setBlockingConditions);
+      checkerUpdate.query().ifPresent(builder::setQuery);
       return builder.build();
     }
   }

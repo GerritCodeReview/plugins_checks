@@ -284,6 +284,53 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void createCheckerWithQuery() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.name = "my-checker";
+    input.repository = allProjects.get();
+    input.query = "f:foo";
+
+    CheckerInfo info = checkersApi.create(input).get();
+    assertThat(info.query).isEqualTo("f:foo");
+  }
+
+  @Test
+  public void createCheckerWithEmptyQuery() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.name = "my-checker";
+    input.repository = allProjects.get();
+    input.query = "";
+
+    CheckerInfo info = checkersApi.create(input).get();
+    assertThat(info.query).isNull();
+  }
+
+  @Test
+  public void createCheckerWithEmptyQueryAfterTrim() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.name = "my-checker";
+    input.repository = allProjects.get();
+    input.query = " ";
+
+    CheckerInfo info = checkersApi.create(input).get();
+    assertThat(info.query).isNull();
+  }
+
+  @Test
+  public void createCheckerWithInvalidQueryFails() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.name = "my-checker";
+    input.repository = allProjects.get();
+    input.query = "project:foo";
+
+    try {
+      checkersApi.create(input).get();
+    } catch (BadRequestException e) {
+      assertThat(e).hasMessageThat().isEqualTo("Unsupported operator: project");
+    }
+  }
+
+  @Test
   public void createMultipleCheckers() throws Exception {
     Project.NameKey repositoryName1 = projectOperations.newProject().create();
     Project.NameKey repositoryName2 = projectOperations.newProject().create();
