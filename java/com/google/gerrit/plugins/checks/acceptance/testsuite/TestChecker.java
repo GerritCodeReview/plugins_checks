@@ -32,6 +32,8 @@ public abstract class TestChecker {
 
   public abstract Project.NameKey repository();
 
+  public abstract Optional<String> query();
+
   public abstract Timestamp createdOn();
 
   public abstract Timestamp updatedOn();
@@ -58,6 +60,10 @@ public abstract class TestChecker {
     public abstract Builder url(Optional<String> url);
 
     public abstract Builder repository(Project.NameKey repository);
+
+    public abstract Builder query(String query);
+
+    public abstract Builder query(Optional<String> query);
 
     public abstract Builder createdOn(Timestamp createdOn);
 
