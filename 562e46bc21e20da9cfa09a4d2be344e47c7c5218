@@ -23,6 +23,30 @@
       "revId": "562e46bc21e20da9cfa09a4d2be344e47c7c5218",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10546b5f_2e98d042",
+        "filename": "src/main/resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-25T15:00:33Z",
+      "side": 1,
+      "message": "The JSON spec includes a literal null token in its syntax, but doesn\u0027t specify any semantics AFAIK. It\u0027s Gson which is unable to distinguish between literal null and an unset value (at least when parsing directly to a POJO rather than processing a stream of tokens). So maybe this should say \"(*or* that have `null as value)\", implying we explicitly treat these two as the same at the application level.",
+      "parentUuid": "a17e52bf_e8f6b12c",
+      "range": {
+        "startLine": 99,
+        "startChar": 44,
+        "endLine": 99,
+        "endChar": 77
+      },
+      "revId": "562e46bc21e20da9cfa09a4d2be344e47c7c5218",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
