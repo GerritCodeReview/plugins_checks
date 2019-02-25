@@ -26,6 +26,30 @@
     },
     {
       "key": {
+        "uuid": "f52f7eab_eabc096a",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-25T14:52:15Z",
+      "side": 1,
+      "message": "This is analogous to CheckerUuid, CheckerName, etc. CheckerName also only contains a single method named \"clean\". We can rename all of them or consolidate some of them in the future, but of the numerous bikesheds we have to paint, this is not high on my list.",
+      "parentUuid": "6c63cc6c_6e476359",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5db52d6c_7415c86d",
         "filename": "src/main/resources/Documentation/rest-api-checkers.md",
         "patchSetId": 2
