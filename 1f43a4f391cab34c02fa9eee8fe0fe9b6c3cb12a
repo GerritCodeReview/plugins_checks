@@ -1,4 +1,45 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1550857255 -0800\nnonce ANwvRnCuikhHGGb9JyHfYl70d1Q8oWApvz8mijsV5MidyLw9G6oG0ncI69C4RpSz9J0AlEG7Q7lj\n\n0000000000000000000000000000000000000000 1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a refs/for/master%r\u003dhiesel@google.com\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlxwNCcVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMsVIQAOD90b5+SkRsGDHVD+4t/S4CrXFo\nHA7qbByJQOhgDdioYvcszJkucrVzP9eh9mVo4J5pdr92CnCvQToSXavRE4U0L7Hm\ntp+sKzDHrUyAyVB/m84bNFJQk4kbpcaDWlZC06OHnnkwmaWLMHsuJ++C4iq3+lRf\ngPqtcFI7VL6WlVhxGei6BDCs0whVzJuo+k383QIYr/Fn49fa91B5lJUgyoz+7Kok\n/SBsa7MgvHokH1Bw2Pe1QjxLZLiGoC01SnluldOTTSaf6r+C5pBE3K0JltZC9iUs\nJtSQUXMbWj661w+LaoPbfY4BjCbXWltvFeRFs80SCsK/R6yxsicRecH4DbHs4DDP\n2Y5iZPMXnp2q97n9PidC0cUIl4AMj6l7FLPw4DBuogohwwCFK187fg1obx6MeB32\ntt5zYMiahWs0su4kuaolCdZ/QKqqvRT/Scvs9J+vBE7qS1R2vYXphi8hzNSBs8dn\n9GRsw24qJLCVGlnnHf+sd4Hd3zI3i1FZieVTsZ69j1HvhTH/hqbJLFHqrpSahsYO\nIPtHD6hhpg7DRBPynuCMXhDlNcTlwqPmrA7aqjPhlxSVfn2jd/L1YO5fZqlJxqWv\ngdz8zbq+FV/M9ixCJuBw4pWCfcNbeEr53S93sssMXmPF0gaw0slfUIa7I7freUoM\npTj5FPYuWsC/0aZv\n\u003dTmQQ\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c63cc6c_6e476359",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-02-25T14:18:33Z",
+      "side": 1,
+      "message": "painting the bikeshed: The only purpose of this class is sanitizing queries, so should we call it \u0027CheckerQuerySanitize\u0027 or \u0027CheckerQueryCleaner\u0027 ?",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5db52d6c_7415c86d",
+        "filename": "src/main/resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-02-25T14:18:33Z",
+      "side": 1,
+      "message": "Should we have this default to open changes?\n\nI think most checkers will only care about open changes. Having this be the default seems to be more user friendly and also more lightweight for the load that we see from checkers, especially in the pending checks rest endpoint.\n\nIt\u0027s nice to support queries for closed changes as well, but I think we need to implement some safety net here so that this doesn\u0027t go haywire for users. Consider a host with half a million changes and a CI system that bills per build minute and scales to an infinite number of jobs. \n\nThe admin configures a new Checker and forgets to include \"is:open\". Given a perfectly implemented pending checks endpoint (which is hard to do, but let\u0027s assume we have that) The CI kicks off half a million builds and the admin\u0027s credit card starts to roast.\n\nIn a less dramatic scenario, the build agent is busy for the next while and users can\u0027t submit changes anymore cause their builds get queued up in a queue that has half a million changes.\n\nShould we maybe just support open changes for now and add closed changes as a feature later on?",
+      "revId": "1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
