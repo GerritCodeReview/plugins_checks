@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1551123525 -0800\nnonce AC6AUtM5QuG7W7RRTrYHCL18U+KD5XySokZJVd2J0Ghql8+cH34RojDMt9peGFwUYNPCc7HrDxjx\n\n0000000000000000000000000000000000000000 d6d351133bb5eeec00fdb92d3bca955af4fb5667 refs/for/master%r\u003dhiesel@google.com\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlx0REUVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMoOAP/A5higQVMifNxk0ShP81JSH4WwyW\nRM0pKjw5qTyEdMIpdJxTBGkKHELyVyeg2PUNSnOEQ6cRoZtB+q7mA/pZRn46o2wS\nszPHZVbL6xSVJvihVuFHedWda3A3kJ5uzdlRJLV1pXLkS0xqTwEEFl4/oEm+mm0s\nQ4hbhioQj5F2JOWCMkKfOJmTjOzaEwNTUakP6YKu/bZgzHku+l2IYjILDSp+GQjn\nKAsTtlpkhd2+YnaR3M0ls9W4ncarO7M/muEdgl+RPi4Ss+JtaYkQ/iBDh1V1K3na\nXuFDwO1o/gIJgsEU1xcFFEyzYeVzJ6jDwL2xd2qtwA+H7uYIfKwQK971oh+pwHwD\n4pWvhETt/JC+uTir7wYN0QO3dmxaii9doge4eQJbT1RiY45VljhN1MjYkDQQLCpp\n3baGcf+RgI//YQ9nOiuv/JC/EIPqGU4zpgCt5uO2xVMvQzASxOQO4aaeOjsVhKlo\n1x5UoSLWy4iazOxhgAgOH8NOjmaxGCyvvV3f/VUDlh0Z/2z8H52CialARxIoEbn5\nS4mpdC9PhwG9K9sR3Y8tvwA/QTfBbo91CQbJJIcTTaB0qLOMFRTqqW3kPD25pqea\ndzXKCr1tsk7wGb4pyqDMeYwXpMFvZ3uzm+7Jt6LTLQS9Hwek4etDXXnc7yyScM58\n2mze8TV+cichLh9X\n\u003dl5LM\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d39eaa2_9bcd6260",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-02-25T23:42:59Z",
+      "side": 1,
+      "message": "Did you intend to add a link in the commit message?",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "d6d351133bb5eeec00fdb92d3bca955af4fb5667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
