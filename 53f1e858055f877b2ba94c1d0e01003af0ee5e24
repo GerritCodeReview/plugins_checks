@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efeceb41_0ce8aa4b",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckRevisionNote.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Wasn\u0027t this fixed in core?\n\nOh, you\u0027re saying that you want to be able to return something other than a List? (Which is why you return a singleton list here.)",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0965e30_1435e321",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Stray braces",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ef487f_f4d7f0be",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "I think this can just be !update.state().equals(state), since update.state() is always present once you reach this branch.",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93c71a34_694338ae",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Comments in this file don\u0027t seem to have been addressed.",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5b2bb8d_ff90d4ed",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Why do you need a force update here? This is always a fast-forward, we\u0027re never rewriting history, are we?",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a29101_a1cf18fe",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Reuse the timestamp from the PersonIdent, or at least use TimeUtil.nowTs().",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c942559_12b0d6fa",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-26T22:50:01Z",
+      "side": 1,
+      "message": "Reuse the timestamp from the PersonIdent, or at least use TimeUtil.nowTs().",
+      "revId": "53f1e858055f877b2ba94c1d0e01003af0ee5e24",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
