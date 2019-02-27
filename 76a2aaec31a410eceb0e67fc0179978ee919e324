@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8574ef82_f7761384",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-27T16:43:22Z",
+      "side": 1,
+      "message": "It\u0027s good that you removed setForceUpdate because this was a real bug: it would have written a commit object with a literal zeroId in the parent field, which is broken.\n\n(IMHO the CommitBuilder API should prevent you from doing such an unsafe thing, and it\u0027s too bad it doesn\u0027t, but at least there is another safety latch in the ref update code.)",
+      "revId": "76a2aaec31a410eceb0e67fc0179978ee919e324",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
