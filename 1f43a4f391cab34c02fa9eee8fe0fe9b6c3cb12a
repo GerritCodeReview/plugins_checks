@@ -82,6 +82,24 @@
       "revId": "1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82379fc3_cd298f4a",
+        "filename": "src/main/resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-02-27T16:58:19Z",
+      "side": 1,
+      "message": "We decided on (a). Some checker implementations may want to always ignore closed changes, and that\u0027s fine: they can always do [(%s) AND status:open] on top of whatever other criteria they add to the query.",
+      "parentUuid": "181383f8_1cf65f19",
+      "revId": "1f43a4f391cab34c02fa9eee8fe0fe9b6c3cb12a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
