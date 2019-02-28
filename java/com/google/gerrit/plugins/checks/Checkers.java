@@ -40,7 +40,27 @@ public interface Checkers {
    * @throws IOException if the checker couldn't be retrieved from the storage
    * @throws ConfigInvalidException if the checker in the storage is invalid
    */
-  Optional<Checker> getChecker(String checkerUuid) throws IOException, ConfigInvalidException;
+  Optional<Checker> getChecker(CheckerUuid checkerUuid) throws IOException, ConfigInvalidException;
+
+  /**
+   * Returns the checker for the given UUID string.
+   *
+   * <p>If no checker with the given UUID exists, or the input is an invalid UUID, {@link
+   * Optional#empty()} is returned.
+   *
+   * @param uuidString the checker UUID string
+   * @return the checker, {@link Optional#empty()} if no checker with the given UUID exists
+   * @throws IOException if the checker couldn't be retrieved from the storage
+   * @throws ConfigInvalidException if the checker in the storage is invalid
+   */
+  default Optional<Checker> getChecker(String uuidString)
+      throws IOException, ConfigInvalidException {
+    Optional<CheckerUuid> checkerUuid = CheckerUuid.tryParse(uuidString);
+    if (!checkerUuid.isPresent()) {
+      return Optional.empty();
+    }
+    return getChecker(checkerUuid.get());
+  }
 
   /**
    * Returns a list with all checkers.
