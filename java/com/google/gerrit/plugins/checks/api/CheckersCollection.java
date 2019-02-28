@@ -23,7 +23,7 @@ import com.google.gerrit.extensions.restapi.RestCollection;
 import com.google.gerrit.extensions.restapi.RestView;
 import com.google.gerrit.extensions.restapi.TopLevelResource;
 import com.google.gerrit.plugins.checks.AdministrateCheckersPermission;
-import com.google.gerrit.plugins.checks.Checker;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.server.AnonymousUser;
 import com.google.gerrit.server.CurrentUser;
@@ -33,6 +33,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import java.io.IOException;
+import java.util.function.Supplier;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
@@ -67,20 +69,39 @@ public class CheckersCollection implements RestCollection<TopLevelResource, Chec
 
   @Override
   public CheckerResource parse(TopLevelResource parent, IdString id)
-      throws AuthException, ResourceNotFoundException, PermissionBackendException, IOException,
-          ConfigInvalidException {
+      throws RestApiException, PermissionBackendException, IOException, ConfigInvalidException {
+    // Unlike most other REST collections, use the raw URL-encoded IdString#encoded() value passed
+    // by the client. The UUID strings we expose in fields of JSON objects to the user are already
+    // URL-encoded, and we don't want to require callers to double-encode them. Just in case they
+    // have decoded and then re-encoded them, allow the scheme separator to be %3A.
+    // TODO(dborowitz): We're trying to do callers a favor here, even though it's rather
+    // inconvenient for us, and arguably inconsistent with the rest of the REST API. If it turns out
+    // to be easier on their end for them to double-encode when passing UUID strings in a URL, we
+    // can revisit this decision.
+    String urlEncodedUuid = id.encoded();
+    String urlEncodedUuidWithDecodedColon = StringUtils.replace(urlEncodedUuid, "%3a", ":", 1);
+    urlEncodedUuidWithDecodedColon =
+        StringUtils.replace(urlEncodedUuidWithDecodedColon, "%3A", ":", 1);
+    return parse(urlEncodedUuidWithDecodedColon, () -> new ResourceNotFoundException(id));
+  }
+
+  CheckerResource parse(String uuidString)
+      throws RestApiException, PermissionBackendException, IOException, ConfigInvalidException {
+    return parse(uuidString, () -> new ResourceNotFoundException("Not found: " + uuidString));
+  }
+
+  private CheckerResource parse(String uuidString, Supplier<ResourceNotFoundException> notFound)
+      throws RestApiException, PermissionBackendException, IOException, ConfigInvalidException {
     CurrentUser user = self.get();
     if (user instanceof AnonymousUser) {
       throw new AuthException("Authentication required");
     } else if (!(user.isIdentifiedUser())) {
-      throw new ResourceNotFoundException(id);
+      throw notFound.get();
     }
-
     permissionBackend.currentUser().check(permission);
 
-    Checker checker =
-        checkers.getChecker(id.get()).orElseThrow(() -> new ResourceNotFoundException(id));
-    return new CheckerResource(checker);
+    CheckerUuid checkerUuid = CheckerUuid.tryParse(uuidString).orElseThrow(notFound);
+    return new CheckerResource(checkers.getChecker(checkerUuid).orElseThrow(notFound));
   }
 
   @Override

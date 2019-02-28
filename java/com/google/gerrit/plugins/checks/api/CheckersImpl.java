@@ -16,7 +16,6 @@ package com.google.gerrit.plugins.checks.api;
 
 import static com.google.gerrit.server.api.ApiUtil.asRestApiException;
 
-import com.google.gerrit.extensions.restapi.IdString;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.extensions.restapi.TopLevelResource;
 import com.google.inject.Inject;
@@ -43,11 +42,11 @@ public class CheckersImpl implements Checkers {
   }
 
   @Override
-  public CheckerApi id(String id) throws RestApiException {
+  public CheckerApi id(String checkerUuid) throws RestApiException {
     try {
-      return api.create(checkers.parse(TopLevelResource.INSTANCE, IdString.fromDecoded(id)));
+      return api.create(checkers.parse(checkerUuid));
     } catch (Exception e) {
-      throw asRestApiException("Cannot retrieve checker " + id, e);
+      throw asRestApiException("Cannot retrieve checker " + checkerUuid, e);
     }
   }
 

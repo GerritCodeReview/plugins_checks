@@ -40,7 +40,7 @@ public interface Checkers {
    * @throws IOException if the checker couldn't be retrieved from the storage
    * @throws ConfigInvalidException if the checker in the storage is invalid
    */
-  Optional<Checker> getChecker(String checkerUuid) throws IOException, ConfigInvalidException;
+  Optional<Checker> getChecker(CheckerUuid checkerUuid) throws IOException, ConfigInvalidException;
 
   /**
    * Returns a list with all checkers.
