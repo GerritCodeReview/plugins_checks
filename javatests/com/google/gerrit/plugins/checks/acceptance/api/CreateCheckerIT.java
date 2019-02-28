@@ -22,7 +22,9 @@ import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.UnprocessableEntityException;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerOperations.PerCheckerOperations;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
@@ -57,11 +59,11 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     Project.NameKey repositoryName = projectOperations.newProject().create();
 
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = repositoryName.get();
     CheckerInfo info = checkersApi.create(input).get();
-    assertThat(info.uuid).isNotNull();
-    assertThat(info.name).isEqualTo(input.name);
+    assertThat(info.uuid).isEqualTo("test:my-checker");
+    assertThat(info.name).isNull();
     assertThat(info.description).isNull();
     assertThat(info.url).isNull();
     assertThat(info.repository).isEqualTo(input.repository);
@@ -78,13 +80,14 @@ public class CreateCheckerIT extends AbstractCheckersTest {
         perCheckerOps.get().getRefState());
     assertThat(checkerOperations.sha1sOfRepositoriesWithCheckers())
         .containsExactly(CheckersByRepositoryNotes.computeRepositorySha1(repositoryName));
-    assertThat(checkerOperations.checkersOf(repositoryName)).containsExactly(info.uuid);
+    assertThat(checkerOperations.checkersOf(repositoryName))
+        .containsExactly(CheckerUuid.parse(info.uuid));
   }
 
   @Test
   public void createCheckerWithDescription() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.description = "some description";
     input.repository = allProjects.get();
     CheckerInfo info = checkersApi.create(input).get();
@@ -101,7 +104,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerWithUrl() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.url = "http://example.com/my-checker";
     input.repository = allProjects.get();
     CheckerInfo info = checkersApi.create(input).get();
@@ -116,8 +119,26 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void createCheckerWithName() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.uuid = "test:my-checker";
+    input.name = "my-checker";
+    input.repository = allProjects.get();
+    CheckerInfo info = checkersApi.create(input).get();
+    assertThat(info.name).isEqualTo("my-checker");
+
+    PerCheckerOperations perCheckerOps = checkerOperations.checker(info.uuid);
+    assertCommit(
+        perCheckerOps.commit(),
+        "Create checker",
+        info.createdOn,
+        perCheckerOps.get().getRefState());
+  }
+
+  @Test
   public void createCheckerNameIsTrimmed() throws Exception {
     CheckerInput input = new CheckerInput();
+    input.uuid = "test:my-checker";
     input.name = " my-checker ";
     input.repository = allProjects.get();
     CheckerInfo info = checkersApi.create(input).get();
@@ -134,7 +155,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerDescriptionIsTrimmed() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.description = " some description ";
     input.repository = allProjects.get();
     CheckerInfo info = checkersApi.create(input).get();
@@ -151,7 +172,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerUrlIsTrimmed() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.url = " http://example.com/my-checker ";
     input.repository = allProjects.get();
     CheckerInfo info = checkersApi.create(input).get();
@@ -168,7 +189,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerRepositoryIsTrimmed() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = " " + allProjects.get() + " ";
     CheckerInfo info = checkersApi.create(input).get();
     assertThat(info.repository).isEqualTo(allProjects.get());
@@ -183,10 +204,10 @@ public class CreateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void createCheckerWithInvalidUrlFails() throws Exception {
-    String checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
 
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.url = "ftp://example.com/my-checker";
     exception.expect(BadRequestException.class);
     exception.expectMessage("only http/https URLs supported: ftp://example.com/my-checker");
@@ -196,11 +217,13 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckersWithSameName() throws Exception {
     CheckerInput input = new CheckerInput();
+    input.uuid = "test:my-checker";
     input.name = "my-checker";
     input.repository = allProjects.get();
     CheckerInfo info1 = checkersApi.create(input).get();
     assertThat(info1.name).isEqualTo(input.name);
 
+    input.uuid = "test:another-checker";
     CheckerInfo info2 = checkersApi.create(input).get();
     assertThat(info2.name).isEqualTo(input.name);
 
@@ -208,41 +231,64 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   }
 
   @Test
-  public void createCheckerWithoutNameFails() throws Exception {
+  public void createCheckerWithExistingUuidFails() throws Exception {
     CheckerInput input = new CheckerInput();
+    input.uuid = "test:my-checker";
     input.repository = allProjects.get();
+    checkersApi.create(input).get();
 
-    exception.expect(BadRequestException.class);
-    exception.expectMessage("name is required");
+    exception.expect(ResourceConflictException.class);
+    exception.expectMessage("Checker test:my-checker already exists");
     checkersApi.create(input);
   }
 
   @Test
-  public void createCheckerWithEmptyNameFails() throws Exception {
+  public void createCheckerWithoutUuidFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "";
     input.repository = allProjects.get();
 
     exception.expect(BadRequestException.class);
-    exception.expectMessage("name is required");
+    exception.expectMessage("uuid is required");
     checkersApi.create(input);
   }
 
   @Test
-  public void createCheckerWithEmptyNameAfterTrimFails() throws Exception {
+  public void createCheckerWithEmptyUuidFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = " ";
+    input.uuid = "";
     input.repository = allProjects.get();
 
     exception.expect(BadRequestException.class);
-    exception.expectMessage("name is required");
+    exception.expectMessage("uuid is required");
+    checkersApi.create(input);
+  }
+
+  @Test
+  public void createCheckerWithEmptyUuidAfterTrimFails() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.uuid = " ";
+    input.repository = allProjects.get();
+
+    exception.expect(BadRequestException.class);
+    exception.expectMessage("invalid uuid:  ");
+    checkersApi.create(input);
+  }
+
+  @Test
+  public void createCheckerWithInvalidUuidFails() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.uuid = "notauuid";
+    input.repository = allProjects.get();
+
+    exception.expect(BadRequestException.class);
+    exception.expectMessage("invalid uuid: notauuid");
     checkersApi.create(input);
   }
 
   @Test
   public void createCheckerWithoutRepositoryFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
 
     exception.expect(BadRequestException.class);
     exception.expectMessage("repository is required");
@@ -252,7 +298,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerWithEmptyRepositoryFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = "";
 
     exception.expect(BadRequestException.class);
@@ -263,7 +309,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerWithEmptyRepositoryAfterTrimFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = " ";
 
     exception.expect(BadRequestException.class);
@@ -274,7 +320,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerWithNonExistingRepositoryFails() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = "non-existing";
 
     exception.expect(UnprocessableEntityException.class);
@@ -285,7 +331,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createDisabledChecker() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = allProjects.get();
     input.status = CheckerStatus.DISABLED;
 
@@ -296,7 +342,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   @Test
   public void createCheckerWithBlockingConditions() throws Exception {
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = allProjects.get();
     input.blockingConditions = ImmutableSet.of(BlockingCondition.STATE_NOT_PASSING);
 
@@ -309,11 +355,11 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     Project.NameKey repositoryName1 = projectOperations.newProject().create();
     Project.NameKey repositoryName2 = projectOperations.newProject().create();
 
-    String checkerUuid1 = checkerOperations.newChecker().repository(repositoryName1).create();
-    String checkerUuid2 = checkerOperations.newChecker().repository(repositoryName1).create();
-    String checkerUuid3 = checkerOperations.newChecker().repository(repositoryName1).create();
-    String checkerUuid4 = checkerOperations.newChecker().repository(repositoryName2).create();
-    String checkerUuid5 = checkerOperations.newChecker().repository(repositoryName2).create();
+    CheckerUuid checkerUuid1 = checkerOperations.newChecker().repository(repositoryName1).create();
+    CheckerUuid checkerUuid2 = checkerOperations.newChecker().repository(repositoryName1).create();
+    CheckerUuid checkerUuid3 = checkerOperations.newChecker().repository(repositoryName1).create();
+    CheckerUuid checkerUuid4 = checkerOperations.newChecker().repository(repositoryName2).create();
+    CheckerUuid checkerUuid5 = checkerOperations.newChecker().repository(repositoryName2).create();
 
     assertThat(checkerOperations.sha1sOfRepositoriesWithCheckers())
         .containsExactly(
@@ -330,7 +376,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     requestScopeOperations.setApiUser(user.getId());
 
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
+    input.uuid = "test:my-checker";
     input.repository = allProjects.get();
 
     exception.expect(AuthException.class);

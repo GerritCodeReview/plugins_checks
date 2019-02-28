@@ -14,7 +14,9 @@
 
 package com.google.gerrit.plugins.checks.db;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
+import static java.util.Objects.requireNonNull;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
@@ -49,7 +51,8 @@ import org.eclipse.jgit.revwalk.RevSort;
  *
  * <p>Checkers in NoteDb can be created by following the descriptions of {@link
  * #createForNewChecker(Project.NameKey, Repository, CheckerCreation)}. For reading checkers from
- * NoteDb or updating them, refer to {@link #loadForChecker(Project.NameKey, Repository, String)}.
+ * NoteDb or updating them, refer to {@link #loadForChecker(Project.NameKey, Repository,
+ * CheckerUuid)}.
  *
  * <p><strong>Note:</strong> Any modification (checker creation or update) only becomes permanent
  * (and hence written to NoteDb) if {@link #commit(MetaDataUpdate)} is called.
@@ -60,9 +63,9 @@ import org.eclipse.jgit.revwalk.RevSort;
  * <h2>Internal details</h2>
  *
  * <p>Each checker is represented by a commit on a branch as defined by {@link
- * CheckerRef#refsCheckers(String)}. Previous versions of the checker exist as older commits on the
- * same branch and can be reached by following along the parent references. New commits for updates
- * are only created if a real modification occurs.
+ * CheckerRef#refsCheckers(CheckerUuid)}. Previous versions of the checker exist as older commits on
+ * the same branch and can be reached by following along the parent references. New commits for
+ * updates are only created if a real modification occurs.
  *
  * <p>Within each commit, the properties of a checker are stored in <em>checker.config</em> file
  * (further specified by {@link CheckerConfigEntry}). The <em>checker.config</em> file is formatted
@@ -93,8 +96,8 @@ public class CheckerConfig extends VersionedMetaData {
   public static CheckerConfig createForNewChecker(
       Project.NameKey projectName, Repository repository, CheckerCreation checkerCreation)
       throws IOException, ConfigInvalidException, OrmDuplicateKeyException {
-    CheckerConfig checkerConfig = new CheckerConfig(checkerCreation.getCheckerUuid());
-    checkerConfig.load(projectName, repository);
+    CheckerConfig checkerConfig =
+        loadForChecker(projectName, repository, checkerCreation.getCheckerUuid());
     checkerConfig.setCheckerCreation(checkerCreation);
     return checkerConfig;
   }
@@ -121,16 +124,24 @@ public class CheckerConfig extends VersionedMetaData {
    * @throws ConfigInvalidException if the checker exists but can't be read due to an invalid format
    */
   public static CheckerConfig loadForChecker(
-      Project.NameKey projectName, Repository repository, String checkerUuid)
+      Project.NameKey projectName, Repository repository, CheckerUuid checkerUuid)
       throws IOException, ConfigInvalidException {
     CheckerConfig checkerConfig = new CheckerConfig(checkerUuid);
     checkerConfig.load(projectName, repository);
     return checkerConfig;
   }
 
-  private final String checkerUuid;
+  public static CheckerConfig loadForChecker(
+      Project.NameKey projectName, Repository repository, String ref)
+      throws IOException, ConfigInvalidException {
+    CheckerConfig checkerConfig = new CheckerConfig(ref);
+    checkerConfig.load(projectName, repository);
+    return checkerConfig;
+  }
+
   private final String ref;
 
+  private CheckerUuid checkerUuid;
   private Optional<Checker> loadedChecker = Optional.empty();
   private Optional<CheckerCreation> checkerCreation = Optional.empty();
   private Optional<CheckerUpdate> checkerUpdate = Optional.empty();
@@ -138,9 +149,14 @@ public class CheckerConfig extends VersionedMetaData {
   private Config config;
   private boolean isLoaded = false;
 
-  private CheckerConfig(String checkerUuid) {
-    this.checkerUuid = CheckerUuid.checkUuid(checkerUuid);
-    this.ref = CheckerRef.refsCheckers(checkerUuid);
+  private CheckerConfig(String ref) {
+    checkArgument(CheckerRef.isRefsCheckers(ref), "expected checker ref: %s", ref);
+    this.ref = ref;
+  }
+
+  private CheckerConfig(CheckerUuid checkerUuid) {
+    this(CheckerRef.refsCheckers(requireNonNull(checkerUuid)));
+    this.checkerUuid = checkerUuid;
   }
 
   /**
@@ -192,7 +208,8 @@ public class CheckerConfig extends VersionedMetaData {
   private void setCheckerCreation(CheckerCreation checkerCreation) throws OrmDuplicateKeyException {
     checkLoaded();
     if (loadedChecker.isPresent()) {
-      throw new OrmDuplicateKeyException(String.format("Checker %s already exists", checkerUuid));
+      throw new OrmDuplicateKeyException(
+          String.format("Checker %s already exists", loadedChecker.get().getUuid()));
     }
 
     this.checkerCreation = Optional.of(checkerCreation);
@@ -219,8 +236,9 @@ public class CheckerConfig extends VersionedMetaData {
       Timestamp updatedOn = new Timestamp(rw.parseCommit(revision).getCommitTime() * 1000L);
 
       config = readConfig(CHECKER_CONFIG_FILE);
-      loadedChecker =
-          Optional.of(createFrom(checkerUuid, config, createdOn, updatedOn, revision.toObjectId()));
+      Checker checker = createFrom(config, createdOn, updatedOn, revision.toObjectId());
+      loadedChecker = Optional.of(checker);
+      checkerUuid = checker.getUuid();
     }
 
     isLoaded = true;
@@ -246,7 +264,7 @@ public class CheckerConfig extends VersionedMetaData {
 
     updatedCheckerBuilder = Optional.of(updateChecker(commitTimestamp));
 
-    String commitMessage = createCommitMessage(loadedChecker, checkerUpdate);
+    String commitMessage = createCommitMessage(loadedChecker);
     commit.setMessage(commitMessage);
 
     checkerCreation = Optional.empty();
@@ -254,28 +272,24 @@ public class CheckerConfig extends VersionedMetaData {
     return true;
   }
 
-  private void ensureThatMandatoryPropertiesAreSet() throws ConfigInvalidException {
-    if (getNewName().equals(Optional.of(""))) {
-      throw new ConfigInvalidException(
-          String.format("Name of the checker %s must be defined", checkerUuid));
-    }
+  private String describeForError() {
+    return checkerUuid != null ? checkerUuid.toString() : ref;
+  }
 
+  private void ensureThatMandatoryPropertiesAreSet() throws ConfigInvalidException {
     if (getNewRepository().equals(Optional.of(""))) {
       throw new ConfigInvalidException(
-          String.format("Repository of the checker %s must be defined", checkerUuid));
+          String.format("Repository of the checker %s must be defined", describeForError()));
     }
   }
 
   private void checkLoaded() {
-    checkState(isLoaded, "Checker %s not loaded yet", checkerUuid);
+    checkState(isLoaded, "Checker %s not loaded yet", describeForError());
   }
 
   private Optional<String> getNewName() {
     if (checkerUpdate.isPresent()) {
       return checkerUpdate.get().getName().map(CheckerName::clean);
-    }
-    if (checkerCreation.isPresent()) {
-      return Optional.of(CheckerName.clean(checkerCreation.get().getName()));
     }
     return Optional.empty();
   }
@@ -299,7 +313,7 @@ public class CheckerConfig extends VersionedMetaData {
       throws IOException, ConfigInvalidException {
     Config config = updateCheckerProperties();
     Timestamp createdOn = loadedChecker.map(Checker::getCreatedOn).orElse(commitTimestamp);
-    return createBuilderFrom(checkerUuid, config, createdOn, commitTimestamp);
+    return createBuilderFrom(config, createdOn, commitTimestamp);
   }
 
   private Config updateCheckerProperties() throws IOException, ConfigInvalidException {
@@ -316,51 +330,32 @@ public class CheckerConfig extends VersionedMetaData {
     return config;
   }
 
-  private static Checker.Builder createBuilderFrom(
-      String checkerUuid, Config config, Timestamp createdOn, Timestamp updatedOn)
+  private Checker.Builder createBuilderFrom(Config config, Timestamp createdOn, Timestamp updatedOn)
       throws ConfigInvalidException {
-    Checker.Builder checker = Checker.builder(checkerUuid);
+    Checker.Builder checker = Checker.builder();
+
+    // Populate UUID first so it can be used while reading other fields. checkerUuid at this point
+    // may or may not be null; passing it in causes readFromConfig to double-check equality.
+    CheckerConfigEntry.UUID.readFromConfig(checkerUuid, checker, config);
+
+    CheckerUuid checkerUuid = checker.getUuid();
     for (CheckerConfigEntry configEntry : CheckerConfigEntry.values()) {
+      if (configEntry == CheckerConfigEntry.UUID) {
+        continue;
+      }
       configEntry.readFromConfig(checkerUuid, checker, config);
     }
     checker.setCreatedOn(createdOn).setUpdatedOn(updatedOn);
     return checker;
   }
 
-  private static Checker createFrom(
-      String checkerUuid,
-      Config config,
-      Timestamp createdOn,
-      Timestamp updatedOn,
-      ObjectId refState)
+  private Checker createFrom(
+      Config config, Timestamp createdOn, Timestamp updatedOn, ObjectId refState)
       throws ConfigInvalidException {
-    return createBuilderFrom(checkerUuid, config, createdOn, updatedOn)
-        .setRefState(refState)
-        .build();
+    return createBuilderFrom(config, createdOn, updatedOn).setRefState(refState).build();
   }
 
-  private static String createCommitMessage(
-      Optional<Checker> originalChecker, Optional<CheckerUpdate> checkerUpdate) {
-    Optional<String> newCheckerName = checkerUpdate.flatMap(CheckerUpdate::getName);
-    String summaryLine = originalChecker.isPresent() ? "Update checker" : "Create checker";
-    Optional<String> footerForRename = getFooterForRename(originalChecker, newCheckerName);
-    if (footerForRename.isPresent()) {
-      return summaryLine + "\n\n" + footerForRename.get();
-    }
-    return summaryLine;
-  }
-
-  private static Optional<String> getFooterForRename(
-      Optional<Checker> originalChecker, Optional<String> newCheckerName) {
-    if (!originalChecker.isPresent() || !newCheckerName.isPresent()) {
-      return Optional.empty();
-    }
-
-    String originalName = originalChecker.get().getName();
-    String newName = newCheckerName.get();
-    if (originalName.equals(newName)) {
-      return Optional.empty();
-    }
-    return Optional.of("Rename from " + originalName + " to " + newName);
+  private static String createCommitMessage(Optional<Checker> originalChecker) {
+    return originalChecker.isPresent() ? "Update checker" : "Create checker";
   }
 }

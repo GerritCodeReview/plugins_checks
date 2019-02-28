@@ -43,11 +43,12 @@ public class CheckersImpl implements Checkers {
   }
 
   @Override
-  public CheckerApi id(String id) throws RestApiException {
+  public CheckerApi id(String checkerUuid) throws RestApiException {
     try {
-      return api.create(checkers.parse(TopLevelResource.INSTANCE, IdString.fromDecoded(id)));
+      return api.create(
+          checkers.parse(TopLevelResource.INSTANCE, IdString.fromDecoded(checkerUuid)));
     } catch (Exception e) {
-      throw asRestApiException("Cannot retrieve checker " + id, e);
+      throw asRestApiException("Cannot retrieve checker " + checkerUuid, e);
     }
   }
 

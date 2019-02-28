@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks.acceptance;
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.acceptance.rest.util.RestApiCallHelper;
 import com.google.gerrit.acceptance.rest.util.RestCall;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import org.junit.Test;
 
 public class ChecksRestApiBindingsIT extends AbstractCheckersTest {
@@ -27,7 +28,7 @@ public class ChecksRestApiBindingsIT extends AbstractCheckersTest {
 
   @Test
   public void checkerEndpoints() throws Exception {
-    String checkerUuid = checkerOperations.newChecker().create();
-    RestApiCallHelper.execute(adminRestSession, CHECKER_ENDPOINTS, checkerUuid);
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
+    RestApiCallHelper.execute(adminRestSession, CHECKER_ENDPOINTS, checkerUuid.toString());
   }
 }

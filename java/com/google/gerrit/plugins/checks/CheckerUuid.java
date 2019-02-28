@@ -14,80 +14,141 @@
 
 package com.google.gerrit.plugins.checks;
 
-import static com.google.common.base.Preconditions.checkState;
+import static com.google.common.base.Preconditions.checkArgument;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Comparator.comparing;
 
+import com.google.auto.value.AutoValue;
+import com.google.common.base.Ascii;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Strings;
+import com.google.common.hash.Hashing;
 import com.google.gerrit.common.Nullable;
-import com.google.gerrit.reviewdb.client.RefNames;
-import java.security.MessageDigest;
 import java.util.Optional;
-import org.eclipse.jgit.lib.Constants;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Ref;
+import java.util.regex.Pattern;
 
-public class CheckerUuid {
+/**
+ * UUID of a checker.
+ *
+ * <p>UUIDs are of the form {code SCHEME ':' ID}, where:
+ *
+ * <ul>
+ *   <li>Scheme is an RFC 3986 compliant scheme, stored in lowercase. By convention, checkers
+ *       created by the same external system (e.g. Jenkins) share a scheme name.
+ *   <li>ID is an arbitrary string provided by the external system, and can contain any characters
+ *       other than {@code '\n'} and {@code '\0'}.
+ * </ul>
+ */
+@AutoValue
+public abstract class CheckerUuid implements Comparable<CheckerUuid> {
+  // https://tools.ietf.org/html/rfc3986#section-3.1
+  // scheme = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+  private static final Pattern SCHEME_PATTERN =
+      Pattern.compile("^[a-z][a-z0-9+.-]*$", Pattern.CASE_INSENSITIVE);
+
+  private static final CharMatcher DISALLOWED_UUID_CHARS = CharMatcher.anyOf("\n\0");
+
   /**
-   * Creates a new UUID for a checker.
+   * Creates a new UUID with the given scheme and ID portions.
    *
-   * <p>The creation of the UUID is non-deterministic. This means invoking this method multiple
-   * times with the same parameters will result in a different UUID for each call.
-   *
-   * @param checkerName checker name.
-   * @return checker UUID.
+   * @param scheme RFC 3986 compliant scheme. Will be converted to lowercase.
+   * @param id arbitrary ID portion.
+   * @return new UUID.
    */
-  public static String make(String checkerName) {
-    MessageDigest md = Constants.newMessageDigest();
-    md.update(Constants.encode("checker " + checkerName + "\n"));
-    md.update(Constants.encode(String.valueOf(Math.random())));
-    return ObjectId.fromRaw(md.digest()).name();
+  public static CheckerUuid create(String scheme, String id) {
+    checkArgument(isScheme(scheme), "invalid scheme: %s", scheme);
+    checkArgument(isId(id), "invalid id: %s", id);
+    return new AutoValue_CheckerUuid(Ascii.toLowerCase(scheme), id);
   }
 
   /**
-   * Checks whether the given checker UUID has a valid format.
+   * Attempts to parse the given UUID string into a {@code CheckerUuid}.
    *
-   * @param checkerUuid the checker UUID to check
-   * @return {@code true} if the given checker UUID has a valid format, otherwise {@code false}
+   * @param uuid UUID string.
+   * @return new UUID if {@code uuid} is a valid UUID, or empty otherwise.
    */
-  public static boolean isUuid(@Nullable String checkerUuid) {
-    return checkerUuid != null && ObjectId.isId(checkerUuid);
-  }
-
-  /**
-   * Checks whether the given checker UUID has a valid format.
-   *
-   * @param checkerUuid the checker UUID to check
-   * @return the checker UUID
-   * @throws IllegalStateException if the given checker UUID has an invalid format
-   */
-  public static String checkUuid(String checkerUuid) {
-    checkState(isUuid(checkerUuid), "invalid checker UUID: %s", checkerUuid);
-    return checkerUuid;
-  }
-
-  /**
-   * Parses a checker UUID from a checker ref.
-   *
-   * @param ref the ref from which a checker UUID should be parsed
-   * @return the checker UUID, {@link Optional#empty()} if the given ref is null or not a valid
-   *     checker ref
-   */
-  public static Optional<String> fromRef(@Nullable Ref ref) {
-    return fromRef(ref != null ? ref.getName() : (String) null);
-  }
-
-  /**
-   * Parses a checker UUID from a checker ref name.
-   *
-   * @param refName the name of the ref from which a checker UUID should be parsed
-   * @return the checker UUID, {@link Optional#empty()} if the given ref name is null or not a valid
-   *     checker ref name
-   */
-  public static Optional<String> fromRef(@Nullable String refName) {
-    if (refName == null || !CheckerRef.isRefsCheckers(refName)) {
+  public static Optional<CheckerUuid> tryParse(@Nullable String uuid) {
+    if (!isUuid(uuid)) {
       return Optional.empty();
     }
-    return Optional.ofNullable(
-        RefNames.parseShardedUuidFromRefPart(refName.substring(CheckerRef.REFS_CHECKERS.length())));
+    int colon = uuid.indexOf(':');
+    String scheme = uuid.substring(0, colon);
+    if (!isScheme(scheme)) {
+      return Optional.empty();
+    }
+    String id = uuid.substring(colon + 1);
+    if (!isId(id)) {
+      return Optional.empty();
+    }
+    // Bypass redundant checks in #create(String, String).
+    return Optional.of(new AutoValue_CheckerUuid(Ascii.toLowerCase(scheme), id));
   }
 
-  private CheckerUuid() {}
+  /**
+   * Returns whether the given input is a valid UUID string.
+   *
+   * @param uuid UUID string.
+   * @return true if {@code uuid} is a valid UUID, false otherwise.
+   */
+  public static boolean isUuid(@Nullable String uuid) {
+    if (uuid == null) {
+      return false;
+    }
+    int colon = uuid.indexOf(':');
+    return colon >= 0 && isScheme(uuid.substring(0, colon)) && isId(uuid.substring(colon));
+  }
+
+  private static boolean isId(String id) {
+    return DISALLOWED_UUID_CHARS.matchesNoneOf(id);
+  }
+
+  private static boolean isScheme(@Nullable String scheme) {
+    return !Strings.isNullOrEmpty(scheme) && SCHEME_PATTERN.matcher(scheme).find();
+  }
+
+  /**
+   * Parses the given UUID string into a {@code CheckerUuid}, throwing an unchecked exception if it
+   * is not in the proper format..
+   *
+   * @param uuid UUID string.
+   * @return new UUID.
+   */
+  public static CheckerUuid parse(String checkerUuid) {
+    return tryParse(checkerUuid)
+        .orElseThrow(() -> new IllegalArgumentException("invalid checker UUID: " + checkerUuid));
+  }
+
+  /**
+   * Scheme portion of the UUID.
+   *
+   * @return the scheme, always lowercase.
+   */
+  public abstract String scheme();
+
+  /**
+   * ID portion of the UUID.
+   *
+   * @return the ID.
+   */
+  public abstract String id();
+
+  /**
+   * Computes the SHA-1 of the UUID, for use in the Git storage layer where SHA-1s are used as keys.
+   *
+   * @return hex SHA-1 of this UUID's string representation.
+   */
+  @SuppressWarnings("deprecation") // SHA-1 used where Git object IDs are required.
+  public String sha1() {
+    return Hashing.sha1().hashString(toString(), UTF_8).toString();
+  }
+
+  @Override
+  public String toString() {
+    return scheme() + ':' + id();
+  }
+
+  @Override
+  public int compareTo(CheckerUuid o) {
+    return comparing(CheckerUuid::toString).compare(this, o);
+  }
 }

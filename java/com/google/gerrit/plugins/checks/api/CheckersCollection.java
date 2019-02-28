@@ -24,6 +24,7 @@ import com.google.gerrit.extensions.restapi.RestView;
 import com.google.gerrit.extensions.restapi.TopLevelResource;
 import com.google.gerrit.plugins.checks.AdministrateCheckersPermission;
 import com.google.gerrit.plugins.checks.Checker;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.server.AnonymousUser;
 import com.google.gerrit.server.CurrentUser;
@@ -77,9 +78,10 @@ public class CheckersCollection implements RestCollection<TopLevelResource, Chec
     }
 
     permissionBackend.currentUser().check(permission);
-
+    CheckerUuid checkerUuid =
+        CheckerUuid.tryParse(id.get()).orElseThrow(() -> new ResourceNotFoundException(id));
     Checker checker =
-        checkers.getChecker(id.get()).orElseThrow(() -> new ResourceNotFoundException(id));
+        checkers.getChecker(checkerUuid).orElseThrow(() -> new ResourceNotFoundException(id));
     return new CheckerResource(checker);
   }
 
