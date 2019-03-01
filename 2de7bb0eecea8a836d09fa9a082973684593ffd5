@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1551400450 -0800\nnonce AC6AUtOnUYFaQkhmljLZGAa4KcPXZNu4IC5UMkYN0hpMohQScNCS+vLzwj6Ae5QAc7WR4n8mw3Ju\n\n0000000000000000000000000000000000000000 2de7bb0eecea8a836d09fa9a082973684593ffd5 refs/for/master%r\u003dhiesel@google.com,r\u003dhanwen@google.com\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlx4fgIVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiM0sAP/RDrB4AFUh1Xme0yJqD+dFOHgRJz\npngAsQ4a9X4XM7Lb87jZHtwvH6LFeM4UIk/WYAH1JbkBC7jPomFXuVelHD8z6wYa\nUA+dFdOh9OQYWNY7ZPYeFMOScAvTf1IsE00xm1BvGW3ifV0BrZtksaIjaP//aa2h\nUuis6yLTiKiXnH1npIZEzKgVfRhzlggvfQZyd4qiPCfqk+7jbAL7wqHw8JBZ6yc+\nDHdTbAnwLBKVFkNTdd7bb0+8DTayV2gA05nD4PIxov97+rTvqo2c7bXvQ2MX8H6Q\nmbnaeA6gGeMv+HQhy9wXqTaxdnx5eskIuIFOB/5yDD9oht6S1SjlmbJOZxZaf6Jx\nIGIza5OJK8dRsJX7xf2MvcPTtIaPEkLAL0IwcjnA7GL4e+l5vPO1ZWqw50sGSZ9K\nf2X6GAFW8hGOGDnjT+jmPZIcqVcmDCJ1G376KXLKMpOkFkz1C7cFCRZabRrA89Tk\ndK7zRgy6uZlfuTzkkJaw/H4z6OHypf4DcLhmPh2oqrzH6lTHcMLD0kP6hngpwhPO\n/luxB3nAuFFMYW8jye5vXzSWFWtNWAaW5+qIErSarLyg1S+dcvSKTYf3pC2ZREAg\nmUh//dyMG7G2416OhDhQ7l5ME1ss57vGthneeyVo99eQBi+fFPfnrv3XZUJFrDb4\nFG/93Dc05oIanMnF\n\u003dRmke\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c4cf12c_d48a3ecc",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerUuid.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-01T17:24:25Z",
+      "side": 1,
+      "message": "After sleeping on it, these restrictions may be a little silly, particularly the case-insensitivity of the scheme. I\u0027m sure we could bikeshed this forever.\n\nSome alternatives:\n\n* Remove all restrictions on scheme other than that it can\u0027t contain : \\0 or \\n\n* Make the whole thing a URI. The scheme is a scheme, still case-insensitive. Still allows any characters, but they need to be percent-encoded.\n* Impose some other arbitrary restrictions (e.g. alphanumeric, spaces, some punctuation) and apply them equally to scheme and id.\n\nRight now I\u0027m slightly leaning towards making the whole thing a URI, because then we can just use standard libraries for parsing.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "revId": "2de7bb0eecea8a836d09fa9a082973684593ffd5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
 }
