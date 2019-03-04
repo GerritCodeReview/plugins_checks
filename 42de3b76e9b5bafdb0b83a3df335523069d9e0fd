@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1551734285 -0800\nnonce AC6AUtMwVgmExBggUlV/gfhCLZCfPHgGBNDY5+Scrn/sh4Pzxe01L+NaScSqxks24yTmxjNYV9mv\n\n0000000000000000000000000000000000000000 42de3b76e9b5bafdb0b83a3df335523069d9e0fd refs/for/master\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlx9lg0VHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMNWAQANgIWHDLfS6wE0lr56grdoTtCUAa\nGu/zJI+fK9hkh9i33XMG26gw60shWLTz9Jdf/kEHkzsxATcdjbdWuAvf6x6KEagz\nLmw36av/prbsBiV4CwwwiQhBu70FbT386AnNEtfhYJg9FX58dgywwXLyBfsxX2XD\nyoE/SbW0No7Q2odNWVp03x5MrTLl++2NfSARShjizkcTyuVijd5mdUmqE5SavA2U\nM4yGg7wYe8+hXbtTn6pXyuD5aULG2BHAZfZhsEkqagdbfStBzrxwvwcFLNuqtAmh\nHPOclwai5a8CX/QseJR6l5R5sVZgzUJbXXsipt4mvmJRuX++67qIMfxONPeLoCj5\nI8i8YzE7b8yGFO81f96sgYZ+kTc79KepGv4FbcxFf2cv7UC/K/+G4ZHlT0Itz0R0\nciG/bzo33CQ83yjkxY/paFVWligSmJVsu6pP08GcaqrWzS8be7l4SkTR057x1cRD\n/rTHDmx6hjHmc/Ds94BQGpDZse1i4gO3hEN330E5SSez/+Ckxn1WXjF/8ic5X9OY\ng+oS7DDDOT5gpSw14hQswWyDKCthf7NuY9B7BOtzwrCIXuTHFmKQPVL0+EwnJFQF\nlNw7tzAlaAlhEVUwlAix0peAKLAb1EC/VHJkmx5y4T5BWwrdWXB8E/5Za+SNC/JQ\nEtBygM+0rTa/HCHF\n\u003dcPom\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3301502_4fd11295",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerUuid.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-04T21:21:12Z",
+      "side": 1,
+      "message": "In theory this could be brittle, because I don\u0027t know if the URI class is guaranteed to escape the same set of characters over time. But I\u0027m not too worried about it breaking from under us.",
+      "revId": "42de3b76e9b5bafdb0b83a3df335523069d9e0fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
 }
