@@ -47,6 +47,30 @@
       "revId": "2de7bb0eecea8a836d09fa9a082973684593ffd5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d780146_030ab44e",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerUuid.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-04T16:44:58Z",
+      "side": 1,
+      "message": "Ok, will rework this change based on URIs, using java.net.URI as the type. Undecided so far whether we should make CheckerUuid a wrapper around URI (slight preference), or to store URI directly.\n\nI think I will add one more restriction: URIs must be \"opaque\", meaning the part after the schema does not start with a /. This prevents the URI library from attemptig to parse it further (https://docs.oracle.com/javase/8/docs/api/java/net/URI.html). It also disallows http:// URLs, which is a feature.",
+      "parentUuid": "612126ff_9801a9c7",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "revId": "2de7bb0eecea8a836d09fa9a082973684593ffd5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
