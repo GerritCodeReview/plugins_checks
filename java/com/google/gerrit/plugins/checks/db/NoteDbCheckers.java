@@ -18,7 +18,7 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 import static java.util.Comparator.comparing;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Streams;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.Checker;
@@ -76,7 +76,7 @@ class NoteDbCheckers implements Checkers {
   private Optional<Checker> tryLoadChecker(Repository allProjectsRepo, Ref ref) {
     if (CheckerRef.isRefsCheckers(ref.getName())) {
       try {
-        return CheckerConfig.loadForChecker(allProjectsName, allProjectsRepo, ref.getName())
+        return CheckerConfig.loadForChecker(allProjectsName, allProjectsRepo, ref)
             .getLoadedChecker();
       } catch (ConfigInvalidException | IOException e) {
         logger.atWarning().withCause(e).log(
@@ -87,14 +87,14 @@ class NoteDbCheckers implements Checkers {
   }
 
   @Override
-  public ImmutableSet<Checker> checkersOf(Project.NameKey repositoryName)
+  public ImmutableSortedSet<Checker> checkersOf(Project.NameKey repositoryName)
       throws IOException, ConfigInvalidException {
     try (Repository allProjectsRepo = repoManager.openRepository(allProjectsName)) {
-      ImmutableSet<String> checkerUuids =
+      ImmutableSortedSet<CheckerUuid> checkerUuidStrings =
           CheckersByRepositoryNotes.load(allProjectsName, allProjectsRepo).get(repositoryName);
-
-      ImmutableSet.Builder<Checker> checkers = ImmutableSet.builder();
-      for (String checkerUuid : checkerUuids) {
+      ImmutableSortedSet.Builder<Checker> checkers =
+          ImmutableSortedSet.orderedBy(comparing(Checker::getUuid));
+      for (CheckerUuid checkerUuid : checkerUuidStrings) {
         try {
           CheckerConfig checkerConfig =
               CheckerConfig.loadForChecker(allProjectsName, allProjectsRepo, checkerUuid);

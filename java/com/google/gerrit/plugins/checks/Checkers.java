@@ -15,7 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.reviewdb.client.Project;
 import java.io.IOException;
 import java.util.Optional;
@@ -79,11 +79,11 @@ public interface Checkers {
    *
    * @param repositoryName the name of the repository for which the applying checkers should be
    *     returned
-   * @return the checkers that apply that apply to the given repository
+   * @return the checkers that apply that apply to the given repository, sorted by UUID
    * @throws IOException if reading the checker list fails or if any checker couldn't be retrieved
    *     from the storage
    * @throws ConfigInvalidException if reading the checker list fails
    */
-  ImmutableSet<Checker> checkersOf(Project.NameKey repositoryName)
+  ImmutableSortedSet<Checker> checkersOf(Project.NameKey repositoryName)
       throws IOException, ConfigInvalidException;
 }

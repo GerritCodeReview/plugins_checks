@@ -39,6 +39,7 @@ import com.google.gerrit.server.git.meta.VersionedMetaData;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.CommitBuilder;
 import org.eclipse.jgit.lib.ObjectId;
@@ -159,7 +160,7 @@ public class CheckersByRepositoryNotes extends VersionedMetaData {
    *     for this repository
    * @throws IOException if reading the note with the checker UUID list fails
    */
-  public ImmutableSortedSet<String> get(Project.NameKey repositoryName) throws IOException {
+  public ImmutableSortedSet<CheckerUuid> get(Project.NameKey repositoryName) throws IOException {
     checkLoaded();
     ObjectId noteId = computeRepositorySha1(repositoryName);
     if (!noteMap.contains(noteId)) {
@@ -301,14 +302,15 @@ public class CheckersByRepositoryNotes extends VersionedMetaData {
    *
    * <p>Invalid checker UUIDs are silently ignored.
    */
-  private static ImmutableSortedSet<String> parseCheckerUuidsFromNote(
+  private static ImmutableSortedSet<CheckerUuid> parseCheckerUuidsFromNote(
       ObjectId noteId, byte[] raw, ObjectId blobId) {
     ImmutableSortedSet<String> lines = parseNote(raw);
-    ImmutableSortedSet.Builder<String> checkerUuids = ImmutableSortedSet.naturalOrder();
+    ImmutableSortedSet.Builder<CheckerUuid> checkerUuids = ImmutableSortedSet.naturalOrder();
     lines.forEach(
         line -> {
-          if (CheckerUuid.isUuid(line)) {
-            checkerUuids.add(line);
+          Optional<CheckerUuid> checkerUuid = CheckerUuid.tryParse(line);
+          if (checkerUuid.isPresent()) {
+            checkerUuids.add(checkerUuid.get());
           } else {
             logger.atWarning().log(
                 "Ignoring invalid checker UUID %s in note %s with blob ID %s.",

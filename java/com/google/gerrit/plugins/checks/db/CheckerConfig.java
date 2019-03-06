@@ -28,6 +28,7 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.CheckersUpdate;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
 import com.google.gerrit.server.git.meta.VersionedMetaData;
 import com.google.gerrit.server.util.time.TimeUtil;
@@ -41,6 +42,7 @@ import org.eclipse.jgit.lib.CommitBuilder;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
+import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevSort;
@@ -130,10 +132,9 @@ public class CheckerConfig extends VersionedMetaData {
     return checkerConfig;
   }
 
-  public static CheckerConfig loadForChecker(
-      Project.NameKey projectName, Repository repository, String ref)
+  public static CheckerConfig loadForChecker(NameKey projectName, Repository repository, Ref ref)
       throws IOException, ConfigInvalidException {
-    CheckerConfig checkerConfig = new CheckerConfig(ref);
+    CheckerConfig checkerConfig = new CheckerConfig(ref.getName());
     checkerConfig.load(projectName, repository);
     return checkerConfig;
   }
