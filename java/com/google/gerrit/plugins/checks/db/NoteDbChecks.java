@@ -14,8 +14,6 @@
 
 package com.google.gerrit.plugins.checks.db;
 
-import static com.google.common.collect.ImmutableList.toImmutableList;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.Check;
@@ -26,15 +24,16 @@ import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.PatchSetUtil;
 import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gwtorm.server.OrmException;
-import com.google.gwtorm.server.OrmRuntimeException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /** Class to read checks from NoteDb. */
@@ -62,20 +61,32 @@ class NoteDbChecks implements Checks {
   @Override
   public ImmutableList<Check> getChecks(Project.NameKey projectName, PatchSet.Id psId)
       throws OrmException {
-    return getChecksAsStream(projectName, psId).collect(toImmutableList());
+    ImmutableList.Builder<Check> result = ImmutableList.builder();
+    for (Map.Entry<String, NoteDbCheck> e : getCheckEntries(projectName, psId)) {
+      Check check = toCheck(e, projectName, psId);
+      if (checkerEnabled(check)) {
+        result.add(check);
+      }
+    }
+    return result.build();
   }
 
   @Override
   public Optional<Check> getCheck(CheckKey checkKey) throws OrmException {
     // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
-    return getChecksAsStream(checkKey.project(), checkKey.patchSet())
-        .filter(c -> c.key().checkerUuid().equals(checkKey.checkerUuid()))
-        .findAny();
+    String checkerUuidString = checkKey.checkerUuid();
+    for (Map.Entry<String, NoteDbCheck> e :
+        getCheckEntries(checkKey.project(), checkKey.patchSet())) {
+      Check check = toCheck(e, checkKey.project(), checkKey.patchSet());
+      if (e.getKey().equals(checkerUuidString) && checkerEnabled(check)) {
+        return Optional.of(check);
+      }
+    }
+    return Optional.empty();
   }
 
-  private Stream<Check> getChecksAsStream(Project.NameKey projectName, PatchSet.Id psId)
-      throws OrmException {
-    // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
+  private Set<Map.Entry<String, NoteDbCheck>> getCheckEntries(
+      Project.NameKey projectName, PatchSet.Id psId) throws OrmException {
     ChangeNotes notes = changeNotesFactory.create(projectName, psId.getParentKey());
     PatchSet patchSet = psUtil.get(notes, psId);
     CheckNotes checkNotes = checkNotesFactory.create(notes.getChange());
@@ -84,22 +95,23 @@ class NoteDbChecks implements Checks {
         .getChecks()
         .getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty())
         .checks
-        .entrySet()
-        .stream()
-        .map(e -> e.getValue().toCheck(projectName, psId, e.getKey()))
-        .filter(
-            check -> {
-              try {
-                Optional<Checker> checker = checkers.getChecker(check.key().checkerUuid());
-                return checker.isPresent() && checker.get().getStatus() == CheckerStatus.ENABLED;
-              } catch (ConfigInvalidException e) {
-                logger.atInfo().withCause(e).log(
-                    "ignoring checker " + check.key() + " because checker config is invalid");
-                return false;
-              } catch (IOException e) {
-                // TODO(hiesel): Rewrite this as no-stream so that we can propagate the exception
-                throw new OrmRuntimeException(e);
-              }
-            });
+        .entrySet();
+  }
+
+  private boolean checkerEnabled(Check check) throws OrmException {
+    try {
+      Optional<Checker> checker = checkers.getChecker(check.key().checkerUuid());
+      return checker.isPresent() && checker.get().getStatus() == CheckerStatus.ENABLED;
+    } catch (ConfigInvalidException e) {
+      logger.atInfo().withCause(e).log(
+          "ignoring checker %s because checker config is invalid", check.key());
+      return false;
+    } catch (IOException e) {
+      throw new OrmException(e);
+    }
+  }
+
+  private Check toCheck(Map.Entry<String, NoteDbCheck> e, NameKey projectName, PatchSet.Id psId) {
+    return e.getValue().toCheck(projectName, psId, e.getKey());
   }
 }
