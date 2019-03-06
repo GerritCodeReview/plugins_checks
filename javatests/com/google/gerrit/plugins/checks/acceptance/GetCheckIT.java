@@ -38,7 +38,7 @@ public class GetCheckIT extends AbstractCheckersTest {
   @Test
   public void getCheck() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
-    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid.toString());
+    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(key).setState(CheckState.RUNNING).upsert();
 
     CheckInfo info = checksApiFactory.revision(patchSetId).id(checkerUuid.toString()).get();
@@ -48,7 +48,7 @@ public class GetCheckIT extends AbstractCheckersTest {
   @Test
   public void getCheckForDisabledCheckerThrowsNotFound() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
-    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid.toString());
+    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(key).setState(CheckState.RUNNING).upsert();
 
     checkerOperations.checker(checkerUuid).forUpdate().disable().update();
@@ -61,7 +61,7 @@ public class GetCheckIT extends AbstractCheckersTest {
   @Test
   public void getCheckForInvalidCheckerThrowsNotFound() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
-    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid.toString());
+    CheckKey key = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(key).setState(CheckState.RUNNING).upsert();
 
     checkerOperations.checker(checkerUuid).forUpdate().forceInvalidConfig().update();
@@ -69,13 +69,5 @@ public class GetCheckIT extends AbstractCheckersTest {
     exception.expect(RestApiException.class);
     exception.expectMessage("Cannot retrieve checker " + checkerUuid);
     checksApiFactory.revision(patchSetId).id(checkerUuid.toString()).get();
-  }
-
-  @Test
-  public void getNonExistingCheckFails() throws Exception {
-    exception.expect(ResourceNotFoundException.class);
-    exception.expectMessage("Not found: non-existing");
-
-    checksApiFactory.revision(patchSetId).id("non-existing").get();
   }
 }
