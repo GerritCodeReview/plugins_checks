@@ -49,7 +49,7 @@ public interface CheckerOperations {
    *
    * <pre>
    * String createdCheckerUuid = checkerOperations
-   *     .newChecker()
+   *     .newCheck()
    *     .name("my-checker")
    *     .description("A simple checker.")
    *     .create();
