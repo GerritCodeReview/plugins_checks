@@ -97,7 +97,10 @@ class NoteDbCheckers implements Checkers {
       for (CheckerUuid checkerUuid : checkerUuidStrings) {
         try {
           CheckerConfig checkerConfig =
-              CheckerConfig.loadForChecker(allProjectsName, allProjectsRepo, checkerUuid);
+              CheckerConfig.loadForChecker(
+                  allProjectsName,
+                  allProjectsRepo,
+                  CheckerRef.refsCheckers(CheckerUuid.parse(checkerUuid)));
           checkerConfig.getLoadedChecker().ifPresent(checkers::add);
         } catch (ConfigInvalidException e) {
           logger.atWarning().withCause(e).log(
