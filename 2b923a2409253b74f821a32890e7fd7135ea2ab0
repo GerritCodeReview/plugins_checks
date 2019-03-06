@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "57c3ff50_2ebc01e9",
+        "filename": "java/com/google/gerrit/plugins/checks/PostCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-06T10:22:53Z",
+      "side": 1,
+      "message": "yes, that is a TODO",
+      "parentUuid": "90bd130d_a3da57c4",
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77d4bca4_adb33943",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "450d8d83_e7fbe794",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-06T10:22:53Z",
+      "side": 1,
+      "message": "I will follow up on this.",
+      "parentUuid": "77d4bca4_adb33943",
+      "range": {
+        "startLine": 52,
+        "startChar": 20,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0a820cd_eecc3e4b",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
         "patchSetId": 3
@@ -62,6 +104,30 @@
       "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aa34f4b_04ff1625",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-06T10:22:53Z",
+      "side": 1,
+      "message": "As I understood Dave, he really wants all callers to use scoped URLs, so I think we are good here by just testing scoped URLs.",
+      "parentUuid": "e0a820cd_eecc3e4b",
+      "range": {
+        "startLine": 79,
+        "startChar": 48,
+        "endLine": 79,
+        "endChar": 61
+      },
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
