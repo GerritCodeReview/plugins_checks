@@ -17,34 +17,46 @@ package com.google.gerrit.plugins.checks.db;
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
+import com.google.gerrit.plugins.checks.Checker;
+import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.PatchSetUtil;
 import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gwtorm.server.OrmException;
+import com.google.gwtorm.server.OrmRuntimeException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.io.IOException;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /** Class to read checks from NoteDb. */
 @Singleton
 class NoteDbChecks implements Checks {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   private final ChangeNotes.Factory changeNotesFactory;
   private final PatchSetUtil psUtil;
   private final CheckNotes.Factory checkNotesFactory;
+  private final Checkers checkers;
 
   @Inject
   NoteDbChecks(
       ChangeNotes.Factory changeNotesFactory,
       PatchSetUtil psUtil,
-      CheckNotes.Factory checkNotesFactory) {
+      CheckNotes.Factory checkNotesFactory,
+      Checkers checkers) {
     this.changeNotesFactory = changeNotesFactory;
     this.psUtil = psUtil;
     this.checkNotesFactory = checkNotesFactory;
+    this.checkers = checkers;
   }
 
   @Override
@@ -74,6 +86,20 @@ class NoteDbChecks implements Checks {
         .checks
         .entrySet()
         .stream()
-        .map(e -> e.getValue().toCheck(projectName, psId, e.getKey()));
+        .map(e -> e.getValue().toCheck(projectName, psId, e.getKey()))
+        .filter(
+            check -> {
+              try {
+                Optional<Checker> checker = checkers.getChecker(check.key().checkerUuid());
+                return checker.isPresent() && checker.get().getStatus() == CheckerStatus.ENABLED;
+              } catch (ConfigInvalidException e) {
+                logger.atInfo().withCause(e).log(
+                    "ignoring checker " + check.key() + " because checker config is invalid");
+                return false;
+              } catch (IOException e) {
+                // TODO(hiesel): Rewrite this as no-stream so that we can propagate the exception
+                throw new OrmRuntimeException(e);
+              }
+            });
   }
 }
