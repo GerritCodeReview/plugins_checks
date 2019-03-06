@@ -30,7 +30,6 @@ import com.google.gerrit.plugins.checks.CheckerUpdate;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.CheckersUpdate;
-import com.google.gerrit.plugins.checks.NoSuchCheckerException;
 import com.google.gerrit.plugins.checks.api.CheckerInfo;
 import com.google.gerrit.plugins.checks.db.CheckerConfig;
 import com.google.gerrit.plugins.checks.db.CheckersByRepositoryNotes;
@@ -45,6 +44,7 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.BlobBasedConfig;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectReader;
@@ -229,10 +229,19 @@ public class CheckerOperationsImpl implements CheckerOperations {
       return TestCheckerUpdate.builder(this::updateChecker);
     }
 
-    private void updateChecker(TestCheckerUpdate testCheckerUpdate)
-        throws NoSuchCheckerException, ConfigInvalidException, IOException {
+    private void updateChecker(TestCheckerUpdate testCheckerUpdate) throws Exception {
       CheckerUpdate checkerUpdate = toCheckerUpdate(testCheckerUpdate);
       checkersUpdate.updateChecker(checkerUuid, checkerUpdate);
+
+      if (testCheckerUpdate.forceInvalidConfig().orElse(false)) {
+        try (Repository repo = repoManager.openRepository(allProjectsName)) {
+          new TestRepository<>(repo)
+              .branch(CheckerRef.refsCheckers(checkerUuid))
+              .commit()
+              .add(CheckerConfig.CHECKER_CONFIG_FILE, "invalid-config")
+              .create();
+        }
+      }
     }
 
     private CheckerUpdate toCheckerUpdate(TestCheckerUpdate checkerUpdate) {
