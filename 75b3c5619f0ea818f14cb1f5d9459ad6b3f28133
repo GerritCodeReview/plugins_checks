@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25281007_a3c120a8",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T18:00:10Z",
+      "side": 1,
+      "message": "Nice.",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371dac3a_a8966e97",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/TestCheckerUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T18:00:10Z",
+      "side": 1,
+      "message": "Optional: this doesn\u0027t have to be an Optional, it can be a boolean that is initialized to false by default in builder(...)",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c70446_bac5673f",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/GetCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T18:00:10Z",
+      "side": 1,
+      "message": "Please add a test for syntactically invalid checker UUIDs.",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6610f094_4ad30f35",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T18:00:10Z",
+      "side": 1,
+      "message": "Please add tests for nonexistent and syntactically invalid checker UUIDs.",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d15f9b4_6210d629",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T18:00:10Z",
+      "side": 1,
+      "message": "Please add tests for nonexistent and syntactically invalid checker UUIDs.",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
