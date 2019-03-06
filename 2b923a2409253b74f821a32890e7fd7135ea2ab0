@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90bd130d_a3da57c4",
+        "filename": "java/com/google/gerrit/plugins/checks/PostCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-06T10:17:38Z",
+      "side": 1,
+      "message": "Is it intended that there is no permission check for now?",
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d4bca4_adb33943",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-06T10:17:38Z",
+      "side": 1,
+      "message": "Is it a (unrelated) bug that this is called newChecker instead of newCheck?",
+      "range": {
+        "startLine": 52,
+        "startChar": 20,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0a820cd_eecc3e4b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-06T10:17:38Z",
+      "side": 1,
+      "message": "Should the none-scoped URL be tested here too?",
+      "range": {
+        "startLine": 79,
+        "startChar": 48,
+        "endLine": 79,
+        "endChar": 61
+      },
+      "revId": "2b923a2409253b74f821a32890e7fd7135ea2ab0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
