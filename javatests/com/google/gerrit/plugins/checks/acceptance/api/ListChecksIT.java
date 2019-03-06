@@ -27,22 +27,44 @@ import org.junit.Test;
 
 public class ListChecksIT extends AbstractCheckersTest {
   private PatchSet.Id patchSetId;
+  private CheckKey checkKey1;
+  private CheckKey checkKey2;
 
   @Before
   public void setTimeForTesting() throws Exception {
     patchSetId = createChange().getPatchSetId();
+
+    String checker1Uuid = checkerOperations.newChecker().create();
+    String checker2Uuid = checkerOperations.newChecker().create();
+
+    checkKey1 = CheckKey.create(project, patchSetId, checker1Uuid);
+    checkOperations.newCheck(checkKey1).setState(CheckState.RUNNING).upsert();
+
+    checkKey2 = CheckKey.create(project, patchSetId, checker2Uuid);
+    checkOperations.newCheck(checkKey2).setState(CheckState.RUNNING).upsert();
   }
 
   @Test
   public void listAll() throws Exception {
-    CheckKey key1 = CheckKey.create(project, patchSetId, "my-checker-1");
-    checkOperations.newCheck(key1).setState(CheckState.RUNNING).upsert();
-
-    CheckKey key2 = CheckKey.create(project, patchSetId, "my-checker-2");
-    checkOperations.newCheck(key2).setState(CheckState.RUNNING).upsert();
-
-    // TODO(gerrit-team): Use a truth subject to make this assertation proper
     Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
-    assertThat(info).hasSize(2);
+    assertThat(info)
+        .containsExactly(
+            checkOperations.check(checkKey1).asInfo(), checkOperations.check(checkKey2).asInfo());
+  }
+
+  @Test
+  public void listExcludesCheckFromDisabledChecker() throws Exception {
+    checkerOperations.checker(checkKey2.checkerUuid()).forUpdate().disable().update();
+
+    Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
+    assertThat(info).containsExactly(checkOperations.check(checkKey1).asInfo());
+  }
+
+  @Test
+  public void listExcludesCheckFromInvalidChecker() throws Exception {
+    checkerOperations.checker(checkKey2.checkerUuid()).forUpdate().forceInvalidConfig().update();
+
+    Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
+    assertThat(info).containsExactly(checkOperations.check(checkKey1).asInfo());
   }
 }

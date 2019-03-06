@@ -53,7 +53,7 @@ public class CreateCheckIT extends AbstractCheckersTest {
 
   @Test
   public void createCheck() throws Exception {
-    String checkerUuid = "my-checker";
+    String checkerUuid = checkerOperations.newChecker().create();
 
     CheckInput input = new CheckInput();
     input.checkerUuid = checkerUuid;
@@ -72,19 +72,21 @@ public class CreateCheckIT extends AbstractCheckersTest {
 
     // TODO(gerrit-team) Add a Truth subject for the notes map
     Map<RevId, String> notes = perCheckOps.notesAsText();
-    assertThat(notes).containsExactly(revId, noteDbContent());
+    assertThat(notes).containsExactly(revId, noteDbContent(checkerUuid));
   }
 
   // TODO(gerrit-team) More tests, especially for multiple checkers and PS and how commits behave
 
-  private String noteDbContent() {
+  private String noteDbContent(String uuid) {
     return ""
         + "{\n"
         + "  \"checks\": {\n"
-        + "    \"my-checker\": {\n"
+        + "    \""
+        + uuid
+        + "\": {\n"
         + "      \"state\": \"RUNNING\",\n"
-        + "      \"created\": \"1970-01-01T00:00:22Z\",\n"
-        + "      \"updated\": \"1970-01-01T00:00:22Z\"\n"
+        + "      \"created\": \"1970-01-01T00:00:25Z\",\n"
+        + "      \"updated\": \"1970-01-01T00:00:25Z\"\n"
         + "    }\n"
         + "  }\n"
         + "}";

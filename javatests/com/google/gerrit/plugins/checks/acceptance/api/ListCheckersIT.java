@@ -21,15 +21,10 @@ import static java.util.stream.Collectors.toList;
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.restapi.AuthException;
-import com.google.gerrit.plugins.checks.CheckerRef;
-import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.CheckerInfo;
-import com.google.gerrit.plugins.checks.db.CheckerConfig;
 import com.google.inject.Inject;
 import java.util.List;
-import org.eclipse.jgit.junit.TestRepository;
-import org.eclipse.jgit.lib.Repository;
 import org.junit.Test;
 
 public class ListCheckersIT extends AbstractCheckersTest {
@@ -77,20 +72,12 @@ public class ListCheckersIT extends AbstractCheckersTest {
 
   @Test
   public void listIgnoresInvalidCheckers() throws Exception {
-    String checkerUuid = checkerOperations.newChecker().name("checker-with-name-only").create();
-    createInvalidChecker();
+    String validCheckerUuid =
+        checkerOperations.newChecker().name("checker-with-name-only").create();
+    String invalidCheckerUuid = checkerOperations.newChecker().create();
+    checkerOperations.checker(invalidCheckerUuid).forUpdate().forceInvalidConfig().update();
 
     List<CheckerInfo> allCheckers = checkersApi.all();
-    assertThat(allCheckers).containsExactly(checkerOperations.checker(checkerUuid).asInfo());
-  }
-
-  private void createInvalidChecker() throws Exception {
-    try (Repository repo = repoManager.openRepository(allProjects)) {
-      new TestRepository<>(repo)
-          .branch(CheckerRef.refsCheckers(CheckerUuid.make("my-checker")))
-          .commit()
-          .add(CheckerConfig.CHECKER_CONFIG_FILE, "invalid-config")
-          .create();
-    }
+    assertThat(allCheckers).containsExactly(checkerOperations.checker(validCheckerUuid).asInfo());
   }
 }
