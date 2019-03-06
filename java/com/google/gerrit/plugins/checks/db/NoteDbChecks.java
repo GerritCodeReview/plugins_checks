@@ -19,6 +19,7 @@ import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.Checker;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
@@ -74,7 +75,7 @@ class NoteDbChecks implements Checks {
   @Override
   public Optional<Check> getCheck(CheckKey checkKey) throws OrmException {
     // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
-    String checkerUuidString = checkKey.checkerUuid();
+    String checkerUuidString = checkKey.checkerUuid().toString();
     for (Map.Entry<String, NoteDbCheck> e :
         getCheckEntries(checkKey.project(), checkKey.patchSet())) {
       Check check = toCheck(e, checkKey.project(), checkKey.patchSet());
@@ -112,6 +113,6 @@ class NoteDbChecks implements Checks {
   }
 
   private Check toCheck(Map.Entry<String, NoteDbCheck> e, NameKey projectName, PatchSet.Id psId) {
-    return e.getValue().toCheck(projectName, psId, e.getKey());
+    return e.getValue().toCheck(projectName, psId, CheckerUuid.parse(e.getKey()));
   }
 }
