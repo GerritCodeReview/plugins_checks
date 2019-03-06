@@ -338,6 +338,24 @@
     },
     {
       "key": {
+        "uuid": "447f08d6_14f8afee",
+        "filename": "java/com/google/gerrit/plugins/checks/api/UpdateChecker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-06T16:51:55Z",
+      "side": 1,
+      "message": "Oops. You\u0027re not saying I should replace this case, you\u0027re saying I should add a new case.",
+      "parentUuid": "78f42db9_c7b41409",
+      "revId": "2de7bb0eecea8a836d09fa9a082973684593ffd5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39493583_788e6414",
         "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfig.java",
         "patchSetId": 1
