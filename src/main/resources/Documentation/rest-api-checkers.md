@@ -160,8 +160,12 @@ contain alphanumeric characters (`a-z`, `A-Z`, `0-9`) plus the punctuation
 characters `.`, `_`, and `-`. Thus UUIDs are URL-safe without escaping.
 
 The scheme is by convention a short string associated with the external system
-that created the checker, for example `jenkins`. The ID is an arbitrary
-identifier that may have meaning to the external system.
+that created the checker, for example `jenkins`. The scheme must also be a valid
+ref name component according to
+[`git-check-ref-format`](https://git-scm.com/docs/git-check-ref-format), for
+example it may not start or end with a period.
+
+The ID is an arbitrary identifier that may have meaning to the external system.
 
 UUIDs must be unique and are immutable after creation.
 

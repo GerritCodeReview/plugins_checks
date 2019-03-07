@@ -236,7 +236,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
       if (testCheckerUpdate.forceInvalidConfig()) {
         try (Repository repo = repoManager.openRepository(allProjectsName)) {
           new TestRepository<>(repo)
-              .branch(CheckerRef.refsCheckers(checkerUuid))
+              .branch(checkerUuid.toRefName())
               .commit()
               .add(CheckerConfig.CHECKER_CONFIG_FILE, "invalid-config")
               .create();

@@ -177,7 +177,7 @@ public class CheckerConfig extends VersionedMetaData {
   }
 
   private CheckerConfig(CheckerUuid checkerUuid) {
-    this(CheckerRef.refsCheckers(checkerUuid));
+    this(checkerUuid.toRefName());
     this.checkerUuid = Optional.of(checkerUuid);
   }
 
