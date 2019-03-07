@@ -71,6 +71,30 @@
       "revId": "34919b05872a50131af8d275e95a82bc736099d6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10a46124_dfceeaf3",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-07T16:13:38Z",
+      "side": 1,
+      "message": "Ack, I will rebase the test coverage to be before this change, then ensure it doesn\u0027t break in this change (by squashing the rest of the fixes into this change).",
+      "parentUuid": "d29f749c_42a3453f",
+      "range": {
+        "startLine": 100,
+        "startChar": 77,
+        "endLine": 100,
+        "endChar": 88
+      },
+      "revId": "34919b05872a50131af8d275e95a82bc736099d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
