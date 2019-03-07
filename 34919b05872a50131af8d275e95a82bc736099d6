@@ -47,6 +47,30 @@
       "revId": "34919b05872a50131af8d275e95a82bc736099d6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29f749c_42a3453f",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-07T15:55:42Z",
+      "side": 1,
+      "message": "It would be nice if we could fix it here so that I can follow your suggestion about checkerOf(project) in the follow up change.",
+      "parentUuid": "8d0ea9a0_0c41625c",
+      "range": {
+        "startLine": 100,
+        "startChar": 77,
+        "endLine": 100,
+        "endChar": 88
+      },
+      "revId": "34919b05872a50131af8d275e95a82bc736099d6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
