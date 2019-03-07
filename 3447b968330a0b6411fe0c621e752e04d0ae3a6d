@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baabd3ae_3ca4e762",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-07T19:17:17Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this fallback is necessary. Glancing through checkersOf, I don\u0027t think it can actually throw CIE, I think it\u0027s just getting that exception from the signatures of AbstractChangeNotes.\n\nI think we can investigate this in later cleanup.",
+      "revId": "3447b968330a0b6411fe0c621e752e04d0ae3a6d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}

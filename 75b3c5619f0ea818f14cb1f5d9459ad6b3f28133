@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "af8e724e_89ab0dea",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-07T19:17:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53c69657_c9fe0272",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c70446_bac5673f",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/GetCheckIT.java",
         "patchSetId": 2
@@ -141,6 +159,24 @@
       "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37aa147d_30458601",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-07T19:17:17Z",
+      "side": 1,
+      "message": "I was thinking of the case where the note in refs/meta/checkers has dangling or invalid UUIDs. In that case CheckersByRepositoryNotes#load (via NoteDbCheckers#checkersOf) skips those lines. You would have to have to modify the notes directly in that case, though.\n\nAnyway, on further reflection, I think it\u0027s fine for those cases to only be covered in the tests for CheckersByRepositoryNotes.",
+      "parentUuid": "d5ebd7c8_8c198aab",
+      "revId": "75b3c5619f0ea818f14cb1f5d9459ad6b3f28133",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
