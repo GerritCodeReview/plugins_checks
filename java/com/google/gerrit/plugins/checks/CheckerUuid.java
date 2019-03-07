@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.hash.Hashing;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.reviewdb.client.RefNames;
@@ -36,11 +37,15 @@ import org.eclipse.jgit.lib.Repository;
  *   <li>Scheme is a short string that, by convention, is associated with the external system that
  *       created the checker (e.g. {@code jenkins}).
  *   <li>Scheme must be valid as a ref name component according to {@code git-check-ref-format}.
+ *   <li>Scheme has a low length limit (100 chars), to ensure it can be used as part of a refname
+ *       under all possible ref storage systems.
  *   <li>ID is an arbitrary string provided by the external system.
  * </ul>
  */
 @AutoValue
 public abstract class CheckerUuid implements Comparable<CheckerUuid> {
+  @VisibleForTesting static final int MAX_SCHEME_LENGTH = 100;
+
   private static final Pattern UUID_PATTERN;
 
   static {
@@ -69,6 +74,9 @@ public abstract class CheckerUuid implements Comparable<CheckerUuid> {
       return Optional.empty();
     }
     String scheme = m.group("scheme");
+    if (scheme.length() > MAX_SCHEME_LENGTH) {
+      return Optional.empty();
+    }
     // git-check-ref-format(1) says:
     // "no slash-separated component can begin with a dot `.` or end with the sequence `.lock`."
     // But JGit's isValidRefName doesn't currently enforce the .lock constraint.

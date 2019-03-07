@@ -16,16 +16,18 @@ package com.google.gerrit.plugins.checks;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
+import static com.google.gerrit.plugins.checks.CheckerUuid.MAX_SCHEME_LENGTH;
+import static java.util.stream.Collectors.joining;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.testing.GerritBaseTests;
+import java.util.stream.Stream;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.Test;
 
 public class CheckerUuidTest extends GerritBaseTests {
-
   private static final ImmutableSet<String> VALID_CHECKER_UUIDS =
       ImmutableSet.of(
           "test:my-checker-123",
@@ -33,6 +35,8 @@ public class CheckerUuidTest extends GerritBaseTests {
           "-t-e.s_t-:m.y-ch_ecker",
           "test:my-checker.",
           "test.:my-checker",
+          repeat('x', MAX_SCHEME_LENGTH) + ":my-checker",
+          "test:" + repeat('x', 2 * MAX_SCHEME_LENGTH),
 
           // The ID portion does not have to satisfy git-check-ref-format(1).
           "test:my..checker",
@@ -56,11 +60,16 @@ public class CheckerUuidTest extends GerritBaseTests {
           "test:my\0checker",
           "test:my\\0checker",
           "test:my%00checker",
+          repeat('x', MAX_SCHEME_LENGTH + 1) + ":my-checker",
 
           // The ID portion has to be a valid path component according to git-check-ref-format(1).
           "te..st:my-checker",
           ".test:my-checker",
           "test.lock:my-checker");
+
+  private static String repeat(char c, int len) {
+    return Stream.generate(() -> Character.toString(c)).limit(len).collect(joining());
+  }
 
   @Test
   public void isUuid() {
