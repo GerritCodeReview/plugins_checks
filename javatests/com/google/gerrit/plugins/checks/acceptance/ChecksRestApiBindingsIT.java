@@ -14,7 +14,7 @@
 
 package com.google.gerrit.plugins.checks.acceptance;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.acceptance.rest.util.RestApiCallHelper;
 import com.google.gerrit.acceptance.rest.util.RestCall;
 import com.google.gerrit.plugins.checks.CheckKey;
@@ -23,16 +23,16 @@ import com.google.gerrit.reviewdb.client.PatchSet;
 import org.junit.Test;
 
 public class ChecksRestApiBindingsIT extends AbstractCheckersTest {
-  private static final ImmutableList<RestCall> CHECKER_ENDPOINTS =
-      ImmutableList.of(
+  private static final ImmutableSet<RestCall> CHECKER_ENDPOINTS =
+      ImmutableSet.of(
           RestCall.get("/plugins/checks/checkers/%s"),
           RestCall.post("/plugins/checks/checkers/%s"));
 
-  private static final ImmutableList<RestCall> CHECK_ENDPOINTS =
-      ImmutableList.of(RestCall.get("/changes/%s/revisions/%s/checks~checks"));
+  private static final ImmutableSet<RestCall> CHECK_ENDPOINTS =
+      ImmutableSet.of(RestCall.get("/changes/%s/revisions/%s/checks~checks"));
 
-  private static final ImmutableList<RestCall> SCOPED_CHECK_ENDPOINTS =
-      ImmutableList.of(RestCall.get("/changes/%s/revisions/%s/checks~checks/%s/detail"));
+  private static final ImmutableSet<RestCall> SCOPED_CHECK_ENDPOINTS =
+      ImmutableSet.of(RestCall.get("/changes/%s/revisions/%s/checks~checks/%s/detail"));
 
   @Test
   public void checkerEndpoints() throws Exception {
