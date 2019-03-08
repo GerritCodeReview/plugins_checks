@@ -17,6 +17,24 @@
       "revId": "023406ea25280b57ee80894bba773121846928a2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f447e2ab_83f7edc9",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerUuid.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-08T16:00:13Z",
+      "side": 1,
+      "message": "Ah right, Changcheng already mentioned yesterday that we have a different limit for our DFS backend.\n\nI will add an arbitrary limit, 100 bytes or something.",
+      "parentUuid": "c1f021cc_0247e41b",
+      "revId": "023406ea25280b57ee80894bba773121846928a2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
