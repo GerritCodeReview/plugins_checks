@@ -87,7 +87,10 @@ class ChecksImpl implements com.google.gerrit.plugins.checks.api.Checks {
       throw new BadRequestException("input is required");
     }
     if (input.checkerUuid == null) {
-      throw new BadRequestException("checker_uuid is required");
+      throw new BadRequestException("checker UUID is required");
+    }
+    if (!CheckerUuid.isUuid(input.checkerUuid)) {
+      throw new BadRequestException("invalid checker UUID: " + input.checkerUuid);
     }
     if (input.state == null) {
       throw new BadRequestException("state is required");
