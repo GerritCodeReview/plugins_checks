@@ -82,7 +82,7 @@ public class CheckApiImpl implements CheckApi {
             checkResource.getCheckerUuid());
     Optional<Check> check = checks.getCheck(key);
     if (!check.isPresent()) {
-      throw new ResourceNotFoundException("Not found: " + input.checkerUuid);
+      throw new ResourceNotFoundException("Not found: " + checkResource.getCheckerUuid());
     }
 
     Check updatedCheck = checksUpdate.get().updateCheck(key, toCheckUpdate(input));
