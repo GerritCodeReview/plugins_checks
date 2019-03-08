@@ -72,6 +72,29 @@
     },
     {
       "key": {
+        "uuid": "c8161cf1_15fbbd08",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-08T13:02:37Z",
+      "side": 1,
+      "message": "Should the URL input be trimmed and be validated as we do it for checker URLs (see CheckerUrl class)?",
+      "range": {
+        "startLine": 91,
+        "startChar": 36,
+        "endLine": 91,
+        "endChar": 45
+      },
+      "revId": "76a2aaec31a410eceb0e67fc0179978ee919e324",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8574ef82_f7761384",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
         "patchSetId": 6
