@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff38673d_499a6acf",
+        "filename": "java/com/google/gerrit/plugins/checks/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-08T15:20:50Z",
+      "side": 1,
+      "message": "As commented on UpdateCheck, this may just be:\n\n  if (input \u003d\u003d null) {\n    input \u003d new CheckInput();\n  }\n\nNot sure if it\u0027s everywhere consistent, but I believe that is what we do in most of the places.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "2b459bb8407654476cac93e4b4d217eae331cf30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1707e544_5df8b9a6",
+        "filename": "java/com/google/gerrit/plugins/checks/api/UpdateCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-08T15:20:50Z",
+      "side": 1,
+      "message": "I think we want to bind this REST endpoint in ApiModule, otherwise you can\u0027t update an existing check via REST.\n\npost(CHECK_KIND).to(UpdateCheck.class);\n\nWe should add a REST API bindings test for this to ensure it works.",
+      "revId": "2b459bb8407654476cac93e4b4d217eae331cf30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b42d7bea_d6137875",
+        "filename": "java/com/google/gerrit/plugins/checks/api/UpdateCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-08T15:20:50Z",
+      "side": 1,
+      "message": "I think under some conditions input may be null, this is why it a lot of places we have:\n\nif (input \u003d\u003d null) {\n  input \u003d new CheckInput();\n}\n\nyou may add this code here too.",
+      "revId": "2b459bb8407654476cac93e4b4d217eae331cf30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
