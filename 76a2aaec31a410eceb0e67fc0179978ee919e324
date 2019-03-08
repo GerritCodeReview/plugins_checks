@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e53fa80_40eb4474",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperationsImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-08T14:33:51Z",
+      "side": 1,
+      "message": "This class seems to miss unit tests.",
+      "revId": "76a2aaec31a410eceb0e67fc0179978ee919e324",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e291ed21_38328bbd",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
         "patchSetId": 6
