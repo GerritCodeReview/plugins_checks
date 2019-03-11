@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f45519_b027e964",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-11T16:55:03Z",
+      "side": 1,
+      "message": "There is still the race where a checker calls the Pending Checks API and then gets disabled before it has a chance to report SCHEDULED on the check for one of the changes. We\u0027re ok with that?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 67
+      },
+      "revId": "86d8cdf7ffaba63eb26295e6220d831e36e5695f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
