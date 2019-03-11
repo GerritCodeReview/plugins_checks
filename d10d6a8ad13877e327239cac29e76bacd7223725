@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3bfea402_574f7597",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperations.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-11T16:37:55Z",
+      "side": 1,
+      "message": "discussed offline:\n\nwhat this means is that you *can* use this to set up a desired state and the use the REST API (system under test) to see if it gives you the results you want.",
+      "parentUuid": "ea4d0185_8558bb4c",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "d10d6a8ad13877e327239cac29e76bacd7223725",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f366333e_f1e36ac4",
         "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperations.java",
         "patchSetId": 1
