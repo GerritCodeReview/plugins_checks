@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.extensions.restapi.RestCollectionModifyView;
+import com.google.gerrit.extensions.restapi.UnprocessableEntityException;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckInput;
 import com.google.gerrit.plugins.checks.api.CheckResource;
@@ -28,18 +29,23 @@ import java.util.Optional;
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
 public class PostCheck
     implements RestCollectionModifyView<RevisionResource, CheckResource, CheckInput> {
-
+  private final Checkers checkers;
   private final Checks checks;
   private final Provider<ChecksUpdate> checksUpdate;
   private final CheckJson checkJson;
 
   @Inject
   PostCheck(
-      Checks checks, @UserInitiated Provider<ChecksUpdate> checksUpdate, CheckJson checkJson) {
+      Checkers checkers,
+      Checks checks,
+      @UserInitiated Provider<ChecksUpdate> checksUpdate,
+      CheckJson checkJson) {
+    this.checkers = checkers;
     this.checks = checks;
     this.checksUpdate = checksUpdate;
     this.checkJson = checkJson;
@@ -47,7 +53,7 @@ public class PostCheck
 
   @Override
   public CheckInfo apply(RevisionResource rsrc, CheckInput input)
-      throws OrmException, IOException, RestApiException {
+      throws OrmException, IOException, RestApiException, ConfigInvalidException {
     if (input == null) {
       input = new CheckInput();
     }
@@ -55,12 +61,18 @@ public class PostCheck
       throw new BadRequestException("checker UUID is required");
     }
     if (!CheckerUuid.isUuid(input.checkerUuid)) {
-      throw new BadRequestException("invalid checker UUID: " + input.checkerUuid);
+      throw new BadRequestException(String.format("invalid checker UUID: %s", input.checkerUuid));
     }
 
-    CheckKey key =
-        CheckKey.create(
-            rsrc.getProject(), rsrc.getPatchSet().getId(), CheckerUuid.parse(input.checkerUuid));
+    CheckerUuid checkerUuid = CheckerUuid.parse(input.checkerUuid);
+    checkers
+        .getChecker(checkerUuid)
+        .orElseThrow(
+            () ->
+                new UnprocessableEntityException(
+                    String.format("checker %s not found", checkerUuid)));
+
+    CheckKey key = CheckKey.create(rsrc.getProject(), rsrc.getPatchSet().getId(), checkerUuid);
     Optional<Check> check = checks.getCheck(key);
     if (!check.isPresent()) {
       if (input.state == null) {

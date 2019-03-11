@@ -22,6 +22,7 @@ import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
 public class UpdateCheck implements RestModifyView<CheckResource, CheckInput> {
@@ -34,7 +35,7 @@ public class UpdateCheck implements RestModifyView<CheckResource, CheckInput> {
 
   @Override
   public CheckInfo apply(CheckResource checkResource, CheckInput input)
-      throws RestApiException, IOException, OrmException {
+      throws RestApiException, IOException, OrmException, ConfigInvalidException {
     if (input == null) {
       input = new CheckInput();
     }

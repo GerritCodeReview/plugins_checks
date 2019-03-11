@@ -18,6 +18,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.acceptance.Sandboxed;
 import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.UnprocessableEntityException;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
@@ -89,6 +90,17 @@ public class CreateCheckIT extends AbstractCheckersTest {
 
     exception.expect(BadRequestException.class);
     exception.expectMessage("invalid checker UUID: " + input.checkerUuid);
+    checksApiFactory.revision(patchSetId).create(input);
+  }
+
+  @Test
+  public void cannotCreateCheckForNonExistingChecker() throws Exception {
+    CheckInput input = new CheckInput();
+    input.checkerUuid = "foo:non-existing";
+    input.state = CheckState.RUNNING;
+
+    exception.expect(UnprocessableEntityException.class);
+    exception.expectMessage("checker " + input.checkerUuid + " not found");
     checksApiFactory.revision(patchSetId).create(input);
   }
 
