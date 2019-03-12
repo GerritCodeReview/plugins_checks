@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "330c647e_9561b9f4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImplTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-12T14:34:59Z",
+      "side": 1,
+      "message": "nit: Should we either also get the \"Impl\" class here or also get the interface in the line before?",
+      "range": {
+        "startLine": 62,
+        "startChar": 51,
+        "endLine": 62,
+        "endChar": 59
+      },
+      "revId": "378552a06c8165e80e382ea9c1b11c2dd9255803",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
