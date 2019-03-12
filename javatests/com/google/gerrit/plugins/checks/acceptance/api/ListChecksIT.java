@@ -24,10 +24,6 @@ import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
 import java.util.Collection;
-import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
-import org.eclipse.jgit.junit.TestRepository;
-import org.eclipse.jgit.lib.RefUpdate;
-import org.eclipse.jgit.lib.Repository;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -109,21 +105,11 @@ public class ListChecksIT extends AbstractCheckersTest {
 
   @Test
   public void listIncludesCheckFromNonExistingChecker() throws Exception {
-    deleteCheckerRef(checkKey2.checkerUuid());
+    checkerOperations.checker(checkKey2.checkerUuid()).forUpdate().deleteRef().update();
 
     Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
     assertThat(info)
         .containsExactly(
             checkOperations.check(checkKey1).asInfo(), checkOperations.check(checkKey2).asInfo());
-  }
-
-  private void deleteCheckerRef(CheckerUuid checkerUuid) throws Exception {
-    try (Repository allProjectsRepo = repoManager.openRepository(allProjects)) {
-      TestRepository<InMemoryRepository> testRepo =
-          new TestRepository<>((InMemoryRepository) allProjectsRepo);
-      RefUpdate ru = testRepo.getRepository().updateRef(checkerUuid.toRefName(), true);
-      ru.setForceUpdate(true);
-      assertThat(ru.delete()).isEqualTo(RefUpdate.Result.FORCED);
-    }
   }
 }
