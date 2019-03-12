@@ -46,6 +46,30 @@
       "revId": "378552a06c8165e80e382ea9c1b11c2dd9255803",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c8766e7_ca6937e5",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImplTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-12T16:17:14Z",
+      "side": 1,
+      "message": "Makes sense!",
+      "parentUuid": "97d1e296_d05bfbc1",
+      "range": {
+        "startLine": 62,
+        "startChar": 51,
+        "endLine": 62,
+        "endChar": 59
+      },
+      "revId": "378552a06c8165e80e382ea9c1b11c2dd9255803",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
