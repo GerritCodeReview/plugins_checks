@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1eecb3dd_0d91c192",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckablePatchSetInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "Would this ever be different from the fields in CheckKey? If not, would it make sense to use something matching the internal name, e.g. CheckKeyInfo?",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ac5e4dd_2bd957b5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "Is checker + state allowed?",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7022c631_af674465",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "Would it make sense to have another method #list(CheckerUuid, CheckState...) and then move this parse step into a default impl in the PendingChecks interface?",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f68552_d2c374de",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "checkStates should never be null since it\u0027s varargs.",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f475635f_2a42f7f0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "checkStates should never be null since it\u0027s varargs.",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2773199a_cdc2ce69",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "\"Set\" is a little misleading, perhaps \"request checks matching any of several states\" or something.",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbb8535_5b5145ef",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "Nit: tab chars here and below.",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb5c008_c0f6088c",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-12T23:30:50Z",
+      "side": 1,
+      "message": "Please double-check the rendering of this table. I think that each row has to be on a single line with no intermediate newlines.",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
