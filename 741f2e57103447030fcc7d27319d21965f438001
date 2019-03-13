@@ -1,4 +1,91 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1552440053 -0700\nnonce AC6AUtNszBjGF3VUKYEDNPMnj56oMoV7EPUBh5NjCVf2y8pBmSwV9UbQzD7slWyYkbbwOMg+ATHo\n\n0000000000000000000000000000000000000000 741f2e57103447030fcc7d27319d21965f438001 refs/for/master\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlyIWvUVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMfPgQAI3LWIsN3UuZ+M9MW6wkrZbdfqt1\nOefN4DYFYmqe9LssWgFji14v1k+NewmjSxS90LQ9xU2UubMfbt8YLvZk09HeMuAd\nJaBDusH1DU0e/6XfHNu+koKWZtseByVDbelCymOQGXsC2iaLzEK4Ye8TzxWqfZz2\nB3Ihjpja2gcpENSYnHGtlM/DFXCUYN7dYTxDcjHa7iP96QyBBH7eiIZhF02oJ5DR\nSfxCvrYbY/JurTtfCfZgxDKTUxKv8NdHDqybQIwTYID5Y6YtoOIvMvasVlWiw87q\nk9gsx9hoS8wOzK1PU+A2Y/GIpfGO5RKhqe2n/w9D2YK/iAOVcgPmJ7jnIQPDaUAu\noVCLWlJKqiTRGovRxJY+ORiD8YYDSaL5696Dd+fpwmblkhOdjtx50wqWFyaxbGlH\nP7qN0hyfKFgfx7r6Mrew8PTLYX+xAiNOeWMs4CYipi1xsma2/Gnv0BFDnaLwn5wF\nLR23GC2ZIRDvYY7ldyeAz2sjEv8qDgaKVQDtMH1HUfhTCUWyO7gts5ke1LmU6khx\nLThVAmSPNpov05QKjF5Um2InI4tklzpZaC59aro1wzC/xysKYrl6YOQSk9nvHRIR\n5PO/5c7awtcLRsUJCRE7aV5umNEwvex7OigYCjPcGS1Z/iohuRF6B/dHFr8Ev+H/\nk7mHWhdUPH+ElVZo\n\u003dbL9H\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f02481c_643c44db",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T16:23:58Z",
+      "side": 1,
+      "message": "I think this needs to be a provider now.",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dac065a8_e359b863",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T16:23:58Z",
+      "side": 1,
+      "message": "retrieve",
+      "range": {
+        "startLine": 47,
+        "startChar": 39,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2cd7b1_46778d26",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ChecksImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T16:23:58Z",
+      "side": 1,
+      "message": "Should this be a provider now?",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d545c4a_6139d97d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T16:23:58Z",
+      "side": 1,
+      "message": "also assert that the new fields are not populated?",
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
