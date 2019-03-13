@@ -99,6 +99,30 @@
     },
     {
       "key": {
+        "uuid": "4409a547_29ef4e7e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T18:12:49Z",
+      "side": 1,
+      "message": "Also true. Then I\u0027m fine with either way.\n\nI do think most of our API implementations do use a Provider in this case.",
+      "parentUuid": "bb892a50_ffbbcd32",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dac065a8_e359b863",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
         "patchSetId": 2
