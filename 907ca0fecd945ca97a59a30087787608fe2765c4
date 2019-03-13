@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f0125851_471d9368",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckablePatchSetInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Yeah, I was struggling a bit to come up with a name for this entity, so I\u0027m glad about alternative suggestions.\n\nI think CheckKeyInfo is not a good fit for this entity because\n\n* This entity doesn\u0027t contain the checker information, but CheckKey does.\n* We have plans to add further fields here to minimize roundtrips between CI and Gerrit.\n  It\u0027s envisioned to have ListOptions on the List Pending Checks REST endpoint to include\n  additional patch set data in the results. E.g. this could be an option to request the list\n  of changed files. Then a field for the list of changed files would be added here.\n\nThe good thing is that the name of this entity is not part of the API and we can easily change it later (well, the name appears in the doc, but it\u0027s not occurring in the JSON).\n\nI was thinking about just using PatchSetInfo. Surprisingly we didn\u0027t use that name in the context of JSON entities yet (in core we call it RevisionInfo), but we do have an internal PatchSetInfo class already.",
+      "parentUuid": "1eecb3dd_0d91c192",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ac5e4dd_2bd957b5",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac114f0c_96248e99",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Sure, as request input we allow:\n\n* checker UUID + state\n* scheme + state\n* checker UUID + multiple states\n* scheme + multiple states\n* checker UUID (state \"NOT_STARTED\" is assumed)\n* scheme (state \"NOT_STARTED\" is assumed)",
+      "parentUuid": "0ac5e4dd_2bd957b5",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8e569363_0f038977",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "7022c631_af674465",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1f68552_d2c374de",
         "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "99313cce_e0ea934b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f68552_d2c374de",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f475635f_2a42f7f0",
         "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
         "patchSetId": 1
@@ -84,6 +156,24 @@
       "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe1f5382_ead0e204",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f475635f_2a42f7f0",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -110,6 +200,30 @@
     },
     {
       "key": {
+        "uuid": "884b5a7a_3f087df7",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2773199a_cdc2ce69",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adbb8535_5b5145ef",
         "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
         "patchSetId": 1
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "c9c48fad_15bc9f38",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adbb8535_5b5145ef",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bb5c008_c0f6088c",
         "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
         "patchSetId": 1
@@ -141,6 +273,24 @@
       "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e116bd7c_e0842f81",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-13T08:33:19Z",
+      "side": 1,
+      "message": "You are right, each row must be a single line.\nChecked that it renders correctly now.\n\nDone",
+      "parentUuid": "1bb5c008_c0f6088c",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
