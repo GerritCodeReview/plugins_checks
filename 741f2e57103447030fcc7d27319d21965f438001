@@ -75,6 +75,30 @@
     },
     {
       "key": {
+        "uuid": "bb892a50_ffbbcd32",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-13T16:38:46Z",
+      "side": 1,
+      "message": "Our extension API explicitly recommends against reusing *Api classes:\n\nhttps://gerrit.googlesource.com/gerrit/+/dc85f27a25d5a41e0bbe308d3b4fd75e909f52df/java/com/google/gerrit/extensions/api/changes/Changes.java#30\n\n(We are missing javadoc in Checks.java)\n\nThat said, I wouldn\u0027t really mind changing it if you think it\u0027ll be easier to reason about.",
+      "parentUuid": "86166767_40fb18dc",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "741f2e57103447030fcc7d27319d21965f438001",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dac065a8_e359b863",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
         "patchSetId": 2
