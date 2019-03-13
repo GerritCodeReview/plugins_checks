@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0efccc18_fbc41a51",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckablePatchSetInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-13T14:25:00Z",
+      "side": 1,
+      "message": "Thanks for the context. I\u0027m fine with the current name.\n\n\u003e I was thinking about just using PatchSetInfo. Surprisingly we didn\u0027t use that name in the context of JSON entities yet (in core we call it RevisionInfo), but we do have an internal PatchSetInfo class already.\n\n-1 on PatchSetInfo (but +1 on rewriting all the core code dealing with PatchSetInfos :)",
+      "parentUuid": "f0125851_471d9368",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0ac5e4dd_2bd957b5",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 1
