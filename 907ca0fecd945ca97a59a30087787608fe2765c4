@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b0c0eaae_77292e76",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckablePatchSetInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-13T14:38:35Z",
+      "side": 1,
+      "message": "Resolved",
+      "parentUuid": "0efccc18_fbc41a51",
+      "revId": "907ca0fecd945ca97a59a30087787608fe2765c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ac5e4dd_2bd957b5",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 1
