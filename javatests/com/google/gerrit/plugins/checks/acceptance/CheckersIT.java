@@ -53,11 +53,7 @@ public class CheckersIT extends AbstractCheckersTest {
   }
 
   private Stream<CheckerUuid> getCheckerUuidsOf(Project.NameKey projectName) throws Exception {
-    return plugin
-        .getSysInjector()
-        .getInstance(Checkers.class)
-        .checkersOf(projectName)
-        .stream()
+    return plugin.getSysInjector().getInstance(Checkers.class).checkersOf(projectName).stream()
         .map(Checker::getUuid);
   }
 }

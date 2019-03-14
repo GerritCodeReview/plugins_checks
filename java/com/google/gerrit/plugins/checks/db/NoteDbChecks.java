@@ -71,12 +71,8 @@ class NoteDbChecks implements Checks {
     CheckNotes checkNotes = checkNotesFactory.create(notes.getChange());
 
     checkNotes.load();
-    return checkNotes
-        .getChecks()
-        .getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty())
-        .checks
-        .entrySet()
-        .stream()
+    return checkNotes.getChecks().getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty())
+        .checks.entrySet().stream()
         .map(e -> e.getValue().toCheck(projectName, psId, CheckerUuid.parse(e.getKey())));
   }
 }

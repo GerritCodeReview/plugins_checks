@@ -55,9 +55,7 @@ public class ListChecks implements RestReadView<RevisionResource> {
       throws AuthException, BadRequestException, ResourceConflictException, OrmException,
           IOException {
     Map<CheckerUuid, Checker> checkersByUuid =
-        checkers
-            .checkersOf(resource.getProject())
-            .stream()
+        checkers.checkersOf(resource.getProject()).stream()
             .collect(toMap(Checker::getUuid, c -> c));
 
     ImmutableList.Builder<CheckInfo> result =
