@@ -1,0 +1,330 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bfd90a9_70694ae4",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "This is an API class that should only be called by the REST API servlet and the Java API. The methods you need for this change could go into Checks (in the top-level package) I think.",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ab7c34c_89d014ca",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "Please don\u0027t use any API classes here as this is internal code. If there is something you need in these classes, check if it fits into Checkers or Checks (the interfaces we have in the top-level package)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 55
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52bf1e4e_a5f643d2",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "Since you don\u0027t need backfilling here, could we just use \u0027Checks#getChecks\u0027",
+      "range": {
+        "startLine": 85,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 94
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb176fc1_3a4e0748",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "I think we will need this more often (e.g. when computing the dashboard state). Does it make sense to move it to a common place?\n\nFor example: Checks#getCombinedCheckState(Project.NameKey, PatchSet.Id)",
+      "range": {
+        "startLine": 124,
+        "startChar": 36,
+        "endLine": 124,
+        "endChar": 57
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d9c7c64_1b554399",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "nit: applyingCheckers",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f9ff47_21f531f2",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "!blockingConditions.equals(ImmutableList.of(BlockingCondition.STATE_NOT_PASSING))",
+      "range": {
+        "startLine": 145,
+        "startChar": 10,
+        "endLine": 146,
+        "endChar": 77
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5245a13c_7e49ab2a",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "If you follow the suggestion of not using API classes, this would be an OK case and just means the checker has not yet reported anything. Since it is blocking, it means we tell the combiner this is \u0027not started\u0027.",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71f48589_ef804d79",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "This can be omitted because there are separate tests that ensure change creation works as intended.",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "173c3de1_997370a3",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "nit: The PS-ID contains the change ID, so storing the change ID can be omitted",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60610f5_9ba881d9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "This can be removed since the CheckerOperations are well tested in other places",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 62
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e94f31b_9d2ae978",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "This can be removed since the CheckerOperations are well tested in other places",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68106896_f9d7ab65",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "I think it makes sense to test change submission once, but as a general test pattern, testing just the submit rule (which you can get injected into this class) is less overhead and more specific.\n\nFor example: This is what IgnoreSelfApprovalRuleIT does.",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "589b10a2_4af8a7e8",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "nit: disabledCheckerDoesNotBlockSubmit (here and below)",
+      "range": {
+        "startLine": 85,
+        "startChar": 29,
+        "endLine": 85,
+        "endChar": 30
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80799684_ad161ceb",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "Sandboxed is really slow, is it possible to rewrite this test so that it is not required anymore?",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3763b689_ede94ab9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "Sandboxed is really slow, is it possible to rewrite this test so that it is not required anymore?",
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f564e66_e9aaa4bf",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-03-14T15:40:33Z",
+      "side": 1,
+      "message": "Please use CheckOperations instead of the API.",
+      "range": {
+        "startLine": 169,
+        "startChar": 15,
+        "endLine": 169,
+        "endChar": 30
+      },
+      "revId": "5687141e6afc796c06491306a04676d4a9ca2605",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
