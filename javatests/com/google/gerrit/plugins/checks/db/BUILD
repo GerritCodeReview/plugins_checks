@@ -3,7 +3,7 @@ load("//tools/bzl:junit.bzl", "junit_tests")
 junit_tests(
     name = "db_tests",
     size = "small",
-    srcs = glob(["*.java"]),
+    srcs = glob(["*Test.java"]),
     deps = [
         "//java/com/google/gerrit/common:annotations",
         "//java/com/google/gerrit/common:server",
@@ -24,5 +24,21 @@ junit_tests(
         "//lib/truth",
         "//plugins/checks:checks__plugin",
         "//plugins/checks/java/com/google/gerrit/plugins/checks/testing",
+    ],
+)
+
+load("//javatests/com/google/gerrit/acceptance:tests.bzl", "acceptance_tests")
+
+acceptance_tests(
+    srcs = glob(["GetCombinedCheckStateIT.java"]),
+    group = "get_combined_check_state",
+    labels = [
+        "get_combined_check_state",
+    ],
+    deps = [
+        "//java/com/google/gerrit/git/testing",
+        "//plugins/checks:checks__plugin",
+        "//plugins/checks/java/com/google/gerrit/plugins/checks/acceptance",
+        "//plugins/checks/java/com/google/gerrit/plugins/checks/acceptance/testsuite",
     ],
 )
