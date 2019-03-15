@@ -29,6 +29,7 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.ListChecksOption;
+import com.google.gerrit.plugins.checks.db.CheckBackfiller;
 import com.google.gerrit.server.change.RevisionResource;
 import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
@@ -73,7 +74,9 @@ public class ListChecks implements RestReadView<RevisionResource> {
           IOException {
     CheckJson checkJson = checkJsonFactory.create(options);
     Map<CheckerUuid, Checker> checkersByUuid =
-        checkers.checkersOf(resource.getProject()).stream()
+        checkers
+            .checkersOf(resource.getProject())
+            .stream()
             .collect(toMap(Checker::getUuid, c -> c));
 
     ImmutableList.Builder<CheckInfo> result =
