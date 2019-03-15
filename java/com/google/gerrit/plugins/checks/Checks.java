@@ -51,8 +51,16 @@ public interface Checks {
   /**
    * Returns a {@link Optional} holding a single check. {@code Optional.empty()} if the check does
    * not exist.
+   *
+   * @param checkKey the key of the target check.
+   * @param options options for getting a check.
+   * @return the target check if it exists. A backfilled check will be returned if {@link
+   *     GetCheckOptions#backfillCheck()} is true.
+   * @throws OrmException if the check couldn't be retrieved from the storage
+   * @throws IOException if the check couldn't be retrieved from the storage
    */
-  Optional<Check> getCheck(CheckKey checkKey) throws OrmException, IOException;
+  Optional<Check> getCheck(CheckKey checkKey, GetCheckOptions options)
+      throws OrmException, IOException;
 
   @AutoValue
   abstract class GetChecksOptions {
@@ -75,6 +83,30 @@ public interface Checks {
       public abstract Builder setBackfillChecks(boolean backfillChecks);
 
       public abstract GetChecksOptions build();
+    }
+  }
+
+  @AutoValue
+  abstract class GetCheckOptions {
+
+    /** Backfills a check for relevant checker with default when it doesn't exist yet. */
+    public abstract boolean backfillCheck();
+
+    public abstract Builder toBuilder();
+
+    public static Builder builder() {
+      return new AutoValue_Checks_GetCheckOptions.Builder().setBackfillCheck(false);
+    }
+
+    public static GetCheckOptions defaults() {
+      return builder().build();
+    }
+
+    @AutoValue.Builder
+    public abstract static class Builder {
+      public abstract Builder setBackfillCheck(boolean backfillCheck);
+
+      public abstract GetCheckOptions build();
     }
   }
 }
