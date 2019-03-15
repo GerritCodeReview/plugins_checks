@@ -18,6 +18,8 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
@@ -25,8 +27,14 @@ import com.google.gerrit.plugins.checks.Checker;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.api.BlockingCondition;
+import com.google.gerrit.plugins.checks.api.CheckState;
+import com.google.gerrit.plugins.checks.api.CheckerStatus;
+import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.reviewdb.client.PatchSet;
+import com.google.gerrit.reviewdb.client.PatchSet.Id;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.PatchSetUtil;
 import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gwtorm.server.OrmException;
@@ -34,6 +42,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -85,6 +94,64 @@ class NoteDbChecks implements Checks {
     }
 
     return result;
+  }
+
+  @Override
+  public CombinedCheckState getCombinedCheckState(NameKey projectName, Id patchSetId)
+      throws IOException, OrmException {
+    ImmutableListMultimap.Builder<CheckState, Boolean> statesAndRequired =
+        ImmutableListMultimap.builder();
+    ImmutableMap<String, Checker> applicableCheckers =
+        checkers
+            .checkersOf(projectName)
+            .stream()
+            .collect(ImmutableMap.toImmutableMap(c -> c.getUuid().toString(), c -> c));
+
+    // Always backfilling checks to have a meaningful "CombinedCheckState" even when there are some
+    // or all checks missing.
+    GetChecksOptions options = GetChecksOptions.builder().setBackfillChecks(true).build();
+    ImmutableMap<String, Check> checks =
+        getChecks(projectName, patchSetId, options)
+            .stream()
+            .collect(ImmutableMap.toImmutableMap(c -> c.key().checkerUuid().toString(), c -> c));
+
+    for (Map.Entry<String, Checker> entry : applicableCheckers.entrySet()) {
+      String checkerUuid = entry.getKey();
+      Checker checker = entry.getValue();
+
+      if (checker.getStatus() == CheckerStatus.DISABLED) {
+        // Disabled checkers doesn't block submission.
+        continue;
+      }
+
+      ImmutableList<BlockingCondition> blockingConditions =
+          checker.getBlockingConditions().asList();
+      if (blockingConditions.isEmpty()) {
+        // The checker is not blocking if no blocking condition is set.
+        continue;
+      }
+      if (blockingConditions.size() > 1
+          || blockingConditions.get(0) != BlockingCondition.STATE_NOT_PASSING) {
+        // When a new blocking condition is introduced, this submit rule needs to be adjusted to
+        // respect that.
+        String errorMessage = String.format("illegal blocking conditions %s", blockingConditions);
+        throw new IllegalStateException(errorMessage);
+      }
+
+      if (!checks.keySet().contains(checkerUuid)) {
+        // ListChecks is expected to return checks for all applicable checkers. If not, there is
+        // an inconsistency.
+        String errorMessage =
+            String.format(
+                "missing check results for checker %s on change %s",
+                checkerUuid, patchSetId.changeId);
+        throw new IllegalStateException(errorMessage);
+      }
+
+      statesAndRequired.put(checks.get(checkerUuid).state(), true);
+    }
+
+    return CombinedCheckState.combine(statesAndRequired.build());
   }
 
   private Stream<Check> getChecksAsStream(
