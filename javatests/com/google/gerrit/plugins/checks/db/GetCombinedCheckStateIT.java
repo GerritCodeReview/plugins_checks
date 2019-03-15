@@ -21,8 +21,6 @@ import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
-import com.google.gerrit.plugins.checks.acceptance.testsuite.TestCheckerCreation;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
@@ -106,14 +104,6 @@ public class GetCombinedCheckStateIT extends AbstractCheckersTest {
     CombinedCheckState combinedCheckState = checks.getCombinedCheckState(project, patchSetId);
 
     assertThat(combinedCheckState).isEqualTo(CombinedCheckState.IN_PROGRESS);
-  }
-
-  private TestCheckerCreation.Builder newRequiredChecker() {
-    return checkerOperations
-        .newChecker()
-        .repository(project)
-        .status(CheckerStatus.ENABLED)
-        .blockingConditions(BlockingCondition.STATE_NOT_PASSING);
   }
 
   private void setCheckSuccessful(CheckerUuid checkerUuid) {

@@ -20,6 +20,9 @@ import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckOperations;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerOperations;
+import com.google.gerrit.plugins.checks.acceptance.testsuite.TestCheckerCreation;
+import com.google.gerrit.plugins.checks.api.BlockingCondition;
+import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.plugins.checks.api.Checkers;
 import com.google.gerrit.plugins.checks.api.ChecksFactory;
 import com.google.gerrit.plugins.checks.api.PendingChecks;
@@ -55,5 +58,13 @@ public class AbstractCheckersTest extends LightweightPluginDaemonTest {
     pendingChecksApi = plugin.getHttpInjector().getInstance(PendingChecks.class);
 
     allowGlobalCapabilities(group("Administrators").getGroupUUID(), "checks-administrateCheckers");
+  }
+
+  protected TestCheckerCreation.Builder newRequiredChecker() {
+    return checkerOperations
+        .newChecker()
+        .repository(project)
+        .status(CheckerStatus.ENABLED)
+        .blockingConditions(BlockingCondition.STATE_NOT_PASSING);
   }
 }
