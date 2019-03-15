@@ -15,6 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
@@ -124,6 +125,24 @@ public abstract class Checker {
 
   public static Builder builder(CheckerUuid uuid) {
     return builder().setUuid(uuid);
+  }
+
+  /**
+   * Checks whether a {@link Checker} is required for submission or not.
+   *
+   * @return true if the {@link Checker} required for submission.
+   */
+  public boolean isRequired() {
+    ImmutableSet<BlockingCondition> blockingConditions = getBlockingConditions();
+    if (blockingConditions.isEmpty()) {
+      return false;
+    } else if (blockingConditions.size() > 1
+        || !blockingConditions.contains(BlockingCondition.STATE_NOT_PASSING)) {
+      // When a new blocking condition is introduced, this needs to be adjusted to respect that.
+      String errorMessage = String.format("illegal blocking conditions %s", blockingConditions);
+      throw new IllegalStateException(errorMessage);
+    }
+    return true;
   }
 
   /** A builder for an {@link Checker}. */
