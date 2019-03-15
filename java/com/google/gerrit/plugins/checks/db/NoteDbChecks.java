@@ -144,7 +144,11 @@ class NoteDbChecks implements Checks {
       Checker checker = entry.getValue();
       checkArgument(checker.getStatus() == CheckerStatus.ENABLED, "checker is disabled");
 
-      statesAndRequired.put(checks.get(checkerUuid).state(), checker.isRequired());
+      // DO NOT SUBMIT: fix in https://gerrit-review.googlesource.com/c/plugins/checks/+/218298
+      Check possiblyBackfilledCheck = checks.get(checkerUuid);
+      if (possiblyBackfilledCheck != null) {
+        statesAndRequired.put(possiblyBackfilledCheck.state(), checker.isRequired());
+      }
     }
 
     return CombinedCheckState.combine(statesAndRequired.build());
