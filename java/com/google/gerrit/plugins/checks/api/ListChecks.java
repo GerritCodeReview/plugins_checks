@@ -18,9 +18,6 @@ import static java.util.stream.Collectors.toMap;
 
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.extensions.client.ListOption;
-import com.google.gerrit.extensions.restapi.AuthException;
-import com.google.gerrit.extensions.restapi.BadRequestException;
-import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.RestReadView;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckJson;
@@ -29,7 +26,9 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.ListChecksOption;
+import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.server.change.RevisionResource;
+import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import java.io.IOException;
@@ -69,23 +68,27 @@ public class ListChecks implements RestReadView<RevisionResource> {
 
   @Override
   public ImmutableList<CheckInfo> apply(RevisionResource resource)
-      throws AuthException, BadRequestException, ResourceConflictException, OrmException,
-          IOException {
+      throws OrmException, IOException {
+    return apply(resource.getNotes(), resource.getPatchSet().getId());
+  }
+
+  ImmutableList<CheckInfo> apply(ChangeNotes notes, PatchSet.Id psId)
+      throws OrmException, IOException {
     CheckJson checkJson = checkJsonFactory.create(options);
     Map<CheckerUuid, Checker> checkersByUuid =
-        checkers.checkersOf(resource.getProject()).stream()
+        checkers.checkersOf(notes.getProjectName()).stream()
             .collect(toMap(Checker::getUuid, c -> c));
 
     ImmutableList.Builder<CheckInfo> result =
         ImmutableList.builderWithExpectedSize(checkersByUuid.size());
-    for (Check check : checks.getChecks(resource.getProject(), resource.getPatchSet().getId())) {
+    for (Check check : checks.getChecks(notes.getProjectName(), psId)) {
       checkersByUuid.remove(check.key().checkerUuid());
       result.add(checkJson.format(check));
     }
 
     for (Check check :
         checkBackfiller.getBackfilledChecksForRelevantCheckers(
-            checkersByUuid.values(), resource.getNotes(), resource.getPatchSet().getId())) {
+            checkersByUuid.values(), notes, psId)) {
       result.add(checkJson.format(check));
     }
 
