@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
+import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gwtorm.server.OrmException;
@@ -61,6 +62,22 @@ public interface Checks {
    */
   Optional<Check> getCheck(CheckKey checkKey, GetCheckOptions options)
       throws OrmException, IOException;
+
+  /**
+   * Returns the combined check state of a given patch set.
+   *
+   * @param projectName the name of the project.
+   * @param patchSetId the ID of the patch set
+   * @param includeNotRequiredCheckers whether consider those checkers not required for submission.
+   *     This is useful for some cases, e.g. submit rules, where we only care about the {@link
+   *     CombinedCheckState} of those checkers which are required for submission.
+   * @return the {@link CombinedCheckState} of the current patch set.
+   * @throws IOException if failed to get the {@link CombinedCheckState}.
+   * @throws OrmException if failed to get the {@link CombinedCheckState}.
+   */
+  CombinedCheckState getCombinedCheckState(
+      Project.NameKey projectName, PatchSet.Id patchSetId, boolean includeNotRequiredCheckers)
+      throws IOException, OrmException;
 
   @AutoValue
   abstract class GetChecksOptions {
