@@ -83,7 +83,6 @@ class NoteDbChecks implements Checks {
   @Override
   public Optional<Check> getCheck(CheckKey checkKey, GetCheckOptions options)
       throws OrmException, IOException {
-    // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
     Optional<Check> result =
         getChecksFromNoteDb(checkKey.repository(), checkKey.patchSet(), GetCheckOptions.defaults())
             .stream()
@@ -103,15 +102,14 @@ class NoteDbChecks implements Checks {
   private ImmutableList<Check> getChecksFromNoteDb(
       Project.NameKey repositoryName, PatchSet.Id psId, GetCheckOptions options)
       throws OrmException, IOException {
-    // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
     ChangeData changeData = changeDataFactory.create(repositoryName, psId.getParentKey());
     PatchSet patchSet = changeData.patchSet(psId);
-    CheckNotes checkNotes = checkNotesFactory.create(changeData.change());
+    CheckNotes checkNotes =
+        checkNotesFactory.createForSingleRevision(changeData.change(), patchSet.getRevision());
     checkNotes.load();
 
     ImmutableList<Check> existingChecks =
-        checkNotes.getChecks().getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty()).checks
-            .entrySet().stream()
+        checkNotes.getChecks(patchSet.getRevision()).checks.entrySet().stream()
             .map(e -> e.getValue().toCheck(repositoryName, psId, CheckerUuid.parse(e.getKey())))
             .collect(toImmutableList());
 

@@ -14,6 +14,8 @@
 
 package com.google.gerrit.plugins.checks.db;
 
+import static com.google.common.base.Preconditions.checkState;
+
 import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.plugins.checks.CheckerRef;
@@ -23,10 +25,10 @@ import com.google.gerrit.reviewdb.client.RevId;
 import com.google.gerrit.server.logging.TraceContext;
 import com.google.gerrit.server.logging.TraceContext.TraceTimer;
 import com.google.gerrit.server.notedb.AbstractChangeNotes;
-import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import com.google.inject.assistedinject.AssistedInject;
 import java.io.IOException;
-import java.util.Map;
+import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectReader;
@@ -35,22 +37,87 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 public class CheckNotes extends AbstractChangeNotes<CheckRevisionNote> {
   public interface Factory {
-    CheckNotes create(Change change);
+    /**
+     * Creates a {@link CheckNotes} instance that parses checks for all revisions on load.
+     *
+     * @param change the change for which checks should be loaded
+     * @return the create CheckNotes instance
+     */
+    CheckNotes createForAllRevisions(Change change);
+
+    /**
+     * Creates a {@link CheckNotes} instance that parses checks only for the specified revision.
+     *
+     * <p>Trying to access checks for any other revision through {@link CheckNotes#getChecks(RevId)}
+     * or trying to access checks for all revisions through {@link CheckNotes#getAllChecks()} fails
+     * with a {@link IllegalStateException}.
+     *
+     * @param change the change for which checks should be loaded
+     * @param revId the revision for which checks should be loaded
+     * @return the create CheckNotes instance
+     */
+    CheckNotes createForSingleRevision(Change change, RevId revId);
   }
 
   private final Change change;
+  private final Optional<RevId> revId;
 
   private ImmutableMap<RevId, NoteDbCheckMap> entities;
-  private CheckRevisionNoteMap revisionNoteMap;
   private ObjectId metaId;
 
-  @Inject
+  @AssistedInject
   CheckNotes(Args args, @Assisted Change change) {
     super(args, change.getId());
     this.change = change;
+    this.revId = Optional.empty();
   }
 
-  public ImmutableMap<RevId, NoteDbCheckMap> getChecks() {
+  @AssistedInject
+  CheckNotes(Args args, @Assisted Change change, @Assisted RevId revId) {
+    super(args, change.getId());
+    this.change = change;
+    this.revId = Optional.of(revId);
+  }
+
+  /**
+   * Get the checks for the specified revision.
+   *
+   * <p>If this ChangeNotes instance was created for a specific revision via {@link
+   * CheckNotes.Factory#createForSingleRevision(Change, RevId)} and another revision is passed in
+   * this method fails with {@link IllegalStateException}.
+   *
+   * <p>If no checks exist for the specified revision an empty NoteDbCheckMap is returned.
+   *
+   * @param revId the revision for which the checks should be returned
+   * @return the checks for the specified revision
+   */
+  public NoteDbCheckMap getChecks(RevId revId) {
+    if (this.revId.isPresent()) {
+      checkState(
+          this.revId.get().equals(revId),
+          "revId mismatch, loaded checks for revision %s, but requesting checks for revision %s",
+          this.revId.get(),
+          revId);
+    }
+    return entities.getOrDefault(revId, NoteDbCheckMap.empty());
+  }
+
+  /**
+   * Gets the checks for all revisions.
+   *
+   * <p>If this ChangeNotes instance was created for a specific revision via {@link
+   * CheckNotes.Factory#createForSingleRevision(Change, RevId)} this method fails with {@link
+   * IllegalStateException}.
+   *
+   * <p>Revisions for which no checks exist are not present in the returned map.
+   *
+   * @return all checks by revision ID
+   */
+  public ImmutableMap<RevId, NoteDbCheckMap> getAllChecks() {
+    checkState(
+        !revId.isPresent(),
+        "checks were loaded for revision %s, but requesting checks for all revisions",
+        revId.get());
     return entities;
   }
 
@@ -73,21 +140,27 @@ public class CheckNotes extends AbstractChangeNotes<CheckRevisionNote> {
     }
     metaId = metaId.copy();
 
+    NoteMap revisionNoteMap;
     try (TraceTimer ignored =
         TraceContext.newTimer(
             "Load check notes for change %s of project %s", getChangeId(), getProjectName())) {
       RevCommit tipCommit = handle.walk().parseCommit(metaId);
       ObjectReader reader = handle.walk().getObjectReader();
-      revisionNoteMap =
-          CheckRevisionNoteMap.parseChecks(
-              args.changeNoteJson, reader, NoteMap.read(reader, tipCommit));
-    }
+      revisionNoteMap = NoteMap.read(reader, tipCommit);
 
-    ImmutableMap.Builder<RevId, NoteDbCheckMap> cs = ImmutableMap.builder();
-    for (Map.Entry<RevId, CheckRevisionNote> rn : revisionNoteMap.revisionNotes.entrySet()) {
-      cs.put(rn.getKey(), rn.getValue().getOnlyEntity());
+      ImmutableMap.Builder<RevId, NoteDbCheckMap> entitiesBuilder = ImmutableMap.builder();
+      if (revId.isPresent()) {
+        CheckRevisionNoteMap.parseChecksForSingleRevision(
+                revId.get(), args.changeNoteJson, handle.walk().getObjectReader(), revisionNoteMap)
+            .ifPresent(rn -> entitiesBuilder.put(revId.get(), rn.getOnlyEntity()));
+      } else {
+        CheckRevisionNoteMap.parseChecksForAllRevisions(
+                args.changeNoteJson, reader, revisionNoteMap)
+            .revisionNotes.entrySet().stream()
+            .forEach(e -> entitiesBuilder.put(e.getKey(), e.getValue().getOnlyEntity()));
+      }
+      entities = entitiesBuilder.build();
     }
-    entities = cs.build();
   }
 
   @Override
