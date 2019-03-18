@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24911de2_f4ca1f79",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:20:43Z",
+      "side": 1,
+      "message": "We now use use google-java-format version 1.7 for formatting.",
+      "revId": "be2d6f946fdc4875cefbce9f15b1f82d0e0f8921",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
