@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7d7c0f3_eba5f6cf",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T20:14:54Z",
+      "side": 1,
+      "message": "This is difficult to parse. How about something like \"All required checks must pass\"",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8109a51e_18a5b5e3",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T20:14:54Z",
+      "side": 1,
+      "message": "This is also difficult to parse, and perhaps longer than it needs to be. How about \"checks_pass\"",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "783e657c_69849c8b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T20:14:54Z",
+      "side": 1,
+      "message": "The body of createChange() already calls assertOkStatus.",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d49aa82f_2abe0f1b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T20:14:54Z",
+      "side": 1,
+      "message": "No need to create a new repo for this, just point it at allProjects",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "285f9a8c_9b324938",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T20:14:54Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to test actually submitting the change, it\u0027l slow the tests down and doesn\u0027t actually increase test coverage of the submit rule code itself. Instead, just call gApi.changes().id(testChangeId).get() and assert over the SubmitRequirementInfos in the result.\n\nThat also has the benefit that you don\u0027t need to catch a RestApiException in order to test the failure case.",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
