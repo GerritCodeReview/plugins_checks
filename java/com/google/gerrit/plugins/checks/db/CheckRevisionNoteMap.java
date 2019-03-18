@@ -20,7 +20,9 @@ import com.google.gerrit.server.notedb.ChangeNoteJson;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.notes.Note;
 import org.eclipse.jgit.notes.NoteMap;
@@ -29,7 +31,7 @@ public class CheckRevisionNoteMap {
   final NoteMap noteMap;
   final ImmutableMap<RevId, CheckRevisionNote> revisionNotes;
 
-  static CheckRevisionNoteMap parseChecks(
+  static CheckRevisionNoteMap parseChecksForAllRevisions(
       ChangeNoteJson changeNoteJson, ObjectReader reader, NoteMap noteMap)
       throws ConfigInvalidException, IOException {
     Map<RevId, CheckRevisionNote> result = new HashMap<>();
@@ -39,6 +41,18 @@ public class CheckRevisionNoteMap {
       result.put(new RevId(note.name()), rn);
     }
     return new CheckRevisionNoteMap(noteMap, ImmutableMap.copyOf(result));
+  }
+
+  static Optional<CheckRevisionNote> parseChecksForSingleRevision(
+      RevId revId, ChangeNoteJson changeNoteJson, ObjectReader reader, NoteMap noteMap)
+      throws IOException, ConfigInvalidException {
+    ObjectId noteData = noteMap.get(ObjectId.fromString(revId.get()));
+    if (noteData == null) {
+      return Optional.empty();
+    }
+    CheckRevisionNote rn = new CheckRevisionNote(changeNoteJson, reader, noteData);
+    rn.parse();
+    return Optional.of(rn);
   }
 
   static CheckRevisionNoteMap emptyMap() {
