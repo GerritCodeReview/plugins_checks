@@ -16,6 +16,24 @@
       "revId": "be2d6f946fdc4875cefbce9f15b1f82d0e0f8921",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aa891a3_d31042b5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:37:00Z",
+      "side": 0,
+      "message": "Done in a followup.",
+      "parentUuid": "c6be10c1_86ca5826",
+      "revId": "be2d6f946fdc4875cefbce9f15b1f82d0e0f8921",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
