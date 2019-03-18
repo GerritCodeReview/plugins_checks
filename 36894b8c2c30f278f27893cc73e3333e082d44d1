@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b15be225_e65f7487",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:32:26Z",
+      "side": 1,
+      "message": "This seems heavyweight for a single boolean Do you envision there being other options for getChecks in the future?\n\nIf there is only one option, and it\u0027s only used by getChecks, you could consider using a separate method with a descriptive name:\n\n ImmutableList\u003cCheck\u003e getChecks(\n     Project.NameKey projectName, PatchSet.Id patchSetId, GetChecksOptions options);\n\n ImmutableList\u003cCheck\u003e getChecksWithBackfilling(\n     Project.NameKey projectName, PatchSet.Id patchSetId, GetChecksOptions options);",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f02175_32a2e0cd",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:32:26Z",
+      "side": 1,
+      "message": "Optional: All other intermediate variables in this method are ImmutableCollections, so you could make this one ImmutableList for consistency.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 8
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3668231f_d7d1f53d",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:32:26Z",
+      "side": 1,
+      "message": "\"checksToBackfill\" means \"checks that will be backfilled in the future\". But at this point in the code, backfilling is already done. I would just name this \"backilledChecks\". Or, honestly, inline the local variable and then you don\u0027t have to worry about naming.",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9730d53a_cdcf424c",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:32:26Z",
+      "side": 1,
+      "message": "There\u0027s no longer any point to returning a stream from this method. Just change it to return an ImmutableList instead.",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4a5eb42_f5f92ebf",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:32:26Z",
+      "side": 1,
+      "message": "Maybe \"checkersWithExistingChecks\"? This is about whether the _checks_ exist, not the checkers.",
+      "range": {
+        "startLine": 112,
+        "startChar": 30,
+        "endLine": 112,
+        "endChar": 56
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
