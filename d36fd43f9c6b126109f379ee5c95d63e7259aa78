@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fd5fa7e_773dd8f2",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-18T18:51:23Z",
+      "side": 1,
+      "message": "I\u0027m also fine to make this an option like the other two interfaces.",
+      "range": {
+        "startLine": 79,
+        "startChar": 59,
+        "endLine": 79,
+        "endChar": 93
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
