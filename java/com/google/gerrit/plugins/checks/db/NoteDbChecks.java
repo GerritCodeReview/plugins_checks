@@ -56,7 +56,6 @@ class NoteDbChecks implements Checks {
 
   @Override
   public Optional<Check> getCheck(CheckKey checkKey) throws OrmException {
-    // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
     return getChecksAsStream(checkKey.project(), checkKey.patchSet())
         .filter(c -> c.key().checkerUuid().equals(checkKey.checkerUuid()))
         .findAny();
@@ -64,15 +63,14 @@ class NoteDbChecks implements Checks {
 
   private Stream<Check> getChecksAsStream(Project.NameKey projectName, PatchSet.Id psId)
       throws OrmException {
-    // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
     ChangeNotes notes = changeNotesFactory.create(projectName, psId.getParentKey());
     PatchSet patchSet = psUtil.get(notes, psId);
-    CheckNotes checkNotes = checkNotesFactory.create(notes.getChange());
+    CheckNotes checkNotes =
+        checkNotesFactory.createForSingleRevision(notes.getChange(), patchSet.getRevision());
 
     checkNotes.load();
     return checkNotes
-        .getChecks()
-        .getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty())
+        .getChecks(patchSet.getRevision())
         .checks
         .entrySet()
         .stream()
