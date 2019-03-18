@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "05bf777a_6393af28",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:57:11Z",
+      "side": 1,
+      "message": "I don\u0027t see why this added complexity is necessary. For submit rules, just allow SUCCESSFUL, WARNING, or NOT_RELEVANT.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 81
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fd5fa7e_773dd8f2",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
@@ -19,6 +42,86 @@
         "endLine": 79,
         "endChar": 93
       },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f4c48e7_1e77f25a",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:57:11Z",
+      "side": 1,
+      "message": "I would avoid the term \"applicable\". It could be easily confused with \"relevant\", but Checkers#checkersOf doesn\u0027t do any relevancy tests, it just returns all checkers for a repo.",
+      "range": {
+        "startLine": 104,
+        "startChar": 34,
+        "endLine": 104,
+        "endChar": 52
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89898c91_65cf63ed",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:57:11Z",
+      "side": 1,
+      "message": "The call to Checkers#checkersOf on line 106 already filters out disabled checkers, so this is unnecessary. If you\u0027re worried about it, then you can convert it to a checkState. It indicates programmer error: it\u0027s a bug in the implementation of #checkersOf if it returns any disabled checkers. But I think it\u0027s probably also fine to leave out.",
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919c0375_67d80c37",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:57:11Z",
+      "side": 1,
+      "message": "Please move this to a static method on BlockingCondition like I did in https://gerrit-review.googlesource.com/c/plugins/checks/+/218064\n\nYou can copy and paste my implementation and tests if you want.",
+      "range": {
+        "startLine": 129,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 0
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f058f00f_0a12256c",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/GetCombinedCheckStateIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:57:11Z",
+      "side": 1,
+      "message": "I think setting up the checker and the check in setUp is making the bodies of your test methods harder to follow. I as a reader need to remember what state you\u0027ve set up. Then, in some of the tests, you change this config, or add new config that I now have to remember. It makes it less than clear what the expected behavior is intended to be.\n\nI would recommend setting up checkers and checks exactly how you want them for each method. If you\u0027re concerned about the boilerplate because a newChecker operation takes 7 lines, you can add some descriptively-named helper methods. For example:\n\n @Test\n public void returnsFailedWhenAnyRequiredCheckerFailed() throws Exception {\n   CheckerUuid checkerUuid1 \u003d newRequiredChecker().create();\n   CheckerUuid checkerUuid2 \u003d newRequiredChecker().create();\n \n   setCheckState(checkerUuid1, CheckState.FAILED);\n   setCheckState(checkerUuid2, CheckState.SUCCESSFUL);\n \n   assertThat(checks.getCombinedCheckState(project, patchSetId, true))\n       .isEqualTo(CombinedCheckState.FAILED);\n }\n \n private TestCheckerCreation newRequiredChecker() {\n   return\n       checkerOperations\n           .newChecker()\n           .repository(project)\n           .blockingConditions(BlockingCondition.STATE_NOT_PASSING);\n }\n\nI would find this method much easier to understand than the current implementation is.",
       "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
