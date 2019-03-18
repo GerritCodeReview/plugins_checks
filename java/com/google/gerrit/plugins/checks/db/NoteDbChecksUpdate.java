@@ -299,7 +299,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
     } else {
       noteMap = NoteMap.newEmptyMap();
     }
-    return CheckRevisionNoteMap.parseChecks(
+    return CheckRevisionNoteMap.parseChecksForAllRevisions(
         noteUtil.getChangeNoteJson(), rw.getObjectReader(), noteMap);
   }
 
