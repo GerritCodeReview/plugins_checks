@@ -150,7 +150,7 @@ class CheckBackfiller {
     return predicate.asMatchable().match(cd);
   }
 
-  private static boolean hasStatusPredicate(Predicate<ChangeData> predicate) {
+  public static boolean hasStatusPredicate(Predicate<ChangeData> predicate) {
     if (predicate instanceof IndexPredicate) {
       return ((IndexPredicate<ChangeData>) predicate)
           .getField()
