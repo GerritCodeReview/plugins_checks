@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "adbb7da2_1fce9ebc",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:34:44Z",
+      "side": 1,
+      "message": "Maybe \"GetCheckOptions\", since this will eventually be used for singular getCheck as well?",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b15be225_e65f7487",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
@@ -13,6 +36,47 @@
       "writtenOn": "2019-03-18T19:32:26Z",
       "side": 1,
       "message": "This seems heavyweight for a single boolean Do you envision there being other options for getChecks in the future?\n\nIf there is only one option, and it\u0027s only used by getChecks, you could consider using a separate method with a descriptive name:\n\n ImmutableList\u003cCheck\u003e getChecks(\n     Project.NameKey projectName, PatchSet.Id patchSetId, GetChecksOptions options);\n\n ImmutableList\u003cCheck\u003e getChecksWithBackfilling(\n     Project.NameKey projectName, PatchSet.Id patchSetId, GetChecksOptions options);",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de5f4fd7_768d76ea",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:34:44Z",
+      "side": 1,
+      "message": "Nevermind, I see the next change supports GetChecksOptions in getCheck as well. I think 4 methods is probably too many.",
+      "parentUuid": "b15be225_e65f7487",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abfb9f17_6a1392f2",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-18T19:34:44Z",
+      "side": 1,
+      "message": "Even given my above comment, I think this is still a little too heavyweight. Why do we need a builder? Why not just two descriptively named static constructor methods?\n\n public static GetCheckOptions defaults() {...}\n\n public static GetCheckOptions withBackfilling() {...}",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
       "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
