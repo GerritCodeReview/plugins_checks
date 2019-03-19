@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f2bf1bad_5d421726",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T21:09:48Z",
+      "side": 1,
+      "message": "resolved through chat.\n\nTrust the CombinedCheckState for now. Will discuss with UX about what is the expecting behavior of CombinedCheckState. After we figure that out, I will make sure CombinedCheckState meet submit requirements.",
+      "parentUuid": "9d0ac54b_d48d2caa",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 81
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8fd5fa7e_773dd8f2",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
