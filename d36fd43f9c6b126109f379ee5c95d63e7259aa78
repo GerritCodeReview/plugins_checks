@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9d0ac54b_d48d2caa",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "Thanks.\n\nThis is necessary given the current enum CombinedCheckState implementation.\n\nCurrently, CombinedCheckState doesn\u0027t fully considered how \"required\" could affect the \"passing\" value. Althought it tries but it doesn\u0027t work as it intends to AFAICT.\n\nFor example, if we feed in a single \"{CheckState: NOT_STARTED, boolean: required}\", currently the combined check state is always \"IN_PROGRESS\" with \"passing \u003d false\" for both \"required \u003d true \u0026 false\". From submittable perspective, I would expect \"passing \u003d false\" if \"required \u003d true\", and \"passing \u003d true\" if \"required \u003d false\".\n\nTo fix the problem, I think we should fix in the CombinedCheckState:\n\n* I agree with the current \"passing\" value for each enum value, i.e. only SUCCESSFUL and NOT_RELEVANT have \"passing \u003d true\", which means the change is submittable.\n* I think NOT_RELEVANT is a confusing state because it says \"No checks are relevant to this change\" but what if those checks are relevant but not required? \n* Ideally, I think:\n  # NOT_RELEVANT should be used when the input \"statesAndRequired\" is empty so it really means no checker cares about this patch set. \n  # A new enum value, e.g. NOT_REQUIRED(true), should be introduced for the case that all the checkers are not required. \n  # If \"statesAndRequired\" contained both required and non-required checks, we only combine required checks.\n\nBasically, I was saying all CombinedCheckState should only care about required checks except NOT_RELEVANT and NOT_REQUIRED.\n\nHow do you think?",
+      "parentUuid": "553c0e82_14cc689b",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 81
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fd5fa7e_773dd8f2",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
@@ -69,6 +93,30 @@
       "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92749e4a_3d1e6eb9",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8fd5fa7e_773dd8f2",
+      "range": {
+        "startLine": 79,
+        "startChar": 59,
+        "endLine": 79,
+        "endChar": 93
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "af830a32_f6c7e47f",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "How about \"allCheckerOfProject\" then?",
+      "parentUuid": "7f4c48e7_1e77f25a",
+      "range": {
+        "startLine": 104,
+        "startChar": 34,
+        "endLine": 104,
+        "endChar": 52
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89898c91_65cf63ed",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 2
@@ -109,6 +181,24 @@
       "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57543d1a_93b2b701",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "The java doc of #checkersOf claims it never returns disabled checkers. But honestly, I didn\u0027t find where in our code this is done. My test failure told me yes there is a bug (disalbed checkers are not filtered out).",
+      "parentUuid": "89898c91_65cf63ed",
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -135,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "f49d06bf_e8c4d3c2",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "919c0375_67d80c37",
+      "range": {
+        "startLine": 129,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 0
+      },
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f058f00f_0a12256c",
         "filename": "javatests/com/google/gerrit/plugins/checks/db/GetCombinedCheckStateIT.java",
         "patchSetId": 2
@@ -152,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "b0dde17b_6e804cba",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/GetCombinedCheckStateIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "Agree the above looks better.",
+      "parentUuid": "f058f00f_0a12256c",
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "945daa6f_2a5ca140",
         "filename": "javatests/com/google/gerrit/plugins/checks/db/GetCombinedCheckStateIT.java",
         "patchSetId": 2
@@ -166,6 +298,24 @@
       "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fdb51db_ce29544e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/GetCombinedCheckStateIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:40:22Z",
+      "side": 1,
+      "message": "I think we could a test with just one backfilled check so that we can verify it\u0027s used. BTW we are backfilling NOT_STARTED so the expected combined state should be IN_PROGRESS.",
+      "parentUuid": "945daa6f_2a5ca140",
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
