@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06fdb30b_ccc41d79",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "My original motivation was to avoid using the same option in two different methods so that in the future we don\u0027t need to split them into two. But I\u0027m fine to merge them into one since it just contains one booelan.",
+      "parentUuid": "adbb7da2_1fce9ebc",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b15be225_e65f7487",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
@@ -60,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "65ca0f3c_45dcb15f",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "de5f4fd7_768d76ea",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abfb9f17_6a1392f2",
         "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
         "patchSetId": 2
@@ -83,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "753eab58_6c4eac42",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "sg.",
+      "parentUuid": "abfb9f17_6a1392f2",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1f02175_32a2e0cd",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 2
@@ -94,6 +160,30 @@
       "writtenOn": "2019-03-18T19:32:26Z",
       "side": 1,
       "message": "Optional: All other intermediate variables in this method are ImmutableCollections, so you could make this one ImmutableList for consistency.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 8
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "422fef8f_ad0a5068",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f02175_32a2e0cd",
       "range": {
         "startLine": 88,
         "startChar": 4,
@@ -129,6 +219,30 @@
     },
     {
       "key": {
+        "uuid": "d904b165_731eb17f",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "I would prefer to rename it instead of inline because:\n* inline may make break point harder to use.\n* create a longer line",
+      "parentUuid": "3668231f_d7d1f53d",
+      "range": {
+        "startLine": 101,
+        "startChar": 27,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9730d53a_cdcf424c",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 2
@@ -143,6 +257,24 @@
       "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61d3337b_f7ef0e18",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9730d53a_cdcf424c",
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -166,6 +298,30 @@
       "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e737d6d9_1f21ab94",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4a5eb42_f5f92ebf",
+      "range": {
+        "startLine": 112,
+        "startChar": 30,
+        "endLine": 112,
+        "endChar": 56
+      },
+      "revId": "36894b8c2c30f278f27893cc73e3333e082d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
