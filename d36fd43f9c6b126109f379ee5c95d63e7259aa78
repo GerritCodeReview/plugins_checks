@@ -202,6 +202,24 @@
     },
     {
       "key": {
+        "uuid": "0a692b2d_956ce3db",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T20:05:57Z",
+      "side": 1,
+      "message": "Hmm. There is a test \"CheckersIT#checkersOfOmitsDisabledCheckers\". Maybe I\u0027m wrong.",
+      "parentUuid": "57543d1a_93b2b701",
+      "revId": "d36fd43f9c6b126109f379ee5c95d63e7259aa78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "919c0375_67d80c37",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 2
