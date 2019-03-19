@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1b6b6dd8_af8393d1",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T19:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7d7c0f3_eba5f6cf",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8109a51e_18a5b5e3",
         "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "f8ef7721_2980b926",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T19:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8109a51e_18a5b5e3",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "783e657c_69849c8b",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
         "patchSetId": 3
@@ -56,6 +98,24 @@
       "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b0e20e_684b96cb",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T19:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783e657c_69849c8b",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "bc200983_2db49430",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T19:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d49aa82f_2abe0f1b",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "285f9a8c_9b324938",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
         "patchSetId": 3
@@ -90,6 +168,24 @@
       "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b40cc1a_5b3fce8a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T19:59:40Z",
+      "side": 1,
+      "message": "I love this idea. :)",
+      "parentUuid": "285f9a8c_9b324938",
+      "revId": "aac50c7f3e5c7b5fec0520aa04a8ff4a188b54a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
