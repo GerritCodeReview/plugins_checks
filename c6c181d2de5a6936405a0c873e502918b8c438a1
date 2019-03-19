@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b47322e0_adb47067",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-19T09:29:05Z",
+      "side": 1,
+      "message": "Instead of reading the whole revisionNoteMap for this case, we could try to read the one file directly. That would only work if notes are not sharded, but that should be almost always the case since we have notes per patch sets and changes have not that many patch sets. For safety we could still fall back to reading the full note map as it is done now. Anyway that would be an optimization for a follow-up change. I would only do it if Patricks latency experiment shows that this is significantly faster.",
+      "range": {
+        "startLine": 154,
+        "startChar": 83,
+        "endLine": 154,
+        "endChar": 98
+      },
+      "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
