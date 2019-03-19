@@ -16,6 +16,24 @@
       "revId": "cc0d673c55b9673f697880b7884a7f58218b5eb1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c84300d_90f3b81a",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-19T18:51:33Z",
+      "side": 1,
+      "message": "Let\u0027s use one then and split it if necessary in the future.",
+      "parentUuid": "458e1d3d_17db9606",
+      "revId": "cc0d673c55b9673f697880b7884a7f58218b5eb1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
