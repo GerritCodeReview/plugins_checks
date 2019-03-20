@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c1a170d_ce01a657",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-20T15:02:10Z",
+      "side": 1,
+      "message": "Good idea, will try to get this done later.",
+      "parentUuid": "e1458704_507d0293",
+      "revId": "64bc1d0389c5558db6fec99a0bb5c03dae30e695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3a5b0f7_5c0f1c1d",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "64bc1d0389c5558db6fec99a0bb5c03dae30e695",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12ec58c6_5e30595d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-20T15:02:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3a5b0f7_5c0f1c1d",
+      "revId": "64bc1d0389c5558db6fec99a0bb5c03dae30e695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
