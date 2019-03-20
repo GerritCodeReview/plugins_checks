@@ -14,7 +14,7 @@
 
 package com.google.gerrit.plugins.checks.api;
 
-import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.server.DynamicOptions.BeanProvider;
 import com.google.gerrit.server.DynamicOptions.DynamicBean;
 import com.google.gerrit.server.change.ChangeAttributeFactory;
@@ -22,7 +22,6 @@ import com.google.gerrit.server.query.change.ChangeData;
 import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import java.io.IOException;
 import org.kohsuke.args4j.Option;
 
 /**
@@ -31,16 +30,24 @@ import org.kohsuke.args4j.Option;
  */
 @Singleton
 public class ChangeCheckAttributeFactory implements ChangeAttributeFactory {
+  private static final String COMBINED_OPTION_NAME = "--combined";
+  private static final String COMBINED_OPTION_USAGE = "include combined check state";
+
   public static class GetChangeOptions implements DynamicBean {
-    @Option(name = "--combined", usage = "include combined check state")
+    @Option(name = COMBINED_OPTION_NAME, usage = COMBINED_OPTION_USAGE)
     boolean combined;
   }
 
-  private final Checks checks;
+  public static class QueryChangesOptions implements DynamicBean {
+    @Option(name = COMBINED_OPTION_NAME, usage = COMBINED_OPTION_USAGE)
+    boolean combined;
+  }
+
+  private final CombinedCheckStateCache combinedCheckStateCache;
 
   @Inject
-  ChangeCheckAttributeFactory(Checks checks) {
-    this.checks = checks;
+  ChangeCheckAttributeFactory(CombinedCheckStateCache combinedCheckStateCache) {
+    this.combinedCheckStateCache = combinedCheckStateCache;
   }
 
   @Override
@@ -52,22 +59,29 @@ public class ChangeCheckAttributeFactory implements ChangeAttributeFactory {
     try {
       if (opts instanceof GetChangeOptions) {
         return forGetChange(cd, (GetChangeOptions) opts);
+      } else if (opts instanceof QueryChangesOptions) {
+        return forQueryChanges(cd, (QueryChangesOptions) opts);
       }
-      // TODO(dborowitz): Compute from cache in query path.
-    } catch (OrmException | IOException e) {
+    } catch (OrmException e) {
       throw new RuntimeException(e);
     }
     throw new IllegalStateException("unexpected options type: " + opts);
   }
 
-  private ChangeCheckInfo forGetChange(ChangeData cd, GetChangeOptions opts)
-      throws OrmException, IOException {
+  private ChangeCheckInfo forGetChange(ChangeData cd, GetChangeOptions opts) throws OrmException {
     if (opts == null || !opts.combined) {
       return null;
     }
-    ChangeCheckInfo info = new ChangeCheckInfo();
-    info.combinedState =
-        checks.getCombinedCheckState(cd.project(), cd.change().currentPatchSetId());
-    return info;
+    return new ChangeCheckInfo(
+        combinedCheckStateCache.reload(cd.project(), cd.change().currentPatchSetId()));
+  }
+
+  private ChangeCheckInfo forQueryChanges(ChangeData cd, QueryChangesOptions opts)
+      throws OrmException {
+    if (opts == null || !opts.combined) {
+      return null;
+    }
+    return new ChangeCheckInfo(
+        combinedCheckStateCache.get(cd.project(), cd.change().currentPatchSetId()));
   }
 }

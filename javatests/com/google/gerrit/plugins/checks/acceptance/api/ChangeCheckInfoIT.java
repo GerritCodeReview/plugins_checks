@@ -19,34 +19,39 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
 import static com.google.gerrit.plugins.checks.api.BlockingCondition.STATE_NOT_PASSING;
 
+import com.google.common.cache.CacheStats;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.common.PluginDefinedInfo;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
+import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.ChangeCheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.PatchSet;
+import java.util.List;
 import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ChangeCheckInfoIT extends AbstractCheckersTest {
+  private CombinedCheckStateCache cache;
   private Change.Id changeId;
   private PatchSet.Id psId;
 
   @Before
   public void setUp() throws Exception {
+    cache = plugin.getSysInjector().getInstance(CombinedCheckStateCache.class);
     psId = createChange().getPatchSetId();
     changeId = psId.getParentKey();
   }
 
   @Test
-  public void infoRequiresOption() throws Exception {
+  public void infoRequiresOptionViaGet() throws Exception {
     assertThat(
             getChangeCheckInfo(gApi.changes().id(changeId.get()).get(ImmutableListMultimap.of())))
         .isEmpty();
@@ -55,14 +60,25 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
   }
 
   @Test
-  public void noCheckers() throws Exception {
-    assertThat(checkerOperations.checkersOf(project)).isEmpty();
-    assertThat(getChangeCheckInfo(changeId))
+  public void infoRequiresOptionViaQuery() throws Exception {
+    List<ChangeInfo> changeInfos = gApi.changes().query("change:" + changeId).get();
+    assertThat(changeInfos).hasSize(1);
+    assertThat(getChangeCheckInfo(changeInfos.get(0))).isEmpty();
+    assertThat(queryChangeCheckInfo(changeId))
         .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
   }
 
   @Test
-  public void backfillRelevantChecker() throws Exception {
+  public void noCheckers() throws Exception {
+    assertThat(checkerOperations.checkersOf(project)).isEmpty();
+    assertThat(getChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+  }
+
+  @Test
+  public void backfillRelevantCheckerViaGet() throws Exception {
     checkerOperations.newChecker().repository(project).query("topic:foo").create();
     assertThat(getChangeCheckInfo(changeId))
         .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
@@ -72,7 +88,7 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
   }
 
   @Test
-  public void combinedCheckState() throws Exception {
+  public void combinedCheckStateViaGet() throws Exception {
     CheckerUuid optionalCheckerUuid = checkerOperations.newChecker().repository(project).create();
     CheckerUuid requiredCheckerUuid =
         checkerOperations
@@ -96,9 +112,86 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
         .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.FAILED));
   }
 
+  @Test
+  public void combinedCheckStateViaQuery() throws Exception {
+    CacheStats start = clone(cache.getStats());
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+    CacheStats stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(0);
+    assertThat(stats.missCount()).isEqualTo(1);
+
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+    stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(1);
+    assertThat(stats.missCount()).isEqualTo(1);
+  }
+
+  @Test
+  public void loadingCombinedCheckStateViaGetUpdatesCache() throws Exception {
+    cache.putForTest(project, psId, CombinedCheckState.FAILED);
+
+    CacheStats start = clone(cache.getStats());
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.FAILED));
+    CacheStats stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(1);
+    assertThat(stats.missCount()).isEqualTo(0);
+
+    assertThat(getChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+    stats = cache.getStats().minus(start);
+    // Incurs a cache hit during read-then-write.
+    assertThat(stats.hitCount()).isEqualTo(2);
+    assertThat(stats.missCount()).isEqualTo(0);
+
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.NOT_RELEVANT));
+    stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(3);
+    assertThat(stats.missCount()).isEqualTo(0);
+  }
+
+  @Test
+  public void updatingCheckStateUpatesCache() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    cache.putForTest(project, psId, CombinedCheckState.IN_PROGRESS);
+
+    CacheStats start = clone(cache.getStats());
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.IN_PROGRESS));
+    CacheStats stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(1);
+    assertThat(stats.missCount()).isEqualTo(0);
+
+    // Set non-required checker to FAILED, updating combined check state to WARNING.
+    checkOperations
+        .newCheck(CheckKey.create(project, psId, checkerUuid))
+        .setState(CheckState.FAILED)
+        .upsert();
+    stats = cache.getStats().minus(start);
+    // Incurs a cache hit during read-then-write.
+    assertThat(stats.hitCount()).isEqualTo(2);
+    assertThat(stats.missCount()).isEqualTo(0);
+
+    assertThat(queryChangeCheckInfo(changeId))
+        .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.WARNING));
+    stats = cache.getStats().minus(start);
+    assertThat(stats.hitCount()).isEqualTo(3);
+    assertThat(stats.missCount()).isEqualTo(0);
+  }
+
   private Optional<ChangeCheckInfo> getChangeCheckInfo(Change.Id id) throws Exception {
     return getChangeCheckInfo(
         gApi.changes().id(id.get()).get(ImmutableListMultimap.of("checks--combined", "true")));
+  }
+
+  private Optional<ChangeCheckInfo> queryChangeCheckInfo(Change.Id id) throws Exception {
+    List<ChangeInfo> changeInfos =
+        gApi.changes().query("change:" + id).withPluginOption("checks--combined", "true").get();
+    assertThat(changeInfos).hasSize(1);
+    return getChangeCheckInfo(changeInfos.get(0));
   }
 
   private static Optional<ChangeCheckInfo> getChangeCheckInfo(ChangeInfo changeInfo) {
@@ -113,5 +206,15 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
     assertThat(infos).hasSize(1);
     assertThat(infos.get(0)).isInstanceOf(ChangeCheckInfo.class);
     return Optional.of((ChangeCheckInfo) infos.get(0));
+  }
+
+  private static CacheStats clone(CacheStats stats) {
+    return new CacheStats(
+        stats.hitCount(),
+        stats.missCount(),
+        stats.loadSuccessCount(),
+        stats.loadExceptionCount(),
+        stats.totalLoadTime(),
+        stats.evictionCount());
   }
 }
