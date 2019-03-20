@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f51f6f8f_c7f65aea",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:25:14Z",
+      "side": 1,
+      "message": "Acceptance tests belong in the acceptance package.",
+      "revId": "e98044c8355ab107717c35e6fb18186361eae0fe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
