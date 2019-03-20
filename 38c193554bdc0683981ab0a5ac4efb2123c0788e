@@ -22,6 +22,29 @@
       "revId": "38c193554bdc0683981ab0a5ac4efb2123c0788e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5cab4ba_dc1e9582",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T20:55:29Z",
+      "side": 1,
+      "message": "This NPEs if a checker appears in allCheckersOfProject but does not appear in the backfilled checks map. This happens if a checker for the project is not relevant.\n\nPlease fix and add test coverage.",
+      "range": {
+        "startLine": 147,
+        "startChar": 28,
+        "endLine": 147,
+        "endChar": 59
+      },
+      "revId": "38c193554bdc0683981ab0a5ac4efb2123c0788e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
