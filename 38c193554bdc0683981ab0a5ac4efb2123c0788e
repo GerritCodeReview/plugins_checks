@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f30deac0_26802f6e",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-20T15:53:54Z",
+      "side": 1,
+      "message": "If we always filtered out those not required checkers here, the failed tests in the child commit will succeed. And the submittable calculation will also be correct. But the downside as discussed Yesteray is the behavior of this interface may not be what was expected from UX perspective.",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 23
+      },
+      "revId": "38c193554bdc0683981ab0a5ac4efb2123c0788e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
