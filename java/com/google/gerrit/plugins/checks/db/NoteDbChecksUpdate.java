@@ -20,6 +20,7 @@ import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
 
 import com.google.common.base.Throwables;
 import com.google.common.collect.Maps;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.git.LockFailureException;
 import com.google.gerrit.git.RefUpdateUtil;
 import com.google.gerrit.plugins.checks.Check;
@@ -29,6 +30,7 @@ import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
+import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.reviewdb.client.RevId;
 import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.IdentifiedUser;
@@ -37,6 +39,7 @@ import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNoteUtil;
 import com.google.gerrit.server.update.RetryHelper;
 import com.google.gwtorm.server.OrmDuplicateKeyException;
+import com.google.gwtorm.server.OrmException;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.assistedinject.AssistedInject;
 import java.io.ByteArrayOutputStream;
@@ -57,6 +60,8 @@ import org.eclipse.jgit.notes.NoteMap;
 import org.eclipse.jgit.revwalk.RevWalk;
 
 public class NoteDbChecksUpdate implements ChecksUpdate {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   interface Factory {
     NoteDbChecksUpdate create(IdentifiedUser currentUser);
 
@@ -75,6 +80,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
   private final ChangeNoteUtil noteUtil;
   private final Optional<IdentifiedUser> currentUser;
   private final Checkers checkers;
+  private final CombinedCheckStateCache combinedCheckStateCache;
 
   @AssistedInject
   NoteDbChecksUpdate(
@@ -83,9 +89,17 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent) {
     this(
-        repoManager, gitRefUpdated, retryHelper, noteUtil, checkers, personIdent, Optional.empty());
+        repoManager,
+        gitRefUpdated,
+        retryHelper,
+        noteUtil,
+        checkers,
+        combinedCheckStateCache,
+        personIdent,
+        Optional.empty());
   }
 
   @AssistedInject
@@ -95,6 +109,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent,
       @Assisted IdentifiedUser currentUser) {
     this(
@@ -103,6 +118,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
         retryHelper,
         noteUtil,
         checkers,
+        combinedCheckStateCache,
         personIdent,
         Optional.of(currentUser));
   }
@@ -113,6 +129,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent,
       Optional<IdentifiedUser> currentUser) {
     this.repoManager = repoManager;
@@ -122,6 +139,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
     this.checkers = checkers;
     this.currentUser = currentUser;
     this.personIdent = personIdent;
+    this.combinedCheckStateCache = combinedCheckStateCache;
   }
 
   @Override
@@ -194,6 +212,11 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       refUpdate.update();
       RefUpdateUtil.checkResult(refUpdate);
 
+      try {
+        combinedCheckStateCache.reload(checkKey.project(), checkKey.patchSet());
+      } catch (OrmException e) {
+        logger.atWarning().withCause(e).log("failed to reload CombinedCheckState for %s", checkKey);
+      }
       gitRefUpdated.fire(
           checkKey.project(), refUpdate, currentUser.map(user -> user.state()).orElse(null));
       return readSingleCheck(checkKey, repo, rw, newCommitId);
