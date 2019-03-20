@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1458704_507d0293",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:18:18Z",
+      "side": 1,
+      "message": "You don\u0027t have to do it now, but this feels like something that belongs in InternalQuery.",
+      "revId": "64bc1d0389c5558db6fec99a0bb5c03dae30e695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3a5b0f7_5c0f1c1d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:18:18Z",
+      "side": 1,
+      "message": "My initial thought on seeing this was: this behavior differs from CheckBackfiller, which only backfills NOT_STARTED for relevant checks on a change. Later, I realized that this method is only called _after_ searching for relevant changes. So this is logically equivalent, I just think this comment could use a little expansion.",
+      "revId": "64bc1d0389c5558db6fec99a0bb5c03dae30e695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
