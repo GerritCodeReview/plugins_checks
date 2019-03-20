@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36505933_c8fe487b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T18:25:19Z",
+      "side": 1,
+      "message": "@Inject",
+      "revId": "6a7ee76dbda74fcd2bf38122e1e2aae58cbd3fce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b7adc26_d3841068",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T18:25:19Z",
+      "side": 1,
+      "message": "You only need to do this for types which are bound in the plugin modules, not for core Gerrit classes.",
+      "revId": "6a7ee76dbda74fcd2bf38122e1e2aae58cbd3fce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
