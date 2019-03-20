@@ -19,7 +19,10 @@ gerrit_plugin(
         "Gerrit-HttpModule: com.google.gerrit.plugins.checks.api.HttpModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
-    deps = [":checks-deps-neverlink"],
+    deps = [
+        ":checks-deps-neverlink",
+        "//plugins/checks/proto:cache_java_proto",
+    ],
 )
 
 java_library(
@@ -28,6 +31,7 @@ java_library(
     visibility = ["//visibility:private"],
     exports = [
         "//java/com/google/gerrit/server/api",
+        "//java/com/google/gerrit/server/cache/serialize",
         "//lib/antlr:java-runtime",
         "//lib/auto:auto-value",
         "//lib/auto:auto-value-annotations",
