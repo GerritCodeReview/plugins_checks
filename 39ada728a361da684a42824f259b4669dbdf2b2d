@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09ff500d_f87b336d",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/AbstractCheckersTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:31:47Z",
+      "side": 1,
+      "message": "I would like to avoid adding this utility method to AbstractCheckersTest. We very much do not want AbstractCheckersTest to turn into AbstractDaemonTest, with dozens of protected methods and no rhyme or reason.\n\nEither add this just in the IT where you need it, or modify the CheckerOperations interface to make this operation simpler.",
+      "revId": "39ada728a361da684a42824f259b4669dbdf2b2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4b9e27e_7c32314d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/CheckerRefsIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:31:47Z",
+      "side": 1,
+      "message": "This seems like a bug that needs to be understood and fixed before submitting this change. If there is a checker that is not required and we don\u0027t update the check state for it, it really needs to not block submission.\n\nWhy do other tests not exhibit this behavior? Is this problem reproducible in a test, using a repo other than All-Projects?",
+      "revId": "39ada728a361da684a42824f259b4669dbdf2b2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61de2003_c16d40a4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:31:47Z",
+      "side": 1,
+      "message": "@Inject private AllProjectsName allProjects",
+      "revId": "39ada728a361da684a42824f259b4669dbdf2b2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83be2c72_b4ffe4e1",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:31:47Z",
+      "side": 1,
+      "message": "assertThat(changeInfo.requirements).isEmpty();",
+      "revId": "39ada728a361da684a42824f259b4669dbdf2b2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ee18140_ffa20013",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-20T14:31:47Z",
+      "side": 1,
+      "message": "assertThat(changeInfo.requirements).containsExactly(...)",
+      "revId": "39ada728a361da684a42824f259b4669dbdf2b2d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
