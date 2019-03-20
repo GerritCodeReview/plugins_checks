@@ -21,7 +21,7 @@ import static org.easymock.EasyMock.replay;
 
 import com.google.common.collect.Iterables;
 import com.google.gerrit.common.data.SubmitRecord;
-import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
@@ -37,7 +37,7 @@ public class ChecksSubmitRuleTest extends GerritBaseTests {
   @Test
   public void loadingCurrentPatchSetFails() throws Exception {
     ChecksSubmitRule checksSubmitRule =
-        new ChecksSubmitRule(EasyMock.createStrictMock(Checks.class));
+        new ChecksSubmitRule(EasyMock.createStrictMock(CombinedCheckStateCache.class));
 
     ChangeData cd = EasyMock.createStrictMock(ChangeData.class);
     expect(cd.project()).andReturn(new Project.NameKey("My-Project"));
@@ -52,12 +52,11 @@ public class ChecksSubmitRuleTest extends GerritBaseTests {
 
   @Test
   public void getCombinedCheckStateFails() throws Exception {
-    Checks checks = EasyMock.createStrictMock(Checks.class);
-    expect(checks.getCombinedCheckState(anyObject(), anyObject()))
-        .andThrow(new OrmException("Fail for test"));
-    replay(checks);
+    CombinedCheckStateCache cache = EasyMock.createStrictMock(CombinedCheckStateCache.class);
+    expect(cache.reload(anyObject(), anyObject())).andThrow(new OrmException("Fail for test"));
+    replay(cache);
 
-    ChecksSubmitRule checksSubmitRule = new ChecksSubmitRule(checks);
+    ChecksSubmitRule checksSubmitRule = new ChecksSubmitRule(cache);
 
     Change.Id changeId = new Change.Id(1);
     ChangeData cd = EasyMock.createStrictMock(ChangeData.class);

@@ -29,6 +29,7 @@ import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
+import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.reviewdb.client.RevId;
 import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.IdentifiedUser;
@@ -75,6 +76,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
   private final ChangeNoteUtil noteUtil;
   private final Optional<IdentifiedUser> currentUser;
   private final Checkers checkers;
+  private final CombinedCheckStateCache combinedCheckStateCache;
 
   @AssistedInject
   NoteDbChecksUpdate(
@@ -83,9 +85,17 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent) {
     this(
-        repoManager, gitRefUpdated, retryHelper, noteUtil, checkers, personIdent, Optional.empty());
+        repoManager,
+        gitRefUpdated,
+        retryHelper,
+        noteUtil,
+        checkers,
+        combinedCheckStateCache,
+        personIdent,
+        Optional.empty());
   }
 
   @AssistedInject
@@ -95,6 +105,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent,
       @Assisted IdentifiedUser currentUser) {
     this(
@@ -103,6 +114,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
         retryHelper,
         noteUtil,
         checkers,
+        combinedCheckStateCache,
         personIdent,
         Optional.of(currentUser));
   }
@@ -113,6 +125,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       RetryHelper retryHelper,
       ChangeNoteUtil noteUtil,
       Checkers checkers,
+      CombinedCheckStateCache combinedCheckStateCache,
       @GerritPersonIdent PersonIdent personIdent,
       Optional<IdentifiedUser> currentUser) {
     this.repoManager = repoManager;
@@ -122,6 +135,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
     this.checkers = checkers;
     this.currentUser = currentUser;
     this.personIdent = personIdent;
+    this.combinedCheckStateCache = combinedCheckStateCache;
   }
 
   @Override
@@ -194,6 +208,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       refUpdate.update();
       RefUpdateUtil.checkResult(refUpdate);
 
+      combinedCheckStateCache.updateIfNecessary(checkKey.repository(), checkKey.patchSet());
       gitRefUpdated.fire(
           checkKey.repository(), refUpdate, currentUser.map(user -> user.state()).orElse(null));
       return readSingleCheck(checkKey, repo, rw, newCommitId);
