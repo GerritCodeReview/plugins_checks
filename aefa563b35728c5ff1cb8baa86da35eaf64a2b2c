@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3554afff_be1e7136",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-21T14:00:32Z",
+      "side": 1,
+      "message": "This reruns the query twice per checker; it was already run once during getChecks, we should really be able avoid running it again.\n\nIs there some reason that my fix in https://gerrit-review.googlesource.com/c/plugins/checks/+/218064/2/java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java doesn\u0027t work?\n\nActually, maybe the logic would be easier to follow if we just invert the loop and iterate over checks instead of the checker IDs:\n\n ImmutableList\u003cCheck\u003e checks \u003d getChecks(project, psId, withBackfilling());\n for (Check check : checks) {\n   Checker checker \u003d allCheckersOfProject.get(check.key().checkerUuid());\n   if (checker !\u003d null) {\n     statesAndRequired.put(check.state(), checker.isRequired());\n   }\n }\n\nIOW, put one entry in statesInRequired for each entry in checks. That seems much simpler. Am I missing something?",
+      "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
