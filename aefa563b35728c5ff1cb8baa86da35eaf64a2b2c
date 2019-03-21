@@ -16,6 +16,24 @@
       "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a24daf_b9b7906a",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-21T16:08:36Z",
+      "side": 1,
+      "message": "\u003e This reruns the query twice per checker; it was already run once during getChecks, we should really be able avoid running it again.\n\nActually, I did try to avoid this. I have another patch set which just extends Checks#GetCheckOption to accept a new option \"excludeChecksOfNotRelevantCheckers\" so that checks from \"Checks#getChecks\" are guaranteed to only include relevant checks of a change. \n\nI think this could be a better solution and avoid unnecessary duplicate logic. But it\u0027s a little bit more code and we need some additional tests. How do you think?\n\n\u003e \n\u003e Is there some reason that my fix in https://gerrit-review.googlesource.com/c/plugins/checks/+/218064/2/java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java doesn\u0027t work?\n\nThe checks we get from \"getChecks\" cloud contain three types of checks IIUC:\n1- checks of relevant checkers.\n2- checks of non-relevant checkers (still for the change\u0027s project)\n3- checks of checkers which are not for the change\u0027s project.\n\nNow we loop on checkers of a projet, we it may contain \"1-\" and \"2-\". I think that fix (below) will still add \"2-\" right? It doesn\u0027t work because the checkers we are looping may not be related with the current change.\n\n   for (Map.Entry\u003cString, Checker\u003e entry : allCheckersOfProject.entrySet()) {\n      String checkerUuid \u003d entry.getKey();\n      Checker checker \u003d entry.getValue();\n      checkArgument(checker.getStatus() \u003d\u003d CheckerStatus.ENABLED, \"checker is disabled\");\n\n      // DO NOT SUBMIT: fix in https://gerrit-review.googlesource.com/c/plugins/checks/+/218298\n      Check possiblyBackfilledCheck \u003d checks.get(checkerUuid);\n      if (possiblyBackfilledCheck !\u003d null) {\n        statesAndRequired.put(possiblyBackfilledCheck.state(), checker.isRequired());\n      }\n    }\n\n\u003e Actually, maybe the logic would be easier to follow if we just invert the loop and iterate over checks instead of the checker IDs:\n\u003e \n\u003e  ImmutableList\u003cCheck\u003e checks \u003d getChecks(project, psId, withBackfilling());\n\u003e  for (Check check : checks) {\n\u003e    Checker checker \u003d allCheckersOfProject.get(check.key().checkerUuid());\n\u003e    if (checker !\u003d null) {\n\u003e      statesAndRequired.put(check.state(), checker.isRequired());\n\u003e    }\n\u003e  }\n\u003e \n\u003e IOW, put one entry in statesInRequired for each entry in checks. That seems much simpler. Am I missing something?\n\nThis looks also fine for me except it still needs a check for whether a checker is relevant or not. A check present on a change doesn\u0027t mean it\u0027s relevant to the change.",
+      "parentUuid": "3554afff_be1e7136",
+      "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
