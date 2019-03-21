@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "100170a2_19d3af90",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-21T14:46:19Z",
+      "side": 1,
+      "message": "Without looking at the implementation, I was not sure what this method is doing, especially since line 130 already contains a \"queryMatchingChangesFor\" method with a checker as input. Would \"getPostFilteredPendingChecks\" (or something similar without \"matching\") also work for you?",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 30
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950210e7_40f6a7f3",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-21T14:46:19Z",
+      "side": 1,
+      "message": "Except for the project part, this seems to be a lot of duplicate code/logic with the one in CheckBackfiller. Could we move this to a more general location maybe and have both options (with and without project part)? I\u0027m also fine if we consolidate the code in a separate change.",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 5
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe602d8_144854c3",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-21T14:46:19Z",
+      "side": 1,
+      "message": "This should be\n\n  checks.getCheck(CheckKey.create(project, patchSetId, checkerUuid))\n\nThus, we can optimize how an individual check is loaded in the implementation of Checks.",
+      "range": {
+        "startLine": 187,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 25
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "594caf67_a82cffdf",
+        "filename": "java/com/google/gerrit/plugins/checks/testing/PendingChecksInfoSubject.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-21T14:46:19Z",
+      "side": 1,
+      "message": "Here and above: The new, better way of doing this is\n\n  check(\"pendingChecks()\").that(pendingChecks).isNotNull();\n\nThis new approach has the benefit that it retains the FailureStrategy and can lead to a more helpful failure message (e.g. combines \u0027name\u0027 parts for a several chained subjects and hence provides more context).\n\nWe are using the pattern of Truth.assertThat(..) everywhere else in custom Truth subjects as the check() method didn\u0027t exist in the past. I\u0027ll try to migrate those occurrences.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 62
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0192e70_fae4749a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListPendingChecksIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-21T14:46:19Z",
+      "side": 1,
+      "message": "Thanks for adding all these comprehensive and easy to understand tests.",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
