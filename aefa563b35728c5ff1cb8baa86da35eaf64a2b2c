@@ -34,6 +34,24 @@
       "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6467cfc3_85e2b6d3",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-21T16:31:52Z",
+      "side": 1,
+      "message": "\u003e I think this could be a better solution and avoid unnecessary duplicate logic. But it\u0027s a little bit more code and we need some additional tests. How do you think?\n\nI think it is not acceptable from a performance and consistency standpoint to run the same query twice to service a single request. But...\n\n\u003e It doesn\u0027t work because the checkers we are looping may not be related with the current change.\n\n\u003e This looks also fine for me except it still needs a check for whether a checker is relevant or not. A check present on a change doesn\u0027t mean it\u0027s relevant to the change.\n\nWhy do we need to exclude checkers that are not relevant? I thought we were explicitly planning to allow checkers to post checks on changes even if they are not relevant according to the query.",
+      "parentUuid": "d7a24daf_b9b7906a",
+      "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
