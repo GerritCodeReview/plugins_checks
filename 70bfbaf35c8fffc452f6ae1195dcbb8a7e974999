@@ -16,6 +16,24 @@
       "revId": "70bfbaf35c8fffc452f6ae1195dcbb8a7e974999",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa30825_a20e488c",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckBackfiller.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-21T16:14:46Z",
+      "side": 1,
+      "message": "Yes. It\u0027s removed in the child commit. But I can also do here if you want.",
+      "parentUuid": "c2737049_98ac1e53",
+      "revId": "70bfbaf35c8fffc452f6ae1195dcbb8a7e974999",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
