@@ -52,6 +52,24 @@
       "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eb8ed1d_4242b41c",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-21T17:11:44Z",
+      "side": 1,
+      "message": "Per IM with Alice, all checks in cases 1, 2, and 3 should be combined. The difference is that we should never consider cases 2 and 3 checks as required.\n\n(Ideally, the return value of #getChecks would include a \"required\" bit so we don\u0027t have to duplicate this logic here and in ListChecks in the REST API.)",
+      "parentUuid": "6467cfc3_85e2b6d3",
+      "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
