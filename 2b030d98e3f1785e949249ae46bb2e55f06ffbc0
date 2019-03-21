@@ -16,6 +16,24 @@
       "revId": "2b030d98e3f1785e949249ae46bb2e55f06ffbc0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d495d0_16b78ef8",
+        "filename": "proto/cache.proto",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-21T16:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "017ec31b_e9ec5d78",
+      "revId": "2b030d98e3f1785e949249ae46bb2e55f06ffbc0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
