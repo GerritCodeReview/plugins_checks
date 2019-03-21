@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fff6a321_d0e9043d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-21T16:10:15Z",
+      "side": 1,
+      "message": "Sure, thanks for the name proposal.\n\nDone.",
+      "parentUuid": "100170a2_19d3af90",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 30
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950210e7_40f6a7f3",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4396b1a_fad515d5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-21T16:10:15Z",
+      "side": 1,
+      "message": "Yes, I was planning to do this as follow-up, but since in the meantime Changcheng moved that logic into the Checker class, I can move this code there too and eliminate the code duplication.\n\nI think including the project predicate always doesn\u0027t do much harm and allows us to avoid an extra case for this.",
+      "parentUuid": "950210e7_40f6a7f3",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 5
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9bb04132_db643266",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-21T16:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fe602d8_144854c3",
+      "range": {
+        "startLine": 187,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 25
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "594caf67_a82cffdf",
         "filename": "java/com/google/gerrit/plugins/checks/testing/PendingChecksInfoSubject.java",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cba94419_8c4e5120",
+        "filename": "java/com/google/gerrit/plugins/checks/testing/PendingChecksInfoSubject.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-21T16:10:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "594caf67_a82cffdf",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 62
+      },
+      "revId": "e9d727c1dfe074ce9d74671935d51cf2a48ccf52",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
