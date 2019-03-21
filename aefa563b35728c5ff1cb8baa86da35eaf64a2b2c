@@ -70,6 +70,24 @@
       "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6a412b8_05315a08",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-21T18:17:06Z",
+      "side": 1,
+      "message": "Ack\n\n\u003e I think it is not acceptable from a performance and consistency standpoint to run the same query twice to service a single request. But...\n\nLet\u0027s go with this one. I will do a follow-up change to improve.",
+      "parentUuid": "1eb8ed1d_4242b41c",
+      "revId": "aefa563b35728c5ff1cb8baa86da35eaf64a2b2c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
