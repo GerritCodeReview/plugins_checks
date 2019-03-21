@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d970797_0df093d1",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-21T18:20:08Z",
+      "side": 1,
+      "message": "I\u0027m thinking this should rather be part of \"Checker#isCheckerRelevant\".",
+      "range": {
+        "startLine": 163,
+        "startChar": 10,
+        "endLine": 163,
+        "endChar": 54
+      },
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
