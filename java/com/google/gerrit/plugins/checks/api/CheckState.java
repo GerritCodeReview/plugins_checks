@@ -14,6 +14,10 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.gerrit.common.Nullable;
+import java.util.Locale;
+import java.util.Optional;
+
 /**
  * State of a single check on a change.
  *
@@ -55,6 +59,18 @@ public enum CheckState {
 
   /** The check is not relevant for the change. */
   NOT_RELEVANT(false);
+
+  public static Optional<CheckState> tryParse(@Nullable String checkState) {
+    if (checkState == null) {
+      return Optional.empty();
+    }
+
+    try {
+      return Optional.of(CheckState.valueOf(checkState.toUpperCase(Locale.US)));
+    } catch (IllegalArgumentException e) {
+      return Optional.empty();
+    }
+  }
 
   private final boolean inProgress;
 
