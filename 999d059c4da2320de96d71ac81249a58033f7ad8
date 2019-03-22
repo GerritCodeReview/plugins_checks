@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36652233_cbed02b7",
+        "filename": "java/com/google/gerrit/plugins/checks/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-22T14:21:24Z",
+      "side": 1,
+      "message": "Should this be\n\n  DynamicSet.bind(binder(), ChangeCheckAttributeFactory.class)\n\nnow?",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 47
+      },
+      "revId": "999d059c4da2320de96d71ac81249a58033f7ad8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
