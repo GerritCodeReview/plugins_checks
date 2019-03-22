@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d26ad2c5_8d7af7b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Does this include the change ID for you as well?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 16
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea57ccc9_5599ef78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "There\u0027s one code path which is currently not covered via ChecksSubmitRule#evaluate.",
+      "range": {
+        "startLine": 24,
+        "startChar": 41,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fedae67_d2d4db00",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Optional: Just for my education, why is the proto reference here and not in checks-deps-neverlink?",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82c5ba10_d85497b2",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Do we have a test which ensures that we don\u0027t do too many writes?",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 31
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a098e40_4b79bebb",
+        "filename": "java/com/google/gerrit/plugins/checks/Module.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Does this automatically work for GetDetail as well?",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40d8e968_2177b133",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ChangeCheckAttributeFactory.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Optional: opts can never be null as line 56 would already catch it.",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 20
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a6b67d2_4fdd358d",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Do you think that this is fast enough (even for a high rate of updates), so that\n1) we can do in synchronously as currently and that\n2) we always recompute the combined state from scratch? (Alternatively, we could compare the state of the check with the old combined check state and only do the reload if something would change.)",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 7
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "502580b4_3662a884",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChangeCheckInfoIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-22T17:30:05Z",
+      "side": 1,
+      "message": "Updates",
+      "range": {
+        "startLine": 157,
+        "startChar": 32,
+        "endLine": 157,
+        "endChar": 38
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
