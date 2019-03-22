@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "6f5aeaed_4e9ea46e",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T17:49:43Z",
+      "side": 1,
+      "message": "tl;dr neverlink is like provided deps in Maven.\n\nNormally (neverlink\u003dFalse), Bazel will put the .class files corresponding to all transitive java_library deps into the jar produced by a java_binary target (which is what a gerrit_plugin is). We don\u0027t want to do that for deps that we know are already in gerrit.war, because then we would have identical (or worse, non-identical) class files in both gerrit.war and checks.jar. By setting neverlink\u003dTrue, we tell Bazel that any transitive deps that only come in via this library should not have their class files in the resulting java_binary.\n\nFor cache_java_proto, obviously we do want the .class files built from the generated proto .java files, because they\u0027re not part of core.\n\nI would be fine renaming the neverlink target to something more transparent; I was just following the naming convention of other neverlink targets in core (which are also probably confusing).\n\n(By the way, you might be wondering why this is the *only* non-neverlink dep, i.e. why we don\u0027t define smaller libraries in BUILD files under plugins/checks/java/com/google/gerrit/plugins/checks/.... The answer is I tried that, but then there were no srcs in gerrit_plugin itself, and I couldn\u0027t figure out how to make the gerrit_plugin macro work with only deps and no srcs: I1d1eab716. There\u0027s probably a middle ground, e.g. non-recursively glob jcgg/plugins/checks/*.java in this BUILD file and allow for other subpackages, but I was tired of writing BUILD rules.)",
+      "parentUuid": "5fedae67_d2d4db00",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82c5ba10_d85497b2",
         "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
         "patchSetId": 7
