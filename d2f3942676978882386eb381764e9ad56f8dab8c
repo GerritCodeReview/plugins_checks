@@ -22,6 +22,81 @@
       "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa137300_546ec937",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T14:03:15Z",
+      "side": 1,
+      "message": "I agree but I think it\u0027s ok to do as a later cleanup (especially because Edwin has a series depending on your change).",
+      "parentUuid": "1d970797_0df093d1",
+      "range": {
+        "startLine": 163,
+        "startChar": 10,
+        "endLine": 163,
+        "endChar": 54
+      },
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ba7e798_86c8a516",
+        "filename": "javatests/com/google/gerrit/plugins/checks/CheckerDefinitionTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T14:03:15Z",
+      "side": 1,
+      "message": "Optional: you could add another test with something like:\n\n assertThat(BlockingCondition.values()).containsExactly(STATE_NOT_PASSING);\n\nThat way if someone forgets to adapt the implementation of isRequired when adding a new BlockingCondition, we will find out early due to a test failure, rather than at runtime with an ISE.",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbf42e70_2dc8a752",
+        "filename": "javatests/com/google/gerrit/plugins/checks/CheckerDefinitionTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T14:03:15Z",
+      "side": 1,
+      "message": "You can remove this, it\u0027s always overridden in test methods.",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07c89a36_64578300",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/db/GetCombinedCheckStateIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T14:03:15Z",
+      "side": 1,
+      "message": "Why does this test need to create a new project? Wouldn\u0027t checks.getCombinedCheckState(project, patchSetId) also return NOT_RELEVANT since no checkers exist?",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
