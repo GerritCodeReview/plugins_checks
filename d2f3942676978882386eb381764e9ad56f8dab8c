@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "9ce06e37_ff394925",
+        "filename": "javatests/com/google/gerrit/plugins/checks/CheckerDefinitionTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-22T14:15:37Z",
+      "side": 1,
+      "message": "sg",
+      "parentUuid": "4ba7e798_86c8a516",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbf42e70_2dc8a752",
         "filename": "javatests/com/google/gerrit/plugins/checks/CheckerDefinitionTest.java",
         "patchSetId": 8
@@ -83,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "289a77cf_8bff4bcf",
+        "filename": "javatests/com/google/gerrit/plugins/checks/CheckerDefinitionTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-22T14:15:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf42e70_2dc8a752",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07c89a36_64578300",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/db/GetCombinedCheckStateIT.java",
         "patchSetId": 8
@@ -97,6 +133,24 @@
       "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdcbf730_60a04e65",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/db/GetCombinedCheckStateIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-22T14:15:37Z",
+      "side": 1,
+      "message": "No, I don\u0027t. I added this because originally we created a checker and a check in the setup.",
+      "parentUuid": "07c89a36_64578300",
+      "revId": "d2f3942676978882386eb381764e9ad56f8dab8c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
