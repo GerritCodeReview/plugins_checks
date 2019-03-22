@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "c41ffc0a_8ef26c80",
+        "filename": "java/com/google/gerrit/plugins/checks/Module.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T17:59:26Z",
+      "side": 1,
+      "message": "Yes, the plugin tests enforce this:\n\nhttps://gerrit.googlesource.com/gerrit/+/633b812c5836f493ce37aa30901fca8c80861471/javatests/com/google/gerrit/acceptance/rest/change/PluginFieldsIT.java#65\n\n(But it\u0027s possible I forgot to document it in the actual plugin docs.)",
+      "parentUuid": "4a098e40_4b79bebb",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40d8e968_2177b133",
         "filename": "java/com/google/gerrit/plugins/checks/api/ChangeCheckAttributeFactory.java",
         "patchSetId": 7
@@ -175,6 +199,30 @@
       "writtenOn": "2019-03-22T17:30:05Z",
       "side": 1,
       "message": "Do you think that this is fast enough (even for a high rate of updates), so that\n1) we can do in synchronously as currently and that\n2) we always recompute the combined state from scratch? (Alternatively, we could compare the state of the check with the old combined check state and only do the reload if something would change.)",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 7
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3034b7_fc71eb0e",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-22T17:59:26Z",
+      "side": 1,
+      "message": "I considered doing it async in the fanout injector but decided it sounded like premature optimization. I can still do it if you\u0027re concerned.\n\nI could also add a metric to reload so we can measure the cost. (We already have a cache metric for the average load time when LoadingCache invokes the loader, but a) it\u0027s not a histogram, and b) reload doesn\u0027t call LoadingCache#get so it won\u0027t record the metric.)",
+      "parentUuid": "1a6b67d2_4fdd358d",
       "range": {
         "startLine": 215,
         "startChar": 6,
