@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "cc6dfc33_262ad2d6",
+        "filename": "BUILD",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-25T09:51:45Z",
+      "side": 1,
+      "message": "Thank you for the explanation. :-)",
+      "parentUuid": "6f5aeaed_4e9ea46e",
+      "range": {
+        "startLine": 24,
+        "startChar": 8,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82c5ba10_d85497b2",
         "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
         "patchSetId": 7
@@ -223,6 +247,30 @@
       "side": 1,
       "message": "I considered doing it async in the fanout injector but decided it sounded like premature optimization. I can still do it if you\u0027re concerned.\n\nI could also add a metric to reload so we can measure the cost. (We already have a cache metric for the average load time when LoadingCache invokes the loader, but a) it\u0027s not a histogram, and b) reload doesn\u0027t call LoadingCache#get so it won\u0027t record the metric.)",
       "parentUuid": "1a6b67d2_4fdd358d",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 219,
+        "endChar": 7
+      },
+      "revId": "fccd52270661ed2850ac0e9cd3f637b514d90fb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46426258_6234ec7e",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecksUpdate.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-25T09:51:45Z",
+      "side": 1,
+      "message": "A metric for reload would be good.",
+      "parentUuid": "fe3034b7_fc71eb0e",
       "range": {
         "startLine": 215,
         "startChar": 6,
