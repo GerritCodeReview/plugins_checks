@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "949f5876_64f866d2",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-25T10:32:16Z",
+      "side": 1,
+      "message": "FYI: This is actually checking more than is necessary (which would be that the check exists for that checker). Since the other tests in this class use the same assertion approach, I\u0027m fine with doing it this way for this test (but we should consider to change the other tests in a separate change since checking too much makes tests flaky, hard to read, and difficult to maintain.)",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 78
+      },
+      "revId": "c427358828ea6d576a48b9c19958476f1d313ce0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
