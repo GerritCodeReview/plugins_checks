@@ -46,6 +46,30 @@
       "revId": "a42d8799a31d39ee107c4e39df022847a4c30826",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45bff79a_bd70c853",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckerIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-03-25T09:29:17Z",
+      "side": 1,
+      "message": "Sounds good. :-)",
+      "parentUuid": "bc52c898_62295f91",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 57
+      },
+      "revId": "a42d8799a31d39ee107c4e39df022847a4c30826",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
