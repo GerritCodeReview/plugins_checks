@@ -187,7 +187,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void addCheckerDescription() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.description = "A description.";
@@ -202,8 +202,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateCheckerDescription() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").description("A description.").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().description("A description.").create();
 
     CheckerInput input = new CheckerInput();
     input.description = "A new description.";
@@ -218,8 +217,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void unsetCheckerDescription() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").description("A description.").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().description("A description.").create();
 
     CheckerInput checkerInput = new CheckerInput();
     checkerInput.description = "";
@@ -234,7 +232,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void checkerDescriptionIsTrimmed() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.description = " A description. ";
@@ -249,7 +247,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void addCheckerUrl() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.url = "http://example.com/my-checker";
@@ -265,11 +263,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
   @Test
   public void updateCheckerUrl() throws Exception {
     CheckerUuid checkerUuid =
-        checkerOperations
-            .newChecker()
-            .name("my-checker")
-            .url("http://example.com/my-checker")
-            .create();
+        checkerOperations.newChecker().url("http://example.com/my-checker").create();
 
     CheckerInput input = new CheckerInput();
     input.url = "http://example.com/my-checker-foo";
@@ -285,11 +279,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
   @Test
   public void unsetCheckerUrl() throws Exception {
     CheckerUuid checkerUuid =
-        checkerOperations
-            .newChecker()
-            .name("my-checker")
-            .url("http://example.com/my-checker")
-            .create();
+        checkerOperations.newChecker().url("http://example.com/my-checker").create();
 
     CheckerInput checkerInput = new CheckerInput();
     checkerInput.url = "";
@@ -304,7 +294,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void checkerUrlIsTrimmed() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.url = " http://example.com/my-checker ";
@@ -319,8 +309,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateRepository() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(allProjects).create();
 
     Project.NameKey repositoryName = projectOperations.newProject().create();
 
@@ -377,7 +366,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void cannotSetUrlToInvalidUrl() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.url = CheckerTestData.INVALID_URL;
@@ -388,8 +377,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void disableAndReenable() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(allProjects).create();
     assertThat(checkerOperations.checkersOf(allProjects)).containsExactly(checkerUuid);
 
     CheckerInput input = new CheckerInput();
@@ -408,8 +396,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateRepositoryDuringDisable() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(allProjects).create();
 
     Project.NameKey repositoryName = projectOperations.newProject().create();
 
@@ -425,8 +412,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateRepositoryDuringEnable() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(allProjects).create();
 
     Project.NameKey repositoryName = projectOperations.newProject().create();
     assertThat(checkerOperations.checkersOf(allProjects)).containsExactly(checkerUuid);
@@ -451,22 +437,17 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateCheckerWithBlockingConditions() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
-    input.name = "my-checker";
-    input.repository = allProjects.get();
     input.blockingConditions = ImmutableSet.of(BlockingCondition.STATE_NOT_PASSING);
-
     CheckerInfo info = checkersApi.id(checkerUuid).update(input);
     assertThat(info.blocking).containsExactly(BlockingCondition.STATE_NOT_PASSING);
   }
 
   @Test
   public void updateQuery() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.query = "f:foo";
@@ -483,8 +464,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateWithEmptyQueryAfterTrimClearsQuery() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     CheckerInput input = new CheckerInput();
     input.query = "f:foo";
@@ -501,8 +481,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateWithUnsupportedOperatorInQuery() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
     Optional<String> oldQuery = checkerOperations.checker(checkerUuid).get().getQuery();
 
     CheckerInput input = new CheckerInput();
@@ -521,8 +500,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateWithInvalidQuery() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations.newChecker().name("my-checker").repository(allProjects).create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
     Optional<String> oldQuery = checkerOperations.checker(checkerUuid).get().getQuery();
 
     CheckerInput input = new CheckerInput();
@@ -553,7 +531,7 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void updateCheckerWithoutAdministrateCheckersCapabilityFails() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().name("my-checker").create();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
     requestScopeOperations.setApiUser(user.getId());
 
