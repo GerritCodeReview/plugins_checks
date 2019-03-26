@@ -58,7 +58,7 @@ public class GetCheckerIT extends AbstractCheckersTest {
   @Test
   public void getCheckerReturnsUuid() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
-    assertThat(getCheckerInfo(checkerUuid).uuid).isEqualTo(checkerUuid.toString());
+    assertThat(getCheckerInfo(checkerUuid).uuid).isEqualTo(checkerUuid.get());
   }
 
   @Test
