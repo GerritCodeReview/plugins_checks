@@ -283,9 +283,19 @@ public class CheckerConfig extends VersionedMetaData {
     commit.setAuthor(new PersonIdent(commit.getAuthor(), commitTimestamp));
     commit.setCommitter(new PersonIdent(commit.getCommitter(), commitTimestamp));
 
-    Checker.Builder checker = updateChecker(commitTimestamp);
+    Config oldConfig = copyOrElseNew(loadedConfig);
+    Config newConfig = copyOrElseNew(loadedConfig);
+
+    Checker.Builder checker = updateChecker(newConfig, commitTimestamp);
+
+    if (oldConfig.toText().equals(newConfig.toText())) {
+      // Don't create a new commit if nothing was changed.
+      return false;
+    }
+
     updatedCheckerBuilder = Optional.of(checker);
     checkerUuid = Optional.of(checker.getUuid());
+    loadedConfig = Optional.of(newConfig);
 
     String commitMessage = createCommitMessage(loadedChecker);
     commit.setMessage(commitMessage);
@@ -293,7 +303,6 @@ public class CheckerConfig extends VersionedMetaData {
     checkerCreation = Optional.empty();
     checkerUpdate = Optional.empty();
 
-    // TODO(ekempin): Don't create a new commit if nothing was changed.
     return true;
   }
 
@@ -327,15 +336,14 @@ public class CheckerConfig extends VersionedMetaData {
     return Optional.empty();
   }
 
-  private Checker.Builder updateChecker(Timestamp commitTimestamp)
+  private Checker.Builder updateChecker(Config config, Timestamp commitTimestamp)
       throws IOException, ConfigInvalidException {
-    Config config = updateCheckerProperties();
+    updateCheckerProperties(config);
     Timestamp created = loadedChecker.map(Checker::getCreated).orElse(commitTimestamp);
     return createBuilderFrom(config, created, commitTimestamp);
   }
 
-  private Config updateCheckerProperties() throws IOException {
-    Config config = loadedConfig.orElseGet(Config::new);
+  private void updateCheckerProperties(Config config) throws IOException {
     checkerCreation.ifPresent(
         checkerCreation ->
             Arrays.stream(CheckerConfigEntry.values())
@@ -345,8 +353,6 @@ public class CheckerConfig extends VersionedMetaData {
             Arrays.stream(CheckerConfigEntry.values())
                 .forEach(configEntry -> configEntry.updateConfigValue(config, checkerUpdate)));
     saveConfig(CHECKER_CONFIG_FILE, config);
-    loadedConfig = Optional.of(config);
-    return config;
   }
 
   private Checker.Builder createBuilderFrom(Config config, Timestamp created, Timestamp updated)
@@ -374,5 +380,15 @@ public class CheckerConfig extends VersionedMetaData {
 
   private static String createCommitMessage(Optional<Checker> originalChecker) {
     return originalChecker.isPresent() ? "Update checker" : "Create checker";
+  }
+
+  private static Config copyOrElseNew(Optional<Config> config) throws ConfigInvalidException {
+    return config.isPresent() ? copyConfig(config.get()) : new Config();
+  }
+
+  private static Config copyConfig(Config config) throws ConfigInvalidException {
+    Config copiedConfig = new Config();
+    copiedConfig.fromText(config.toText());
+    return copiedConfig;
   }
 }
