@@ -35,8 +35,10 @@ public class PendingChecksInfoSubject extends Subject<PendingChecksInfoSubject, 
     super(metadata, actual);
   }
 
-  public void hasProject(Project.NameKey expectedProject) {
-    check("patchSet().project()").that(patchSet().project).isEqualTo(expectedProject.get());
+  public void hasRepository(Project.NameKey expectedRepository) {
+    check("patchSet().repository()")
+        .that(patchSet().repository)
+        .isEqualTo(expectedRepository.get());
   }
 
   public void hasPatchSet(PatchSet.Id expectedPatchSetId) {

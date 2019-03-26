@@ -21,14 +21,14 @@ import com.google.gerrit.reviewdb.client.Project;
 /** Fields to identify a check. */
 @AutoValue
 public abstract class CheckKey {
-  public abstract Project.NameKey project();
+  public abstract Project.NameKey repository();
 
   public abstract PatchSet.Id patchSet();
 
   public abstract CheckerUuid checkerUuid();
 
   public static CheckKey create(
-      Project.NameKey project, PatchSet.Id patchSet, CheckerUuid checkerUuid) {
-    return new AutoValue_CheckKey(project, patchSet, checkerUuid);
+      Project.NameKey repository, PatchSet.Id patchSet, CheckerUuid checkerUuid) {
+    return new AutoValue_CheckKey(repository, patchSet, checkerUuid);
   }
 }
