@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1edc4054_5cb2eecf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "Isn\u0027t \"pending\" just another predicate that we can apply to a check? Why not go all the way and make this /checks~checks/?q\u003dchecker:\u003cuuid\u003e+state:\u003cstate\u003e+is:pending?",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9cd0bcc_c525c68b",
+        "filename": "java/com/google/gerrit/plugins/checks/Check.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "ChangeData is a pretty heavyweight dependency, can this just take a Project.NameKey?",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0714ea87_7fe8942e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckState.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "return Enums.getIfPresent(CheckState.class, checkState).toJavaUtil()\n\nAlthough depending on how many callers there are, you may just want to inline the method.",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f331c655_f6717e88",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "Nit: reflow lines.",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "758651a9_d2c1ebe1",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "This doesn\u0027t support queries of the form \"checker:uuid (state:X OR state:Y)\". This was previously supported by passing ?state\u003dX\u0026state\u003dY\n\nCan we loosen the restrictions? I think the only restriction we need is: the top-level predicate must either be CheckerPredicate or AND with a single CheckerPredicate as a direct child. Allow any combination of AND/OR/NOT as children of that top-level AND.",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ff10f7b_33e31fe0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "s/\u003d/:/ here and below",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09305875_c9946baf",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "I don\u0027t think you want to recurse here. This would allow e.g. \"-checker:uuid state:foo\" where the CheckerPredicate is a child of a NotPredicate.",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65376449_9130f54a",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckStatePredicate.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "I would expect this to match the semantics for ChangeStatusPredicate. Ok, maybe we don\u0027t need to do the prefix tree thing, but at the very least support lowercase values.",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34a09e3d_2862c246",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckerPredicate.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:05:14Z",
+      "side": 1,
+      "message": "requireNonNull",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
