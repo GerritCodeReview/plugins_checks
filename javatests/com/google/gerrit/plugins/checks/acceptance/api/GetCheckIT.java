@@ -107,9 +107,9 @@ public class GetCheckIT extends AbstractCheckersTest {
     CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(checkKey).upsert();
 
-    assertThat(getCheckInfo(patchSetId, checkerUuid).checkerUuid).isEqualTo(checkerUuid.toString());
+    assertThat(getCheckInfo(patchSetId, checkerUuid).checkerUuid).isEqualTo(checkerUuid.get());
     assertThat(getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER).checkerUuid)
-        .isEqualTo(checkerUuid.toString());
+        .isEqualTo(checkerUuid.get());
   }
 
   @Test
