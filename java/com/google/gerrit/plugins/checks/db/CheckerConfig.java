@@ -334,8 +334,8 @@ public class CheckerConfig extends VersionedMetaData {
     return createBuilderFrom(config, created, commitTimestamp);
   }
 
-  private Config updateCheckerProperties() throws IOException, ConfigInvalidException {
-    Config config = readConfig(CHECKER_CONFIG_FILE);
+  private Config updateCheckerProperties() throws IOException {
+    Config config = loadedConfig.orElseGet(Config::new);
     checkerCreation.ifPresent(
         checkerCreation ->
             Arrays.stream(CheckerConfigEntry.values())
