@@ -22,6 +22,30 @@
       "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89dfcb6e_84ad0411",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:07:00Z",
+      "side": 1,
+      "message": "\u003e Instead of reading the whole revisionNoteMap for this case, we could try to read the one file directly. That would only work if notes are not sharded\n\nThere\u0027s already an easy way to read a single file from a note map that respects sharding: NoteMap#get. Is there some reason you can\u0027t use that?",
+      "parentUuid": "b47322e0_adb47067",
+      "range": {
+        "startLine": 154,
+        "startChar": 83,
+        "endLine": 154,
+        "endChar": 98
+      },
+      "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
