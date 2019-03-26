@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a874adfc_448f74a7",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-26T17:09:45Z",
+      "side": 1,
+      "message": "This smells like what we really want is two separate classes, where the result of createForSingleRevision doesn\u0027t even have a getAllChecks method.\n\nProbably too much work for now, though.",
+      "revId": "7c8a5193584d1bcfe1905fbe7020834f6ba51bf3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
