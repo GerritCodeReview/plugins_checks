@@ -60,7 +60,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
 
     CheckInfo expected1 = new CheckInfo();
-    expected1.project = checkKey1.project().get();
+    expected1.repository = checkKey1.repository().get();
     expected1.changeNumber = checkKey1.patchSet().getParentKey().get();
     expected1.patchSetId = checkKey1.patchSet().get();
     expected1.checkerUuid = checkKey1.checkerUuid().toString();
@@ -69,7 +69,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     expected1.updated = expected1.created;
 
     CheckInfo expected2 = new CheckInfo();
-    expected2.project = checkKey2.project().get();
+    expected2.repository = checkKey2.repository().get();
     expected2.changeNumber = checkKey2.patchSet().getParentKey().get();
     expected2.patchSetId = checkKey2.patchSet().get();
     expected2.checkerUuid = checkKey2.checkerUuid().toString();
@@ -86,7 +86,7 @@ public class ListChecksIT extends AbstractCheckersTest {
         checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER);
 
     CheckInfo expected1 = new CheckInfo();
-    expected1.project = checkKey1.project().get();
+    expected1.repository = checkKey1.repository().get();
     expected1.changeNumber = checkKey1.patchSet().getParentKey().get();
     expected1.patchSetId = checkKey1.patchSet().get();
     expected1.checkerUuid = checkKey1.checkerUuid().toString();
@@ -97,7 +97,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     expected1.checkerStatus = CheckerStatus.ENABLED;
 
     CheckInfo expected2 = new CheckInfo();
-    expected2.project = checkKey2.project().get();
+    expected2.repository = checkKey2.repository().get();
     expected2.changeNumber = checkKey2.patchSet().getParentKey().get();
     expected2.patchSetId = checkKey2.patchSet().get();
     expected2.checkerUuid = checkKey2.checkerUuid().toString();
@@ -188,7 +188,7 @@ public class ListChecksIT extends AbstractCheckersTest {
 
     Timestamp psCreated = getPatchSetCreated(patchSetId.getParentKey());
     CheckInfo checkInfo3 = new CheckInfo();
-    checkInfo3.project = checkKey3.project().get();
+    checkInfo3.repository = checkKey3.repository().get();
     checkInfo3.changeNumber = checkKey3.patchSet().getParentKey().get();
     checkInfo3.patchSetId = checkKey3.patchSet().get();
     checkInfo3.checkerUuid = checkKey3.checkerUuid().toString();
@@ -208,7 +208,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     CheckInfo checkInfo2 = checkOperations.check(checkKey2).asInfo();
     Timestamp psCreated = getPatchSetCreated(patchSetId.getParentKey());
     CheckInfo checkInfo3 = new CheckInfo();
-    checkInfo3.project = checkKey3.project().get();
+    checkInfo3.repository = checkKey3.repository().get();
     checkInfo3.changeNumber = checkKey3.patchSet().getParentKey().get();
     checkInfo3.patchSetId = checkKey3.patchSet().get();
     checkInfo3.checkerUuid = checkKey3.checkerUuid().toString();
