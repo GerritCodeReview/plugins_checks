@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks.acceptance.api;
 
 import static com.google.common.collect.Iterables.getOnlyElement;
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth8.assertThat;
 import static com.google.gerrit.extensions.client.ListChangesOption.CURRENT_REVISION;
 
 import com.google.common.collect.ImmutableSet;
@@ -32,6 +33,8 @@ import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -57,7 +60,7 @@ public class ListChecksIT extends AbstractCheckersTest {
 
   @Test
   public void listAll() throws Exception {
-    Collection<CheckInfo> info = checksApiFactory.revision(patchSetId).list();
+    Collection<CheckInfo> checks = checksApiFactory.revision(patchSetId).list();
 
     CheckInfo expected1 = new CheckInfo();
     expected1.repository = checkKey1.repository().get();
@@ -77,12 +80,12 @@ public class ListChecksIT extends AbstractCheckersTest {
     expected2.created = checkOperations.check(checkKey2).get().created();
     expected2.updated = expected2.created;
 
-    assertThat(info).containsExactly(expected1, expected2);
+    assertThat(checks).containsExactly(expected1, expected2);
   }
 
   @Test
   public void listAllWithOptions() throws Exception {
-    Collection<CheckInfo> info =
+    Collection<CheckInfo> checks =
         checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER);
 
     CheckInfo expected1 = new CheckInfo();
@@ -108,7 +111,32 @@ public class ListChecksIT extends AbstractCheckersTest {
     expected2.blocking = ImmutableSet.of();
     expected2.checkerStatus = CheckerStatus.ENABLED;
 
-    assertThat(info).containsExactly(expected1, expected2);
+    assertThat(checks).containsExactly(expected1, expected2);
+  }
+
+  @Test
+  public void listAllWithOptionsSkipsPopulatingCheckerFieldsForInvalidCheckers() throws Exception {
+    checkerOperations.checker(checkKey1.checkerUuid()).forUpdate().forceInvalidConfig().update();
+
+    List<CheckInfo> checks = checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER);
+
+    assertThat(checks).hasSize(2);
+
+    Optional<CheckInfo> maybeCheck1 =
+        checks.stream().filter(c -> c.checkerUuid.equals(checkKey1.checkerUuid().get())).findAny();
+    assertThat(maybeCheck1).isPresent();
+    CheckInfo check1 = maybeCheck1.get();
+    assertThat(check1.checkerName).isNull();
+    assertThat(check1.blocking).isNull();
+    assertThat(check1.checkerStatus).isNull();
+
+    Optional<CheckInfo> maybeCheck2 =
+        checks.stream().filter(c -> c.checkerUuid.equals(checkKey2.checkerUuid().get())).findAny();
+    assertThat(maybeCheck2).isPresent();
+    CheckInfo check2 = maybeCheck2.get();
+    assertThat(check2.checkerName).isEqualTo("Checker Two");
+    assertThat(check2.blocking).isEmpty();
+    assertThat(check2.checkerStatus).isEqualTo(CheckerStatus.ENABLED);
   }
 
   @Test
