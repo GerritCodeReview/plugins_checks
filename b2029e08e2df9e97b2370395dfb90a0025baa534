@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5101530e_f5c561d4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:42:38Z",
+      "side": 1,
+      "message": "Not really related to this change, but do these really need to be separate methods? I understand there is some marginal benefit to debugging when the method names more specifically describe the failure, but these tests are relatively slow.\n\nI don\u0027t disagree that comparing the full .asInfo() representation is overkill in the cases you fix below, but maybe just a single test with .asInfo()?\n\nWe also might consider removing PerCheckOperations#asInfo, since it seems like the advice in this change is to avoid using it in general.",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "b2029e08e2df9e97b2370395dfb90a0025baa534",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
