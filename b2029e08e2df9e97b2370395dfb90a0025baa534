@@ -22,6 +22,30 @@
       "revId": "b2029e08e2df9e97b2370395dfb90a0025baa534",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c13ac8b_ddc39a3d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T16:21:41Z",
+      "side": 1,
+      "message": "These separate test methods have been added in [1] after a suggestion from Alice at [2].\n\n\u003e I don\u0027t disagree that comparing the full .asInfo() representation is overkill in the\n\u003e cases you fix below, but maybe just a single test with .asInfo()?\n\nYes, I guess one such test would be good to have. Added it.\n\n[1] https://gerrit-review.googlesource.com/c/plugins/checks/+/218873\n[2] https://gerrit-review.googlesource.com/c/plugins/checks/+/218441/4/javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckerIT.java#55",
+      "parentUuid": "5101530e_f5c561d4",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "b2029e08e2df9e97b2370395dfb90a0025baa534",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
