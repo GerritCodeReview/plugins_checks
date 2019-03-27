@@ -205,6 +205,25 @@ public class GetCheckIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void getCheckWithCheckerOptionReturnsCheckEvenIfCheckerIsInvalid() throws Exception {
+    CheckerUuid checkerUuid =
+        checkerOperations.newChecker().repository(project).name("My Checker").create();
+
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkerOperations.checker(checkerUuid).forUpdate().forceInvalidConfig().update();
+
+    CheckInfo check = getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER);
+    assertThat(check).isNotNull();
+
+    // Checker fields are not set.
+    assertThat(check.checkerName).isNull();
+    assertThat(check.blocking).isNull();
+    assertThat(check.checkerStatus).isNull();
+  }
+
+  @Test
   public void getCheckForCheckerThatDoesNotApplyToTheProject() throws Exception {
     Project.NameKey otherProject = createProjectOverAPI("other", null, true, null);
     CheckerUuid checkerUuid = checkerOperations.newChecker().repository(otherProject).create();
