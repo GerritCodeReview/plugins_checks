@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45f1f8d3_3a7b3306",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:25:17Z",
+      "side": 1,
+      "message": "Optional: do we want to test that PostCheck accepts a completely empty CheckInput?",
+      "revId": "f837e80219c5b23f54759a66d6f5efeb478d4b1c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
