@@ -70,6 +70,30 @@
       "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c9e7a9e_17bb2225",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:46:36Z",
+      "side": 1,
+      "message": "\u003e The point of my comment was that it would be nice if loading the whole NoteMap object wasn\u0027t necessary. Am I missing anything?\n\nNoteMap !\u003d RevisionNoteMap\n\nYes, you have to load the NoteMap in order to call a non-static NoteMap method. You should double-check me here, but I thought that loading a NoteMap only loads the root bucket, it doesn\u0027t eagerly walk the entire tree.\n\nBy contrast, CheckRevisionNoteMap#parseChecks definitely does eagerly parse everything.",
+      "parentUuid": "1dda73f7_481fde0d",
+      "range": {
+        "startLine": 154,
+        "startChar": 83,
+        "endLine": 154,
+        "endChar": 98
+      },
+      "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
