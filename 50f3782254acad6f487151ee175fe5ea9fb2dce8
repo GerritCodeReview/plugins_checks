@@ -16,6 +16,24 @@
       "revId": "50f3782254acad6f487151ee175fe5ea9fb2dce8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb010f1_6db3fd3d",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T15:32:05Z",
+      "side": 1,
+      "message": "Good point. Add a warning in the javadoc.",
+      "parentUuid": "13919e50_0ae19b7e",
+      "revId": "50f3782254acad6f487151ee175fe5ea9fb2dce8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
