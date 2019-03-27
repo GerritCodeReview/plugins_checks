@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa49bb1e_2ed55a52",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T16:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daa08938_9546ed08",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c672ce9a_66957eda",
         "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "25ae2a59_4383b987",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T16:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c672ce9a_66957eda",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "402667ac_659440b2",
         "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ff101bc_f8a4f5d8",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T16:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "402667ac_659440b2",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
