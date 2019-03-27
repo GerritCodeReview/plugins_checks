@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "605f1764_527d70b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T10:49:29Z",
+      "side": 1,
+      "message": "\u003e \u0027is:\u0027 operators will be also added in a follow-up change (I already had planned to add them)\n\nDone in [1,2].\n\n[1] https://gerrit-review.googlesource.com/c/plugins/checks/+/219196\n[2] https://gerrit-review.googlesource.com/c/plugins/checks/+/219197",
+      "parentUuid": "4ef3841f_c2dc6976",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9cd0bcc_c525c68b",
         "filename": "java/com/google/gerrit/plugins/checks/Check.java",
         "patchSetId": 4
