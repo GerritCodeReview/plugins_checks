@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "a2a6ad2d_ed4a2693",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:54:27Z",
+      "side": 1,
+      "message": "Ack, I wasn\u0027t thinking about the return type.",
+      "parentUuid": "605f1764_527d70b9",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9cd0bcc_c525c68b",
         "filename": "java/com/google/gerrit/plugins/checks/Check.java",
         "patchSetId": 4
@@ -213,6 +231,24 @@
     },
     {
       "key": {
+        "uuid": "3cfdd25c_e6af275f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:54:27Z",
+      "side": 1,
+      "message": "Huh. I think I thought validateQuery was recursive or something.",
+      "parentUuid": "f360d3f0_840632da",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ff10f7b_33e31fe0",
         "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
         "patchSetId": 4
@@ -277,6 +313,24 @@
       "side": 1,
       "message": "That\u0027s intended. This method is supposed to count checker predicates in the query, no matter on which level they appears. This method is only used ensure that a query contains exactly 1 checker predicate. That this one checker predicate appears in the right place is then validated by the other conditions in the validateQuery method.",
       "parentUuid": "09305875_c9946baf",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b48c8f10_40fc0157",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ListPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:54:27Z",
+      "side": 1,
+      "message": "Maybe add a comment that this method isn\u0027t intended to validate that checker predicates appear in any particular location?",
+      "parentUuid": "dde11130_e399cbfa",
       "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
