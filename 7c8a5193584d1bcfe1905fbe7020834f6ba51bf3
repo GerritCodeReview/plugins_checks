@@ -16,6 +16,24 @@
       "revId": "7c8a5193584d1bcfe1905fbe7020834f6ba51bf3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df5e90f_2955199b",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T11:08:11Z",
+      "side": 1,
+      "message": "Let me do this as a follow-up change. Actually for now I would just drop the logic to get all checks as there is currently no use for it. If we need it later, we can then add a separate class for this.",
+      "parentUuid": "a874adfc_448f74a7",
+      "revId": "7c8a5193584d1bcfe1905fbe7020834f6ba51bf3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

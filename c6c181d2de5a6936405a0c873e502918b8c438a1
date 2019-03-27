@@ -46,6 +46,30 @@
       "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dda73f7_481fde0d",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T11:08:11Z",
+      "side": 1,
+      "message": "There is no static NoteMap#get method which allows me to directly read a single note. This means we first have to load the whole NoteMap object and then we can use the get method on that instance to get the one note. This is exactly what we are doing here (well inside of CheckRevisionNoteMap#parseChecksForSingleRevision). The point of my comment was that it would be nice if loading the whole NoteMap object wasn\u0027t necessary. Am I missing anything?",
+      "parentUuid": "89dfcb6e_84ad0411",
+      "range": {
+        "startLine": 154,
+        "startChar": 83,
+        "endLine": 154,
+        "endChar": 98
+      },
+      "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
