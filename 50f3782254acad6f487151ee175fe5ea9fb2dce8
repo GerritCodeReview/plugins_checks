@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13919e50_0ae19b7e",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:21:25Z",
+      "side": 1,
+      "message": "This only works assuming that config has no base. It would be nice if we could fail fast if something changes such that that assumption is violated. (ProjectConfig recently changed in exactly this way.) But unfortunately I don\u0027t think Config exposes this fact. So I dunno, maybe leave a comment?",
+      "revId": "50f3782254acad6f487151ee175fe5ea9fb2dce8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
