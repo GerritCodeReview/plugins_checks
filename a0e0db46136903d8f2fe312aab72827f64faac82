@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4ef3841f_c2dc6976",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T09:23:01Z",
+      "side": 1,
+      "message": "\u003e I agree, I will rename the REST endpoint in a follow-up change.\n\nOn a second thought I think it\u0027s maybe better to keep this as dedicated endpoint for pending checks. I think so because the response JSON was especially designed to support the list pending checks use case (e.g. it\u0027s extensible so that we can return additional change data in future). If we think about a general Query Checks endpoint the result would be rather a list of plain CheckInfo\u0027s. \n\nNow as I talked with Alice about this, we think we had this discussion before and that was the reason why we went for \u0027checks.pending\u0027 rather than just \u0027checks\u0027.",
+      "parentUuid": "865a2cd2_02d9d862",
+      "revId": "a0e0db46136903d8f2fe312aab72827f64faac82",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9cd0bcc_c525c68b",
         "filename": "java/com/google/gerrit/plugins/checks/Check.java",
         "patchSetId": 4
