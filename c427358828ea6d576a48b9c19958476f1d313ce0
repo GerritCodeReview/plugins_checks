@@ -46,6 +46,30 @@
       "revId": "c427358828ea6d576a48b9c19958476f1d313ce0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e3d432f_050f926f",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-27T14:02:45Z",
+      "side": 1,
+      "message": "For GetCheckIT done in https://gerrit-review.googlesource.com/c/plugins/checks/+/219205",
+      "parentUuid": "9bfd6758_11c41485",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 78
+      },
+      "revId": "c427358828ea6d576a48b9c19958476f1d313ce0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
