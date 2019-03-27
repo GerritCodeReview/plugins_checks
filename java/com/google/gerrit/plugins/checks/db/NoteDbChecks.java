@@ -30,6 +30,7 @@ import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
+import com.google.gerrit.plugins.checks.api.CombinedCheckState.CheckStateCount;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.PatchSet.Id;
 import com.google.gerrit.reviewdb.client.Project;
@@ -132,6 +133,22 @@ class NoteDbChecks implements Checks {
   @Override
   public CombinedCheckState getCombinedCheckState(NameKey projectName, Id patchSetId)
       throws IOException, OrmException {
+    ImmutableListMultimap<CheckState, Boolean> statesAndRequired =
+        getStatesAndRequiredMap(projectName, patchSetId);
+    return CombinedCheckState.combine(statesAndRequired);
+  }
+
+  @Override
+  public boolean isAllRequiredCheckersPassing(NameKey projectName, Id patchSetId)
+      throws IOException, OrmException {
+    ImmutableListMultimap<CheckState, Boolean> statesAndRequired =
+        getStatesAndRequiredMap(projectName, patchSetId);
+    CheckStateCount checkStateCount = CheckStateCount.create(statesAndRequired);
+    return checkStateCount.failedRequiredCount() == 0;
+  }
+
+  private ImmutableListMultimap<CheckState, Boolean> getStatesAndRequiredMap(
+      NameKey projectName, Id patchSetId) throws IOException, OrmException {
     ChangeData changeData = changeDataFactory.create(projectName, patchSetId.changeId);
     ImmutableMap<String, Checker> allCheckersOfProject =
         checkers.checkersOf(projectName).stream()
@@ -166,7 +183,7 @@ class NoteDbChecks implements Checks {
       statesAndRequired.put(check.state(), isRequired);
     }
 
-    return CombinedCheckState.combine(statesAndRequired.build());
+    return statesAndRequired.build();
   }
 
   private ImmutableList<Checker> getCheckersForBackfiller(
