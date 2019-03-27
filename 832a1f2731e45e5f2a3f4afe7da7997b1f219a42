@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daa08938_9546ed08",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:33:37Z",
+      "side": 1,
+      "message": "Check that the commit didn\u0027t change?",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c672ce9a_66957eda",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:33:37Z",
+      "side": 1,
+      "message": "Check that commit didn\u0027t change?",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "402667ac_659440b2",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotesTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-03-27T14:33:37Z",
+      "side": 1,
+      "message": "See above; I\u0027m not convinced this makes sense as a standalone test rather than just adding an assertion to the tests that are already testing no-op behavior. If you remove this, you would need to add a separate test for a no-op update.",
+      "revId": "832a1f2731e45e5f2a3f4afe7da7997b1f219a42",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
