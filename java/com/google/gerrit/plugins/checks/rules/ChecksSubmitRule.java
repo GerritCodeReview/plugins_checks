@@ -23,7 +23,6 @@ import com.google.gerrit.common.data.SubmitRequirement;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.plugins.checks.Checks;
-import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
@@ -77,9 +76,9 @@ public class ChecksSubmitRule implements SubmitRule {
       return singletonRecordForRuleError(errorMessage);
     }
 
-    CombinedCheckState combinedCheckState;
+    boolean isAllRequiredCheckersPassing;
     try {
-      combinedCheckState = checks.getCombinedCheckState(project, currentPathSetId);
+      isAllRequiredCheckersPassing = checks.isAllRequiredCheckersPassing(project, currentPathSetId);
     } catch (IOException | OrmException e) {
       String errorMessage =
           String.format("failed to evaluate check states for change %s", changeId);
@@ -88,7 +87,7 @@ public class ChecksSubmitRule implements SubmitRule {
     }
 
     SubmitRecord submitRecord = new SubmitRecord();
-    if (combinedCheckState.isPassing()) {
+    if (isAllRequiredCheckersPassing) {
       submitRecord.status = Status.OK;
       return ImmutableList.of(submitRecord);
     }

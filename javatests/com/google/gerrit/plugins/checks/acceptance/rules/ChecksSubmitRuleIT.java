@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks.acceptance.rules;
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.acceptance.PushOneCommit;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.common.SubmitRequirementInfo;
@@ -79,20 +80,20 @@ public class ChecksSubmitRuleIT extends AbstractCheckersTest {
     assertThat(changeInfo.requirements).isEmpty();
   }
 
-  // @Test
-  // public void enabledCheckerNotBlockingSubmitIfNotRequired() throws Exception {
-  //   CheckerUuid checkerUuid = newRequiredChecker().create();
-  //   postCheckResult(checkerUuid, CheckState.FAILED);
-  //   checkerOperations
-  //       .checker(checkerUuid)
-  //       .forUpdate()
-  //       .blockingConditions(ImmutableSortedSet.of())
-  //       .update();
-  //
-  //   ChangeInfo changeInfo = gApi.changes().id(testChangeId).get();
-  //
-  //   assertThat(changeInfo.submittable).isTrue();
-  // }
+  @Test
+  public void enabledCheckerNotBlockingSubmitIfNotRequired() throws Exception {
+    CheckerUuid checkerUuid = newRequiredChecker().create();
+    postCheckResult(checkerUuid, CheckState.FAILED);
+    checkerOperations
+        .checker(checkerUuid)
+        .forUpdate()
+        .blockingConditions(ImmutableSortedSet.of())
+        .update();
+
+    ChangeInfo changeInfo = gApi.changes().id(testChangeId).get();
+
+    assertThat(changeInfo.submittable).isTrue();
+  }
 
   @Test
   public void enabledCheckerNotBlockingSubmitIfNotInBlockingState() throws Exception {
@@ -130,19 +131,19 @@ public class ChecksSubmitRuleIT extends AbstractCheckersTest {
     assertThat(changeInfo.requirements).containsExactly(SUBMIT_REQUIREMENT_INFO);
   }
 
-  // @Test
-  // public void multipleCheckerNotBlockingSubmit() throws Exception {
-  //   CheckerUuid checkerUuid = newRequiredChecker().create();
-  //   // Two enabled checkers. The one failed doesn't block because it's not required.
-  //   CheckerUuid testCheckerUuidNotRequired =
-  //       newRequiredChecker().blockingConditions(ImmutableSortedSet.of()).create();
-  //   postCheckResult(testCheckerUuidNotRequired, CheckState.FAILED);
-  //   postCheckResult(checkerUuid, CheckState.SUCCESSFUL);
-  //
-  //   ChangeInfo changeInfo = gApi.changes().id(testChangeId).get();
-  //
-  //   assertThat(changeInfo.submittable).isTrue();
-  // }
+  @Test
+  public void multipleCheckerNotBlockingSubmit() throws Exception {
+    CheckerUuid checkerUuid = newRequiredChecker().create();
+    // Two enabled checkers. The one failed doesn't block because it's not required.
+    CheckerUuid testCheckerUuidNotRequired =
+        newRequiredChecker().blockingConditions(ImmutableSortedSet.of()).create();
+    postCheckResult(testCheckerUuidNotRequired, CheckState.FAILED);
+    postCheckResult(checkerUuid, CheckState.SUCCESSFUL);
+
+    ChangeInfo changeInfo = gApi.changes().id(testChangeId).get();
+
+    assertThat(changeInfo.submittable).isTrue();
+  }
 
   private TestCheckerCreation.Builder newRequiredChecker() {
     return checkerOperations
