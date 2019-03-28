@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1023d03_ac051507",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-03-28T08:43:19Z",
+      "side": 1,
+      "message": "Originally, I thought this method could be public and used by other code. But it hasn\u0027t been used. we can also merge it with the \"#combine\" method above.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
