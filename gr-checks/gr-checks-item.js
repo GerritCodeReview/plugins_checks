@@ -42,12 +42,13 @@
      * @param {function(string): !Promise<!Object>} getChecker
      */
     _updateCheckerName(check, getChecker) {
-      const checkerId = check.checker_uuid;
-      getChecker(checkerId).then(
-          checker => checker && checker.description || checkerId,
-          () => checkerId).then(checkerDescription => {
-        this.set('_checkerDescription', checkerDescription);
-      });
+      //const checkerId = check.checker_uuid;
+      this._checkerDescription = check.checker_name;
+      //getChecker(checkerId).then(
+      //    checker => checker && checker.description || checkerId,
+      //    () => checkerId).then(checkerDescription => {
+      //  this.set('_checkerDescription', checkerDescription);
+      //});
     },
 
     /**

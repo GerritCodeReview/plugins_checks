@@ -3,21 +3,22 @@
 const Statuses = window.Gerrit.Checks.Statuses;
 
 const StatusPriorityOrder = [
-  Statuses.INTERNAL_ERROR, Statuses.TIMEOUT, Statuses.FAILURE,
-  Statuses.STATUS_UNKNOWN, Statuses.CANCELLED, Statuses.QUEUED,
-  Statuses.QUEUING, Statuses.WORKING, Statuses.SUCCESS
+  Statuses.INTERNAL_ERROR, Statuses.TIMEOUT, Statuses.FAILED,
+  Statuses.STATUS_UNKNOWN, Statuses.CANCELLED, Statuses.SCHEDULED,
+  Statuses.NOT_STARTED, Statuses.RUNNING, Statuses.SUCCESSFUL
 ];
 
 const HumanizedStatuses = {
   // non-terminal statuses
   STATUS_UNKNOWN: 'unevaluated',
-  QUEUING: 'in progress',
-  QUEUED: 'in progress',
-  WORKING: 'in progress',
+  NOT_STARTED: 'in progress',
+  NOT_RELEVANT: 'not relevant',
+  SCHEDULED: 'in progress',
+  RUNNING: 'in progress',
 
   // terminal statuses
-  SUCCESS: 'successful',
-  FAILURE: 'failed',
+  SUCCESSFUL: 'successful',
+  FAILED: 'failed',
   INTERNAL_ERROR: 'failed',
   TIMEOUT: 'failed',
   CANCELLED: 'unevaluated',
@@ -31,16 +32,6 @@ const Defs = {};
  * }}
  */
 Defs.Change;
-
-/**
- * @param {!Defs.Change} change The current CL.
- * @param {!Object} revision The current patchset.
- * @return {string|undefined}
- */
-function currentRevisionSha(change, revision) {
-  return Object.keys(change.revisions)
-      .find(sha => change.revisions[sha] === revision);
-}
 
 function computeCheckStatuses(checks) {
   return checks.reduce((accum, check) => {
@@ -56,8 +47,7 @@ Polymer({
   properties: {
     revision: Object,
     change: Object,
-    // TODO(brohlfs): Implement getChecks based on new Rest APIs.
-    /** @type {function(string, (string|undefined)): !Promise<!Object>} */
+    /** @type {function(number, number): !Promise<!Object>} */
     getChecks: Function,
     _checkStatuses: Object,
     _hasChecks: Boolean,
@@ -76,14 +66,10 @@ Polymer({
   /**
    * @param {!Defs.Change} change The current CL.
    * @param {!Object} revision The current patchset.
-   * @param {function(string, (string|undefined)): !Promise<!Object>}
-   *     getChecks function to get checks.
+   * @param {function(number, number): !Promise<!Object>} getChecks
    */
   _fetchChecks(change, revision, getChecks) {
-    const repository = change['project'];
-    const gitSha = currentRevisionSha(change, revision);
-
-    getChecks(repository, gitSha).then(checks => {
+    getChecks(change._number, revision._number).then(checks => {
       this.set('_hasChecks', checks.length > 0);
       if (checks.length > 0) {
         this.set(

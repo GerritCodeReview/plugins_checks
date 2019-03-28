@@ -4,20 +4,10 @@
 const Defs = {};
 /**
  * @typedef {{
- *   revisions: !Object<string, !Object>,
+ *   _number: number,
  * }}
  */
 Defs.Change;
-
-/**
- * @param {!Defs.Change} change The current CL.
- * @param {!Object} revision The current patchset.
- * @return {string|undefined}
- */
-function currentRevisionSha(change, revision) {
-  return Object.keys(change.revisions)
-      .find(sha => change.revisions[sha] === revision);
-}
 
 const LoadingStatus = {
   LOADING: 0,
@@ -32,8 +22,7 @@ Polymer({
   properties: {
     revision: Object,
     change: Object,
-    // TODO(brohlfs): Implement getChecks based on Checks Rest API.
-    /** @type {function(string, (string|undefined)): !Promise<!Object>} */
+    /** @type {function(number, number): !Promise<!Object>} */
     getChecks: Function,
     // TODO(brohlfs): Implement isConfigured based on Checks Rest API.
     /** @type {function(string): !Promise<!Object>} */
@@ -61,14 +50,10 @@ Polymer({
   /**
    * @param {!Defs.Change} change The current CL.
    * @param {!Object} revision The current patchset.
-   * @param {function(string, (string|undefined)): !Promise<!Object>}
-   *     getChecks function to get checks.
+   * @param {function(number, number): !Promise<!Object>} getChecks
    */
   _fetchChecks(change, revision, getChecks) {
-    const repository = change['project'];
-    const gitSha = currentRevisionSha(change, revision);
-
-    getChecks(repository, gitSha).then(checks => {
+    getChecks(change._number, revision._number).then(checks => {
       if (checks && checks.length) {
         this.set('_checks', checks);
         this.set('_status', LoadingStatus.RESULTS);

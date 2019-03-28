@@ -8,15 +8,17 @@ window.Gerrit.Checks = (window.Gerrit.Checks || {});
 if (window.Gerrit.Checks.Statuses) return;
 
 const Statuses = {
+
   // non-terminal statuses
   STATUS_UNKNOWN: 'STATUS_UNKNOWN',
-  QUEUING: 'QUEUING',
-  QUEUED: 'QUEUED',
-  WORKING: 'WORKING',
+  NOT_RELEVANT: 'NOT_RELEVANT',
+  NOT_STARTED: 'NOT_STARTED',
+  SCHEDULED: 'SCHEDULED',
+  RUNNING: 'RUNNING',
 
   // terminal statuses
-  SUCCESS: 'SUCCESS',
-  FAILURE: 'FAILURE',
+  SUCCESSFUL: 'SUCCESSFUL',
+  FAILED: 'FAILED',
   INTERNAL_ERROR: 'INTERNAL_ERROR',
   TIMEOUT: 'TIMEOUT',
   CANCELLED: 'CANCELLED',
@@ -29,21 +31,21 @@ function isStatus(status, includedStatuses) {
 
 
 function isUnevaluated(status) {
-  return isStatus(status, [Statuses.STATUS_UNKNOWN, Statuses.CANCELLED]);
+  return isStatus(status, [Statuses.STATUS_UNKNOWN, Statuses.NOT_RELEVANT, Statuses.CANCELLED]);
 }
 
 function isInProgress(status) {
   return isStatus(
-      status, [Statuses.QUEUING, Statuses.QUEUED, Statuses.WORKING]);
+      status, [Statuses.NOT_STARTED, Statuses.SCHEDULED, Statuses.RUNNING]);
 }
 
 function isSuccessful(status) {
-  return isStatus(status, [Statuses.SUCCESS]);
+  return isStatus(status, [Statuses.SUCCESSFUL]);
 }
 
 function isFailed(status) {
   return isStatus(
-      status, [Statuses.FAILURE, Statuses.INTERNAL_ERROR, Statuses.TIMEOUT]);
+      status, [Statuses.FAILED, Statuses.INTERNAL_ERROR, Statuses.TIMEOUT]);
 }
 
 
