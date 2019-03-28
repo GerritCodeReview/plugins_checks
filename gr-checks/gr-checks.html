@@ -5,55 +5,41 @@
 <link rel="import" href="gr-checks-change-list-item-cell-view.html">
 <link rel="import" href="gr-checks-change-list-header-view.html">
 <link rel="import" href="gr-checks-change-view-tab-header-view.html">
-<link rel="import" href="gr-checks-configure-link.html">
 
 <dom-module id="gr-checks">
   <script>
-    const CHECKER = {
-      description: 'sample checker description',
-    };
-    const CHECKS = [
-      {
-        project: 'test-project',
-        change_number: 1,
-        patch_set_id: 1,
-        checker_uuid: 'test:my-checker',
-        state: 'SUCCESS',
-        url: 'https://foo.corp.com/test-checker/results/123',
-        created: '2019-01-31 09:59:32.126000000',
-        updated: '2019-01-31 09:59:32.126000000',
-      },
-    ];
     Gerrit.install(plugin => {
 
-      plugin.registerDynamicCustomComponent(
-          'change-list-header',
-          'gr-checks-change-list-header-view');
-      plugin.registerDynamicCustomComponent(
-          'change-list-item-cell',
-          'gr-checks-change-list-item-cell-view');
-      plugin.registerDynamicCustomComponent(
-          'change-view-tab-header',
-          'gr-checks-change-view-tab-header-view');
+      const getChecks = (change, revision) => {
+        return plugin.restApi().get(
+            '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
+      };
 
+      // TODO(brohlfs): Enable this dashboard column whem search queries start
+      // returning checks.
+      // plugin.registerDynamicCustomComponent(
+      //     'change-list-header',
+      //     'gr-checks-change-list-header-view');
+      // plugin.registerDynamicCustomComponent(
+      //     'change-list-item-cell',
+      //     'gr-checks-change-list-item-cell-view');
       plugin.registerCustomComponent(
           'commit-container',
           'gr-checks-chip-view').onAttached(
           view => {
-            console.log('gr-checks-chip-view attached');
-            view['getChecks'] = (repository, gitSha) => Promise.resolve(CHECKS);
+            view['getChecks'] = getChecks;
           });
-
+      plugin.registerDynamicCustomComponent(
+          'change-view-tab-header',
+          'gr-checks-change-view-tab-header-view');
       plugin.registerDynamicCustomComponent(
           'change-view-tab-content',
           'gr-checks-view').onAttached(
           view => {
-            console.log('gr-checks-view attached');
-            view['configurePath'] = 'todo';
-            view['getChecker'] = (checkerId) => Promise.resolve(CHECKER);
             view['isConfigured'] = (repository) => Promise.resolve(true);
+            // TODO(brohlfs): Implement retry.
             view['retryCheck'] = (buildId) => undefined;
-            view['getChecks'] = (repository, gitSha) => Promise.resolve(CHECKS);
+            view['getChecks'] = getChecks;
           });
     });
   </script>
