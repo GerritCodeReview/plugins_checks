@@ -6,73 +6,73 @@ const Defs = {};
  * @typedef {{
  *   id: string,
  *   projectId: string,
- *   buildTriggerId: string,
+ *   checkerId: string,
  *   startTime: string,
  *   finishTime: string,
  * }}
  */
-Defs.Build;
+Defs.Check;
 
 Polymer({
-  is: 'build-result-item',
+  is: 'gr-checks-item',
 
   properties: {
-    build: Object,
+    check: Object,
     /** @type {function(string): !Promise<!Object>} */
-    getTrigger: Function,
+    getChecker: Function,
     /** @type {function(string): !Promise<!Object>} */
-    retryBuild: Function,
-    _triggerDescription: String,
+    retryCheck: Function,
+    _checkerDescription: String,
     _startTime: {
       type: String,
-      computed: '_computeStartTime(build)',
+      computed: '_computeStartTime(check)',
     },
     _duration: {
       type: String,
-      computed: '_computeDuration(build)',
+      computed: '_computeDuration(check)',
     },
   },
 
   observers: [
-    '_updateTriggerName(build, getTrigger)',
+    '_updateCheckerName(check, getChecker)',
   ],
 
   /**
-   * @param {!Defs.Build} build
-   * @param {function(string): !Promise<!Object>} getTrigger
+   * @param {!Defs.Check} check
+   * @param {function(string): !Promise<!Object>} getChecker
    */
-  _updateTriggerName(build, getTrigger) {
-    const triggerId = build.buildTriggerId;
-    getTrigger(triggerId)
+  _updateCheckerName(check, getChecker) {
+    const checkerId = check.checkId;
+    getChecker(checkerId)
         .then(
-            trigger => trigger && trigger.description || triggerId,
-            () => triggerId)
-        .then(triggerDescription => {
-          this.set('_triggerDescription', triggerDescription);
+            checker => checker && checker.description || checkerId,
+            () => checkerId)
+        .then(checkerDescription => {
+          this.set('_checkerDescription', checkerDescription);
         });
   },
 
   /**
-   * @param {!Defs.Build} build
+   * @param {!Defs.Check} check
    * @return {string}
    */
-  _computeStartTime(build) {
-    return moment(build.startTime).format('l');
+  _computeStartTime(check) {
+    return moment(check.startTime).format('l');
   },
 
   /**
-   * @param {!Defs.Build} build
+   * @param {!Defs.Check} check
    * @return {string}
    */
-  _computeDuration(build) {
-    const startTime = moment(build.startTime);
-    const finishTime = moment(build.finishTime);
+  _computeDuration(check) {
+    const startTime = moment(check.startTime);
+    const finishTime = moment(check.finishTime);
     return generateDurationString(moment.duration(finishTime.diff(startTime)));
   },
 
   handleClick(event) {
     event.preventDefault();
-    this.retryBuild(this.build.id);
+    this.retryCheck(this.check.id);
   }
 });
 

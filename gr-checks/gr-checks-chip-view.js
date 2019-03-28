@@ -1,6 +1,6 @@
 (function() {
 'use strict';
-const Statuses = window.Gerrit.BuildResults.Statuses;
+const Statuses = window.Gerrit.Checks.Statuses;
 
 const StatusPriorityOrder = [
   Statuses.INTERNAL_ERROR, Statuses.TIMEOUT, Statuses.FAILURE,
@@ -42,83 +42,83 @@ function currentRevisionSha(change, revision) {
       .find(sha => change.revisions[sha] === revision);
 }
 
-function computeBuildResultStatuses(buildResults) {
-  return buildResults.reduce((accum, buildResult) => {
-    accum[buildResult.status] || (accum[buildResult.status] = 0);
-    accum[buildResult.status]++;
+function computeCheckStatuses(checkResults) {
+  return checkResults.reduce((accum, checkResult) => {
+    accum[checkResult.status] || (accum[checkResult.status] = 0);
+    accum[checkResult.status]++;
     return accum;
-  }, {total: buildResults.length});
+  }, {total: checkResults.length});
 }
 
 Polymer({
-  is: 'builds-chip-view',
+  is: 'gr-checks-chip-view',
 
   properties: {
     revision: Object,
     change: Object,
-    // TODO(brohlfs): Implement getBuildResults based on new Rest APIs.
+    // TODO(brohlfs): Implement getCheckResults based on new Rest APIs.
     /** @type {function(string, (string|undefined)): !Promise<!Object>} */
-    getBuildResults: Function,
-    _buildResultStatuses: Object,
-    _hasBuilds: Boolean,
-    _status: {type: String, computed: '_computeStatus(_buildResultStatuses)'},
+    getChecks: Function,
+    _checkResultStatuses: Object,
+    _hasChecks: Boolean,
+    _status: {type: String, computed: '_computeStatus(_checkResultStatuses)'},
     _statusString: {
       type: String,
-      computed: '_computeStatusString(_status, _buildResultStatuses)'
+      computed: '_computeStatusString(_status, _checkResultStatuses)'
     },
     _chipClasses: {type: String, computed: '_computeChipClass(_status)'},
   },
 
   observers: [
-    '_fetchBuildResults(change, revision, getBuildResults)',
+    '_fetchChecks(change, revision, getChecks)',
   ],
 
   /**
    * @param {!Defs.Change} change The current CL.
    * @param {!Object} revision The current patchset.
    * @param {function(string, (string|undefined)): !Promise<!Object>}
-   *     getBuildResults function to get build results.
+   *     getCheckResults function to get check results.
    */
-  _fetchBuildResults(change, revision, getBuildResults) {
+  _fetchChecks(change, revision, getChecks) {
     const repository = change['project'];
     const gitSha = currentRevisionSha(change, revision);
 
-    getBuildResults(repository, gitSha).then(buildResults => {
-      this.set('_hasBuilds', buildResults.length > 0);
-      if (buildResults.length > 0) {
+    getChecks(repository, gitSha).then(checkResults => {
+      this.set('_hasChecks', checkResults.length > 0);
+      if (checkResults.length > 0) {
         this.set(
-            '_buildResultStatuses', computeBuildResultStatuses(buildResults));
+            '_checkResultStatuses', computeCheckStatuses(checkResults));
       }
     });
   },
 
   /**
-   * @param {!Object} buildResultStatuses The number of builds in each status.
+   * @param {!Object} checkResultStatuses The number of checks in each status.
    * @return {string}
    */
-  _computeStatus(buildResultStatuses) {
+  _computeStatus(checkResultStatuses) {
     return StatusPriorityOrder.find(
-               status => buildResultStatuses[status] > 0) ||
+               status => checkResultStatuses[status] > 0) ||
         Statuses.STATUS_UNKNOWN;
   },
 
   /**
-   * @param {string} status The overall status of the build results.
-   * @param {!Object} buildResultStatuses The number of builds in each status.
+   * @param {string} status The overall status of the check results.
+   * @param {!Object} checkResultStatuses The number of checks in each status.
    * @return {string}
    */
-  _computeStatusString(status, buildResultStatuses) {
-    if (buildResultStatuses.total === 0) return 'No builds';
-    return `${buildResultStatuses[status]} of ${
-        buildResultStatuses.total} builds ${HumanizedStatuses[status]}`;
+  _computeStatusString(status, checkResultStatuses) {
+    if (checkResultStatuses.total === 0) return 'No checks';
+    return `${checkResultStatuses[status]} of ${
+        checkResultStatuses.total} checks ${HumanizedStatuses[status]}`;
   },
 
   /**
-   * @param {string} status The overall status of the build results.
+   * @param {string} status The overall status of the check results.
    * @return {string}
    */
   _computeChipClass(status) {
-    return `chip ${window.Gerrit.BuildResults.statusClass(status)}`;
+    return `chip ${window.Gerrit.Checks.statusClass(status)}`;
   },
 });
 })();
