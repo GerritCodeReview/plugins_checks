@@ -94,6 +94,30 @@
       "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7c5f1d8_c7ff0eb3",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-03-28T09:36:42Z",
+      "side": 1,
+      "message": "\u003e NoteMap !\u003d RevisionNoteMap\n\nHmm, when I said \u0027revisionNoteMap\u0027 I referred to the variable \u0027revisionNoteMap\u0027 which is of type NoteMap. So maybe that\u0027s a bad name?\n\nI understand now, that it\u0027s currently not possible to lookup a note for a specific ObjectId without instantiating NoteMap via NoteMap.read(...) first. Under this condition the current code is the best we can do to only load the note for a specific revision:\n\n1. instantiate NoteMap via NoteMap.read(...) (-\u003e l. 149)\n2. get a single note from the NoteMap via get(...) (-\u003e l. 153, then [1]).\n\nMy wishful thinking was that we could avoid step 1 and directly read the note that we are interested in. Actually after writing this comment Patrick measured the latency for 1. + 2. [2] vs. reading a file directly [3] (but [3] doesn\u0027t take sharding into account). If I got Patrick correctly the difference was not significant, but reading a file directly was slightly slower. I\u0027m not sure if the difference is still non-significant if there are a lot of notes in the NoteMap (certainly not the case for check notes, since we have 1 note per patch set and there are not that many patch sets per change, however this question may be relevant for external ID notes). \n\nSo I guess this means, no further optimization needed here (hence marking this thread as resolved).\n\n\u003e Yes, you have to load the NoteMap in order to call a non-static NoteMap method.\n\u003e You should double-check me here, but I thought that loading a NoteMap only loads\n\u003e the root bucket, it doesn\u0027t eagerly walk the entire tree.\n\nI looked at the NoteMap and NoteParser code . I think you are right that it only loads the root bucket eagerly and the rest is loaded lazily. At least [4] makes me think so. Still for large note maps (e.g. external IDs) even loading the whole root bucket may waste some time.\n\n\u003e By contrast, CheckRevisionNoteMap#parseChecks definitely does eagerly parse everything.\n\nYes, that\u0027s why it\u0027s renamed to parseChecksForAllRevisions and is not used in this case where we are only interested in a single revision.\n\n[1] https://gerrit-review.googlesource.com/c/plugins/checks/+/218301/1/java/com/google/gerrit/plugins/checks/db/CheckRevisionNoteMap.java#49\n[2] https://cs.corp.google.com/piper///depot/google3/java/com/google/devtools/gerritcodereview/server/flume/GerritLatencyExperiment.java?rcl\u003d240317301\u0026l\u003d105\n[3] https://cs.corp.google.com/piper///depot/google3/java/com/google/devtools/gerritcodereview/server/flume/GerritLatencyExperiment.java?rcl\u003d240317301\u0026l\u003d125\n[4] https://cs.corp.google.com/piper///depot/google3/third_party/java_src/jgit/org.eclipse.jgit/java/org/eclipse/jgit/notes/NoteParser.java?rcl\u003d19337302\u0026l\u003d72",
+      "parentUuid": "5c9e7a9e_17bb2225",
+      "range": {
+        "startLine": 154,
+        "startChar": 83,
+        "endLine": 154,
+        "endChar": 98
+      },
+      "revId": "c6c181d2de5a6936405a0c873e502918b8c438a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
