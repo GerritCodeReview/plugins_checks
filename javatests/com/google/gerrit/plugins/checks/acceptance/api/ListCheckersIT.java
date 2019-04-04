@@ -72,6 +72,20 @@ public class ListCheckersIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void listCheckersAnonymouslyFails() throws Exception {
+    checkerOperations.newChecker().name("my-checker").create();
+
+    requestScopeOperations.setApiUserAnonymous();
+
+    try {
+      checkersApi.all();
+      assert_().fail("expected AuthException");
+    } catch (AuthException e) {
+      assertThat(e.getMessage()).isEqualTo("Authentication required");
+    }
+  }
+
+  @Test
   public void listIgnoresInvalidCheckers() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
     CheckerUuid invalidCheckerUuid1 = checkerOperations.newChecker().create();
