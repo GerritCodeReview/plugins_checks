@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "792fc064_449c6b78",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-04-04T15:14:31Z",
+      "side": 1,
+      "message": "Unrelated to this change, but there are a couple of other minor improvements possible here.\n\nAn apply() method could be added on QueryPendingChecks that takes no parameter, and internally delegates the call to the one with INSTANCE.\n\nThen the whole block here can be inlined as:\n\n return queryPendingChecksProvider.get().setQuery(queryRequest.getQuery()).apply();\n\nAssuming the setQuery() method returns \"this\".\n\nActually, if this becomes a one-liner, then the whole method could probably be inlined at L40.",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "993c2c0f515d935ee6b96b8573898e0219b61f9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
