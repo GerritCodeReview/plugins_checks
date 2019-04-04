@@ -22,6 +22,30 @@
       "revId": "993c2c0f515d935ee6b96b8573898e0219b61f9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77d8bdb7_1c30de85",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-04-04T15:17:44Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. Will follow-up with separate changes.",
+      "parentUuid": "792fc064_449c6b78",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "993c2c0f515d935ee6b96b8573898e0219b61f9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
