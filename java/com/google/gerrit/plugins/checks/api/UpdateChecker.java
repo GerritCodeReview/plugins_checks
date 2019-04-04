@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks.api;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.extensions.restapi.RestModifyView;
@@ -30,6 +31,7 @@ import com.google.gerrit.plugins.checks.CheckersUpdate;
 import com.google.gerrit.plugins.checks.NoSuchCheckerException;
 import com.google.gerrit.plugins.checks.UrlValidator;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
 import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
@@ -43,6 +45,7 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
 public class UpdateChecker implements RestModifyView<CheckerResource, CheckerInput> {
+  private final Provider<CurrentUser> self;
   private final PermissionBackend permissionBackend;
   private final Provider<CheckersUpdate> checkersUpdate;
   private final CheckerJson checkerJson;
@@ -52,11 +55,13 @@ public class UpdateChecker implements RestModifyView<CheckerResource, CheckerInp
 
   @Inject
   public UpdateChecker(
+      Provider<CurrentUser> self,
       PermissionBackend permissionBackend,
       @UserInitiated Provider<CheckersUpdate> checkersUpdate,
       CheckerJson checkerJson,
       AdministrateCheckersPermission permission,
       ProjectCache projectCache) {
+    this.self = self;
     this.permissionBackend = permissionBackend;
     this.checkersUpdate = checkersUpdate;
     this.checkerJson = checkerJson;
@@ -68,6 +73,9 @@ public class UpdateChecker implements RestModifyView<CheckerResource, CheckerInp
   public CheckerInfo apply(CheckerResource resource, CheckerInput input)
       throws RestApiException, PermissionBackendException, NoSuchCheckerException, IOException,
           ConfigInvalidException {
+    if (!(self.get().isIdentifiedUser())) {
+      throw new AuthException("Authentication required");
+    }
     permissionBackend.currentUser().check(permission);
 
     CheckerUpdate.Builder checkerUpdateBuilder = CheckerUpdate.builder();
