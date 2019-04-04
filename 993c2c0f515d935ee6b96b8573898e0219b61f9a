@@ -46,6 +46,30 @@
       "revId": "993c2c0f515d935ee6b96b8573898e0219b61f9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c8d95e_3b0aa340",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PendingChecksImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-04-04T15:26:03Z",
+      "side": 1,
+      "message": "Ack.  Please add me as reviewer.",
+      "parentUuid": "77d8bdb7_1c30de85",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "993c2c0f515d935ee6b96b8573898e0219b61f9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
