@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "086ad26f_00210341",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-04-08T17:02:11Z",
+      "side": 1,
+      "message": "Use BlobBasedConfig",
+      "revId": "ae3fd770b2f8b3f629ddfad1269a762db750a41d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
