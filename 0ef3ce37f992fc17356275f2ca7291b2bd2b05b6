@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14300e01_c3d3db66",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckersCollection.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-04-08T16:53:57Z",
+      "side": 1,
+      "message": "Nit: unnecessary parens, in some but not all of the instances of this construction.",
+      "revId": "0ef3ce37f992fc17356275f2ca7291b2bd2b05b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
