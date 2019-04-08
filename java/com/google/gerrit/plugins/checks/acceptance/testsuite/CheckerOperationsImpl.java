@@ -42,18 +42,25 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.BlobBasedConfig;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.RefUpdate;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.notes.NoteMap;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevObject;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 
@@ -248,6 +255,24 @@ public class CheckerOperationsImpl implements CheckerOperations {
         }
       }
 
+      if (testCheckerUpdate.forceInvalidBlockingCondition()) {
+        try (Repository repo = repoManager.openRepository(allProjectsName)) {
+          TestRepository<Repository> testRepo = new TestRepository<>(repo);
+          Config checkerConfig =
+              readConfig(testRepo, checkerUuid.toRefName(), CheckerConfig.CHECKER_CONFIG_FILE);
+          List<String> blocking =
+              new ArrayList<>(
+                  Arrays.asList(checkerConfig.getStringList("checker", null, "blocking")));
+          blocking.add("invalid");
+          checkerConfig.setStringList("checker", null, "blocking", blocking);
+          testRepo
+              .branch(checkerUuid.toRefName())
+              .commit()
+              .add(CheckerConfig.CHECKER_CONFIG_FILE, checkerConfig.toText())
+              .create();
+        }
+      }
+
       if (testCheckerUpdate.deleteRef()) {
         try (Repository repo = repoManager.openRepository(allProjectsName)) {
           RefUpdate ru =
@@ -268,6 +293,18 @@ public class CheckerOperationsImpl implements CheckerOperations {
       checkerUpdate.blockingConditions().ifPresent(builder::setBlockingConditions);
       checkerUpdate.query().ifPresent(builder::setQuery);
       return builder.build();
+    }
+
+    private Config readConfig(TestRepository<?> testRepo, String ref, String fileName)
+        throws Exception {
+      RevWalk rw = testRepo.getRevWalk();
+      RevTree tree = rw.parseTree(testRepo.getRepository().resolve(ref));
+      RevObject obj = rw.parseAny(testRepo.get(tree, fileName));
+      ObjectLoader loader = rw.getObjectReader().open(obj);
+      String text = new String(loader.getCachedBytes(), UTF_8);
+      Config cfg = new Config();
+      cfg.fromText(text);
+      return cfg;
     }
   }
 }
