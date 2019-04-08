@@ -18,7 +18,7 @@ junit_tests(
         "//java/com/google/gerrit/testing:gerrit-test-util",
         "//java/com/google/gerrit/truth",
         "//lib:guava",
-        "//lib:gwtorm",
+        "//java/com/google/gwtorm",
         "//lib/jgit/org.eclipse.jgit:jgit",
         "//lib/jgit/org.eclipse.jgit.junit:junit",
         "//lib/truth",
