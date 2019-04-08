@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ea79d59_80ccfabe",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-04-08T16:47:52Z",
+      "side": 1,
+      "message": "It\u0027s a little odd that we support \"inprogress\" and \"not_started\" but not \"in_progress\" or \"notstarted\".\n\nI think this could be fixed in a followup by making the _ optional in both cases.",
+      "range": {
+        "startLine": 125,
+        "startChar": 39,
+        "endLine": 126,
+        "endChar": 52
+      },
+      "revId": "aee88a43f36e1700d95d8f1dae3d7b24b785cdb1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
