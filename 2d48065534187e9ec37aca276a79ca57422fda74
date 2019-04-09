@@ -16,6 +16,24 @@
       "revId": "2d48065534187e9ec37aca276a79ca57422fda74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b86b96b_cf904768",
+        "filename": "javatests/com/google/gerrit/plugins/checks/rules/ChecksSubmitRuleTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-04-09T07:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7f4f147_5ec44b39",
+      "revId": "2d48065534187e9ec37aca276a79ca57422fda74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
