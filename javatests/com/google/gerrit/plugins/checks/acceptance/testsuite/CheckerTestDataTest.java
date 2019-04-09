@@ -22,6 +22,7 @@ import com.google.gerrit.plugins.checks.CheckerQuery;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.UrlValidator;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class CheckerTestDataTest extends AbstractCheckersTest {
@@ -52,8 +53,8 @@ public class CheckerTestDataTest extends AbstractCheckersTest {
   private static void assertInvalidQuery(String query, String... expectedMessageParts) {
     try {
       CheckerQuery.clean(query);
-      assert_().fail("expected BadRequestException");
-    } catch (BadRequestException e) {
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
       assertMessage(e, expectedMessageParts);
     }
   }
