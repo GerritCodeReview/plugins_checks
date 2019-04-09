@@ -256,6 +256,20 @@ public class CheckerOperationsImpl implements CheckerOperations {
       Optional<Checker> checker = getChecker(checkerUuid);
       checkState(checker.isPresent(), "Tried to invalidate a non-existing test checker");
 
+      if (testCheckerInvalidation.invalidUuid()) {
+        try (Repository repo = repoManager.openRepository(allProjectsName)) {
+          TestRepository<Repository> testRepo = new TestRepository<>(repo);
+          Config checkerConfig =
+              readConfig(testRepo, checkerUuid.toRefName(), CheckerConfig.CHECKER_CONFIG_FILE);
+          checkerConfig.setString("checker", null, "uuid", "invalid");
+          testRepo
+              .branch(checkerUuid.toRefName())
+              .commit()
+              .add(CheckerConfig.CHECKER_CONFIG_FILE, checkerConfig.toText())
+              .create();
+        }
+      }
+
       if (testCheckerInvalidation.invalidBlockingCondition()) {
         try (Repository repo = repoManager.openRepository(allProjectsName)) {
           TestRepository<Repository> testRepo = new TestRepository<>(repo);
