@@ -22,6 +22,30 @@
       "revId": "aee88a43f36e1700d95d8f1dae3d7b24b785cdb1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b9bb69e_64a935aa",
+        "filename": "src/main/resources/Documentation/rest-api-pending-checks.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-04-09T08:51:50Z",
+      "side": 1,
+      "message": "I agree, done in https://gerrit-review.googlesource.com/c/plugins/checks/+/220251",
+      "parentUuid": "0ea79d59_80ccfabe",
+      "range": {
+        "startLine": 125,
+        "startChar": 39,
+        "endLine": 126,
+        "endChar": 52
+      },
+      "revId": "aee88a43f36e1700d95d8f1dae3d7b24b785cdb1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
