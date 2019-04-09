@@ -25,6 +25,7 @@ import static java.util.Objects.requireNonNull;
 import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.flogger.FluentLogger;
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.index.query.IndexPredicate;
 import com.google.gerrit.index.query.Predicate;
@@ -202,8 +203,12 @@ public class CheckerQuery {
 
   public List<ChangeData> queryMatchingChanges(Checker checker)
       throws ConfigInvalidException, OrmException {
-    return executeIndexQueryWithRetry(
-        retryHelper, changeQueryProcessorProvider, createQueryPredicate(checker));
+    try {
+      return executeIndexQueryWithRetry(
+          retryHelper, changeQueryProcessorProvider, createQueryPredicate(checker));
+    } catch (QueryParseException e) {
+      throw invalidQueryException(checker, e);
+    }
   }
 
   private Predicate<ChangeData> createQueryPredicate(Checker checker)
@@ -216,17 +221,16 @@ public class CheckerQuery {
       try {
         predicateForQuery = queryBuilder.parse(query);
       } catch (QueryParseException e) {
-        throw new ConfigInvalidException(
-            String.format("change query of checker %s is invalid: %s", checker.getUuid(), query),
-            e);
+        throw invalidQueryException(checker, e);
       }
 
       if (!predicateForQuery.isMatchable()) {
         // Assuming nobody modified the query behind Gerrit's back, this is programmer error:
         // CheckerQuery should not be able to produce non-matchable queries.
-        throw new ConfigInvalidException(
-            String.format(
-                "change query of checker %s is non-matchable: %s", checker.getUuid(), query));
+        logger.atWarning().log(
+            "change query of checker %s is not matchable: %s",
+            checker.getUuid(), checker.getQuery().get());
+        throw invalidQueryException(checker, null);
       }
 
       predicate = Predicate.and(predicate, predicateForQuery);
@@ -254,7 +258,7 @@ public class CheckerQuery {
       RetryHelper retryHelper,
       Provider<ChangeQueryProcessor> changeQueryProcessorProvider,
       Predicate<ChangeData> predicate)
-      throws OrmException {
+      throws OrmException, QueryParseException {
     try {
       return retryHelper.execute(
           ActionType.INDEX_QUERY,
@@ -262,8 +266,21 @@ public class CheckerQuery {
           OrmException.class::isInstance);
     } catch (Exception e) {
       Throwables.throwIfUnchecked(e);
+      Throwables.throwIfInstanceOf(e, QueryParseException.class);
       Throwables.throwIfInstanceOf(e, OrmException.class);
       throw new OrmException(e);
     }
+  }
+
+  private static ConfigInvalidException invalidQueryException(
+      Checker checker, @Nullable QueryParseException parseException) {
+    String msg =
+        String.format(
+            "change query of checker %s is invalid: %s",
+            checker.getUuid(), checker.getQuery().orElse(""));
+    if (parseException != null) {
+      msg += " (" + parseException.getMessage() + ")";
+    }
+    return new ConfigInvalidException(msg, parseException);
   }
 }
