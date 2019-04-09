@@ -269,6 +269,18 @@ public class CheckerOperationsImpl implements CheckerOperations {
         setValueInCheckerConfig("status", "invalid");
       }
 
+      if (testCheckerInvalidation.unsetUuid()) {
+        unsetValueInCheckerConfig("uuid");
+      }
+
+      if (testCheckerInvalidation.unsetRepository()) {
+        unsetValueInCheckerConfig("repository");
+      }
+
+      if (testCheckerInvalidation.unsetStatus()) {
+        unsetValueInCheckerConfig("status");
+      }
+
       if (testCheckerInvalidation.nonParseableConfig()) {
         try (Repository repo = repoManager.openRepository(allProjectsName)) {
           new TestRepository<>(repo)
@@ -303,6 +315,10 @@ public class CheckerOperationsImpl implements CheckerOperations {
                   Streams.concat(
                           Arrays.stream(cfg.getStringList("checker", null, key)), Stream.of(value))
                       .collect(toList())));
+    }
+
+    private void unsetValueInCheckerConfig(String key) throws Exception {
+      updateCheckerConfig(cfg -> cfg.unset("checker", null, key));
     }
 
     private void updateCheckerConfig(Consumer<Config> configUpdater) throws Exception {
