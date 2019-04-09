@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "645aefd4_4f3f98c0",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-04-09T18:15:29Z",
+      "side": 1,
+      "message": "I meant:\n\n Repository repo \u003d testRepo.getRepository();\n return new BlobBasedConfig(null, repo, repo.resolve(ref), fileName);",
+      "revId": "6c607974951221fbb115975dfe6c2b8c082f85e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
