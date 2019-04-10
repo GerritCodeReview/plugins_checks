@@ -35,6 +35,24 @@
       "revId": "6c607974951221fbb115975dfe6c2b8c082f85e3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b88d4b9_1d2e7a81",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-04-10T07:03:21Z",
+      "side": 1,
+      "message": "Ah, I missed that you already addressed this and approving this change is up to me now. Thanks :)\nThen I could have saved reordering the changes, to put approved changes first... but it also didn\u0027t do any harm.",
+      "parentUuid": "b1ed8973_8e9e4293",
+      "revId": "6c607974951221fbb115975dfe6c2b8c082f85e3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
