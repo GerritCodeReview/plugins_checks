@@ -22,6 +22,29 @@
       "revId": "0c7789d954db95bc81a41cdaf1dc30c473fa5a73",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb4e3bf9_1f2dbddb",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperationsImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-04-11T15:09:25Z",
+      "side": 1,
+      "message": "We should rather use the ObjectReader from the RevWalk which is created above.",
+      "range": {
+        "startLine": 195,
+        "startChar": 10,
+        "endLine": 195,
+        "endChar": 54
+      },
+      "revId": "0c7789d954db95bc81a41cdaf1dc30c473fa5a73",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
