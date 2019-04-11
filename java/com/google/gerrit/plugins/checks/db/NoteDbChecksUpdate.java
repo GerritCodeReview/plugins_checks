@@ -241,8 +241,9 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
 
       // Create check
       NoteDbCheck newCheck = NoteDbCheck.createInitialNoteDbCheck(checkUpdate);
-      newCheck.created = Timestamp.from(personIdent.getWhen().toInstant());
-      newCheck.updated = newCheck.created;
+      Timestamp timestamp = Timestamp.from(personIdent.getWhen().toInstant());
+      newCheck.setCreated(timestamp);
+      newCheck.setUpdated(timestamp);
       checksForRevision.checks.put(checkKey.checkerUuid().get(), newCheck);
       writeNotesMap(newNotes, cb, ins);
       return true;
@@ -257,7 +258,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
     if (!dirty) {
       return false;
     }
-    modifiedCheck.updated = Timestamp.from(personIdent.getWhen().toInstant());
+    modifiedCheck.setUpdated(Timestamp.from(personIdent.getWhen().toInstant()));
 
     writeNotesMap(newNotes, cb, ins);
     return true;

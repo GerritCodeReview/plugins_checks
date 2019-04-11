@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks.acceptance.testsuite;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth.assert_;
 import static com.google.common.truth.Truth8.assertThat;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -28,6 +29,8 @@ import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
+import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckInput;
@@ -40,6 +43,7 @@ import com.google.gerrit.server.util.time.TimeUtil;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Optional;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectReader;
@@ -55,9 +59,12 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
   @SuppressWarnings("hiding")
   private CheckOperationsImpl checkOperations;
 
+  private Checks checks;
+
   @Before
   public void setUp() {
     checkOperations = plugin.getSysInjector().getInstance(CheckOperationsImpl.class);
+    checks = plugin.getSysInjector().getInstance(Checks.class);
   }
 
   @Test
@@ -483,6 +490,138 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
 
     Optional<Timestamp> currentFinished = checkOperations.check(checkKey).get().finished();
     assertTimestamp(currentFinished, updatedFinished);
+  }
+
+  @Test
+  public void stateCanBeMadeInvalid() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().invalidState().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("field 'state' has invalid value");
+    }
+  }
+
+  @Test
+  public void stateCanBeUnset() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().unsetState().invalidate();
+
+    Optional<Check> check = checks.getCheck(checkKey, GetCheckOptions.defaults());
+    assertThat(check).isPresent();
+    assertThat(check.get().state()).isEqualTo(CheckState.NOT_STARTED);
+  }
+
+  @Test
+  public void createdCanBeMadeInvalid() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().invalidCreated().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("field 'created' has invalid value");
+    }
+  }
+
+  @Test
+  public void createdCanBeUnset() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().unsetCreated().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("required field 'created' is not set");
+    }
+  }
+
+  @Test
+  public void updatedCanBeMadeInvalid() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().invalidUpdated().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("field 'updated' has invalid value");
+    }
+  }
+
+  @Test
+  public void updatedCanBeUnset() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().unsetUpdated().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("required field 'updated' is not set");
+    }
+  }
+
+  @Test
+  public void startedCanBeMadeInvalid() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().invalidStarted().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("field 'started' has invalid value");
+    }
+  }
+
+  @Test
+  public void finishedCanBeMadeInvalid() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+
+    checkOperations.check(checkKey).forInvalidation().invalidFinished().invalidate();
+
+    try {
+      checks.getCheck(checkKey, GetCheckOptions.defaults());
+      assert_().fail("expected ConfigInvalidException");
+    } catch (ConfigInvalidException e) {
+      // expected
+      assertThat(e.getMessage()).contains("field 'finished' has invalid value");
+    }
   }
 
   @Test

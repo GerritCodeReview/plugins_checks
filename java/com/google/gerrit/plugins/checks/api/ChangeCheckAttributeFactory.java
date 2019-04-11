@@ -23,6 +23,7 @@ import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.kohsuke.args4j.Option;
 
 /**
@@ -54,14 +55,14 @@ public class ChangeCheckAttributeFactory implements ChangeAttributeFactory {
         return forGetChange(cd, (GetChangeOptions) opts);
       }
       // TODO(dborowitz): Compute from cache in query path.
-    } catch (OrmException | IOException e) {
+    } catch (OrmException | IOException | ConfigInvalidException e) {
       throw new RuntimeException(e);
     }
     throw new IllegalStateException("unexpected options type: " + opts);
   }
 
   private ChangeCheckInfo forGetChange(ChangeData cd, GetChangeOptions opts)
-      throws OrmException, IOException {
+      throws OrmException, IOException, ConfigInvalidException {
     if (opts == null || !opts.combined) {
       return null;
     }

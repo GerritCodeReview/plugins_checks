@@ -34,6 +34,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.Optional;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
 public class ChecksCollection implements ChildCollection<RevisionResource, CheckResource> {
@@ -56,7 +57,8 @@ public class ChecksCollection implements ChildCollection<RevisionResource, Check
 
   @Override
   public CheckResource parse(RevisionResource parent, IdString id)
-      throws RestApiException, PermissionBackendException, IOException, OrmException {
+      throws RestApiException, PermissionBackendException, IOException, OrmException,
+          ConfigInvalidException {
     CheckerUuid checkerUuid =
         CheckerUuid.tryParse(id.get())
             .orElseThrow(

@@ -125,5 +125,23 @@ public interface CheckOperations {
      * @return a builder to update the check
      */
     TestCheckUpdate.Builder forUpdate();
+
+    /**
+     * Starts the fluent chain to invalidate a check. The returned builder can be used to specify
+     * how the check should be made invalid. To invalidate the check for real, {@link
+     * TestCheckInvalidation.Builder#invalidate()} must be called.
+     *
+     * <p>Example:
+     *
+     * <pre>
+     * checkOperations.forInvalidation().invalidState().invalidate();
+     * </pre>
+     *
+     * <p><strong>Note:</strong> The invalidation will fail with an exception if the check to
+     * invalidate doesn't exist.
+     *
+     * @return a builder to invalidate the check
+     */
+    TestCheckInvalidation.Builder forInvalidation();
   }
 }

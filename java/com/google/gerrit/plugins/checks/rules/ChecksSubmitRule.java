@@ -35,6 +35,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.io.IOException;
 import java.util.Collection;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 @Singleton
 public class ChecksSubmitRule implements SubmitRule {
@@ -80,7 +81,7 @@ public class ChecksSubmitRule implements SubmitRule {
     CombinedCheckState combinedCheckState;
     try {
       combinedCheckState = checks.getCombinedCheckState(project, currentPathSetId);
-    } catch (IOException | OrmException e) {
+    } catch (IOException | OrmException | ConfigInvalidException e) {
       String errorMessage =
           String.format("failed to evaluate check states for change %s", changeId);
       logger.atSevere().withCause(e).log(errorMessage);

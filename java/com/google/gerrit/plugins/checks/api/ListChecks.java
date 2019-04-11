@@ -30,6 +30,7 @@ import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import java.io.IOException;
 import java.util.EnumSet;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.kohsuke.args4j.Option;
 
 public class ListChecks implements RestReadView<RevisionResource> {
@@ -57,7 +58,7 @@ public class ListChecks implements RestReadView<RevisionResource> {
   @Override
   public ImmutableList<CheckInfo> apply(RevisionResource resource)
       throws AuthException, BadRequestException, ResourceConflictException, OrmException,
-          IOException {
+          IOException, ConfigInvalidException {
     ImmutableList.Builder<CheckInfo> result = ImmutableList.builder();
 
     GetCheckOptions getCheckOptions = GetCheckOptions.withBackfilling();

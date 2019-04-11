@@ -15,6 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.reviewdb.client.PatchSet;
@@ -23,6 +24,7 @@ import com.google.gwtorm.server.OrmException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /**
  * A database accessor for read calls related to checks.
@@ -36,7 +38,11 @@ public interface Checks {
   /**
    * Returns a {@link List} of {@link Check}s for the given change and patchset.
    *
+   * <p>For relevant checkers that have no check yet backfilling is done.
+   *
    * <p>If no checks exist for the given change and patchset, an empty list is returned.
+   *
+   * <p>Invalid checks are ignored, but if the checker is relevant backfilling is done.
    *
    * @param projectName the name of the project
    * @param patchSetId the ID of the patch set
@@ -46,7 +52,7 @@ public interface Checks {
    */
   ImmutableList<Check> getChecks(
       Project.NameKey projectName, PatchSet.Id patchSetId, GetCheckOptions options)
-      throws OrmException, IOException;
+      throws OrmException, IOException, ConfigInvalidException;
 
   /**
    * Returns a {@link Optional} holding a single check. {@code Optional.empty()} if the check does
@@ -58,9 +64,10 @@ public interface Checks {
    *     GetCheckOptions#backfillChecks()} is true.
    * @throws OrmException if the check couldn't be retrieved from the storage
    * @throws IOException if the check couldn't be retrieved from the storage
+   * @throws ConfigInvalidException if the check data is invalid
    */
   Optional<Check> getCheck(CheckKey checkKey, GetCheckOptions options)
-      throws OrmException, IOException;
+      throws OrmException, IOException, ConfigInvalidException;
 
   /**
    * Returns the combined check state of a given patch set.
@@ -70,12 +77,14 @@ public interface Checks {
    * @return the {@link CombinedCheckState} of the current patch set.
    * @throws IOException if failed to get the {@link CombinedCheckState}.
    * @throws OrmException if failed to get the {@link CombinedCheckState}.
+   * @throws ConfigInvalidException if the check data is invalid
    */
   CombinedCheckState getCombinedCheckState(Project.NameKey projectName, PatchSet.Id patchSetId)
-      throws IOException, OrmException;
+      throws IOException, OrmException, ConfigInvalidException;
 
+  @VisibleForTesting
   @AutoValue
-  abstract class GetCheckOptions {
+  public abstract class GetCheckOptions {
     public static GetCheckOptions defaults() {
       return new AutoValue_Checks_GetCheckOptions(false);
     }

@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.Checker;
@@ -46,10 +47,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /** Class to read checks from NoteDb. */
 @Singleton
 class NoteDbChecks implements Checks {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   private final ChangeData.Factory changeDataFactory;
   private final CheckNotes.Factory checkNotesFactory;
   private final Checkers checkers;
@@ -82,7 +86,7 @@ class NoteDbChecks implements Checks {
 
   @Override
   public Optional<Check> getCheck(CheckKey checkKey, GetCheckOptions options)
-      throws OrmException, IOException {
+      throws OrmException, IOException, ConfigInvalidException {
     // TODO(gerrit-team): Instead of reading the complete notes map, read just one note.
     Optional<Check> result =
         getChecksFromNoteDb(checkKey.repository(), checkKey.patchSet(), GetCheckOptions.defaults())
@@ -109,11 +113,18 @@ class NoteDbChecks implements Checks {
     CheckNotes checkNotes = checkNotesFactory.create(changeData.change());
     checkNotes.load();
 
-    ImmutableList<Check> existingChecks =
-        checkNotes.getChecks().getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty()).checks
-            .entrySet().stream()
-            .map(e -> e.getValue().toCheck(repositoryName, psId, CheckerUuid.parse(e.getKey())))
-            .collect(toImmutableList());
+    ImmutableList.Builder<Check> existingChecksBuilder = ImmutableList.builder();
+    NoteDbCheckMap noteDbCheckMap =
+        checkNotes.getChecks().getOrDefault(patchSet.getRevision(), NoteDbCheckMap.empty());
+    for (Map.Entry<String, NoteDbCheck> entry : noteDbCheckMap.checks.entrySet()) {
+      CheckKey checkKey = CheckKey.create(repositoryName, psId, CheckerUuid.parse(entry.getKey()));
+      try {
+        existingChecksBuilder.add(entry.getValue().toCheck(checkKey));
+      } catch (ConfigInvalidException e) {
+        logger.atWarning().withCause(e).log("Ignoring invalid check %s", checkKey.getLoggableKey());
+      }
+    }
+    ImmutableList<Check> existingChecks = existingChecksBuilder.build();
 
     if (!options.backfillChecks()) {
       return existingChecks;
@@ -131,7 +142,7 @@ class NoteDbChecks implements Checks {
 
   @Override
   public CombinedCheckState getCombinedCheckState(NameKey projectName, Id patchSetId)
-      throws IOException, OrmException {
+      throws IOException, OrmException, ConfigInvalidException {
     ChangeData changeData = changeDataFactory.create(projectName, patchSetId.changeId);
     ImmutableMap<String, Checker> allCheckersOfProject =
         checkers.checkersOf(projectName).stream()

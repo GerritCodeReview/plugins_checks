@@ -19,6 +19,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assert_;
 import static com.google.gerrit.extensions.client.ListChangesOption.CURRENT_REVISION;
 import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
+import static org.hamcrest.CoreMatchers.instanceOf;
 
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.acceptance.PushOneCommit;
@@ -48,6 +49,7 @@ import com.google.inject.Inject;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.concurrent.TimeUnit;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -484,6 +486,107 @@ public class GetCheckIT extends AbstractCheckersTest {
         Integer.toString(patchSetId.getParentKey().get()),
         Integer.toString(patchSetId.get()),
         CheckerTestData.INVALID_UUID);
+  }
+
+  @Test
+  public void getCheckWithInvalidStateFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().invalidState().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithMissingStateHasStateNotStarted() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().unsetState().invalidate();
+
+    assertThat(getCheckInfo(patchSetId, checkerUuid).state).isEqualTo(CheckState.NOT_STARTED);
+  }
+
+  @Test
+  public void getCheckWithInvalidCreatedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().invalidCreated().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithMissingCreatedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().unsetCreated().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithInvalidUpdatedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().invalidUpdated().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithMissingUpdatedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().unsetUpdated().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithInvalidStartedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().invalidStarted().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
+  }
+
+  @Test
+  public void getCheckWithInvalidFinishedFails() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.check(checkKey).forInvalidation().invalidFinished().invalidate();
+
+    exception.expect(RestApiException.class);
+    exception.expectMessage("Cannot retrieve check");
+    exception.expectCause(instanceOf(ConfigInvalidException.class));
+    getCheckInfo(patchSetId, checkerUuid);
   }
 
   @Test

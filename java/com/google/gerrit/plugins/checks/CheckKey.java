@@ -31,4 +31,8 @@ public abstract class CheckKey {
       Project.NameKey repositoryName, PatchSet.Id patchSetId, CheckerUuid checkerUuid) {
     return new AutoValue_CheckKey(repositoryName, patchSetId, checkerUuid);
   }
+
+  public String getLoggableKey() {
+    return String.format("%s,%s,%s", checkerUuid(), repository(), patchSet());
+  }
 }

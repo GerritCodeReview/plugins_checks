@@ -327,6 +327,80 @@ public class ListChecksIT extends AbstractCheckersTest {
     assertThat(checksApiFactory.revision(patchSetId).list()).hasSize(1);
   }
 
+  @Test
+  public void listIgnoresInvalidChecksOfNonRelevantCheckers() throws Exception {
+    CheckKey checkKey =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey1 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(allProjects).create());
+    CheckKey invalidCheckKey2 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(allProjects).create());
+    CheckKey invalidCheckKey3 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(allProjects).create());
+    CheckKey invalidCheckKey4 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(allProjects).create());
+    CheckKey invalidCheckKey5 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(allProjects).create());
+
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.newCheck(invalidCheckKey1).upsert();
+    checkOperations.newCheck(invalidCheckKey2).upsert();
+    checkOperations.newCheck(invalidCheckKey3).upsert();
+    checkOperations.newCheck(invalidCheckKey4).upsert();
+    checkOperations.newCheck(invalidCheckKey5).upsert();
+
+    checkOperations.check(invalidCheckKey1).forInvalidation().invalidState().invalidate();
+    checkOperations.check(invalidCheckKey2).forInvalidation().invalidCreated().invalidate();
+    checkOperations.check(invalidCheckKey3).forInvalidation().invalidUpdated().invalidate();
+    checkOperations.check(invalidCheckKey4).forInvalidation().invalidStarted().invalidate();
+    checkOperations.check(invalidCheckKey5).forInvalidation().invalidFinished().invalidate();
+
+    assertThat(checksApiFactory.revision(patchSetId).list()).hasSize(1);
+  }
+
+  @Test
+  public void backfillForInvalidChecksOfRelevantCheckers() throws Exception {
+    CheckKey checkKey =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey1 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey2 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey3 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey4 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+    CheckKey invalidCheckKey5 =
+        CheckKey.create(
+            project, patchSetId, checkerOperations.newChecker().repository(project).create());
+
+    checkOperations.newCheck(checkKey).upsert();
+    checkOperations.newCheck(invalidCheckKey1).upsert();
+    checkOperations.newCheck(invalidCheckKey2).upsert();
+    checkOperations.newCheck(invalidCheckKey3).upsert();
+    checkOperations.newCheck(invalidCheckKey4).upsert();
+    checkOperations.newCheck(invalidCheckKey5).upsert();
+
+    checkOperations.check(invalidCheckKey1).forInvalidation().invalidState().invalidate();
+    checkOperations.check(invalidCheckKey2).forInvalidation().invalidCreated().invalidate();
+    checkOperations.check(invalidCheckKey3).forInvalidation().invalidUpdated().invalidate();
+    checkOperations.check(invalidCheckKey4).forInvalidation().invalidStarted().invalidate();
+    checkOperations.check(invalidCheckKey5).forInvalidation().invalidFinished().invalidate();
+
+    assertThat(checksApiFactory.revision(patchSetId).list()).hasSize(6);
+  }
+
   private Timestamp getPatchSetCreated(Change.Id changeId) throws RestApiException {
     return getOnlyElement(
             gApi.changes().id(changeId.get()).get(CURRENT_REVISION).revisions.values())
