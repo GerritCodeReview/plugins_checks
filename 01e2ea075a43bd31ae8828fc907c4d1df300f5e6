@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7c8fa5_5dc6753f",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-04-12T10:37:22Z",
+      "side": 1,
+      "message": "areAllRequiredCheckersPassing\n\nor better, allRequiredCheckersPassed",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
