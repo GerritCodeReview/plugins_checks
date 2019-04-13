@@ -34,6 +34,24 @@
       "revId": "9a3b7b54a9faf408126f52ef83bb0542a05cdbd4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe2d74a_6a2a3ffa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-04-13T17:39:55Z",
+      "side": 1,
+      "message": "OK, I checked with buildifier 0.22.0:\n\n  $ buildifier --version\n  buildifier version: 0.22.0\n\nand ran it against gerrit core, and there were no changes (without lint\u003dfix).",
+      "parentUuid": "6babc376_387996b9",
+      "revId": "9a3b7b54a9faf408126f52ef83bb0542a05cdbd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
