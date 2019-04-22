@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "878ecca8_03ac306d",
+        "filename": "java/com/google/gerrit/plugins/checks/HttpModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-04-22T11:30:58Z",
+      "side": 0,
+      "message": "Thanks for the fix. This sounds familiar, I remember fixing it, but managed somehow to forget to upload new ps.",
+      "revId": "ffb1d7d1b4f0caa4f24ccc5bfa205f25733388ef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
