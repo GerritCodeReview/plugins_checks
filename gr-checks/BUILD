@@ -15,6 +15,10 @@ polygerrit_plugin(
         "*.js",
     ]),
     app = "gr-checks.html",
+<<<<<<< Updated upstream
+=======
+    plugin_name = "checks",
+>>>>>>> Stashed changes
     externs = ["externs.js"],
     plugin_name = "checks-pg",
 )
