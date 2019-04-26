@@ -1,4 +1,189 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1555001976 -0700\nnonce AC6AUtNJp9aam79SOSK+YPHyGrKggDaQcEzQCP9Q/d0wsgKaVMvBeopTK1OFzSMG/7/Tu1JclB3E\n\n0000000000000000000000000000000000000000 5e4ab8fcf0fc285ed04d77263a37079d220fa326 refs/for/master\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlyvcngVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMQREP/AlbIKG6tV0Ji1b+T5e6E9P6Lpqp\n4uHmZt0B0sA+WUEO29huMk3JkDgJDaa38OGnX917o5D83S3OT2enWLBLMZD1MpPP\nZBNXTsv/QXS35n3TXrwnymQjc5lKfMuF/7E5LgXfP5+RLrskxGELzhKC8XUADfd0\nAToHHsiCZY/H6I9An9WbqyvwTD3ceaZ2/7gtmEXomJ66wkm0Gar1WRJquR1sqf6U\nyzfZMNWaDwZnueeyOasqwfNtLAVc1SJAGv+fT44sRR4002kfk17QdTC6THv5YVWy\ndY3kj4Egon3glt7IQZjN7qbxyx0Q1eY+ZGKy/dTTMz9Hhi2c52dUeaN8x66nG1Zv\ncc2agKQP61F3z2GTx2ECxvP/RKkCKJ3Ke9Se+FqBLS9fhEG0vDQ3HGvPAhiXryvi\nYXfUr3GyacSvKgE9WxmPftOVEG/T2guFiiiF4u6ztDwuxGV+ME97Vsc+epCUCWUf\n1PI4dPo6hPlxNCnDw+PnFDVTwyMNw8IwJ5r0CVeWZtNMKr/KdNmyPB8O3lqHbzXa\nmp3SL6r09aljWatPkgUr9cFIPbQwii0zdKwbM23RhVbg8LV77Qcu2g0YWm3Xeke7\nDvwqrXZlDmcMAEPYDQkhSYZVDZybZAQEKdD90ab5+hhkMBszo4+JvZq0bWEt3Qbb\nX2ijnv1tcld4RG+I\n\u003dx9Sx\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "4711836e_b1191bc6",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "Optional: Do we need this constant to be public?",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 8
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38e942b7_7acb74b6",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "When I first looked at ChangeCheckInfoIT and quite a lot of this class, I was confused what \"dirty\" should mean. Could we maybe use a different expression? I\u0027m rather thinking of something like \"withUpdate\" or \"updated\".",
+      "range": {
+        "startLine": 90,
+        "startChar": 31,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36d43c89_9f75725f",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "Optional: Use Duration as type and convert it to a pair of long/TimeUnit in this method.",
+      "range": {
+        "startLine": 94,
+        "startChar": 37,
+        "endLine": 94,
+        "endChar": 68
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a3c7a42_4e676b98",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "I guess this is the only reason why \u0027dirty\u0027 is a Boolean instead of a boolean. Can\u0027t we just start with \"boolean dirty \u003d true\" and include a comment saying that we arbitrarily assume that the cache needs an update except if we can determine for sure that it doesn\u0027t?",
+      "range": {
+        "startLine": 163,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 7
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b113d5b9_709973d9",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "Can you please include an explanation in the Javadoc regarding when this method should be called and when reload() should be directly called?",
+      "range": {
+        "startLine": 183,
+        "startChar": 14,
+        "endLine": 183,
+        "endChar": 31
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2a79f0e_cd0f55df",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChangeCheckInfoIT.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "As this test intends to test the update path, we should rather use the official Java API instead of the test API.",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 190,
+        "endChar": 18
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85e1dcb6_6bff82d7",
+        "filename": "javatests/com/google/gerrit/plugins/checks/rules/ChecksSubmitRuleTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "Nit: Thanks to the refactorings you did, we shouldn\u0027t need to extend from this superclass anymore.",
+      "range": {
+        "startLine": 36,
+        "startChar": 34,
+        "endLine": 36,
+        "endChar": 57
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b7b3e8e_c492e83c",
+        "filename": "javatests/com/google/gerrit/plugins/checks/rules/ChecksSubmitRuleTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-26T15:53:20Z",
+      "side": 1,
+      "message": "Optional: I guess ideally, we would either catch any type of error or none. I don\u0027t really see a reason why we would only catch OrmException/StorageException but not an IllegalStateException when trying to load the patch set. Since that aspect is unrelated to the rest of this change, it\u0027s probably best to touch this in another change. I would still be interested in your opinion.",
+      "range": {
+        "startLine": 45,
+        "startChar": 42,
+        "endLine": 45,
+        "endChar": 75
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
