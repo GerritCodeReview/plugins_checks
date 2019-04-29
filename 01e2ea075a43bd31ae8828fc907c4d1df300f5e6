@@ -22,6 +22,76 @@
       "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7eee98_babe90de",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:24Z",
+      "side": 1,
+      "message": "+1, though I prefer \u0027areAllRequiredCheckersPassing\u0027 as methods should be verb phrases according to our style guide.",
+      "parentUuid": "7b7c8fa5_5dc6753f",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4448311d_9118baa7",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:24Z",
+      "side": 1,
+      "message": "Do we have tests which cover all possible variants? (I\u0027m asking as seeing inProgressRequiredCount slip through this method made me doubt that we have enough test coverage.)",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 45
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ade986_baba2167",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:24Z",
+      "side": 1,
+      "message": "I don\u0027t think that checking this is enough. Required checks which are in progress also need to block submit.\n\n(General note: By checking the opposite of \u0027all required checks pass\u0027, we might easily miss something here when we add more states in the future.)",
+      "range": {
+        "startLine": 147,
+        "startChar": 11,
+        "endLine": 147,
+        "endChar": 53
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
