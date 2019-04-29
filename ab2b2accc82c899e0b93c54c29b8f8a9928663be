@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b466c5d_1a0029aa",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:50:48Z",
+      "side": 1,
+      "message": "Optional: What about \u0027allRequiredChecksPass\u0027 as name instead?",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 40
+      },
+      "revId": "ab2b2accc82c899e0b93c54c29b8f8a9928663be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d931156_bdca83fc",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:50:48Z",
+      "side": 1,
+      "message": "We definitely should do this. As noted in the review of If16d42b46, the implementation doesn\u0027t cover all necessary cases. As this change introduced a behavior change, we should at least cover the new behavior with a test (even if we don\u0027t cover all cases yet with tests).",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "ab2b2accc82c899e0b93c54c29b8f8a9928663be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b33371_aadd7790",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:50:48Z",
+      "side": 1,
+      "message": "Is it intentional that the checker is created as required first and then switched to optional? If not, we should directly create an optional checker.",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 18
+      },
+      "revId": "ab2b2accc82c899e0b93c54c29b8f8a9928663be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75b6af15_32608656",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/rules/ChecksSubmitRuleIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:50:48Z",
+      "side": 1,
+      "message": "That\u0027s confusing and actually unnecessary. Introducing a newOptionalChecker() method would be much clearer and simpler.",
+      "range": {
+        "startLine": 139,
+        "startChar": 8,
+        "endLine": 139,
+        "endChar": 72
+      },
+      "revId": "ab2b2accc82c899e0b93c54c29b8f8a9928663be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
