@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a1e5aac_6d058f0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "nit: Combined with the rest of the sentence, this sounds a bit strange (but I\u0027m not a native speaker). My suggestion would be: \"In reality, though, whether \"IN_PROGRESS\" results in passing ...\"",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 45
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6933473_5e12a98b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "nit: doesn\u0027t",
+      "range": {
+        "startLine": 26,
+        "startChar": 28,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "681431a1_6dad44e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "I agree that we currently want to go with this option. As far as I remember, we intend to add some further hints on the UI to the \u0027in progress\u0027 state saying something about whether required checks are contained (but this is just synthetic sugar on the UI). Overall, though, we decided that it\u0027s fine to not completely bind submittability to the combined state.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962e8f5c_ef2342d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "I\u0027m not convinced that the current implementation of Checks#getCombinedCheckState is the one we should keep. We always intended to support many checks per change. If we first count which combinations occur, we might unnecessarily spent resources and time on something we don\u0027t need. I actually have a different idea for how we could do this better without introducing additional complexity. It\u0027s something about organizing all relevant data into a new type of object and creating a stream, which then allows to shirt-circuit thanks to lazy evaluation of streams. I\u0027ll see whether I can get this into code soon. Otherwise, we\u0027ll talk as soon as you have time.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9562ce9_63ed1b97",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "nit: This seems to be cut of.",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 36
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a1023d03_ac051507",
         "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
         "patchSetId": 1
@@ -22,6 +137,52 @@
       "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "723d8e33_f761601d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "nit: CheckStateCount",
+      "range": {
+        "startLine": 125,
+        "startChar": 26,
+        "endLine": 125,
+        "endChar": 36
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69eae9bb_03ed623b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-04-29T13:29:02Z",
+      "side": 1,
+      "message": "optional: I know that this code was copied but we should really not use \u0027e\u0027 as variable name for non-exceptions.",
+      "range": {
+        "startLine": 135,
+        "startChar": 42,
+        "endLine": 135,
+        "endChar": 43
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
