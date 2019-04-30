@@ -78,18 +78,16 @@ public abstract class TestCheckerUpdate {
 
     abstract Builder status(CheckerStatus status);
 
-    public abstract Builder blockingConditions(
-        ImmutableSortedSet<BlockingCondition> blockingConditions);
-
-    public Builder blockingConditions(BlockingCondition first, BlockingCondition... rest) {
-      return blockingConditions(
-          Stream.concat(Stream.of(first), Arrays.stream(rest))
-              .collect(toImmutableSortedSet(naturalOrder())));
-    }
-
-    public Builder clearBlockingConditions() {
+    public Builder optional() {
       return blockingConditions(ImmutableSortedSet.of());
     }
+
+    public Builder required() {
+      return blockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING));
+    }
+
+    public abstract Builder blockingConditions(
+        ImmutableSortedSet<BlockingCondition> blockingConditions);
 
     public abstract Builder query(String query);
 

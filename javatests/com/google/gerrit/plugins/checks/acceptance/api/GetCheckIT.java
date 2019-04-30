@@ -265,18 +265,14 @@ public class GetCheckIT extends AbstractCheckersTest {
   @Test
   public void getCheckReturnsBlockingConditionsOnlyForCheckerOption() throws Exception {
     CheckerUuid checkerUuid =
-        checkerOperations
-            .newChecker()
-            .repository(project)
-            .blockingConditions(BlockingCondition.STATE_NOT_PASSING)
-            .create();
+        checkerOperations.newChecker().repository(project).required().create();
 
     CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(checkKey).upsert();
 
     assertThat(getCheckInfo(patchSetId, checkerUuid).blocking).isNull();
     assertThat(getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER).blocking)
-        .containsExactly(BlockingCondition.STATE_NOT_PASSING);
+        .isNotEmpty();
   }
 
   @Test

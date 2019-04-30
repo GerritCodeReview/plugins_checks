@@ -75,11 +75,7 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
   public void combinedCheckState() throws Exception {
     CheckerUuid optionalCheckerUuid = checkerOperations.newChecker().repository(project).create();
     CheckerUuid requiredCheckerUuid =
-        checkerOperations
-            .newChecker()
-            .repository(project)
-            .blockingConditions(STATE_NOT_PASSING)
-            .create();
+        checkerOperations.newChecker().repository(project).required().create();
     assertThat(getChangeCheckInfo(changeId))
         .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.IN_PROGRESS));
     checkOperations

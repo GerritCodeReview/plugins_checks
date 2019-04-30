@@ -144,11 +144,7 @@ public class ChecksSubmitRuleIT extends AbstractCheckersTest {
   // }
 
   private TestCheckerCreation.Builder newRequiredChecker() {
-    return checkerOperations
-        .newChecker()
-        .repository(project)
-        .enable()
-        .blockingConditions(BlockingCondition.STATE_NOT_PASSING);
+    return checkerOperations.newChecker().repository(project).enable().required();
   }
 
   private void postCheckResult(CheckerUuid checkerUuid, CheckState checkState) {
