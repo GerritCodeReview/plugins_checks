@@ -17,7 +17,6 @@ package com.google.gerrit.plugins.checks.acceptance.api;
 import static com.google.common.collect.ImmutableList.toImmutableList;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
-import static com.google.gerrit.plugins.checks.api.BlockingCondition.STATE_NOT_PASSING;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
@@ -75,11 +74,7 @@ public class ChangeCheckInfoIT extends AbstractCheckersTest {
   public void combinedCheckState() throws Exception {
     CheckerUuid optionalCheckerUuid = checkerOperations.newChecker().repository(project).create();
     CheckerUuid requiredCheckerUuid =
-        checkerOperations
-            .newChecker()
-            .repository(project)
-            .blockingConditions(STATE_NOT_PASSING)
-            .create();
+        checkerOperations.newChecker().repository(project).required().create();
     assertThat(getChangeCheckInfo(changeId))
         .hasValue(new ChangeCheckInfo("checks", CombinedCheckState.IN_PROGRESS));
     checkOperations
