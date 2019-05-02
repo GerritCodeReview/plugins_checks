@@ -47,6 +47,30 @@
       "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be7bd1a_7f03e4be",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-05-02T17:50:13Z",
+      "side": 1,
+      "message": "\u003e There is certainly an argument to be made that, in this specific case, we would never actually do anything other than log-and-continue\n\nI think this is exactly the argument you\u0027re making in https://gerrit-review.googlesource.com/c/plugins/checks/+/223153/1/java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java#71",
+      "parentUuid": "46bd3f75_56057b39",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
