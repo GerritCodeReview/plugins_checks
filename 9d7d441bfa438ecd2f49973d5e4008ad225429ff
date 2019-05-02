@@ -71,6 +71,30 @@
       "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95924c8e_f91bf5ba",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-02T17:56:24Z",
+      "side": 1,
+      "message": "Yes. I also see the reasons you mentioned in favor of RuntimeException here. I think I\u0027m slightly leaning in favor of Exception but I don\u0027t care much.",
+      "parentUuid": "4be7bd1a_7f03e4be",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
