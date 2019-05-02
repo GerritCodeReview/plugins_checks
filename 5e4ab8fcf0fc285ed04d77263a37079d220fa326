@@ -147,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "d2b7d5ba_3ece7e20",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-02T17:41:38Z",
+      "side": 1,
+      "message": "\u003e Done. (IMO the metric interfaces should support this directly.)\n\nI agree.",
+      "parentUuid": "1c13794b_c06d0cfc",
+      "range": {
+        "startLine": 94,
+        "startChar": 37,
+        "endLine": 94,
+        "endChar": 68
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a3c7a42_4e676b98",
         "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
         "patchSetId": 12
@@ -336,6 +360,30 @@
       "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c8bba6e_e4553064",
+        "filename": "javatests/com/google/gerrit/plugins/checks/rules/ChecksSubmitRuleTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-02T17:41:38Z",
+      "side": 1,
+      "message": "I think this modification got lost in the rebase. This test class still extends GerritBaseTests.",
+      "parentUuid": "a2e4d21a_cd3f43e1",
+      "range": {
+        "startLine": 36,
+        "startChar": 34,
+        "endLine": 36,
+        "endChar": 57
+      },
+      "revId": "5e4ab8fcf0fc285ed04d77263a37079d220fa326",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     },
     {
       "key": {

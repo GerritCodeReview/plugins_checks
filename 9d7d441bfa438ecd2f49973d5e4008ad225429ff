@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1556809262 -0700\nnonce AC6AUtNV/UoQwPDOyATUORweC0BcWLxhnUpHJsIIEC2/2CUyu2PaSfP6bmYQyXS92GTEYP5yOalD\n\n0000000000000000000000000000000000000000 9d7d441bfa438ecd2f49973d5e4008ad225429ff refs/for/master\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlzLBi4VHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiMmN0QAN+lncj2mysdX5zdJnQ6olKyBZTJ\nyjZziVW2/ktFCsTMgeS/IS8TW0Kw2VucmUZt0nOqt88qKc6e7QOZQ8VK7F4qYo7i\n+JXPswlUOp7ZNtk5Do1wX8CK8fF4bVZtuqX6pOggKYkESPcn+nfNWGw4Yhm3WHO1\nCUgTXzU7uudAhglJmaep9z1cT/f0V+9KPruzxx6TXUqosNykkn0Ka2Jk5e1CXFpv\n26VjRbmv2wHb9pitf3TtGzr+eTPsyBQpNSpgxmGTJzqe6KqC8dbJMI7p9dHu1x2g\n+C9ZnGpd9sXnRCPWGQ9vnYMnpUpIIlBQQD57uKOaQZc7Ogypnd+2AzvgvKrcOuTB\ngw17TtDUAOF7SV8NPkCTmwvYiAwR3NCwNZKpamuHvI6ArAOr4+gSBay15LDQuBD8\ncok36wC7NIk6xl05RScOP2IDiekAAl5vGICisY3Bkp/PGoBTQJAFZm5uVLKb3Ni8\nFVU9Ec1DydB0t6XVwnQv1CeepNJ6I9Fka5NzlNTUudm3ljqE89Xz+jChQvuTbg+J\n8Atu3CRTQ0FK7KtmKJwoZFhV/lzlEu9NNe//OTxNa4gPkINK/u9zrukezxxmEfwC\nBBCFEmuhFCfQkbWHbp//Zj1HXq/9KaLv9w75V3BREdXeKqnGXd50vwZ6gZrhZJ9q\naeTTcWrJ99JJ1Ehi\n\u003dO246\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a0cd2b8_dc8eda5e",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-02T17:41:38Z",
+      "side": 1,
+      "message": "Is there a reason to catch only RuntimeException and not Exception?",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
