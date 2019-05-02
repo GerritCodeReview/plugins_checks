@@ -23,6 +23,30 @@
       "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46bd3f75_56057b39",
+        "filename": "java/com/google/gerrit/plugins/checks/CombinedCheckStateCache.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1010008
+      },
+      "writtenOn": "2019-05-02T17:48:18Z",
+      "side": 1,
+      "message": "In general, catching RuntimeException means that if the signature of reload changes to start throwing a checked exception, the resulting compile error will force us to think about whether we should recover from the checked exception in a different way from what we do for unchecked exceptions.\n\nThere is certainly an argument to be made that, in this specific case, we would never actually do anything other than log-and-continue, so the overhead of rethinking it when the signature changes may not be worth it.\n\nI\u0027m happy to go either way.",
+      "parentUuid": "8a0cd2b8_dc8eda5e",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 29
+      },
+      "revId": "9d7d441bfa438ecd2f49973d5e4008ad225429ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
