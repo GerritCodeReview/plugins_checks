@@ -1,4 +1,28 @@
 {
   "pushCert": "certificate version 0.1\npusher Dave Borowitz \u003cdborowitz@google.com\u003e 1556809720 -0700\nnonce AC6AUtPWvSlcc6jaGMqUCYh4VPk0++4RvSz/BIZT/8NI9hIwJfnywdmYvzGexnRJPROa7q4LgHmR\n\n0000000000000000000000000000000000000000 99f1871b6359864a58fad33ac70dbe705f1f00b7 refs/for/master%r\u003daliceks\n-----BEGIN PGP SIGNATURE-----\n\niQJJBAABCgAzFiEEpPm/sOxWgSqG5grhX9fFmpoSiIwFAlzLB/gVHGRib3Jvd2l0\nekBnb29nbGUuY29tAAoJEF/XxZqaEoiML/gQAK7YekB9UV6C8asclUn/MpV056+y\nsDsAl7b8zwQ2YO9XfFIwywd5BulmNjX0tZeuObiJ4cmWsJZZqrvXTJ5WskGfz3ej\nCSOVzM59wPvYxebJQQwVtSxrCP9EKmCuiKbLOOZeXzQPn+P5itvpR49Sm7yr7PCd\nRAgf2/NqBNxXWOMizwmX3IgQzp7LHLtMOB7Wer3qW76DrI9HnsICYMl06235YJ0J\nUdoJ19PMFyTToM6EQDT/XY3ww+J8l7ZQjn1RXPxJ+2nAbtBa7qHurRO7p70drwpb\nHl4nzUGObE5YY/gzwD/yhhL7eDgcO9a2evcVF347wnRwxKXD0zEv0tsNn0SUnrMu\nbgxvLVXtueM7VhsjsAIW9ydY5TR0T65rvUzZUHM37WT0uOmUVZrmoKlXiepaNdsf\nZalX8A/Ml9VuVv38QZmwBCu6UjZXvYwBHMnGMv2b6DHagdw97t2CkzRNC+uhAOCN\nSWUQPGHPkJ5nsBLhb47yZ/yy0/b+kYock02fQNDuBqR2k2ReFZNp28nFlDVZjJXq\nSZep1y1Czu342pZQdW5d8mlZoJuy9LA/esZbWV00FiG6+065k2+ZnTU8gxhOeZpN\n6GbqVAf6wQ3EpJavi75O2/PnFttxlqr658YviBshjjWYNCu50ZIGru5DzhWATWfO\nQFpc4z5lXqIhaHVV\n\u003d6oph\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f12235_51725369",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-02T17:47:32Z",
+      "side": 1,
+      "message": "nit, here and below: This could just be Exception. We don\u0027t care about any exception, even potential checked ones.",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 71,
+        "endChar": 29
+      },
+      "revId": "99f1871b6359864a58fad33ac70dbe705f1f00b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
 }
