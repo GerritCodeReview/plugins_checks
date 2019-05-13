@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b7bfe5a_e6d3963a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a1e5aac_6d058f0c",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 45
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6933473_5e12a98b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a345db5a_542d73c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6933473_5e12a98b",
+      "range": {
+        "startLine": 26,
+        "startChar": 28,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "3b8c7b68_eb813f5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Ack\n\nLet\u0027s do in a follow-up.",
+      "parentUuid": "962e8f5c_ef2342d7",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9562ce9_63ed1b97",
         "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
         "patchSetId": 1
@@ -114,6 +186,30 @@
       "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59ce24bf_58cf34a1",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9562ce9_63ed1b97",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 36
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "63f50f1f_8998c81c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723d8e33_f761601d",
+      "range": {
+        "startLine": 125,
+        "startChar": 26,
+        "endLine": 125,
+        "endChar": 36
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69eae9bb_03ed623b",
         "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
         "patchSetId": 1
@@ -183,6 +303,30 @@
       "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d115e6d_a2f4d3af",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CombinedCheckState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69eae9bb_03ed623b",
+      "range": {
+        "startLine": 135,
+        "startChar": 42,
+        "endLine": 135,
+        "endChar": 43
+      },
+      "revId": "e5147ab18721821fb8ba615536eccdd8a96a21b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
