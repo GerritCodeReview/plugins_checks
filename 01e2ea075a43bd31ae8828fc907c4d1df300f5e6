@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2eacfcc3_4dc817e0",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b7eee98_babe90de",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4448311d_9118baa7",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "da947928_a7f8b66d",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:54Z",
+      "side": 1,
+      "message": "Ack\n\nIt seems your already added those tests. Thanks ;)",
+      "parentUuid": "4448311d_9118baa7",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 45
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78ade986_baba2167",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 1
@@ -92,6 +140,30 @@
       "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "304e44c4_16fd4872",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-13T12:48:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78ade986_baba2167",
+      "range": {
+        "startLine": 147,
+        "startChar": 11,
+        "endLine": 147,
+        "endChar": 53
+      },
+      "revId": "01e2ea075a43bd31ae8828fc907c4d1df300f5e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
