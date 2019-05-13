@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f70462d_c8b9e959",
+        "filename": "javatests/com/google/gerrit/plugins/checks/rules/ChecksSubmitRuleTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-13T15:37:00Z",
+      "side": 0,
+      "message": "As dicussed, please re-add this test class. We still have need for it (to test the exceptional case).",
+      "range": {
+        "startLine": 37,
+        "startChar": 13,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "a79395a84d892ba179e241405e3ade4963d0a345",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

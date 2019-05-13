@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01a41cbb_696ebc44",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChangeCheckInfoIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-13T15:37:00Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s good that we change this but I see that it will need some time to re-adjust this. As populating the cache on update was just a side-effect up to now and we need the other aspects of this change, I think we should go forward and merge this change. Can you please add a TODO comment somewhere so that we don\u0027t forget about? Please also mention this behavior change in the commit message.",
+      "range": {
+        "startLine": 121,
+        "startChar": 7,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "4ba3d012b401b9b6ec9a476bd0399512201cdbf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
