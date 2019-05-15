@@ -16,6 +16,8 @@ package com.google.gerrit.plugins.checks.acceptance.api;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assert_;
+import static com.google.gerrit.acceptance.testsuite.project.TestProjectUpdate.allow;
+import static com.google.gerrit.acceptance.testsuite.project.TestProjectUpdate.block;
 import static com.google.gerrit.plugins.checks.testing.PendingChecksInfoSubject.assertThat;
 import static com.google.gerrit.server.group.SystemGroupBackend.REGISTERED_USERS;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
@@ -23,7 +25,9 @@ import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import com.google.common.collect.Iterables;
 import com.google.gerrit.acceptance.RestResponse;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
+import com.google.gerrit.common.data.GroupReference;
 import com.google.gerrit.common.data.Permission;
+import com.google.gerrit.common.data.PermissionRule;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.CheckKey;
@@ -33,8 +37,8 @@ import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerTestData;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.PendingCheckInfo;
 import com.google.gerrit.plugins.checks.api.PendingChecksInfo;
+import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.PatchSet;
-import com.google.gerrit.server.project.testing.Util;
 import com.google.gerrit.testing.TestTimeUtil;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
@@ -580,11 +584,12 @@ public class QueryPendingChecksIT extends AbstractCheckersTest {
   @Test
   public void pendingChecksDontIncludeChecksForNonVisibleChanges() throws Exception {
     // restrict project visibility so that it is only visible to administrators
-    try (ProjectConfigUpdate u = updateProject(project)) {
-      Util.allow(u.getConfig(), Permission.READ, adminGroupUuid(), "refs/*");
-      Util.block(u.getConfig(), Permission.READ, REGISTERED_USERS, "refs/*");
-      u.save();
-    }
+    projectOperations
+        .project(project)
+        .forUpdate()
+        .add(allow(Permission.READ).ref("refs/*").group(adminGroupUuid()))
+        .add(block(Permission.READ).ref("refs/*").group(REGISTERED_USERS))
+        .update();
 
     CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
     checkOperations
