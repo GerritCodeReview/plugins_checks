@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6051761e_19220a04",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-05-16T08:16:36Z",
+      "side": 1,
+      "message": "We can probably make a variant of assertConflict in core that takes an expected message.",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 540,
+        "endChar": 90
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
