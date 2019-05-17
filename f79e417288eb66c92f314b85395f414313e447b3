@@ -22,6 +22,30 @@
       "revId": "f79e417288eb66c92f314b85395f414313e447b3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54062e88_e4834099",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-17T12:19:13Z",
+      "side": 1,
+      "message": "sounds like a good idea!",
+      "parentUuid": "6051761e_19220a04",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 540,
+        "endChar": 90
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
