@@ -15,14 +15,12 @@
             '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
       };
 
-      // TODO(brohlfs): Enable this dashboard column when search queries start
-      // returning checks.
-      // plugin.registerDynamicCustomComponent(
-      //     'change-list-header',
-      //     'gr-checks-change-list-header-view');
-      // plugin.registerDynamicCustomComponent(
-      //     'change-list-item-cell',
-      //     'gr-checks-change-list-item-cell-view');
+      plugin.registerDynamicCustomComponent(
+          'change-list-header',
+          'gr-checks-change-list-header-view');
+      plugin.registerDynamicCustomComponent(
+          'change-list-item-cell',
+          'gr-checks-change-list-item-cell-view');
       plugin.registerCustomComponent(
           'commit-container',
           'gr-checks-chip-view').onAttached(
