@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a652df57_619fdac6",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/CheckerRefsIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-21T07:51:08Z",
+      "side": 1,
+      "message": "Is this relevant for the test?",
+      "range": {
+        "startLine": 209,
+        "startChar": 16,
+        "endLine": 209,
+        "endChar": 33
+      },
+      "revId": "953fff3f67f7407645f85df77c2aa162b5f41acf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844bb550_1bb4ed6c",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/CheckerRefsIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-21T07:51:08Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 246,
+        "startChar": 16,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "953fff3f67f7407645f85df77c2aa162b5f41acf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
