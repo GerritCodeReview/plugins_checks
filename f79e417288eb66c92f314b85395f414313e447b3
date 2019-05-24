@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "944f4275_bee41ab2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-24T13:08:06Z",
+      "side": 1,
+      "message": "Instead",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb4c6620_6fafc625",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-24T13:08:06Z",
+      "side": 1,
+      "message": "turn it off",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cd72d7c_99b5de2d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ChecksCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-24T13:08:06Z",
+      "side": 1,
+      "message": "For all error messages: A kind of feel this should rather say \"on an edit\" to highlight that we are talking about a thing (a change edit) and not an action (e.g. during an edit action of something).",
+      "range": {
+        "startLine": 62,
+        "startChar": 68,
+        "endLine": 62,
+        "endChar": 75
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7166417_8470553a",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-24T13:08:06Z",
+      "side": 1,
+      "message": "We hit this case when the patchSet mysteriously vanished since we resolved it via the RevisionResource path, right? If so, I\u0027m not completely convinced that we should return an error here. Instead, we could also log an error message and simply return an empty list. What do you think?",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 65
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30cc6bda_f44c9cff",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-24T13:08:06Z",
+      "side": 1,
+      "message": "Could be a static import.",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 21
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6051761e_19220a04",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
         "patchSetId": 1
