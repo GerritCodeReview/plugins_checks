@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "60e76b16_3df98f50",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ChecksCollection.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T14:43:09Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "65eba460_eea4c085",
+      "range": {
+        "startLine": 62,
+        "startChar": 68,
+        "endLine": 62,
+        "endChar": 75
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7166417_8470553a",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 1
@@ -285,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "f679988e_08224d00",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T14:43:09Z",
+      "side": 1,
+      "message": "ah. OK. Let me update it then.",
+      "parentUuid": "4e237394_3458c3e4",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 21
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6051761e_19220a04",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
         "patchSetId": 1
@@ -329,6 +377,30 @@
       "revId": "f79e417288eb66c92f314b85395f414313e447b3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9452805_fd35a259",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T14:43:09Z",
+      "side": 1,
+      "message": "This needs be done in core.",
+      "parentUuid": "54062e88_e4834099",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 540,
+        "endChar": 90
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
