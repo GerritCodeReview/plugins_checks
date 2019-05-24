@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e83d1d29_09443ad9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T13:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "944f4275_bee41ab2",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 6
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb4c6620_6fafc625",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f79e417288eb66c92f314b85395f414313e447b3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76009b17_a876459b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T13:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb4c6620_6fafc625",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "244d4610_e5ec7d6e",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T13:29:00Z",
+      "side": 1,
+      "message": "Not really, the \"psId\" here has lots of possible input sources. For example, CreateCheckIt#93 -\u003e CheckOperationsImpl#85.\n\nHere I prefer to throw out an exception because it\u0027s easier to be noticed. We can update it to return an empty list in the future if necessary.",
+      "parentUuid": "c7166417_8470553a",
+      "range": {
+        "startLine": 107,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 65
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "30cc6bda_f44c9cff",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2019-05-24T13:08:06Z",
       "side": 1,
       "message": "Could be a static import.",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 21
+      },
+      "revId": "f79e417288eb66c92f314b85395f414313e447b3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35758132_9a93d610",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1031898
+      },
+      "writtenOn": "2019-05-24T13:29:00Z",
+      "side": 1,
+      "message": "If it\u0027s a static import, wouldn\u0027t it be conflict with existing Truth.assertThat?",
+      "parentUuid": "30cc6bda_f44c9cff",
       "range": {
         "startLine": 532,
         "startChar": 4,
