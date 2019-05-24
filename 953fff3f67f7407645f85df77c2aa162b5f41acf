@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "71818aa7_c972e47d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/CheckerRefsIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-05-24T06:43:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dacf8ffe_55814a7b",
+      "range": {
+        "startLine": 205,
+        "startChar": 12,
+        "endLine": 205,
+        "endChar": 40
+      },
+      "revId": "953fff3f67f7407645f85df77c2aa162b5f41acf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a652df57_619fdac6",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/CheckerRefsIT.java",
         "patchSetId": 2
