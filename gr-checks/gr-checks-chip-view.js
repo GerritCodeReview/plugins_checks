@@ -73,7 +73,14 @@
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
     _fetchChecks(change, revision, getChecks) {
+      // FIXME: remove
+      setTimeout(self => {
+        self._hasChecks = true;
+        console.log("_hasChecks enabled");
+      }, 1000, this);
+
       getChecks(change._number, revision._number).then(checks => {
+        console.log("getChecks resolved");
         this.set('_hasChecks', checks.length > 0);
         if (checks.length > 0) {
           this.set(
