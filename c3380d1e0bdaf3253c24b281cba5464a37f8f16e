@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b6a52ee2_9ded2431",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-29T12:28:09Z",
+      "side": 1,
+      "message": "FYI: For the future, I would rather like to see small, individual fixes if possible. This allows quicker, focused reviews and also means that only one small thing needs to be rolled back in case the new fix causes issues. For example, I would have expected each of the bullet points mentioned in this commit message to be an own change/commit.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9af420d0_55b78462",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -161,6 +184,30 @@
       "writtenOn": "2019-05-29T12:02:24Z",
       "side": 1,
       "message": "Maybe rename to \"Submit Rule\"? Well, that is rather for Alice and Alberto to say, I guess. :-) Maybe you have already talked about it ...",
+      "range": {
+        "startLine": 94,
+        "startChar": 35,
+        "endLine": 94,
+        "endChar": 45
+      },
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60babf6c_713d357d",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-05-29T12:28:09Z",
+      "side": 1,
+      "message": "\"For Submit\" was my suggestion. 😊 I thought it would sound the best when you see \"For Sumbit\" at the top and then \"Optional\" or \"Required\" as value below. Alberto didn\u0027t have a better idea right away and we agreed that we could always improve it later.\n\n\"Submit Rule\" would be too technical in my opinion. After all, Gerrit users don\u0027t necessarily know about submit rules in Gerrit.\n\nIf you don\u0027t have another suggestion, let\u0027s stay with \"For submit\" or \"For Submit\" now. Is there a policy for the frontend which defines whether words are written with capital letters or not?",
+      "parentUuid": "53a08512_dc2c9b27",
       "range": {
         "startLine": 94,
         "startChar": 35,
