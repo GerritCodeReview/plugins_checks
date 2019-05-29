@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9af420d0_55b78462",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "When you are enumerating items in the commit message it might be nicer to add - or * at the beginning of each item line. Or just add blank lines between items.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 67
+      },
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e8af719_534b5fa9",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7656a5f8_71268bc3",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Consistency nit: Other td elements do not have spaces around the [[...]] expression.",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee40b6f5_bc91658f",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Indentation nit: Does not match opening tag.",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdefcd69_bb5b9a52",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Either remove these lines, or add a comment why and when you will bring them back.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 27
+      },
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26f6e801_7fd63718",
+        "filename": "gr-checks/gr-checks-item.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Formatting nit: Add a blank line before this one.",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30713cc3_caa9402b",
+        "filename": "gr-checks/gr-checks-item.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Remove the console.log before submitting.",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbd0f9ba_25957b1c",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Consistency nit: Other \u003cth\u003e elements don\u0027t have spaces around the content.",
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53a08512_dc2c9b27",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-05-29T12:02:24Z",
+      "side": 1,
+      "message": "Maybe rename to \"Submit Rule\"? Well, that is rather for Alice and Alberto to say, I guess. :-) Maybe you have already talked about it ...",
+      "range": {
+        "startLine": 94,
+        "startChar": 35,
+        "endLine": 94,
+        "endChar": 45
+      },
+      "revId": "c3380d1e0bdaf3253c24b281cba5464a37f8f16e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
