@@ -21,11 +21,11 @@ import static org.easymock.EasyMock.replay;
 
 import com.google.common.collect.Iterables;
 import com.google.gerrit.common.data.SubmitRecord;
+import com.google.gerrit.entities.Account;
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.PatchSet;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.plugins.checks.Checks;
-import com.google.gerrit.reviewdb.client.Account;
-import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.reviewdb.client.PatchSet;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.project.SubmitRuleOptions;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.gerrit.server.util.time.TimeUtil;

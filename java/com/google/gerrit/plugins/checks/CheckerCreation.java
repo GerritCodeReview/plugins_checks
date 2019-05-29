@@ -15,7 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 
 @AutoValue
 public abstract class CheckerCreation {

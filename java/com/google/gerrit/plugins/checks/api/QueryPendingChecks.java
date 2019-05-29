@@ -18,6 +18,8 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.gerrit.entities.PatchSet;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.RestApiException;
@@ -37,8 +39,6 @@ import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.index.CheckQueryBuilder;
 import com.google.gerrit.plugins.checks.index.CheckStatePredicate;
 import com.google.gerrit.plugins.checks.index.CheckerPredicate;
-import com.google.gerrit.reviewdb.client.PatchSet;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
