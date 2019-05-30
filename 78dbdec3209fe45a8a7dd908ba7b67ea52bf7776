@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e240160_bbef92f6",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-05-30T08:33:01Z",
+      "side": 1,
+      "message": "Done in: [1].\n\n* [1] https://gerrit-review.googlesource.com/c/plugins/checks/+/226330",
+      "parentUuid": "a7cfa1e3_b1236b37",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "78dbdec3209fe45a8a7dd908ba7b67ea52bf7776",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "48f9e052_0d70593c",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-29T23:58:53Z",
       "side": 1,
       "message": "Import only Project and PatchSet?",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 50
+      },
+      "revId": "78dbdec3209fe45a8a7dd908ba7b67ea52bf7776",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90e3b3ed_96a4b085",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-05-30T08:33:01Z",
+      "side": 1,
+      "message": "Done in its own change.",
+      "parentUuid": "48f9e052_0d70593c",
       "range": {
         "startLine": 24,
         "startChar": 1,
