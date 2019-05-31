@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d88c9cf_5f1134bc",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2019-05-31T13:26:08Z",
+      "side": 1,
+      "message": "The below seems to have been unindented. Should have 2 more spaces so it\u0027s lined with \u003cstyle\u003e\u003c/style\u003e please.",
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ee9b711_2eba8611",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2019-05-31T13:26:08Z",
+      "side": 1,
+      "message": "This should be on the line above.",
+      "range": {
+        "startLine": 33,
+        "startChar": 39,
+        "endLine": 33,
+        "endChar": 65
+      },
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
