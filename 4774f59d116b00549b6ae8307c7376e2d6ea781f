@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3bb6bfbe_add6f09b",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-12T12:17:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d88c9cf_5f1134bc",
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ee9b711_2eba8611",
         "filename": "gr-checks/gr-checks-item.html",
         "patchSetId": 3
@@ -36,6 +54,47 @@
         "endLine": 33,
         "endChar": 65
       },
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47eb9267_ff3b5b57",
+        "filename": "gr-checks/gr-checks-item.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-12T12:17:24Z",
+      "side": 1,
+      "message": "\"disabled\" seems to be property of the gr-button. \nThis exact usage is there in other places also.\nIs there anything wrong here?",
+      "parentUuid": "2ee9b711_2eba8611",
+      "range": {
+        "startLine": 33,
+        "startChar": 39,
+        "endLine": 33,
+        "endChar": 65
+      },
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa75efd7_7bb22f7a",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-12T12:17:24Z",
+      "side": 1,
+      "message": "Currently the padding is based only on the content and not on the heading of the table columns. This creates the issue that if the column content is not big enough(or empty / \"-\" as it is in our case), the spacing between table column heading is too small. Hence, adding padding between column headers as well",
       "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
