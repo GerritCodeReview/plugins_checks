@@ -98,6 +98,24 @@
       "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9250ce5_d0fd5931",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-13T07:03:28Z",
+      "side": 1,
+      "message": "Looks good. Resolving the comment.",
+      "parentUuid": "aa75efd7_7bb22f7a",
+      "revId": "4774f59d116b00549b6ae8307c7376e2d6ea781f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
