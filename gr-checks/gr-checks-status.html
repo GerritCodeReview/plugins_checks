@@ -36,11 +36,19 @@
           </span>
         </template>
       </template>
-      <template is="dom-if" if="[[_isInProgress(status)]]">
+      <template is="dom-if" if="[[_isScheduled(status)]]">
         <i>…</i>
         <template is="dom-if" if="[[showText]]">
           <span>
-            In progress
+            Scheduled
+          </span>
+        </template>
+      </template>
+      <template is="dom-if" if="[[_isRunning(status)]]">
+        <i>…</i>
+        <template is="dom-if" if="[[showText]]">
+          <span>
+            Running
           </span>
         </template>
       </template>
@@ -60,6 +68,11 @@
           </span>
         </template>
       </template>
+    </span>
+  </template>
+  <script src="gr-checks-all-statuses.js"></script>
+  <script src="gr-checks-status.js"></script>
+</dom-module>
     </span>
   </template>
   <script src="gr-checks-all-statuses.js"></script>
