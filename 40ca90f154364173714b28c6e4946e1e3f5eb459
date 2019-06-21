@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aec75ff_6f7d01eb",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-21T08:00:07Z",
+      "side": 1,
+      "message": "Maybe \"const\" instead of \"let\".",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2c3334_776d09c4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-21T08:00:07Z",
+      "side": 1,
+      "message": "Maybe move these lines with constant definitions to line 5 outside of _fetchChecks().",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3db403_7ef884ee",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-21T08:00:07Z",
+      "side": 1,
+      "message": "There is no style check configured for the checks plugin repo (another downside of this being a plugin :-/). But I think there should always be a space after \"//\".",
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeee240d_c2923aa1",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-21T08:00:07Z",
+      "side": 1,
+      "message": "Maybe consider removing comments, if they just describe what the code does. Most of the time comments are only interesting, if they describe \"why\" the code is written in a certain way.",
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2573185_956a7a95",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-21T08:00:07Z",
+      "side": 1,
+      "message": "You could sum up these lines with:\n\n// An invalid status will go last in the sort order.\nreturn indexA \u003d\u003d -1 ? 1 : -1\n\nOr you could do \"if \u003d\u003d -1 then assign max_int\" frist for both indexX vars. And then always return \"indexA - indexB\".",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 89,
+        "endChar": 26
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
