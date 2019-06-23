@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9701278e_2cadf433",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-23T16:20:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aec75ff_6f7d01eb",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd2c3334_776d09c4",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-06-21T08:00:07Z",
       "side": 1,
       "message": "Maybe move these lines with constant definitions to line 5 outside of _fetchChecks().",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74f18bc6_349ce3a4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-23T16:20:33Z",
+      "side": 1,
+      "message": "I tried but window.Gerrit.Checks was not defined when I moved it outside the function.",
+      "parentUuid": "cd2c3334_776d09c4",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "2ff22191_b3400fe0",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-23T16:20:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c3db403_7ef884ee",
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aeee240d_c2923aa1",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 1
@@ -79,6 +145,24 @@
       "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf51db6d_02bccc6a",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-23T16:20:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeee240d_c2923aa1",
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -102,6 +186,30 @@
       "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2462777_04ab8f5b",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-06-23T16:20:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2573185_956a7a95",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 89,
+        "endChar": 26
+      },
+      "revId": "40ca90f154364173714b28c6e4946e1e3f5eb459",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
