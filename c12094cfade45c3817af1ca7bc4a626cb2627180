@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f987ad8c_0185fa48",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-06-24T09:19:36Z",
+      "side": 1,
+      "message": "The sorting function could also be a moved outside of getChecks().",
+      "revId": "c12094cfade45c3817af1ca7bc4a626cb2627180",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
