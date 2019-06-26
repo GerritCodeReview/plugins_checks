@@ -56,6 +56,7 @@
       getChecks: Function,
       _checkStatuses: Object,
       _hasChecks: Boolean,
+      _checks: Object,
       _status: {type: String, computed: '_computeStatus(_checkStatuses)'},
       _statusString: {
         type: String,
@@ -77,6 +78,7 @@
       getChecks(change._number, revision._number).then(checks => {
         this.set('_hasChecks', checks.length > 0);
         if (checks.length > 0) {
+          this.set('_checks', checks);
           this.set(
               '_checkStatuses', computeCheckStatuses(checks));
         }
@@ -109,7 +111,7 @@
      * @return {string}
      */
     _computeChipClass(status) {
-      return `chip ${window.Gerrit.Checks.statusClass(status)}`;
+      return `chip ${window.Gerrit.Checks.statusClass(status, this._checks)}`;
     },
   });
 })();
