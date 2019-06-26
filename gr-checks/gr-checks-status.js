@@ -12,7 +12,7 @@
         reflectToAttribute: true,
       },
       status: String,
-      _className: {type: String, computed: '_computeClassName(status)'},
+      downgradeFailureToWarning: Boolean
     },
 
     _isUnevaluated(status) {
@@ -28,11 +28,13 @@
     },
 
     _isFailed(status) {
+      if (this.downgradeFailureToWarning) return false;
       return window.Gerrit.Checks.isFailed(status);
     },
 
-    _computeClassName(status) {
-      return window.Gerrit.Checks.statusClass(status);
+    _isWarning(status) {
+      return this.downgradeFailureToWarning && window.Gerrit.Checks.isFailed(status);
     },
+
   });
 })();
