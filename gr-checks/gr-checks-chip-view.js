@@ -45,6 +45,22 @@
     }, {total: checks.length});
   }
 
+  function downgradeFailureToWarning(checks) {
+    const hasFailedCheck = checks.some(
+      (check) => {
+        return check.state == Statuses.FAILED;
+      }
+    )
+    if (!hasFailedCheck) return false;
+    const hasRequiredFailedCheck = checks.some(
+      (check) => {
+        return check.state == Statuses.FAILED && check.blocking && check.blocking.length > 0;
+      }
+    )
+    return !hasRequiredFailedCheck;
+  }
+
+
   Polymer({
     is: 'gr-checks-chip-view',
     _legacyUndefinedCheck: true,
@@ -56,12 +72,14 @@
       getChecks: Function,
       _checkStatuses: Object,
       _hasChecks: Boolean,
+      _checks: Object,
       _status: {type: String, computed: '_computeStatus(_checkStatuses)'},
       _statusString: {
         type: String,
         computed: '_computeStatusString(_status, _checkStatuses)',
       },
       _chipClasses: {type: String, computed: '_computeChipClass(_status)'},
+      _downgradeFailureToWarning: Boolean
     },
 
     observers: [
@@ -77,8 +95,10 @@
       getChecks(change._number, revision._number).then(checks => {
         this.set('_hasChecks', checks.length > 0);
         if (checks.length > 0) {
+          this.set('_checks', checks);
           this.set(
               '_checkStatuses', computeCheckStatuses(checks));
+          this.set('_downgradeFailureToWarning', downgradeFailureToWarning(checks));
         }
       });
     },
@@ -109,7 +129,7 @@
      * @return {string}
      */
     _computeChipClass(status) {
-      return `chip ${window.Gerrit.Checks.statusClass(status)}`;
+      return `chip ${window.Gerrit.Checks.statusClass(status, this._checks)}`;
     },
   });
 })();
