@@ -12,7 +12,8 @@
         reflectToAttribute: true,
       },
       status: String,
-      _className: {type: String, computed: '_computeClassName(status)'},
+      checks: Object,
+      _className: {type: String, computed: '_computeClassName(status, checks)'},
     },
 
     _isUnevaluated(status) {
@@ -31,8 +32,8 @@
       return window.Gerrit.Checks.isFailed(status);
     },
 
-    _computeClassName(status) {
-      return window.Gerrit.Checks.statusClass(status);
+    _computeClassName(status, checks) {
+      return window.Gerrit.Checks.statusClass(status, checks);
     },
   });
 })();
