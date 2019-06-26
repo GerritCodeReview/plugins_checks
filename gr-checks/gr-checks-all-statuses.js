@@ -39,7 +39,7 @@
     return isStatus(status, [Statuses.FAILED]);
   }
 
-  function statusClass(status) {
+  function statusClass(status, checks) {
     if (isUnevaluated(status)) {
       return 'unevaluated';
     }
