@@ -39,7 +39,22 @@
     return isStatus(status, [Statuses.FAILED]);
   }
 
-  function statusClass(status) {
+  function isWarning(status, checks) {
+    if (isStatus(status, [Statuses.FAILED])) {
+      const isWarning = true;
+      checks.map(
+        (check) => {
+          if (check.state == Statuses.FAILED && check.blocking && check.blocking.length > 0) {
+            isWarning = false;
+          }
+        }
+      )
+      return isWarning;
+    }
+    return false;
+  }
+
+  function statusClass(status, checks) {
     if (isUnevaluated(status)) {
       return 'unevaluated';
     }
@@ -48,6 +63,9 @@
     }
     if (isSuccessful(status)) {
       return 'successful';
+    }
+    if (isWarning(status, checks)) {
+      return 'warning';
     }
     if (isFailed(status)) {
       return 'failed';
