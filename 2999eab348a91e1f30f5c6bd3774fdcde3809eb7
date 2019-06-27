@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76aa8611_6d43939a",
+        "filename": "gr-checks/gr-checks-all-statuses.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-06-27T14:43:16Z",
+      "side": 1,
+      "message": "I don\u0027t know what version of javascript we target \n\nbut can we use \nreturn !checks.some(check.state \u003d\u003d Statuses.FAILED \u0026\u0026 check.blocking \u0026\u0026 check.blocking.length \u003e 0);",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "2999eab348a91e1f30f5c6bd3774fdcde3809eb7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
