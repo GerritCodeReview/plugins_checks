@@ -19,6 +19,7 @@ import com.google.gerrit.common.Nullable;
 import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.logging.Metadata;
 import com.google.gerrit.server.logging.TraceContext;
 import com.google.gerrit.server.logging.TraceContext.TraceTimer;
 import com.google.gerrit.server.notedb.AbstractChangeNotes;
@@ -74,7 +75,11 @@ public class CheckNotes extends AbstractChangeNotes<CheckRevisionNote> {
 
     try (TraceTimer ignored =
         TraceContext.newTimer(
-            "Load check notes", "changeId", getChangeId(), "projectName", getProjectName())) {
+            "Load check notes",
+            Metadata.builder()
+                .changeId(getChangeId().get())
+                .pluginName(getProjectName().get())
+                .build())) {
       RevCommit tipCommit = handle.walk().parseCommit(metaId);
       ObjectReader reader = handle.walk().getObjectReader();
       revisionNoteMap =
