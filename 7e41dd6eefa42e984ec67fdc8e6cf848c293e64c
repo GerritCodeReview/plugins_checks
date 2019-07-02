@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6707f830_102f8230",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-02T13:16:52Z",
+      "side": 1,
+      "message": "For it to be a warning state I need two things, there should be atleast one failed check and all failed checks should be not-required. This is why I used two separate loops.",
+      "parentUuid": "8b8126b6_bf9f306a",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "416bdcdc_e7c3b013",
         "filename": "gr-checks/gr-checks-status.html",
         "patchSetId": 7
@@ -68,6 +92,30 @@
       "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be4d7de_809df736",
+        "filename": "gr-checks/gr-checks-status.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-02T13:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "416bdcdc_e7c3b013",
+      "range": {
+        "startLine": 24,
+        "startChar": 248,
+        "endLine": 24,
+        "endChar": 256
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
