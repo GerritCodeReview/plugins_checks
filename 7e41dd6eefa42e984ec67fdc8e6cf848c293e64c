@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "43d3c851_caaf2005",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-02T14:54:12Z",
+      "side": 1,
+      "message": "This seems acceptable to me for now. I feel currently it has more readability.",
+      "parentUuid": "faf78cca_953fddd8",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "416bdcdc_e7c3b013",
         "filename": "gr-checks/gr-checks-status.html",
         "patchSetId": 7
