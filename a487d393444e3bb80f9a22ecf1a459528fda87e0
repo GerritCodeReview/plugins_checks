@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b8b9bdd_d45ac28e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-02T14:01:59Z",
+      "side": 1,
+      "message": "Next time maybe split into two changes.",
+      "revId": "a487d393444e3bb80f9a22ecf1a459528fda87e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bc24f6f_0a08e6d4",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-02T14:01:59Z",
+      "side": 1,
+      "message": "Maybe set a default value.",
+      "revId": "a487d393444e3bb80f9a22ecf1a459528fda87e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643132c8_fcae7c7b",
+        "filename": "gr-checks/gr-checks-status.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-02T14:01:59Z",
+      "side": 1,
+      "message": "Maybe format like other elements instead of having each svg on just one line:\n\n\u003csvg width\u003d\"18\" height\u003d\"18\" xmlns\u003d\"http://www.w3.org/2000/svg\"\u003e\n  \u003cg fill\u003d\"none\" fill-rule\u003d\"evenodd\"\u003e\n    \u003cg transform\u003d\"translate(2 2)\"\u003e\n      \u003ccircle fill\u003d\"#F29900\" cx\u003d\"6.921\" cy\u003d\"6.921\" r\u003d\"6.921\"/\u003e\n      \u003cpath d\u003d\"M6.92 1.3l4.686 8.2H2.235L6.92 1.3zm-.584 5.271h1.171V3.643H6.336V6.57zm0 2.258h1.171V7.657H6.336V8.83z\" fill\u003d\"#F8F9FA\"/\u003e\n    \u003c/g\u003e\n    \u003cpath d\u003d\"M0 0h18v18H0z\"/\u003e\n  \u003c/g\u003e\n\u003c/svg\u003e",
+      "revId": "a487d393444e3bb80f9a22ecf1a459528fda87e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f64b4ed5_88178aec",
+        "filename": "gr-checks/gr-checks-status.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-02T14:01:59Z",
+      "side": 1,
+      "message": "Maybe change to\n\nreturn !this.downgradeFailureToWarning \u0026\u0026 window.Gerrit.Checks.isFailed(status);\n\nSo it is more similar to _isWarning().",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "a487d393444e3bb80f9a22ecf1a459528fda87e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
