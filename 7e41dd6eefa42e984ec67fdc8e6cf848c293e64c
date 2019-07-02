@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5976c51_b635342c",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-07-02T13:07:24Z",
+      "side": 1,
+      "message": "I don\u0027t know how does polymer like formatting but I think this looks better:\n\nconst hasFailedCheck \u003d checks.some(check \u003d\u003e check.state \u003d\u003d Statuses.FAILED);",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b8126b6_bf9f306a",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-07-02T13:07:24Z",
+      "side": 1,
+      "message": "Why this is not enough? Why do you need hasFailedCheck above? I think it can be in one some.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "416bdcdc_e7c3b013",
+        "filename": "gr-checks/gr-checks-status.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-07-02T13:07:24Z",
+      "side": 1,
+      "message": "Nit: there is some white space",
+      "range": {
+        "startLine": 24,
+        "startChar": 248,
+        "endLine": 24,
+        "endChar": 256
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a082591_940712f5",
+        "filename": "gr-checks/gr-checks-status.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-07-02T13:07:24Z",
+      "side": 1,
+      "message": "Nit: I think this is equivalent to\nreturn this.downgradeFailureToWarning \u0026\u0026 window.Gerrit.Checks.isFailed(status);\n\nYour solution is ok as well, I prefer one liner. Up to you.",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
