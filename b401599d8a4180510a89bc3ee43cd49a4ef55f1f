@@ -22,6 +22,30 @@
       "revId": "b401599d8a4180510a89bc3ee43cd49a4ef55f1f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbfa83f9_3edff249",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-02T14:25:52Z",
+      "side": 1,
+      "message": "Yeah, makes sense. Will make the changes.",
+      "parentUuid": "8f222d5f_e0ae1784",
+      "range": {
+        "startLine": 76,
+        "startChar": 42,
+        "endLine": 76,
+        "endChar": 60
+      },
+      "revId": "b401599d8a4180510a89bc3ee43cd49a4ef55f1f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
