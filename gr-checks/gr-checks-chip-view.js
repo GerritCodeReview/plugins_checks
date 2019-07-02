@@ -68,6 +68,14 @@
       '_fetchChecks(change, revision, getChecks)',
     ],
 
+    listeners: {
+      'tap': 'showChecksTable'
+    },
+
+    showChecksTable() {
+      this.dispatchEvent(new CustomEvent('state-chip-clicked', {bubbles: true, composed: true}));
+    },
+
     /**
      * @param {!Defs.Change} change
      * @param {!Defs.Revision} revision
