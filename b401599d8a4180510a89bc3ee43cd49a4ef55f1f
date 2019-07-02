@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f222d5f_e0ae1784",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-02T13:32:18Z",
+      "side": 1,
+      "message": "I would slightly prefer to make this a command-type event, i.e. calling it \u0027show-checks-table\u0027 or something similar. The advantages I see:\n\n1. You could issue that command also from other places in the UI, if you want, which is more likely than another part of the code caring about the state chip being clicked.\n\n2. The dependency is a little nicer, because then gr-change-view.js does not have to \"know\" about the state chip.\n\nMaybe even put the string \"change-view-tab-content-checks\" into the event details. Then gr-change-view.js becomes totally agnostic of \"checks\". WDYT?",
+      "range": {
+        "startLine": 76,
+        "startChar": 42,
+        "endLine": 76,
+        "endChar": 60
+      },
+      "revId": "b401599d8a4180510a89bc3ee43cd49a4ef55f1f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
