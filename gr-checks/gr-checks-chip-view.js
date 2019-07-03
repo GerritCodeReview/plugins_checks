@@ -23,6 +23,8 @@
     FAILED: 'failed',
   };
 
+  const CHECKS_INTERVAL = 60 * 1000;
+
   const Defs = {};
   /**
    * @typedef {{
@@ -74,13 +76,20 @@
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
     _fetchChecks(change, revision, getChecks) {
-      getChecks(change._number, revision._number).then(checks => {
-        this.set('_hasChecks', checks.length > 0);
-        if (checks.length > 0) {
-          this.set(
-              '_checkStatuses', computeCheckStatuses(checks));
-        }
-      });
+      if (this.checksInterval) {
+        clearInterval(this.checksInterval);
+      }
+      const func = () => {
+        getChecks(change._number, revision._number).then(checks => {
+          this.set('_hasChecks', checks.length > 0);
+          if (checks.length > 0) {
+            this.set(
+                '_checkStatuses', computeCheckStatuses(checks));
+          }
+        });
+      }
+      func();
+      setInterval(func , CHECKS_INTERVAL )
     },
 
     /**
