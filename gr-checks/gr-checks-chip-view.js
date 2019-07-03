@@ -89,7 +89,7 @@
         });
       }
       func();
-      setInterval(func , CHECKS_INTERVAL )
+      this.checksInterval = setInterval(func , CHECKS_INTERVAL )
     },
 
     /**
