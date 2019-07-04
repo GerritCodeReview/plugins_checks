@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "46990a0b_954f3eb4",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-04T08:47:54Z",
+      "side": 1,
+      "message": "Just for the record, while I don\u0027t think this method needs to be perfectly optimized, I do think that for array operations this style is nicer\n\n    const hasFailedCheck \u003d checks.some(check \u003d\u003e check.state \u003d\u003d Statuses.FAILED)\n\nthan that\n\n    const hasFailedCheck \u003d checks.some(\n      (check) \u003d\u003e {\n        return check.state \u003d\u003d Statuses.FAILED;\n      }\n    )",
+      "parentUuid": "43d3c851_caaf2005",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "7e41dd6eefa42e984ec67fdc8e6cf848c293e64c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "416bdcdc_e7c3b013",
         "filename": "gr-checks/gr-checks-status.html",
         "patchSetId": 7
