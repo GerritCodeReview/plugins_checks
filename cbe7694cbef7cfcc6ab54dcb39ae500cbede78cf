@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8992fa1_6a0a24f1",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-05T13:05:02Z",
+      "side": 1,
+      "message": "Intervals should always have the time unit in the var name:\n\nCHECKS_INTERVAL_MS\n\nAnd maybe add \"poll\" or \"polling\" to the var name.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "cbe7694cbef7cfcc6ab54dcb39ae500cbede78cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d61bca1_0aac239f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-05T13:05:02Z",
+      "side": 1,
+      "message": "Maybe add another _pollChecksRegularly() function and have that use _fetchChecks():\n\n    _pollChecksRegularly(change, revision, getChecks) {\n      if (this.pollChecksInterval) {\n        clearInterval(this.pollChecksInterval);\n      }\n      const poll \u003d () \u003d\u003e _fetchChecks(change, revision, getChecks);\n      poll();\n      this.pollChecksInterval \u003d setInterval(poll, CHECKS_INTERVAL)\n    }\n\n    _fetchChecks(change, revision, getChecks) {\n      getChecks(change._number, revision._number).then(checks \u003d\u003e {\n        this.set(\u0027_hasChecks\u0027, checks.length \u003e 0);\n        if (checks.length \u003e 0) {\n          this.set(\u0027_checkStatuses\u0027, computeCheckStatuses(checks));\n          this.set(\u0027_downgradeFailureToWarning\u0027, downgradeFailureToWarning(checks));\n        }\n      });\n    },",
+      "revId": "cbe7694cbef7cfcc6ab54dcb39ae500cbede78cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f6c29cb_cc946bf9",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-05T13:05:02Z",
+      "side": 1,
+      "message": "maybe rename to poll",
+      "range": {
+        "startLine": 120,
+        "startChar": 12,
+        "endLine": 120,
+        "endChar": 16
+      },
+      "revId": "cbe7694cbef7cfcc6ab54dcb39ae500cbede78cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5589532_32a1d763",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-05T13:05:02Z",
+      "side": 1,
+      "message": "Did you revert the _downgradeFailureToWarning change by accident?",
+      "revId": "cbe7694cbef7cfcc6ab54dcb39ae500cbede78cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a03c1c_ed96fe82",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-05T13:05:02Z",
+      "side": 1,
+      "message": "Can you add this to the list of properties so it is explicitly defined and commented.",
+      "range": {
+        "startLine": 130,
+        "startChar": 11,
+        "endLine": 130,
+        "endChar": 25
+      },
+      "revId": "cbe7694cbef7cfcc6ab54dcb39ae500cbede78cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
