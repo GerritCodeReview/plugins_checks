@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "340e1ec3_a1d14292",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-08T15:42:13Z",
+      "side": 1,
+      "message": "line break and white space",
+      "range": {
+        "startLine": 8,
+        "startChar": 106,
+        "endLine": 8,
+        "endChar": 107
+      },
+      "revId": "993f2d698b163b49eab677fa2c4dc5cd2ddbb6fe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c904898_15a24194",
+        "filename": "gr-checks/gr-checks-item_test.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-08T15:42:13Z",
+      "side": 1,
+      "message": "Remove or fix the test.",
+      "revId": "993f2d698b163b49eab677fa2c4dc5cd2ddbb6fe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "909bfe99_20c16dd1",
+        "filename": "gr-checks/gr-checks-item_test.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-07-08T15:42:13Z",
+      "side": 1,
+      "message": "Remove or fix the test suite.",
+      "revId": "993f2d698b163b49eab677fa2c4dc5cd2ddbb6fe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
