@@ -22,6 +22,30 @@
       "revId": "2b55466370077eb053e6535afa8bcc671dee966d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab34a92a_c1316999",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-08T06:55:44Z",
+      "side": 1,
+      "message": "Yes, thanks for catching.\n\nDone.",
+      "parentUuid": "5447d1ad_e1a448fc",
+      "range": {
+        "startLine": 81,
+        "startChar": 16,
+        "endLine": 81,
+        "endChar": 51
+      },
+      "revId": "2b55466370077eb053e6535afa8bcc671dee966d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
