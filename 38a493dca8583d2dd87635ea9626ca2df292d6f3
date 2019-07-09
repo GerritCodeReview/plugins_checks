@@ -22,6 +22,30 @@
       "revId": "38a493dca8583d2dd87635ea9626ca2df292d6f3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfd16478_bb27acde",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-09T09:34:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2029dc99_467a9fb4",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "38a493dca8583d2dd87635ea9626ca2df292d6f3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
