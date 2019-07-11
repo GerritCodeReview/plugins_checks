@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b614733_fd36ec92",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-11T08:21:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50b2d3c0_6393d14d",
+      "range": {
+        "startLine": 128,
+        "startChar": 25,
+        "endLine": 128,
+        "endChar": 53
+      },
+      "revId": "3a7cd018ec3ccd2b15ddc1abc4b1542f8324d9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5868c46_660f72f8",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2019-07-10T20:32:23Z",
       "side": 1,
       "message": "Do you need an if (this.pollChecksInterval) check here?",
+      "revId": "3a7cd018ec3ccd2b15ddc1abc4b1542f8324d9ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62124686_81baa83a",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-11T08:21:50Z",
+      "side": 1,
+      "message": "clearInterval(undef) just returns undef, so won\u0027t break anything.",
+      "parentUuid": "e5868c46_660f72f8",
       "revId": "3a7cd018ec3ccd2b15ddc1abc4b1542f8324d9ce",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
