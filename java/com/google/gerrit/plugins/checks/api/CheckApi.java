@@ -27,6 +27,11 @@ public interface CheckApi {
   CheckInfo update(CheckInput input) throws RestApiException;
 
   /**
+   * Reruns the check and returns the {@link CheckInfo} for the updated check. Input ignores
+   * "state".
+   */
+  CheckInfo rerun() throws RestApiException;
+  /**
    * A default implementation which allows source compatibility when adding new methods to the
    * interface.
    */
@@ -38,6 +43,11 @@ public interface CheckApi {
 
     @Override
     public CheckInfo update(CheckInput input) throws RestApiException {
+      throw new NotImplementedException();
+    }
+
+    @Override
+    public CheckInfo rerun() throws RestApiException {
       throw new NotImplementedException();
     }
   }

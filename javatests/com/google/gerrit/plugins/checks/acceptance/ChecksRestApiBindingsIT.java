@@ -95,4 +95,18 @@ public class ChecksRestApiBindingsIT extends AbstractCheckersTest {
         String.valueOf(patchSetId.changeId().get()),
         String.valueOf(patchSetId.get()));
   }
+
+  @Test
+  public void rerunCheckEndPoint() throws Exception {
+    PatchSet.Id patchSetId = createChange().getPatchSetId();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey key = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    checkOperations.newCheck(key).state(CheckState.RUNNING).upsert();
+    RestApiCallHelper.execute(
+        adminRestSession,
+        RestCall.post("/changes/%s/revisions/%s/checks~checks/%s/rerun"),
+        String.valueOf(patchSetId.changeId().get()),
+        String.valueOf(patchSetId.get()),
+        String.valueOf(checkerUuid.id()));
+  }
 }
