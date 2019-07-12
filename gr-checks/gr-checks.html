@@ -7,6 +7,7 @@
 <link rel="import" href="gr-checks-change-view-tab-header-view.html">
 
 <dom-module id="gr-checks">
+  <script src="../bower_components/lodash/lodash.min.js"></script>
   <script>
     Gerrit.install(plugin => {
 
@@ -14,6 +15,8 @@
         return plugin.restApi().get(
             '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
       };
+
+      const getChecksThrottled = _.throttle(getChecks, 3 * 1000, {leading: true, trailing: true})
 
       // TODO(brohlfs): Enable this dashboard column when search queries start
       // returning checks.
@@ -27,7 +30,7 @@
           'commit-container',
           'gr-checks-chip-view').onAttached(
           view => {
-            view['getChecks'] = getChecks;
+            view['getChecks'] = getChecksThrottled;
           });
       plugin.registerDynamicCustomComponent(
           'change-view-tab-header',
@@ -39,7 +42,7 @@
             view['isConfigured'] = (repository) => Promise.resolve(true);
             // TODO(brohlfs): Implement retry.
             view['retryCheck'] = (buildId) => undefined;
-            view['getChecks'] = getChecks;
+            view['getChecks'] = getChecksThrottled;
           });
     });
   </script>
