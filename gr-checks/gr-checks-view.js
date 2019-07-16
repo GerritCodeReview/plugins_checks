@@ -60,6 +60,9 @@
       '_pollChecksRegularly(change, revision, getChecks)',
     ],
 
+    detached() {
+      clearInterval(this.pollChecksInterval);
+    },
 
     _orderChecks(a, b) {
       if (a.state != b.state) {
