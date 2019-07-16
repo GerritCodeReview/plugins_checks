@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6db3d55c_0e21e954",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2019-07-16T12:05:32Z",
+      "side": 1,
+      "message": "NIT: maybe to use consistent naming and rename it to _onVisibilityChange . _ means probably private.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 24
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
