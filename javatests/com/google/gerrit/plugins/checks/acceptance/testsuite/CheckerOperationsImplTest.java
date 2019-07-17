@@ -24,6 +24,7 @@ import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.Checker;
 import com.google.gerrit.plugins.checks.CheckerRef;
@@ -79,6 +80,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     assertThat(foundChecker.description).isNull();
     assertThat(foundChecker.created).isNotNull();
     assertThat(foundChecker.updated).isNotNull();
+    assertThat(foundChecker.copyPolicy).isEmpty();
   }
 
   @Test
@@ -386,6 +388,20 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     Optional<String> query = checkerOperations.checker(checkerUuid).get().getQuery();
 
     assertThat(query).isEmpty();
+  }
+
+  @Test
+  public void copyPolicyOfExistingCheckerCanBeRetrieved() throws Exception {
+    CheckerUuid checkerUuid =
+        checkerOperations
+            .newChecker()
+            .copyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CHANGE))
+            .create();
+
+    ImmutableSortedSet<ChangeKind> copyPolicy =
+        checkerOperations.checker(checkerUuid).get().getCopyPolicy();
+
+    assertThat(copyPolicy).containsExactly(ChangeKind.NO_CHANGE);
   }
 
   @Test

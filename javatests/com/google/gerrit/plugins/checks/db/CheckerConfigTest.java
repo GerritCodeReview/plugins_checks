@@ -22,6 +22,7 @@ import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.truth.StringSubject;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.CheckerCreation;
 import com.google.gerrit.plugins.checks.CheckerQuery;
 import com.google.gerrit.plugins.checks.CheckerUpdate;
@@ -566,6 +567,35 @@ public class CheckerConfigTest {
     // Setting the same description again is a no-op and the ref is not updated.
     updateChecker(checkerUuid, checkerUpdate);
     assertThat(getCheckerRefState(checkerUuid)).isEqualTo(refState2);
+  }
+
+  @Test
+  public void setCopyPolicy() throws Exception {
+    CheckerConfig checker = createArbitraryChecker(checkerUuid);
+    assertThat(checker).hasCopyPolicySetThat().isEmpty();
+    assertThat(checker).configStringList("copyPolicy").isEmpty();
+
+    CheckerUpdate checkerUpdate =
+        CheckerUpdate.builder().setCopyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CHANGE)).build();
+    checker = updateChecker(checkerUuid, checkerUpdate);
+    assertThat(checker).hasCopyPolicySetThat().containsExactly(ChangeKind.NO_CHANGE);
+    assertThat(checker).configStringList("copyPolicy").containsExactly("no change");
+
+    checkerUpdate = CheckerUpdate.builder().setCopyPolicy(ImmutableSortedSet.of()).build();
+    checker = updateChecker(checkerUuid, checkerUpdate);
+    assertThat(checker).hasCopyPolicySetThat().isEmpty();
+    assertThat(checker).configStringList("blocking").isEmpty();
+  }
+
+  @Test
+  public void setCopyPolicyDuringCreate() throws Exception {
+    CheckerCreation checkerCreation = getPrefilledCheckerCreationBuilder().build();
+    CheckerUpdate checkerUpdate =
+        CheckerUpdate.builder().setCopyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CHANGE)).build();
+    CheckerConfig checker = createChecker(checkerCreation, checkerUpdate);
+
+    assertThat(checker).hasCopyPolicySetThat().containsExactly(ChangeKind.NO_CHANGE);
+    assertThat(checker).configStringList("copyPolicy").containsExactly("no change");
   }
 
   private CheckerConfig createArbitraryChecker(CheckerUuid checkerUuid) throws Exception {
