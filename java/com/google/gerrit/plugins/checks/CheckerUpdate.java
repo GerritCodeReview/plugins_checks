@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.Project;
@@ -59,6 +60,12 @@ public abstract class CheckerUpdate {
   /** Defines the new query for the checker. If not specified, the query remains unchanged. */
   public abstract Optional<String> getQuery();
 
+  /**
+   * Defines new copy policy for the checker. Specifies the entire set. If not specified, the copy
+   * policy remains unchanged.
+   */
+  public abstract Optional<ImmutableSortedSet<ChangeKind>> getCopyPolicy();
+
   public abstract Builder toBuilder();
 
   public static Builder builder() {
@@ -81,6 +88,8 @@ public abstract class CheckerUpdate {
         ImmutableSortedSet<BlockingCondition> blockingConditions);
 
     public abstract Builder setQuery(String query);
+
+    public abstract Builder setCopyPolicy(ImmutableSortedSet<ChangeKind> copyPolicy);
 
     public abstract CheckerUpdate build();
   }
