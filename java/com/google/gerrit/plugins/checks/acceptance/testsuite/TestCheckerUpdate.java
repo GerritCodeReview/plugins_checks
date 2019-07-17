@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks.acceptance.testsuite;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.acceptance.testsuite.ThrowingConsumer;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.Project;
@@ -37,6 +38,8 @@ public abstract class TestCheckerUpdate {
   public abstract Optional<ImmutableSortedSet<BlockingCondition>> blockingConditions();
 
   public abstract Optional<String> query();
+
+  public abstract Optional<ImmutableSortedSet<ChangeKind>> copyPolicy();
 
   abstract ThrowingConsumer<TestCheckerUpdate> checkerUpdater();
 
@@ -85,6 +88,8 @@ public abstract class TestCheckerUpdate {
         ImmutableSortedSet<BlockingCondition> blockingConditions);
 
     public abstract Builder query(String query);
+
+    public abstract Builder copyPolicy(ImmutableSortedSet<ChangeKind> copyPolicy);
 
     public Builder clearQuery() {
       return query("");

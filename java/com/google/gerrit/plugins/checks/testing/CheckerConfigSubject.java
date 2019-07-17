@@ -95,6 +95,10 @@ public class CheckerConfigSubject extends Subject {
     return check("refState()").about(objectIds()).that(checker().getRefState());
   }
 
+  public IterableSubject hasCopyPolicySetThat() {
+    return check("copyPolicy()").that(checker().getCopyPolicy());
+  }
+
   public IterableSubject configStringList(String name) {
     isNotNull();
     Optional<Config> config = checkerConfig.getConfigForTesting();

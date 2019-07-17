@@ -118,6 +118,10 @@ public class UpdateChecker implements RestModifyView<CheckerResource, CheckerInp
       checkerUpdateBuilder.setQuery(validateQuery(checkerUuid, repository, input.query));
     }
 
+    if (input.copyPolicy != null) {
+      checkerUpdateBuilder.setCopyPolicy(ImmutableSortedSet.copyOf(input.copyPolicy));
+    }
+
     Checker updatedChecker =
         checkersUpdate.get().updateChecker(checkerUuid, checkerUpdateBuilder.build());
     return checkerJson.format(updatedChecker);

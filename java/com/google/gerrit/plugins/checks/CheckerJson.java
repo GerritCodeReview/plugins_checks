@@ -32,6 +32,7 @@ public class CheckerJson {
     info.query = checker.getQuery().orElse(null);
     info.created = checker.getCreated();
     info.updated = checker.getUpdated();
+    info.copyPolicy = checker.getCopyPolicy();
     return info;
   }
 }

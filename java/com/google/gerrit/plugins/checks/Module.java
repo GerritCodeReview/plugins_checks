@@ -19,6 +19,7 @@ import static com.google.inject.Scopes.SINGLETON;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.config.FactoryModule;
+import com.google.gerrit.extensions.events.RevisionCreatedListener;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.plugins.checks.api.ApiModule;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory;
@@ -57,6 +58,8 @@ public class Module extends FactoryModule {
         .in(SINGLETON);
 
     DynamicSet.bind(binder(), ChangeAttributeFactory.class).to(ChangeCheckAttributeFactory.class);
+    DynamicSet.bind(binder(), RevisionCreatedListener.class).to(RevisionCreated.class);
+
     bind(DynamicOptions.DynamicBean.class)
         .annotatedWith(Exports.named(GetChange.class))
         .to(GetChangeOptions.class);
