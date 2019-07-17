@@ -18,6 +18,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.plugins.checks.api.BlockingCondition.STATE_NOT_PASSING;
 
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.Project;
@@ -56,6 +57,7 @@ public class CheckerDefinitionTest {
         .setUuid(CheckerUuid.parse("schema:any-id"))
         .setCreated(TimeUtil.nowTs())
         .setUpdated(TimeUtil.nowTs())
-        .setRefState(ObjectId.zeroId());
+        .setRefState(ObjectId.zeroId())
+        .setCopyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CHANGE));
   }
 }

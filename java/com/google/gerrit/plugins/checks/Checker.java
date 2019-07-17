@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.reviewdb.client.Project;
@@ -116,6 +117,13 @@ public abstract class Checker {
    */
   public abstract ObjectId getRefState();
 
+  /**
+   * Returns the policy for when the checkers can be copied.
+   *
+   * @return the copy Policy.
+   */
+  public abstract ImmutableSortedSet<ChangeKind> getCopyPolicy();
+
   public abstract Builder toBuilder();
 
   public static Builder builder() {
@@ -164,6 +172,8 @@ public abstract class Checker {
     public abstract Builder setBlockingConditions(Iterable<BlockingCondition> enumList);
 
     public abstract Builder setQuery(String query);
+
+    public abstract Builder setCopyPolicy(Iterable<ChangeKind> copyPolicy);
 
     public abstract Builder setCreated(Timestamp created);
 

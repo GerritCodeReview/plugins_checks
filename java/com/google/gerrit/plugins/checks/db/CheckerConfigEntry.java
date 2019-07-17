@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Streams;
 import com.google.gerrit.common.Nullable;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.Checker;
 import com.google.gerrit.plugins.checks.CheckerCreation;
 import com.google.gerrit.plugins.checks.CheckerUpdate;
@@ -309,6 +310,27 @@ enum CheckerConfigEntry {
                   config.unset(SECTION_NAME, null, super.keyName);
                 }
               });
+    }
+  },
+
+  COPY_POLICY("copyPolicy") {
+    @Override
+    void readFromConfig(CheckerUuid checkerUuid, Checker.Builder checker, Config config)
+        throws ConfigInvalidException {
+      checker.setCopyPolicy(getEnumSet(config, SECTION_NAME, super.keyName, ChangeKind.values()));
+    }
+
+    @Override
+    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+      // Do nothing. the copy policy will be set by updateConfigValue.
+    }
+
+    @Override
+    void updateConfigValue(Config config, CheckerUpdate checkerUpdate) {
+      checkerUpdate
+          .getCopyPolicy()
+          .ifPresent(
+              copyPolicy -> setEnumList(config, SECTION_NAME, null, super.keyName, copyPolicy));
     }
   };
 
