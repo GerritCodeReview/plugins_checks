@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "caefc9c2_b337adfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-17T18:10:34Z",
+      "side": 1,
+      "message": "This formulation is a bit misleading. I read it as if this change only fixes the bugs which were introduced by the other change. However, that change was rolled back and this change now also re-introduces the desired behavior but avoids the issues you are mentioning below. Could you please reformulate it a bit so that this is clearer (for others and posterity)?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e477b6_719e5ab4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-17T18:10:34Z",
+      "side": 1,
+      "message": "If you refer to a previous change/commit, it might be helpful to indicate which one it was. In Gerrit, this is easiest by mentioning the first ten digits of the Change-Id (e.g. I999144dcc in this case) as Gerrit will then automatically add linking.",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58856c6c_7093e0cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-17T18:10:34Z",
+      "side": 1,
+      "message": "Those fixes seem to have fixed the previous issue with the too many requests. I\u0027m still seeing some strange behavior (e.g. two requests happening just a few seconds apart before there is a large gap to the next request; or executing those update requests even on the diff screen) but I think we can fix them separately.\n\nI also tested whether this change actually does what it claims to do (\u003d stop polling when tab is out of focus). Maybe I did something wrong but I still see polling happening when the tab is out of focus. Could we test this together again so that I\u0027m not in a weird local state?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6db3d55c_0e21e954",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 1
