@@ -15,6 +15,7 @@
 package com.google.gerrit.plugins.checks.api;
 
 import com.google.common.base.MoreObjects;
+import com.google.gerrit.extensions.client.ChangeKind;
 import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Set;
@@ -30,6 +31,7 @@ public class CheckerInfo {
   public String query;
   public Timestamp created;
   public Timestamp updated;
+  public Set<ChangeKind> copyPolicy;
 
   @Override
   public int hashCode() {
@@ -52,7 +54,8 @@ public class CheckerInfo {
         && Objects.equals(blocking, o.blocking)
         && Objects.equals(query, o.query)
         && Objects.equals(created, o.created)
-        && Objects.equals(updated, o.updated);
+        && Objects.equals(updated, o.updated)
+        && Objects.equals(copyPolicy, o.copyPolicy);
   }
 
   @Override
@@ -68,6 +71,7 @@ public class CheckerInfo {
         .add("query", query)
         .add("created", created)
         .add("updated", updated)
+        .add("copyPolicy", copyPolicy)
         .toString();
   }
 }

@@ -14,6 +14,7 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.gerrit.extensions.client.ChangeKind;
 import java.util.Set;
 
 public class CheckerInput {
@@ -25,4 +26,5 @@ public class CheckerInput {
   public CheckerStatus status;
   public Set<BlockingCondition> blocking;
   public String query;
+  public Set<ChangeKind> copyPolicy;
 }
