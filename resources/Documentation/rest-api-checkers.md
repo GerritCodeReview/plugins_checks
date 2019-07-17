@@ -187,6 +187,7 @@ The `CheckerCreateInput` entity contains information for creating a checker.
 | `status`        | optional | The status of the checker; one of `ENABLED` or `DISABLED`.
 | `blocking`      | optional | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
+| `copy_policy`   | optional | The set of change kinds that would allow copying the check of this corresponding checker to the next patchset. Possible values for are single change kind are `REWORK`, `TRIVIAL_REBASE`, `MERGE_FIRST_PARENT_UPDATE`, `NO_CODE_CHANGE`, and `NO_CHANGE`. If not set, default is an empty set (will not ever copy checks).
 
 ### <a id="checker-info"> CheckerInfo
 The `CheckerInfo` entity describes a checker.
@@ -203,6 +204,7 @@ The `CheckerInfo` entity describes a checker.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
 | `created`       |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the checker was created.
 | `updated`       |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the checker was last updated.
+| `copy_policy`   |          | The set of change kinds that would allow copying the check of this corresponding checker to the next patchset. Possible values for are single change kind are `REWORK`, `TRIVIAL_REBASE`, `MERGE_FIRST_PARENT_UPDATE`, `NO_CODE_CHANGE`, and `NO_CHANGE`.
 
 ### <a id="checker-update-input"> CheckerUpdateInput
 The `CheckerUpdateInput` entity contains information for updating a checker.
@@ -216,6 +218,7 @@ The `CheckerUpdateInput` entity contains information for updating a checker.
 | `status`        | optional | The status of the checker; one of `ENABLED` or `DISABLED`.
 | `blocking`      | optional | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
+| `copy_policy`   | optional | The set of change kinds that would allow copying the check of this corresponding checker to the next patchset. Possible values for are single change kind are `REWORK`, `TRIVIAL_REBASE`, `MERGE_FIRST_PARENT_UPDATE`, `NO_CODE_CHANGE`, and `NO_CHANGE`. If not set, the copy_policy will not change.
 
 ## <a id="blocking-conditions"> Blocking Conditions
 

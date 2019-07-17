@@ -19,6 +19,7 @@ import static com.google.gerrit.plugins.checks.api.BlockingCondition.STATE_NOT_P
 
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.server.util.time.TimeUtil;
@@ -56,6 +57,7 @@ public class CheckerDefinitionTest {
         .setUuid(CheckerUuid.parse("schema:any-id"))
         .setCreated(TimeUtil.nowTs())
         .setUpdated(TimeUtil.nowTs())
-        .setRefState(ObjectId.zeroId());
+        .setRefState(ObjectId.zeroId())
+        .setCopyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CHANGE));
   }
 }

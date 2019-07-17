@@ -128,6 +128,9 @@ public class CreateChecker
     if (input.query != null) {
       checkerUpdateBuilder.setQuery(validateQuery(checkerUuid, repository, input.query));
     }
+    if (input.copyPolicy != null) {
+      checkerUpdateBuilder.setCopyPolicy(ImmutableSortedSet.copyOf(input.copyPolicy));
+    }
     try {
       Checker checker =
           checkersUpdate

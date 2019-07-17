@@ -25,9 +25,12 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.gerrit.acceptance.PushOneCommit;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
@@ -570,6 +573,86 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
     assertThat(checkInfo.updated).isEqualTo(check.updated());
   }
 
+  @Test
+  public void checkShouldCopyOverPatchSets() throws Exception {
+    CheckerUuid checkerUuidCopy =
+        checkerOperations
+            .newChecker()
+            .copyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CODE_CHANGE))
+            .repository(project)
+            .create();
+
+    PushOneCommit.Result result = createChange();
+    PatchSet.Id patchSetId = result.getPatchSetId();
+    String changeId = result.getChangeId();
+    createCheckInServer(project, patchSetId, createArbitraryCheckInput(checkerUuidCopy));
+
+    CheckInfo previousCheck = checksApiFactory.currentRevision(patchSetId.changeId()).list().get(0);
+    String msg = String.format("New commit message\n\nChange-Id: %s\n", changeId);
+    gApi.changes().id(changeId).edit().modifyCommitMessage(msg);
+    gApi.changes().id(changeId).edit().publish();
+
+    CheckInfo copiedCheck = checksApiFactory.currentRevision(patchSetId.changeId()).list().get(0);
+
+    assertThat(copiedCheck.message).isEqualTo(previousCheck.message);
+    assertThat(copiedCheck.url).isEqualTo(previousCheck.url);
+    assertThat(copiedCheck.state).isEqualTo(previousCheck.state);
+    assertThat(copiedCheck.started).isEqualTo(previousCheck.started);
+    assertThat(copiedCheck.finished).isEqualTo(previousCheck.finished);
+  }
+
+  @Test
+  public void checkShouldNotCopyOverPatchSets() throws Exception {
+    CheckerUuid checkerUuidNotToCopy =
+        checkerOperations
+            .newChecker()
+            .copyPolicy(ImmutableSortedSet.of())
+            .repository(project)
+            .create();
+
+    PushOneCommit.Result result = createChange();
+    PatchSet.Id patchSetId = result.getPatchSetId();
+    String changeId = result.getChangeId();
+    createCheckInServer(project, patchSetId, createArbitraryCheckInput(checkerUuidNotToCopy));
+
+    String msg = String.format("New commit message\n\nChange-Id: %s\n", changeId);
+    gApi.changes().id(changeId).edit().modifyCommitMessage(msg);
+    gApi.changes().id(changeId).edit().publish();
+
+    CheckInfo notCopiedCheck =
+        checksApiFactory.currentRevision(patchSetId.changeId()).list().get(0);
+    assertThat(notCopiedCheck.message).isNull();
+    assertThat(notCopiedCheck.url).isNull();
+    assertThat(notCopiedCheck.state).isEqualTo(CheckState.NOT_STARTED);
+    assertThat(notCopiedCheck.started).isNull();
+    assertThat(notCopiedCheck.finished).isNull();
+  }
+
+  @Test
+  public void notRelevantCheckCanBeCopied() throws Exception {
+    CheckerUuid checkerUuidCopy =
+        checkerOperations
+            .newChecker()
+            .copyPolicy(ImmutableSortedSet.of(ChangeKind.NO_CODE_CHANGE))
+            .repository(project)
+            .create();
+
+    PushOneCommit.Result result = createChange();
+    PatchSet.Id patchSetId = result.getPatchSetId();
+    String changeId = result.getChangeId();
+    CheckInput checkInput = new CheckInput();
+    checkInput.checkerUuid = checkerUuidCopy.get();
+    checkInput.state = CheckState.NOT_RELEVANT;
+    createCheckInServer(project, patchSetId, checkInput);
+
+    String msg = String.format("New commit message\n\nChange-Id: %s\n", changeId);
+    gApi.changes().id(changeId).edit().modifyCommitMessage(msg);
+    gApi.changes().id(changeId).edit().publish();
+
+    CheckInfo copiedCheck = checksApiFactory.currentRevision(patchSetId.changeId()).list().get(0);
+    assertThat(copiedCheck.state).isEqualTo(CheckState.NOT_RELEVANT);
+  }
+
   private CheckInfo getCheckFromServer(CheckKey checkKey) throws RestApiException {
     return checksApiFactory.revision(checkKey.patchSet()).id(checkKey.checkerUuid()).get();
   }
@@ -577,10 +660,11 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
   private CheckInput createArbitraryCheckInput(CheckerUuid checkerUuid) {
     CheckInput checkInput = new CheckInput();
     checkInput.checkerUuid = checkerUuid.get();
-    checkInput.state = CheckState.SCHEDULED;
+    checkInput.state = CheckState.SUCCESSFUL;
     checkInput.message = "some message";
     checkInput.url = "http://example.com/my-check";
     checkInput.started = TimeUtil.nowTs();
+    checkInput.finished = TimeUtil.nowTs();
     return checkInput;
   }
 

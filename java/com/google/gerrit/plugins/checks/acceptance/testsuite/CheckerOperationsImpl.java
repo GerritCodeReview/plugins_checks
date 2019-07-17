@@ -133,6 +133,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
     checkerCreation.status().ifPresent(builder::setStatus);
     checkerCreation.blockingConditions().ifPresent(builder::setBlockingConditions);
     checkerCreation.query().ifPresent(builder::setQuery);
+    checkerCreation.copyPolicy().ifPresent(builder::setCopyPolicy);
     return builder.build();
   }
 
@@ -349,6 +350,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
       checkerUpdate.status().ifPresent(builder::setStatus);
       checkerUpdate.blockingConditions().ifPresent(builder::setBlockingConditions);
       checkerUpdate.query().ifPresent(builder::setQuery);
+      checkerUpdate.copyPolicy().ifPresent(builder::setCopyPolicy);
       return builder.build();
     }
 

@@ -23,6 +23,7 @@ import com.google.gerrit.acceptance.UseClockStep;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ChangeKind;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -78,6 +79,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     assertThat(info.query).isEqualTo("status:open");
     assertThat(info.created).isEqualTo(expectedCreationTimestamp);
     assertThat(info.updated).isEqualTo(info.created);
+    assertThat(info.copyPolicy).isEmpty();
 
     PerCheckerOperations perCheckerOps = checkerOperations.checker(info.uuid);
     assertCommit(
@@ -379,6 +381,18 @@ public class CreateCheckerIT extends AbstractCheckersTest {
 
     CheckerInfo info = checkersApi.create(input).get();
     assertThat(info.query).isNull();
+  }
+
+  @Test
+  public void createCheckerWithCopyPolicy() throws Exception {
+    CheckerInput input = new CheckerInput();
+    input.uuid = "test:my-checker";
+    input.name = "My Checker";
+    input.repository = allProjects.get();
+    input.copyPolicy = ImmutableSet.of(ChangeKind.NO_CHANGE);
+
+    CheckerInfo info = checkersApi.create(input).get();
+    assertThat(info.copyPolicy).containsExactly(ChangeKind.NO_CHANGE);
   }
 
   @Test
