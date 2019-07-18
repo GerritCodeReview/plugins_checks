@@ -177,6 +177,7 @@ The `CheckInfo` entity describes a check.
 | `checker_name`    | optional | The name of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `checker_status`  | optional | The [status](rest-api-checkers.md#checker-info) of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `blocking`        | optional | Set of [blocking conditions](rest-api-checkers.md#blocking-conditions) that apply to this checker.<br />Only set if [checker details](#option-checker) are requested.
+| `description`     | optional | The description of the checker that reported this check.
 
 ### <a id="check-input"> CheckInput
 The `CheckInput` entity contains information for creating or updating a check.
