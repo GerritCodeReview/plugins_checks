@@ -56,6 +56,9 @@ public class CheckInfo {
   /** Blocking conditions that apply to this check. */
   public Set<BlockingCondition> blocking;
 
+  /** Description of the checker for this check */
+  public String description;
+
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof CheckInfo)) {
@@ -75,7 +78,8 @@ public class CheckInfo {
         && Objects.equals(other.updated, updated)
         && Objects.equals(other.checkerName, checkerName)
         && Objects.equals(other.checkerStatus, checkerStatus)
-        && Objects.equals(other.blocking, blocking);
+        && Objects.equals(other.blocking, blocking)
+        && Objects.equals(other.description, description);
   }
 
   @Override
@@ -94,7 +98,8 @@ public class CheckInfo {
         updated,
         checkerName,
         checkerStatus,
-        blocking);
+        blocking,
+        description);
   }
 
   @Override
@@ -114,6 +119,7 @@ public class CheckInfo {
         .add("checkerName", checkerName)
         .add("checkerStatus", checkerStatus)
         .add("blocking", blocking)
+        .add("description", description)
         .toString();
   }
 }
