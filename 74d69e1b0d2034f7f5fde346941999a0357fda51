@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cadf495_184890a6",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "It would be good to use \"{@link CheckInfo}\" as the other Javaodc descriptions in this file do.",
+      "range": {
+        "startLine": 29,
+        "startChar": 39,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c64a4be1_20d2dfd8",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Nit: Javadoc descriptions typically start with a capital letter.",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ef89694_aa429076",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Specifying a CheckInput shouldn\u0027t be necessary. All necessary details are contained in the CheckResource. Without CheckInput, the code below would also be simpler as lines 45-52 would never happen.",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 70
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c45f9d63_f1bb07f3",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "This is a runtime exception and hence doesn\u0027t need to be specified here. We still have it in many places as we switched from a checked exception to a runtime exception only some time ago. When writing new code, we shouldn\u0027t add it anymore. When updating existing code, we can consider to remove it.",
+      "range": {
+        "startLine": 38,
+        "startChar": 44,
+        "endLine": 38,
+        "endChar": 60
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5209464_8f9c8bd5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "The other fields of a check should be reset as well. For instance, it would be strange if we showed a \u0027started\u0027 timestamp even though the state is NOT_STARTED.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 41
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b657f41_2239109b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Good thinking for reusing already existing code. In this specific situation, though, I would not delegate to the implementation of another REST endpoint as we might want to have a slightly different behavior. For instance, if rerun is requested on a check which doesn\u0027t exit in our storage yet, we don\u0027t want to create a NoteDb entry for it. For postCheck, we do, though. Hence, we should have two separate implementations. This also avoids copying some data and the construction of unnecessary objects like CheckInput as the necessary CheckUpdate can be directly constructed.",
+      "range": {
+        "startLine": 54,
+        "startChar": 11,
+        "endLine": 54,
+        "endChar": 70
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6661a73b_f6ac46d4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "This variable is never used and could be removed.",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 64
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49732f2e_92c85974",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Is there a specific reason why we need this for the test? Other tests might have it as they are verifying time stamps and this code helps to make them deterministic for the tests. For the rerun tests, I would guess that we don\u0027t need it but I\u0027m happy to be proven differently.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 0
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f519f6d5_a69aaf8d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "It would be better if this operation is part of each test where we need it as we might have different starting situations as described in another comment below. For most tests, it might not be even necessary. I know that other test classes have it too but this was an oversight.\n\nBackground why we don\u0027t need it in most cases: Updating a check on a change is always possible (minus some specific corner cases). It doesn\u0027t need to be created first. If the checker applies to a change, the check exists virtually even when no updates happened in the past.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdadcb8d_9da1a828",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Nit: According to the style guide, method names should start with lower case letters in Java.",
+      "range": {
+        "startLine": 60,
+        "startChar": 14,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e425a1aa_b5814c3b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T17:04:32Z",
+      "side": 1,
+      "message": "Currently, this test verifies that a check which was in state NOT_STARTED is still in state NOT_STARTED after executing rerun. It\u0027s a test we should also have. It would just be better to make this clear (e.g. via the name of the test). Of course, the test that a check which hadn\u0027t been in the NOT_STARTED state and is reset upon rerun will also be necessary.\n\nIdeally, we also have two versions of this test here: one where the check originally didn\u0027t exist and one where the check existed with NOT_STARTED state)",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
