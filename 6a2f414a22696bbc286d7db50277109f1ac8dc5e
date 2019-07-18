@@ -22,6 +22,29 @@
       "revId": "6a2f414a22696bbc286d7db50277109f1ac8dc5e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79741b9e_d2485e7d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-18T16:15:42Z",
+      "side": 1,
+      "message": "Nit: I think it would be better if this field was named \"checkerDescription\" to make a clear distinction between it and \"message\". This also follows the naming pattern applied above to the other checker fields. I would also move this field a bit closer to them (e.g. above \"blocking\").",
+      "range": {
+        "startLine": 60,
+        "startChar": 16,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "6a2f414a22696bbc286d7db50277109f1ac8dc5e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
