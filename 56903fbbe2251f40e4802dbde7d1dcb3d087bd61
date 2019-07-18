@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "24ee8c09_4fb8abfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-18T09:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caefc9c2_b337adfe",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "faae631c_ab8e13b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-18T09:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e477b6_719e5ab4",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58856c6c_7093e0cc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0010f38_86cf226e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-07-18T09:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58856c6c_7093e0cc",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "56903fbbe2251f40e4802dbde7d1dcb3d087bd61",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
