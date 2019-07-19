@@ -45,9 +45,11 @@ import com.google.gerrit.server.update.RetryHelper;
 import com.google.gerrit.server.update.RetryHelper.ActionType;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import org.antlr.runtime.tree.Tree;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
@@ -234,6 +236,24 @@ public class CheckerQuery {
     return query;
   }
 
+  public List<List<ChangeData>> queryMatchingChanges(List<Checker> checkers)
+      throws ConfigInvalidException, StorageException {
+
+    try {
+      List<Predicate<ChangeData>> predicateList = new ArrayList<>();
+      for (Checker checker : checkers) {
+        predicateList.add(
+            createQueryPredicate(checker.getUuid(), checker.getRepository(), checker.getQuery()));
+      }
+      return executeIndexQueryWithRetry(qp -> {}, predicateList);
+    } catch (QueryParseException e) {
+      throw new ConfigInvalidException(
+          String.format(
+              "Change query of scheme: %s is invalid.", checkers.get(0).getUuid().scheme()),
+          e);
+    }
+  }
+
   public List<ChangeData> queryMatchingChanges(Checker checker)
       throws ConfigInvalidException, StorageException {
     return queryMatchingChanges(
@@ -307,6 +327,28 @@ public class CheckerQuery {
             ChangeQueryProcessor qp = changeQueryProcessorProvider.get();
             queryProcessorSetup.accept(qp);
             return qp.query(predicate).entities();
+          },
+          StorageException.class::isInstance);
+    } catch (Exception e) {
+      Throwables.throwIfUnchecked(e);
+      Throwables.throwIfInstanceOf(e, QueryParseException.class);
+      Throwables.throwIfInstanceOf(e, StorageException.class);
+      throw new StorageException(e);
+    }
+  }
+
+  private List<List<ChangeData>> executeIndexQueryWithRetry(
+      Consumer<ChangeQueryProcessor> queryProcessorSetup, List<Predicate<ChangeData>> predicateList)
+      throws StorageException, QueryParseException {
+    try {
+      return retryHelper.execute(
+          ActionType.INDEX_QUERY,
+          () -> {
+            ChangeQueryProcessor qp = changeQueryProcessorProvider.get();
+            queryProcessorSetup.accept(qp);
+            return qp.query(predicateList).stream()
+                .map(predicate -> predicate.entities())
+                .collect(Collectors.toList());
           },
           StorageException.class::isInstance);
     } catch (Exception e) {
