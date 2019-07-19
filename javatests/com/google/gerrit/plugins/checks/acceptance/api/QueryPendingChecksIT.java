@@ -26,6 +26,7 @@ import com.google.gerrit.acceptance.RestResponse;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.common.data.Permission;
 import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
@@ -644,6 +645,84 @@ public class QueryPendingChecksIT extends AbstractCheckersTest {
     assertThat(pendingChecksList).isNotEmpty();
   }
 
+  @Test
+  public void queryPendingChecksWithScheme() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    // Create a check with state "NOT_STARTED" that we expect to be returned.
+    checkOperations
+        .newCheck(CheckKey.create(project, patchSetId, checkerUuid))
+        .state(CheckState.NOT_STARTED)
+        .upsert();
+
+    // Create a check with state "SCHEDULED" that we expect to be returned.
+    PatchSet.Id patchSetId2 = createChange().getPatchSetId();
+    checkOperations
+        .newCheck(CheckKey.create(project, patchSetId2, checkerUuid))
+        .state(CheckState.SCHEDULED)
+        .upsert();
+
+    // Create a check with state "SUCCESSFUL" that we expect to be ignored.
+    PatchSet.Id patchSetId3 = createChange().getPatchSetId();
+    checkOperations
+        .newCheck(CheckKey.create(project, patchSetId3, checkerUuid))
+        .state(CheckState.SUCCESSFUL)
+        .upsert();
+
+    // Create a check with state "SUCCESSFUL" that we expect to be ignored, for patchsetId.
+    // by default, patchSetId2 and patchSetId3 should be NOT_STARTED, and should be returned.
+    CheckerUuid checkerUuid2 = checkerOperations.newChecker().repository(project).create();
+    assertThat(checkerUuid2.scheme()).isEqualTo("test");
+    checkOperations
+        .newCheck(CheckKey.create(project, patchSetId, checkerUuid2))
+        .state(CheckState.FAILED)
+        .upsert();
+
+    List<PendingChecksInfo> pendingChecksList =
+        queryPendingChecks("test", CheckState.NOT_STARTED, CheckState.SCHEDULED);
+    assertThat(pendingChecksList).hasSize(4);
+
+    // The sorting of the pendingChecksList matches the sorting in which the matching changes are
+    // returned from the change index, which is by last updated timestamp. Use this knowledge here
+    // to do the assertions although the REST endpoint doesn't document a guaranteed sort order.
+    PendingChecksInfo pendingChecksChange = pendingChecksList.get(0);
+    assertThat(pendingChecksChange).hasRepository(project);
+    assertThat(pendingChecksChange).hasPatchSet(patchSetId2);
+    assertThat(pendingChecksChange)
+        .hasPendingChecksMapThat()
+        .containsExactly(checkerUuid.get(), new PendingCheckInfo(CheckState.SCHEDULED));
+
+    pendingChecksChange = pendingChecksList.get(1);
+    assertThat(pendingChecksChange).hasRepository(project);
+    assertThat(pendingChecksChange).hasPatchSet(patchSetId);
+    assertThat(pendingChecksChange)
+        .hasPendingChecksMapThat()
+        .containsExactly(checkerUuid.get(), new PendingCheckInfo(CheckState.NOT_STARTED));
+
+    pendingChecksChange = pendingChecksList.get(2);
+    assertThat(pendingChecksChange).hasRepository(project);
+    assertThat(pendingChecksChange).hasPatchSet(patchSetId3);
+    assertThat(pendingChecksChange)
+        .hasPendingChecksMapThat()
+        .containsExactly(checkerUuid2.get(), new PendingCheckInfo(CheckState.NOT_STARTED));
+
+    pendingChecksChange = pendingChecksList.get(3);
+    assertThat(pendingChecksChange).hasRepository(project);
+    assertThat(pendingChecksChange).hasPatchSet(patchSetId2);
+    assertThat(pendingChecksChange)
+        .hasPendingChecksMapThat()
+        .containsExactly(checkerUuid2.get(), new PendingCheckInfo(CheckState.NOT_STARTED));
+  }
+
+  @Test
+  public void queryPendingChecksWithSchemeTooManyChecksThrowsError() {
+    for (int i = 0; i < 11; i++) {
+      checkerOperations.newChecker().repository(project).create();
+    }
+    assertThrows(
+        ResourceConflictException.class,
+        () -> queryPendingChecks("test", CheckState.NOT_STARTED, CheckState.SCHEDULED));
+  }
+
   private void assertInvalidQuery(String query, String expectedMessage) {
     BadRequestException thrown =
         assertThrows(BadRequestException.class, () -> pendingChecksApi.query(query).get());
@@ -659,9 +738,25 @@ public class QueryPendingChecksIT extends AbstractCheckersTest {
     return pendingChecksApi.query(buildQueryString(checkerUuid, checkStates)).get();
   }
 
+  private List<PendingChecksInfo> queryPendingChecks(String scheme, CheckState... checkStates)
+      throws RestApiException {
+    return pendingChecksApi.query(buildQueryString(scheme, checkStates)).get();
+  }
+
   private String buildQueryString(CheckerUuid checkerUuid, CheckState... checkStates) {
     StringBuilder queryString = new StringBuilder();
     queryString.append(String.format("checker:%s", checkerUuid));
+
+    StringJoiner stateJoiner = new StringJoiner(" OR state:", " (state:", ")");
+    Stream.of(checkStates).map(CheckState::name).forEach(stateJoiner::add);
+    queryString.append(stateJoiner.toString());
+
+    return queryString.toString();
+  }
+
+  private String buildQueryString(String scheme, CheckState... checkStates) {
+    StringBuilder queryString = new StringBuilder();
+    queryString.append(String.format("scheme:%s", scheme));
 
     StringJoiner stateJoiner = new StringJoiner(" OR state:", " (state:", ")");
     Stream.of(checkStates).map(CheckState::name).forEach(stateJoiner::add);

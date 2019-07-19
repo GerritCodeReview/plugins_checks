@@ -72,6 +72,7 @@ public interface Checkers {
    */
   ImmutableList<Checker> listCheckers() throws IOException;
 
+  ImmutableList<Checker> listCheckers(String scheme) throws IOException;
   /**
    * Returns the checkers that apply to the given repository.
    *
