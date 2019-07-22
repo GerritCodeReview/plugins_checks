@@ -195,10 +195,11 @@ The `CheckerInput` entity contains information for creating a checker.
 
 | Field Name      |          | Description |
 | --------------- | -------- | ----------- |
-| `name`          | optional | The name of the checker. Must be specified for checker creation.
+| `uuid`          |          | The [UUID](#checker-id) of the checker.
+| `name`          | optional | The name of the checker.
 | `description`   | optional | The description of the checker.
 | `url`           | optional | The URL of the checker.
-| `repository`    | optional | The (exact) name of the repository for which the checker applies.
+| `repository`    |          | The (exact) name of the repository for which the checker applies.
 | `status`        | optional | The status of the checker; one of `ENABLED` or `DISABLED`.
 | `blocking`      | optional | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
