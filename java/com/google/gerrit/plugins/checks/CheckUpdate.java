@@ -45,8 +45,16 @@ public abstract class CheckUpdate {
 
     public abstract Builder setUrl(String url);
 
+    /**
+     * @param started - set the time the check started. Time can be reset to "null" if passed new
+     *     Timestamp(0).
+     */
     public abstract Builder setStarted(Timestamp started);
 
+    /**
+     * @param finished - set the time the check finished. Time can be reset to "null" if passed new
+     *     Timestamp(0).
+     */
     public abstract Builder setFinished(Timestamp finished);
 
     public abstract CheckUpdate build();
