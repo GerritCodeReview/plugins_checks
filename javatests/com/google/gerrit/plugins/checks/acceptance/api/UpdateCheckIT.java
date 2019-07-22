@@ -156,12 +156,30 @@ public class UpdateCheckIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void unsetStarted() throws Exception {
+    CheckInput input = new CheckInput();
+    input.started = new Timestamp(0);
+
+    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).update(input);
+    assertThat(info.started).isNull();
+  }
+
+  @Test
   public void updateFinished() throws Exception {
     CheckInput input = new CheckInput();
     input.finished = TimeUtil.nowTs();
 
     CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).update(input);
     assertThat(info.finished).isEqualTo(input.finished);
+  }
+
+  @Test
+  public void unsetFinished() throws Exception {
+    CheckInput input = new CheckInput();
+    input.finished = new Timestamp(0);
+
+    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).update(input);
+    assertThat(info.finished).isNull();
   }
 
   @Test
