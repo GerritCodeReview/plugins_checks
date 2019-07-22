@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91b9b3ca_6140c368",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-22T12:17:11Z",
+      "side": 1,
+      "message": "I\u0027m not sure that we should change the documentation here. I actually think that the behavior is wrong. We did want to have the name as mandatory and still have this in several places (e.g. documentation for GetChecker doesn\u0027t mark the name as optional; updating a checker doesn\u0027t allow the name to be unset even though the documentation says so). Adjusting the documentation here only adds to the confusion in my opinion.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0d154d1_8a67c838",
+        "filename": "resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-22T12:17:11Z",
+      "side": 1,
+      "message": "I think we have a tricky documentation issue here. We use CheckerInput both for creating a checker and updating a checker. In both situations, the fields behave differently regarding whether they are required, optional, or shouldn\u0027t be used at all (e.g. uuid should rather not be specified for an update). The next sentence says something about creation but the documentation for updating a checker also links here. Should we maybe introduce two different \u0027optional\u0027 columns: one for creation and one for updating?",
+      "range": {
+        "startLine": 193,
+        "startChar": 27,
+        "endLine": 193,
+        "endChar": 39
+      },
+      "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
