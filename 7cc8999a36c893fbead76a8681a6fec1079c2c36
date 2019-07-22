@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0fe83878_ab3ff4a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-22T15:05:29Z",
+      "side": 1,
+      "message": "will be addressed in follow-up change",
+      "parentUuid": "07d84583_a58635f9",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f0d154d1_8a67c838",
         "filename": "resources/Documentation/rest-api-checkers.md",
         "patchSetId": 1
@@ -141,6 +165,30 @@
       "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "791f4fc1_37fb0d17",
+        "filename": "resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-22T15:05:29Z",
+      "side": 1,
+      "message": "Done. I added the table twice, because having 2 \u0027optional\u0027 columns would be something new that we haven\u0027t had before, so it may confuse readers.",
+      "parentUuid": "43c3b904_e145ceaf",
+      "range": {
+        "startLine": 193,
+        "startChar": 27,
+        "endLine": 193,
+        "endChar": 39
+      },
+      "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
