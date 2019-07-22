@@ -202,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "bc936d34_ac67c05d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-22T13:56:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8163b52b_d449cc52",
+      "range": {
+        "startLine": 37,
+        "startChar": 54,
+        "endLine": 37,
+        "endChar": 70
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c45f9d63_f1bb07f3",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 1
