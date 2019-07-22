@@ -19,7 +19,6 @@ import static com.google.gerrit.git.testing.CommitSubject.assertCommit;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
@@ -51,7 +50,6 @@ public class CreateCheckerIT extends AbstractCheckersTest {
   private static final int MAX_INDEX_TERMS = 10;
 
   @Inject private RequestScopeOperations requestScopeOperations;
-  @Inject private ProjectOperations projectOperations;
 
   @ConfigSuite.Default
   public static Config defaultConfig() {

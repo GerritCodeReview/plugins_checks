@@ -21,7 +21,6 @@ import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.acceptance.SkipProjectClone;
-import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
@@ -62,7 +61,6 @@ public class UpdateCheckerIT extends AbstractCheckersTest {
   }
 
   @Inject private RequestScopeOperations requestScopeOperations;
-  @Inject private ProjectOperations projectOperations;
 
   @Before
   public void setTimeForTesting() {
