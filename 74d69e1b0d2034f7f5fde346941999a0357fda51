@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "4f28455f_b16ca38e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-22T09:47:00Z",
+      "side": 1,
+      "message": "When you add a new REST endpoint, please also test it in ChecksRestApiBindingsIT.",
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ef89694_aa429076",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 1
