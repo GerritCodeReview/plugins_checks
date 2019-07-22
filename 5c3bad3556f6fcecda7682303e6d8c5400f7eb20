@@ -22,6 +22,30 @@
       "revId": "5c3bad3556f6fcecda7682303e6d8c5400f7eb20",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e51990ad_dc10e805",
+        "filename": "resources/Documentation/rest-api-checks.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-22T08:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0474a5_89dbba4b",
+      "range": {
+        "startLine": 180,
+        "startChar": 3,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "5c3bad3556f6fcecda7682303e6d8c5400f7eb20",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

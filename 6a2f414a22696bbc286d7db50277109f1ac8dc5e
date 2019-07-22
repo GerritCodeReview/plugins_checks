@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1d5eb576_4130696f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-22T08:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "458a34d4_1d9ac19a",
+      "range": {
+        "startLine": 59,
+        "startChar": 33,
+        "endLine": 59,
+        "endChar": 47
+      },
+      "revId": "6a2f414a22696bbc286d7db50277109f1ac8dc5e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79741b9e_d2485e7d",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "79741b9e_d2485e7d",
+      "range": {
+        "startLine": 60,
+        "startChar": 16,
+        "endLine": 60,
+        "endChar": 27
+      },
+      "revId": "6a2f414a22696bbc286d7db50277109f1ac8dc5e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b53ae7a_63464ed8",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-22T08:15:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05fd29d1_4097f9e8",
       "range": {
         "startLine": 60,
         "startChar": 16,
