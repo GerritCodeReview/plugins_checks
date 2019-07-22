@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "123b64cf_1ade74d1",
+        "filename": "resources/Documentation/rest-api-checks.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-22T08:20:27Z",
+      "side": 1,
+      "message": "Some of these lines seem to exceed to 100 char limit now.",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 192
+      },
+      "revId": "df6f1e51d75eeea064d86a290bcf44abeef5a0fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
