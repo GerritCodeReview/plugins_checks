@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0cb39a5_57f1ccf5",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T05:46:55Z",
+      "side": 1,
+      "message": "Why not just allow to pass null and annotate the parameter with @Nullable?",
+      "range": {
+        "startLine": 49,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "735035bf27a33d3f2a7edce326e60957edf84e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
