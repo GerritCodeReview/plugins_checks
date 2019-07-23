@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "6d457eb6_9a03a5dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-23T11:33:22Z",
+      "side": 1,
+      "message": "Done in https://gerrit-review.googlesource.com/c/plugins/checks/+/231993",
+      "parentUuid": "0fe83878_ab3ff4a5",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "7cc8999a36c893fbead76a8681a6fec1079c2c36",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0d154d1_8a67c838",
         "filename": "resources/Documentation/rest-api-checkers.md",
         "patchSetId": 1
