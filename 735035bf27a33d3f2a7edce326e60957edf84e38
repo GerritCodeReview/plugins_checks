@@ -46,6 +46,30 @@
       "revId": "735035bf27a33d3f2a7edce326e60957edf84e38",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1bbcd3c_6e5b3498",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T08:21:27Z",
+      "side": 1,
+      "message": "Will it be empty if it\u0027s Optional.ofNullable()?",
+      "parentUuid": "89a121e2_fd0b8c53",
+      "range": {
+        "startLine": 49,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "735035bf27a33d3f2a7edce326e60957edf84e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
