@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9f58dbe_6254565d",
+        "filename": "java/com/google/gerrit/plugins/checks/Checker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T23:40:32Z",
+      "side": 1,
+      "message": "This sounds a bit strange. I would reword it something like: \"The same name may be used by multiple checkers\".",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 55
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12bbd8ac_09952ec0",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerCreation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T23:40:32Z",
+      "side": 1,
+      "message": "Same here.  Something like \"Is not required to be unique ...\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdb534c3_0dc120b3",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfigEntry.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T23:40:32Z",
+      "side": 1,
+      "message": "What happens for existing checkers, created without a name before this change?",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 7
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e247b4_836335cc",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerConfigTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-07-23T23:40:32Z",
+      "side": 1,
+      "message": "Would it be better to have the exception thrown here?",
+      "range": {
+        "startLine": 293,
+        "startChar": 57,
+        "endLine": 293,
+        "endChar": 78
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
