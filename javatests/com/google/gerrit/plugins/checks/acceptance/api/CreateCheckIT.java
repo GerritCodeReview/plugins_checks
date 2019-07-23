@@ -372,6 +372,21 @@ public class CreateCheckIT extends AbstractCheckersTest {
     assertThat(response.getEntityContent()).isEqualTo("checks are not supported on a change edit");
   }
 
+  @Test
+  public void creationOfCheckChangesETagOfChange() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+
+    String oldETag = parseChangeResource(patchSetId.changeId().toString()).getETag();
+
+    CheckInput input = new CheckInput();
+    input.checkerUuid = checkerUuid.get();
+    input.state = CheckState.RUNNING;
+    checksApiFactory.revision(patchSetId).create(input).get();
+
+    String newETag = parseChangeResource(patchSetId.changeId().toString()).getETag();
+    assertThat(newETag).isNotEqualTo(oldETag);
+  }
+
   // TODO(gerrit-team) More tests, especially for multiple checkers and PS and how commits behave
 
   private Check getCheck(Project.NameKey project, PatchSet.Id patchSetId, CheckerUuid checkerUuid)
