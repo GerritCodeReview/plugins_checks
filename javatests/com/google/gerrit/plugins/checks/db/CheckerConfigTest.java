@@ -52,6 +52,7 @@ public class CheckerConfigTest {
   private TestRepository<?> testRepository;
 
   private final CheckerUuid checkerUuid = CheckerUuid.parse("test:my-checker");
+  private final String checkerName = "My Checker";
   private final Project.NameKey checkerRepository = Project.nameKey("my-repo");
   private final TimeZone timeZone = TimeZone.getTimeZone("America/Los_Angeles");
 
@@ -82,16 +83,14 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void setNameDuringCreation() throws Exception {
-    String anotherName = "another-name";
+  public void specifiedCheckerNameIsRespectedForNewChecker() throws Exception {
+    CheckerCreation checkerCreation =
+        getPrefilledCheckerCreationBuilder().setName(checkerName).build();
+    createChecker(checkerCreation);
 
-    CheckerCreation checkerCreation = getPrefilledCheckerCreationBuilder().build();
-    CheckerUpdate checkerUpdate = CheckerUpdate.builder().setName(anotherName).build();
-    createChecker(checkerCreation, checkerUpdate);
-
-    CheckerConfig checkerConfig = loadChecker(checkerCreation.getCheckerUuid());
-    assertThat(checkerConfig).hasNameThat().value().isEqualTo(anotherName);
-    assertThat(checkerConfig).configStringList("name").containsExactly(anotherName);
+    CheckerConfig checkerConfig = loadChecker(checkerUuid);
+    assertThat(checkerConfig).hasName(checkerName);
+    assertThat(checkerConfig).configStringList("name").containsExactly("My Checker");
   }
 
   @Test
@@ -99,6 +98,7 @@ public class CheckerConfigTest {
     CheckerCreation checkerCreation =
         CheckerCreation.builder()
             .setCheckerUuid(checkerUuid)
+            .setName(checkerName)
             .setRepository(checkerRepository)
             .build();
     createChecker(checkerCreation);
@@ -137,6 +137,7 @@ public class CheckerConfigTest {
     CheckerCreation checkerCreation =
         CheckerCreation.builder()
             .setCheckerUuid(checkerUuid)
+            .setName(checkerName)
             .setRepository(checkerRepository)
             .build();
     createChecker(checkerCreation);
@@ -237,6 +238,23 @@ public class CheckerConfigTest {
   }
 
   @Test
+  public void nameInConfigMayNotBeUndefined() throws Exception {
+    populateCheckerConfig(
+        checkerUuid,
+        "[checker]\n  uuid = "
+            + checkerUuid
+            + "\n  repository = "
+            + checkerRepository
+            + "\n  status = ENABLED");
+
+    ConfigInvalidException thrown =
+        assertThrows(ConfigInvalidException.class, () -> loadChecker(checkerUuid));
+    assertThat(thrown)
+        .hasMessageThat()
+        .contains("checker.name is not set in config file for checker " + checkerUuid);
+  }
+
+  @Test
   public void correctCommitMessageForCheckerUpdate() throws Exception {
     createArbitraryChecker(checkerUuid);
     assertThatCommitMessage(checkerUuid).isEqualTo("Create checker");
@@ -247,31 +265,38 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void nameCanBeUpdatedAndRemoved() throws Exception {
+  public void nameCanBeUpdated() throws Exception {
     CheckerCreation checkerCreation =
         CheckerCreation.builder()
             .setCheckerUuid(checkerUuid)
+            .setName(checkerName)
             .setRepository(checkerRepository)
             .build();
     createChecker(checkerCreation);
 
     CheckerConfig checkerConfig = loadChecker(checkerUuid);
-    assertThat(checkerConfig).hasNameThat().isAbsent();
+    assertThat(checkerConfig).hasName(checkerName);
 
-    String newName = "new-name";
+    String newName = "New Name";
     CheckerUpdate checkerUpdate = CheckerUpdate.builder().setName(newName).build();
     updateChecker(checkerUuid, checkerUpdate);
 
     checkerConfig = loadChecker(checkerUuid);
-    assertThat(checkerConfig).hasNameThat().value().isEqualTo(newName);
+    assertThat(checkerConfig).hasName(newName);
     assertThat(checkerConfig).configStringList("name").containsExactly(newName);
+  }
 
-    checkerUpdate = CheckerUpdate.builder().setName("").build();
-    updateChecker(checkerUuid, checkerUpdate);
+  @Test
+  public void nameCannotBeRemoved() throws Exception {
+    createArbitraryChecker(checkerUuid);
 
-    checkerConfig = loadChecker(checkerUuid);
-    assertThat(checkerConfig).hasNameThat().isAbsent();
-    assertThat(checkerConfig).configStringList("name").isEmpty();
+    CheckerUpdate checkerUpdate = CheckerUpdate.builder().setName("").build();
+
+    IOException thrown =
+        assertThrows(IOException.class, () -> updateChecker(checkerUuid, checkerUpdate));
+    assertThat(thrown)
+        .hasMessageThat()
+        .contains(String.format("Name of the checker %s must be defined", checkerUuid));
   }
 
   @Test
@@ -325,6 +350,7 @@ public class CheckerConfigTest {
     CheckerCreation checkerCreation =
         CheckerCreation.builder()
             .setCheckerUuid(checkerUuid)
+            .setName(checkerName)
             .setRepository(checkerRepository)
             .build();
     createChecker(checkerCreation);
@@ -514,7 +540,10 @@ public class CheckerConfigTest {
   }
 
   private CheckerCreation.Builder getPrefilledCheckerCreationBuilder() {
-    return CheckerCreation.builder().setCheckerUuid(checkerUuid).setRepository(checkerRepository);
+    return CheckerCreation.builder()
+        .setCheckerUuid(checkerUuid)
+        .setName(checkerName)
+        .setRepository(checkerRepository);
   }
 
   private CheckerConfig createChecker(CheckerCreation checkerCreation) throws Exception {
