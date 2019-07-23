@@ -70,7 +70,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
 
     CheckerInfo foundChecker = getCheckerFromServer(checkerUuid);
     assertThat(foundChecker.uuid).isEqualTo(checkerUuid.get());
-    assertThat(foundChecker.name).isNull();
+    assertThat(foundChecker.name).isNotNull();
     assertThat(foundChecker.repository).isEqualTo(allProjects.get());
     assertThat(foundChecker.status).isEqualTo(CheckerStatus.ENABLED);
     assertThat(foundChecker.query).isEqualTo("status:open");
@@ -257,9 +257,9 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     CheckerUuid checkerUuid =
         checkerOperations.newChecker().name("ABC-789-this-name-must-be-unique").create();
 
-    Optional<String> checkerName = checkerOperations.checker(checkerUuid).get().getName();
+    String checkerName = checkerOperations.checker(checkerUuid).get().getName();
 
-    assertThat(checkerName).hasValue("ABC-789-this-name-must-be-unique");
+    assertThat(checkerName).isEqualTo("ABC-789-this-name-must-be-unique");
   }
 
   @Test
@@ -416,8 +416,8 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
 
     checkerOperations.checker(checkerUuid).forUpdate().name("updated name").update();
 
-    Optional<String> currentName = checkerOperations.checker(checkerUuid).get().getName();
-    assertThat(currentName).hasValue("updated name");
+    String currentName = checkerOperations.checker(checkerUuid).get().getName();
+    assertThat(currentName).isEqualTo("updated name");
   }
 
   @Test
@@ -670,7 +670,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     Checker checker = checkerOperations.checker(checkerUuid).get();
     CheckerInfo checkerInfo = checkerOperations.checker(checkerUuid).asInfo();
     assertThat(checkerInfo.uuid).isEqualTo(checker.getUuid().get());
-    assertThat(checkerInfo.name).isEqualTo(checker.getName().get());
+    assertThat(checkerInfo.name).isEqualTo(checker.getName());
     assertThat(checkerInfo.description).isEqualTo(checker.getDescription().get());
     assertThat(checkerInfo.url).isEqualTo(checker.getUrl().get());
     assertThat(checkerInfo.created).isEqualTo(checker.getCreated());
@@ -734,6 +734,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
   private CheckerInput createArbitraryCheckerInput() {
     CheckerInput checkerInput = new CheckerInput();
     checkerInput.uuid = "test:my-checker";
+    checkerInput.name = "My Checker";
     checkerInput.repository = allProjects.get();
     return checkerInput;
   }
