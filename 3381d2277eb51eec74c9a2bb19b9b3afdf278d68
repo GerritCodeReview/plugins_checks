@@ -187,6 +187,30 @@
       "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a242e070_a7d38ad8",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerConfigTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T13:23:00Z",
+      "side": 1,
+      "message": "Done in https://gerrit-review.googlesource.com/c/plugins/checks/+/232079",
+      "parentUuid": "a1787c38_a1012d5a",
+      "range": {
+        "startLine": 293,
+        "startChar": 57,
+        "endLine": 293,
+        "endChar": 78
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
