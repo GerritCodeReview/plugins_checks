@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "76d8dd5c_b66acdac",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-24T15:59:41Z",
+      "side": 1,
+      "message": "Here and also in other files: This is still \u0027description\u0027. For this reason, this change fails to compile. To change the name with minimal effort for all usages, it\u0027s best to use the refactoring tools of an IDE. If this didn\u0027t work for you previously for some reason, please tell me and we\u0027ll do it together.",
+      "range": {
+        "startLine": 82,
+        "startChar": 32,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "df6f1e51d75eeea064d86a290bcf44abeef5a0fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "123b64cf_1ade74d1",
         "filename": "resources/Documentation/rest-api-checks.md",
         "patchSetId": 3
