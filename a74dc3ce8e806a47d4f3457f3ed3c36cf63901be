@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5482fb37_4b723d14",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-24T13:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260b9dd8_67421d62",
+      "range": {
+        "startLine": 49,
+        "startChar": 22,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a81b05d_49148a17",
         "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0f7f712a_7f1fab90",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-24T13:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a81b05d_49148a17",
+      "range": {
+        "startLine": 49,
+        "startChar": 94,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddad69c3_bd65446d",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 2
@@ -62,6 +110,24 @@
       "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd3acae8_ae856ff4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-24T13:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddad69c3_bd65446d",
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
