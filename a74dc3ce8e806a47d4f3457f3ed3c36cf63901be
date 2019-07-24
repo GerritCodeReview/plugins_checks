@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "260b9dd8_67421d62",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T13:42:26Z",
+      "side": 1,
+      "message": "nit: the Javadoc format doesn\u0027t use a separator here",
+      "range": {
+        "startLine": 49,
+        "startChar": 22,
+        "endLine": 49,
+        "endChar": 24
+      },
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a81b05d_49148a17",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T13:42:26Z",
+      "side": 1,
+      "message": "maybe format this as code for better readability:\n\n  {@code new Timestamp(0)}",
+      "range": {
+        "startLine": 49,
+        "startChar": 94,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddad69c3_bd65446d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T13:42:26Z",
+      "side": 1,
+      "message": "Should this line be move to the next paragraph/block? It seems semantically this part of the next update call.",
+      "revId": "a74dc3ce8e806a47d4f3457f3ed3c36cf63901be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
