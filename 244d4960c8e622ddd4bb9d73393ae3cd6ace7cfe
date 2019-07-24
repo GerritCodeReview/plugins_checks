@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c244062_7ab4d978",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T13:52:45Z",
+      "side": 1,
+      "message": "This should be enclosed by curly braces:\n\n  {@code new Timestamp(0)}",
+      "range": {
+        "startLine": 49,
+        "startChar": 92,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "244d4960c8e622ddd4bb9d73393ae3cd6ace7cfe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
