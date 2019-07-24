@@ -70,6 +70,30 @@
       "revId": "735035bf27a33d3f2a7edce326e60957edf84e38",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c03e454_9bd563d0",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-24T13:33:18Z",
+      "side": 1,
+      "message": "I\u0027ve just run \"Optional.ofNullable(null)\" and it is still empty.\nBased on my understanding of NodeDbCheck, if we allowed empty to pass then we would just reset \u0027started\u0027 and \u0027finished\u0027 every time.",
+      "parentUuid": "d1bbcd3c_6e5b3498",
+      "range": {
+        "startLine": 49,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 24
+      },
+      "revId": "735035bf27a33d3f2a7edce326e60957edf84e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
