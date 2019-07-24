@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c68a282_21672ccf",
+        "filename": "java/com/google/gerrit/plugins/checks/Checker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T11:30:21Z",
+      "side": 1,
+      "message": "Thanks, that\u0027s better.\n\nDone.",
+      "parentUuid": "f9f58dbe_6254565d",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 55
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12bbd8ac_09952ec0",
         "filename": "java/com/google/gerrit/plugins/checks/CheckerCreation.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e49c3b4_ba1d4e14",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerCreation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T11:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12bbd8ac_09952ec0",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c85deb6a_c741915b",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckerConfigEntry.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T11:30:21Z",
+      "side": 1,
+      "message": "Good question. After this change existing checkers that have no name will be considered as invalid and have to be fixed manually. This is OK since the checks plugin is not widely used yet. I\u0027ve clarified this in the commit message and also added tests for checkers without name. Considering checkers without name as invalid is consistent with how we treat checkers that miss other mandatory properties.",
+      "parentUuid": "bdb534c3_0dc120b3",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 7
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84e247b4_836335cc",
         "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerConfigTest.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2019-07-23T23:40:32Z",
       "side": 1,
       "message": "Would it be better to have the exception thrown here?",
+      "range": {
+        "startLine": 293,
+        "startChar": 57,
+        "endLine": 293,
+        "endChar": 78
+      },
+      "revId": "3381d2277eb51eec74c9a2bb19b9b3afdf278d68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1787c38_a1012d5a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerConfigTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-24T11:30:21Z",
+      "side": 1,
+      "message": "Yes, at least on the first look this seems better to me. I will look into this as a follow-up change because we would need to do the same change for the mandatory repository property.",
+      "parentUuid": "84e247b4_836335cc",
       "range": {
         "startLine": 293,
         "startChar": 57,
