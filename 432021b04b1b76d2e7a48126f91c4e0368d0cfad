@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "0d42ac9a_e50ef928",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:22:08Z",
+      "side": 1,
+      "message": "I added a comment to the previous change. I think it would be best to have a dedicated method for resetting/unsetting the value.",
+      "parentUuid": "def3b47c_217e3e9c",
+      "range": {
+        "startLine": 91,
+        "startChar": 21,
+        "endLine": 91,
+        "endChar": 37
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8224a2bd_eb4fe27b",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
         "patchSetId": 3
