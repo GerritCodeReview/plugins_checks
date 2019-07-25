@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f02c6937_601617e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:20:40Z",
+      "side": 1,
+      "message": "This needs to be documented in the public documentation. Please also note the change [1], which allows to directly send an empty timestamp to simplify the specification and to avoid hardcoding this magic, arbitrary value in our public API.\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/232273",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20157491_ee7918b1",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:20:40Z",
+      "side": 1,
+      "message": "I think it would be better to offer a dedicated method (with a descriptive name) for this within this builder. Thus, the code using the method is more readable and understandable.\n\nIn addition, it would also be good to adjust the test API (-\u003e CheckOperations) to have this convenience method as well.",
+      "range": {
+        "startLine": 49,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "328808bf_8144126a",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:20:40Z",
+      "side": 1,
+      "message": "I think it would be better if we didn\u0027t hardcode the value throughout our code base. I\u0027ve created another change [1] which introduces this constant in one place.\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/232273",
+      "range": {
+        "startLine": 77,
+        "startChar": 40,
+        "endLine": 77,
+        "endChar": 56
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33e4e790_8d2d7127",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:20:40Z",
+      "side": 1,
+      "message": "Here and below: I think it would be better to use the test API (-\u003e CheckOperations) to set up the desired state. These two lines are rather seem to be a test in themselves, which I think is not intended.",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 54
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4386a5eb_b0dd2e89",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T17:20:40Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure that this text currently fails due to this being null instead of the magic timestamp.",
+      "range": {
+        "startLine": 166,
+        "startChar": 20,
+        "endLine": 166,
+        "endChar": 24
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
