@@ -273,6 +273,30 @@
     },
     {
       "key": {
+        "uuid": "b45562dc_f094676e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "The latest patch set still has it.",
+      "parentUuid": "753e2716_35a94268",
+      "range": {
+        "startLine": 38,
+        "startChar": 44,
+        "endLine": 38,
+        "endChar": 60
+      },
+      "revId": "74d69e1b0d2034f7f5fde346941999a0357fda51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5209464_8f9c8bd5",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 1

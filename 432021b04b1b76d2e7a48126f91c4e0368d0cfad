@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb016c30_5c15478c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "As the method parameter doesn\u0027t exist anymore, this part is unnecessary. Please remove it.",
+      "range": {
+        "startLine": 30,
+        "startChar": 79,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a49ac53_734d53ea",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "The @Override annotation is missing and we typically try to use it where it applies.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 24
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b636f5c5_b2ed2be4",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "What about the other fields of a check (\u0027message\u0027 and \u0027url\u0027). I think they should also be reset (and this should be tested).",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 11
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def3b47c_217e3e9c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "It\u0027s not ideal that this special value must be used here to reset the time as other readers might not directly understand what this does. There are two options: Introduce a constant or offer an explicit reset method. Let\u0027s discuss them later. I first want to take a look at the previous change to get a better overall picture.",
+      "range": {
+        "startLine": 91,
+        "startChar": 21,
+        "endLine": 91,
+        "endChar": 37
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8224a2bd_eb4fe27b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "If I understand this test class correctly, the idea is to add new REST endpoints to one of the ImmutableLists up here. The tests below will automatically do the testing. For rerun, I think this list will be the right one.",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c87c4e7a_362ae759",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "No test currently verifies that the timestamps are reset. Could you please add this?\n\nIn addition, it would be good to check that \u0027created\u0027 is not touched and \u0027updated\u0027 is updated.",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "387f8a02_27df4de9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "The test implicitly assumes that a check starts in the NOT_STARTED state. However, tests should not rely on default values (see TotT 511) except if they test exactly the default behavior of a system. Since the name of the test method indicates that we want to have the NOT_STARTED state, we should be explicit about it.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e00ab2e_7636114d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-25T11:54:10Z",
+      "side": 1,
+      "message": "It\u0027s good that we have this test case now as it shows that the system behaves in a way which is actually not desired. Even though the check does not exist in our storage (because nobody/nothing sent data for it yet), it virtually already exists as it\u0027s backfilled. (I think I mentioned this before. If you need more details about this \u0027virtual\u0027 state and backfilling, please tell me.) So, we actually need to distinguish two cases:\n1) The check does not exit in the storage but is backfilled. -\u003e No error should be thrown. For the calling user, this should return exactly the same results as if the check existed in the storage. Internally, we don\u0027t create an entry in the storage.\n2) The check does not exist in the storage and is also not backfilled. -\u003e An error should be thrown. (In fact, the user would already get an error earlier when accessing the check resource in the URL path but there\u0027s a small corner case in which they could run into this.)",
+      "range": {
+        "startLine": 64,
+        "startChar": 14,
+        "endLine": 64,
+        "endChar": 48
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
