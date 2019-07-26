@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c1b0e38c_bb23a46a",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-26T12:14:50Z",
+      "side": 1,
+      "message": "Thanks. The new methods will be helpful.\n\nDid you also see the second part about adding similar methods to CheckOperations?",
+      "parentUuid": "e7edbcbb_40df8cf1",
+      "range": {
+        "startLine": 49,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "22fab2fd0c3b17756f6f56269ec6784baf6826af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "328808bf_8144126a",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
         "patchSetId": 4
