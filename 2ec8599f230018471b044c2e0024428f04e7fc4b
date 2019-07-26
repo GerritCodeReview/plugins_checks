@@ -22,6 +22,30 @@
       "revId": "2ec8599f230018471b044c2e0024428f04e7fc4b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a065c918_43018c35",
+        "filename": "resources/Documentation/rest-api-checkers.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-26T08:20:23Z",
+      "side": 1,
+      "message": "I\u0027ve had a look at this, if I install the plugin locally on a test gerrit server the anchors work. I asked Alice how she found that it\u0027s not working, and she look at it in Gitiles where it\u0027s indeed not working. I tried to escape the \u0027-\u0027 characters, but then the anchors are broken on my local test site, hence leaving this for now as it is.",
+      "parentUuid": "ca3ccffd_82b4736d",
+      "range": {
+        "startLine": 177,
+        "startChar": 11,
+        "endLine": 177,
+        "endChar": 31
+      },
+      "revId": "2ec8599f230018471b044c2e0024428f04e7fc4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
