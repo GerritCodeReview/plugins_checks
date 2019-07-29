@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2affa757_62cffdb8",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/TestCheckUpdate.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-29T12:35:22Z",
+      "side": 1,
+      "message": "Can you please add a test for the new methods to CheckOperationsImplTest? We already have tests like urlCanBeCleared() and would need something similar for started and finished.",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "078ecc94777d624d010939d47c1152eb115db939",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
