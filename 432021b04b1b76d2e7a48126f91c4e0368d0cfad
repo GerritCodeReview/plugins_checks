@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d9b1eef_d5c61e53",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb016c30_5c15478c",
+      "range": {
+        "startLine": 30,
+        "startChar": 79,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a49ac53_734d53ea",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "055fa862_b6df60ea",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a49ac53_734d53ea",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 24
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b636f5c5_b2ed2be4",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df59e4a4_34878648",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b636f5c5_b2ed2be4",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 11
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5f3652a6_f3f6f52d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "They used the lists to perform \"gets\" and \"posts\" in the same command. Here it would be unnecessary to use this list, since I only need a \"post\". Other than that, I believe I used the same way to test (using RestApiCallHelper).\nAlso, this list is not exactly what I need since I also need \"/rerun\" in the end (I could be make a new list with one item, but that sounds unnecessary).",
+      "parentUuid": "8224a2bd_eb4fe27b",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c87c4e7a_362ae759",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
         "patchSetId": 3
@@ -161,6 +257,30 @@
       "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da04cc3_2312f9d7",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87c4e7a_362ae759",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -187,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "87c3f420_cc7f34a7",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "387f8a02_27df4de9",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e00ab2e_7636114d",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
         "patchSetId": 3
@@ -207,6 +351,30 @@
       "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cfbf779_b56e490c",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-07-29T09:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e00ab2e_7636114d",
+      "range": {
+        "startLine": 64,
+        "startChar": 14,
+        "endLine": 64,
+        "endChar": 48
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
