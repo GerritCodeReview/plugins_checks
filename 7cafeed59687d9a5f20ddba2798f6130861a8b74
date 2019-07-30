@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52093c6c_ee5a81bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T18:20:08Z",
+      "side": 1,
+      "message": "I can confirm that this change fixes the issue with the submittability of the change. However, the submit button still doesn\u0027t show up, even after a reload. Only if the votes on a label are changed (e.g. to another value and than back again to +2), the submit button shows up. Should we address this in a separate change?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 66
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea847eca_2dcc47fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T18:20:08Z",
+      "side": 1,
+      "message": "I thought a bit about it and I think that we could use the combined state cache we already have for this. Should we investigate this variant as a follow-up change?",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "620b4e68_7a4fe57c",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T18:20:08Z",
+      "side": 1,
+      "message": "Do you think that we should make a difference between the value used for an error (\"\") and the value used when no checks are present (ObjectId.zeroId().getName())? (I\u0027m asking as I don\u0027t know whether this was an explicit decision or not.)",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5180a15_42e72e05",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T18:20:08Z",
+      "side": 1,
+      "message": "Thanks for thinking of this test as well.",
+      "range": {
+        "startLine": 377,
+        "startChar": 14,
+        "endLine": 377,
+        "endChar": 56
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
