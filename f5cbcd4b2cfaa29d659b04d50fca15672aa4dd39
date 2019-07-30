@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5abfdd9_74a829b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "This seems to be an older patch set of that change and hence this change doesn\u0027t compile. Can you please rebase on top of the latest patch set?",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 67
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acde3cd4_725efa96",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "Explicitly retrieving the checker here means that any additional checks we do for backfilling (e.g. whether the checker even applies to the change) are bypassed. Originally (as written in a previous comment), I thought we should also take this into account (e.g. throw an exception if rerun is invoked on a check which is not backfilled and return the backfilled check if it is backfilled). Since seeing this, I\u0027ve thought about it a lot further.\n\nSome thoughts for posterity:\nOn one hand, throwing exceptions and later changing this to not any exception is always easier as you wouldn\u0027t break any existing callers. There is one corner-case situation, though, which made me change my opinion: If a user has an open change screen and the checker is adjusted in the meantime to not apply to this change anymore, they can still use the \"Re-run\" button on the old screen (provided we show that button even for NOT_STARTED checks) before the checks table is refreshed. In this case, they shouldn\u0027t get any exception. It might still be confusing for them if the check simply vanishes at some point in time but that\u0027s something we don\u0027t have to consider as part of this change. Not throwing an exception for not-applying checkers might also be more in line of how we treat updates of checks. Furthermore, differentiating between backfilled checks and those which aren\u0027t also makes the code more complex. We would need some additional adjustments to even make this differentiation possible.\n\nSo, the resulting behavior should be:\nIf a check doesn\u0027t exist in our storage yet, don\u0027t do anything internally. As return value, construct a backfilled, virtual check. Do so even for checkers which don\u0027t apply to the change.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e07b296_25fa6d2c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "As said in a previous comment, a check shouldn\u0027t be created in the storage if it doesn\u0027t already exist. Please see my comment above for some additional thoughts.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 74
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28a1fcbd_b9ab0c9a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "My previous comment for missing test cases explicitly asked about two cases for when the check doesn\u0027t exist in the storage: a backfilled check and a not-backfilled check. For the former, I see a test case above. For the latter, I don\u0027t see any. I guess that this test here is meant to cover the latter case but it\u0027s a completely different test. Can you please add the missing one? When you add this test, please also verify within it that the rerun call doesn\u0027t really create any check data on the change for this non-applying checker.\n\nRegarding the specific test \u0027not existing checker\u0027 which is written here: I\u0027m honestly not sure whether we even need it. I think that all assertions done in this test method don\u0027t touch any code added/relevant in this change. The ResourceNotFoundExceptions are likely thrown in ChecksCollection, the IllegalArgumentException is directly thrown from CheckerUuid#parse. Hence, there\u0027s actually no point in having them here as a test for the \u0027rerun\u0027 functionality. (We should have other tests already which cover those code paths.)",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 48
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15a95266_77b2a615",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "Using such assertion methods is actually not a good style. We unfortunately have it in quite some places in Gerrit\u0027s code base. If possible, I would like to avoid them in the future. There are several reasons for why they are not recommended. One of them is that it makes the test harder to read/understand. For instance, this assertion method tests quite some fields, which is opaque to the test using this method. This also means that during setup of the test, the fields aren\u0027t brought in the correct state. It\u0027s also more difficult for future readers of the test as they have to jump to other methods to fully understand the test. Another reason is that such assertion methods make the stacktrace in case of errors more difficult. If the test fails, the assertion failure reported by Truth will point to this method instead of a test method. This makes it more difficult to quickly see which test is failing. There are more reasons than this. If you\u0027re interested, I can point you to some material (or you find it yourself).\n\nInstead of this method, you have several possibilities. Sometimes, it would be advisable to introduce a dedicated custom Truth subject and offer an appropriate method on it. I don\u0027t think it would be a good option in this case. What I think works better here is having one test which ensures that all relevant fields are reset. The other tests just ensure that the general behavior of the \u0027rerun\u0027 functionality works without paying attention to all details of it. In the context of the checks API, the most essential aspect of \u0027rerun\u0027 is the state reset as that makes CI/analyzer jobs run again. Some other tests (e.g. for non-existing checks) might not even require that as their main focus would be that no exception is thrown and a reasonable check object is returned.",
+      "range": {
+        "startLine": 124,
+        "startChar": 15,
+        "endLine": 124,
+        "endChar": 36
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8284094_fceaa687",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-30T17:51:45Z",
+      "side": 1,
+      "message": "When I asked to reset those other fields too and to test that, I expected to see tests which set some value which is not the default for those fields and then test that they were reset (and hence have a different value). None of the existing tests does this. They would also succeed if the reset code for these fields was removed.",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 46
+      },
+      "revId": "f5cbcd4b2cfaa29d659b04d50fca15672aa4dd39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
