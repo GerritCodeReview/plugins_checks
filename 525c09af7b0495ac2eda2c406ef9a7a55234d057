@@ -1,0 +1,647 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7238c5f5_d229012e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "Can you also say in the commit message why being able to list pending checks by scheme is useful (motivation for this change)?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 62
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feddaf21_e88ea5ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "broken sentence",
+      "range": {
+        "startLine": 18,
+        "startChar": 63,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09fee9cf_b95f7851",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "StorageException is a RuntimeException and doesn\u0027t need to be explicitly specified in the throws declaration. I think in our codebase we never mention StorageException explicitly, hence for consistency I would drop it here too.",
+      "range": {
+        "startLine": 240,
+        "startChar": 37,
+        "endLine": 240,
+        "endChar": 53
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c18bbb2_b7efd948",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "For me throwing a ConfigInvalidException here makes the handling of invalid queries inconsistent between this queryMatchingChanges(List\u003cChecker\u003e) method and the queryMatchingChanges(Checker) method below:\n\n* queryMatchingChanges(List\u003cChecker\u003e) throws ConfigInvalidException if a query is invalid\n* queryMatchingChanges(Checker) throws QueryParseException if the query is invalid\n\nCan we somehow make this consistent?",
+      "range": {
+        "startLine": 240,
+        "startChar": 13,
+        "endLine": 240,
+        "endChar": 35
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a815cfb_99b5f621",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "A schema doesn\u0027t have a change query, but a scheme contains n checkers and each of the checkers has a change query. So I think this should be \"Change query of checker\". So the message should contain the UUID of the checker for which the QueryParseException was thrown.\n\nI see that it might be tricky to know which of the queries caused the QueryParseException, maybe we need to extend QueryParseException in Gerrit core first to make that information available.",
+      "range": {
+        "startLine": 252,
+        "startChar": 15,
+        "endLine": 252,
+        "endChar": 37
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0e8de32_8fc40a1f",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "These methods are almost identical. Can we just have a single method (or at least let executeIndexQueryWithRetry(Consumer\u003cChangeQueryProcessor\u003e, Predicate\u003cChangeData\u003e) delegate to executeIndexQueryWithRetry(Consumer\u003cChangeQueryProcessor\u003e, List\u003cPredicate\u003cChangeData\u003e\u003e))?",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "449d5925_089be4d8",
+        "filename": "java/com/google/gerrit/plugins/checks/Checkers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "JavaDoc for this method is missing.",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e851388_9d942959",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "If you follow my suggestion below, I think this can just be:\n\n  return getPendingChecksOfChecker(checker.get(), query, changes);",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "068afa3d_0f25dbe0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "String.format is not needed if the given message doesn\u0027t have any placeholders that need to be filled with arguments, so it could be dropped. But maybe it would be nicer to include the number of found checkers and the number allowed checkers into the error message.",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 69
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7aec1bd5_cbc8d0bc",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This name is unclear to me, why \"allScheme\" if we deal only with a single scheme?\nMaybe just naming it \"changes\" is good enough?",
+      "range": {
+        "startLine": 117,
+        "startChar": 29,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "beb13204_45f47d4a",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This seems to be unneeded and can be dropped.",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e53ccd9a_583a192c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "I think it would be better to return the pending checks of the checker and let the caller add them to the list. That\u0027s cleaner than passing in a list just for the purpose of modifying it.\n\nOf course then this method needs to be renamed to something like \"getPendingChecksOfChecker\".",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed14da8d_7023a73c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "for better readability I would suggest to name these variables: numCheckerPredicates and numSchemePredicates",
+      "range": {
+        "startLine": 171,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 60
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "287edaa0_5e74d6c5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "The block inside the if-statement should be surrounded by curly braces. I see this was already wrong before your change, but since you are here, do you mind fixing this?",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 80
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a32cbbfa_10b48d0d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This comments needs to be updated.",
+      "range": {
+        "startLine": 188,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 53
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d31032_f23be2c0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This comments needs to be updated.",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c36bd8c8_8f76fe1e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "These methods are almost identical. Could we have a single method that can count occurrances of any given predicate?\n\nE.g. would something like this work?\n\n  private static int countPredicates(Predicate\u003cCheck\u003e predicate, Class\u003cCheckPredicate\u003e predicateClass) {\n    if (predicateClass.isInstance(predicate)) {\n      return 1;\n    }\n    if (predicate.getChildCount() \u003d\u003d 0) {\n      return 0;\n    }\n    return predicate.getChildren().stream()\n        .mapToInt(p -\u003e QueryPendingChecks.countPredicates(p, predicateClass))\n        .sum();\n  }",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 243,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "757453f3_c5ec324f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This comment is not fully correct, as the query validation can also pass if there is there is exactly 1 CheckerPredicate. \n\nI think it would be better if this method would return Optional\u003cString\u003e now and let it return Optional.empty() if the query doesn\u0027t contain a scheme predicate.\n\nThe same applies for the getCheckerUuidFromQuery method above.",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 94
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edd605e2_ed486c44",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "needs to be adapted",
+      "range": {
+        "startLine": 275,
+        "startChar": 50,
+        "endLine": 275,
+        "endChar": 68
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c8d83e9_2d17784c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "needs to be adapted",
+      "range": {
+        "startLine": 286,
+        "startChar": 38,
+        "endLine": 286,
+        "endChar": 55
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b82cdc97_526fb325",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "I think it\u0027s important that you include a trailing \u0027/\u0027 in the prefix:\n\n  CheckerRef.REFS_CHECKERS + scheme + \"/\"\n\nOtherwise you may match too many checkers. E.g. imagine there are 2 schemes \"foo\" and \"foobar\". If you search prefixes by \"refs/checkers/foo\" you also match the \"refs/checkers/foobar/...\" refs.\n\nI think we should also have a test for this case.",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b4959c6_fb9da62b",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "Since we are not formatting any user message here, I think it\u0027s okay to just use string concatenation: CheckerRef.REFS_CHECKERS + scheme",
+      "range": {
+        "startLine": 77,
+        "startChar": 27,
+        "endLine": 77,
+        "endChar": 82
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4216a24d_cd22952c",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This new operator should be documented in rest-api-pending-checks.md in the \u0027Query Operators\u0027 section.",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac279997_95ccceb0",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "Should this be named CheckerSchemePredicate?",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65b1801_6f985125",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "This method doesn\u0027t provide much value and could just be dropped and inlined.",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5d4ed5c_3804e398",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "Maybe make this two tests: cannotSpecifyMultipleCheckers, cannotSpecifyMultipleSchemes\n\nSame for the tests below.",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 54
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ffb35ab_71f4278d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "I expected this test to create checkers in different schemes and then verify that only checks of checkers in the matching scheme are returned if a query by scheme is done.",
+      "range": {
+        "startLine": 677,
+        "startChar": 14,
+        "endLine": 677,
+        "endChar": 42
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2d346a6_0b259118",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "You shouldn\u0027t rely on the scheme name which is set by default when CheckerOperations creates new checkers. Instead you should set the UUID, including the scheme, explicitly when you create the checker in line 678 above.",
+      "range": {
+        "startLine": 702,
+        "startChar": 48,
+        "endLine": 702,
+        "endChar": 54
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da073c6d_0c1aa725",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T08:35:38Z",
+      "side": 1,
+      "message": "Maybe use\n\n  QueryPendingChecks.MAX_ALLOWED_QUERIES + 1\n\nhere so that the test continues to work, if QueryPendingChecks.MAX_ALLOWED_QUERIES is changed.\n\nIt\u0027s okay to make QueryPendingChecks.MAX_ALLOWED_QUERIES visible if you annotate it with @VisibleForTesting.",
+      "range": {
+        "startLine": 746,
+        "startChar": 24,
+        "endLine": 746,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
