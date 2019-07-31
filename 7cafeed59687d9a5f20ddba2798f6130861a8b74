@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a4539ca8_c2f8151f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T12:59:02Z",
+      "side": 1,
+      "message": "Yes, I think this is another issue which requires a different fix, so it\u0027s better done as follow-up.",
+      "parentUuid": "52093c6c_ee5a81bb",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 66
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea847eca_2dcc47fb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4f915149_7e40747a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T12:59:02Z",
+      "side": 1,
+      "message": "I would prefer to explore this as follow-up but it\u0027s a good thought!",
+      "parentUuid": "ea847eca_2dcc47fb",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "620b4e68_7a4fe57c",
         "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2019-07-30T18:20:08Z",
       "side": 1,
       "message": "Do you think that we should make a difference between the value used for an error (\"\") and the value used when no checks are present (ObjectId.zeroId().getName())? (I\u0027m asking as I don\u0027t know whether this was an explicit decision or not.)",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7853c557_ccf508c0",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T12:59:02Z",
+      "side": 1,
+      "message": "\u003e Do you think that we should make a difference between the value used for an error (\"\")\n\u003e and the value used when no checks are present (ObjectId.zeroId().getName())?\n\nYes, it\u0027s intended that the value is different in these cases, but I\u0027m not sure if it\u0027s important (but it is consistent with how core handles errors during the ETag computation).\n\nIn core we use ObjectId.zeroId() if a ref is not present, so for consistency it makes sense to do the same here.\n\nErrors in core lead to not adding any value to the Hasher, but since we should not return null from the ChangeETagComputation extension point (the return value is not annotated with @Nullable, although the caller in ChangeResource handles null) I used the empty string instead.\n\nWe may return null for errors and add the @Nullable annotation to the extension point if we think that is better.",
+      "parentUuid": "620b4e68_7a4fe57c",
       "range": {
         "startLine": 164,
         "startChar": 67,
