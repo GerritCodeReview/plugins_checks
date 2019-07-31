@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d8220570_ee200104",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-31T14:09:05Z",
+      "side": 1,
+      "message": "Thanks for the details. I agree that consistency is good and we should stick with ObjectId.zeroId() for a missing ref.\n\nWhether we use null or the empty string for an error is equally good for me. Instead of null, an Optional might have been better but I think we don\u0027t have this option anymore due to backwards compatibility. I\u0027m fine with any option you choose.",
+      "parentUuid": "7853c557_ccf508c0",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5180a15_42e72e05",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 1
