@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "ca0434c9_97e9c931",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T14:37:48Z",
+      "side": 1,
+      "message": "Another possibility would be to allow throwing an exception from the extension point and then let the caller handle it.",
+      "parentUuid": "5884bd16_ea5afa0a",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5180a15_42e72e05",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 1
