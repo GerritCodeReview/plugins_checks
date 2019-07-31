@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cb40f3b7_ea80a0eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-31T18:18:10Z",
+      "side": 1,
+      "message": "It\u0027s submitted and I can confirm that the submit button shows up properly now. :-)\n\nDo you want to add the test as part of this change?",
+      "parentUuid": "a48c1c62_a733b325",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 66
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea847eca_2dcc47fb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -117,6 +141,30 @@
       "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0d7b57e_5441382b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-31T18:18:10Z",
+      "side": 1,
+      "message": "Sure. Setting this to resolved as it will be a follow-up.\n\nBy the way, I quickly looked into this. There\u0027s one shortcoming of the current definition of the ChangeETagComputation. It doesn\u0027t specify any patch set ID, not even the one of the current patch set. Do you think we could still change this?",
+      "parentUuid": "4f915149_7e40747a",
+      "range": {
+        "startLine": 20,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -227,6 +275,30 @@
       "side": 1,
       "message": "Another possibility would be to allow throwing an exception from the extension point and then let the caller handle it.",
       "parentUuid": "5884bd16_ea5afa0a",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bc0169c_1e79e4d1",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-07-31T18:18:10Z",
+      "side": 1,
+      "message": "That\u0027s a very good idea. There\u0027s no reason to treat checked exceptions and runtime exceptions differently. I wouldn\u0027t add an explicit checked exception to the method signature of ChangeETagComputation#getETag, though. What about wrapping the IOException into an appropriate runtime exception?\n\nWe should maybe also have a test somewhere (probably in core?) which ensures that plugins may safely throw a runtime exception. As a consequence, we can also document this behavior in the Javadoc description of ChangeETagComputation#getETag.",
+      "parentUuid": "ca0434c9_97e9c931",
       "range": {
         "startLine": 164,
         "startChar": 67,
