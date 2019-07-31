@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a48c1c62_a733b325",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-07-31T14:48:24Z",
+      "side": 1,
+      "message": "This will get fixed by [1]. Once [1] is submitted we should add a test for this case inside the checks plugin.\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/232814",
+      "parentUuid": "a4539ca8_c2f8151f",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 66
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ea847eca_2dcc47fb",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
