@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "bd61457d_f51e4d98",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/ChecksRestApiBindingsIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-01T14:26:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61604610_34bc2613",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "432021b04b1b76d2e7a48126f91c4e0368d0cfad",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c87c4e7a_362ae759",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
         "patchSetId": 3
