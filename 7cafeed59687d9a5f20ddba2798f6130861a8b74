@@ -335,6 +335,30 @@
     },
     {
       "key": {
+        "uuid": "27ac05da_c64fc9cf",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-01T08:55:14Z",
+      "side": 1,
+      "message": "Done in [1] and in the new patch set of this change.\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/232956",
+      "parentUuid": "5bc0169c_1e79e4d1",
+      "range": {
+        "startLine": 164,
+        "startChar": 67,
+        "endLine": 164,
+        "endChar": 94
+      },
+      "revId": "7cafeed59687d9a5f20ddba2798f6130861a8b74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5180a15_42e72e05",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 1
