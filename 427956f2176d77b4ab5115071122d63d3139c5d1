@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab6b2848_be1a97e9",
+        "filename": "gr-checks/gr-checks.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-06T12:47:38Z",
+      "side": 1,
+      "message": "lodash is currently only in bower_components because of WCT. gerrit-review currently does not serve it. I would prefer to not pull in another library, if it can be avoided. How much trouble would it be to do the throttling without lodash?\n\n*If* we add another library, then I would maybe consider rxjs and its throttleTime operator instead of lodash. I am not really a javascript expert and cannot say whether lodash is a great library, but I would prefer to either fully embrace lodash or not use it at all.",
+      "revId": "427956f2176d77b4ab5115071122d63d3139c5d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
