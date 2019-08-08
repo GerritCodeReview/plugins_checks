@@ -48,6 +48,7 @@
       isConfigured: Function,
       /** @type {function(string, string): !Promise<!Object>} */
       retryCheck: Function,
+      pluginRestApi: Object,
       _checks: Object,
       _status: {
         type: Object,
@@ -57,16 +58,43 @@
       visibilityChangeListenerAdded: {
         type: Boolean,
         value: false
-      }
+      },
+      //make sure defaults to false
+      _showConfigureButton: {
+        type: Boolean,
+        value: true
+      },
+      _handleConfigureTap: Function
     },
 
     observers: [
       '_pollChecksRegularly(change, revision, getChecks)',
     ],
 
+    attached() {
+      this.pluginRestApi = this.plugin.restApi();
+      this._getCreateCheckerCapability();
+    },
+
     detached() {
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    },
+
+    _getCreateCheckerCapability() {
+      return this.pluginRestApi.getAccount().then(account => {
+        if (!account) { return; }
+        return this.pluginRestApi.getAccountCapabilities(['checks-administrateCheckers'])
+            .then(capabilities => {
+              if (capabilities['checks-administrateCheckers']) {
+                this._showConfigureButton = true;
+              }
+            });
+      });
+    },
+
+    _handleConfigureTap() {
+      this.$.listOverlay.open();
     },
 
     _orderChecks(a, b) {

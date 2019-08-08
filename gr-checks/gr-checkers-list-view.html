@@ -1,0 +1,83 @@
+<dom-module id="gr-checkers-list-view">
+  <template>
+    <style include="shared-styles">
+      #filter {
+        font-size: var(--font-size-normal);
+        max-width: 25em;
+      }
+      #filter:focus {
+        outline: none;
+      }
+      #topContainer {
+        align-items: center;
+        display: flex;
+        height: 3rem;
+        justify-content: space-between;
+        margin: 0 1em;
+      }
+      #createNewContainer:not(.show) {
+        display: none;
+      }
+      a {
+        color: var(--primary-text-color);
+        text-decoration: none;
+      }
+      nav {
+        align-items: center;
+        display: flex;
+        height: 3rem;
+        justify-content: flex-end;
+        margin-right: 20px;
+      }
+      nav,
+      iron-icon {
+        color: var(--deemphasized-text-color);
+      }
+      .nav-iron-icon {
+        height: 1.85rem;
+        margin-left: 16px;
+        width: 1.85rem;
+      }
+      .nav-buttons:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+    <div id="topContainer">
+      <div class="filterContainer">
+        <label>Filter:</label>
+        <iron-input
+            type="text"
+            bind-value="{{filter}}">
+          <input
+              is="iron-input"
+              type="text"
+              id="filter"
+              bind-value="{{filter}}">
+        </iron-input>
+      </div>
+      <div id="createNewContainer"
+          class$="[[_computeCreateClass(createNew)]]">
+        <gr-button primary link id="createNew" on-tap="_createNewItem">
+          Create New
+        </gr-button>
+      </div>
+    </div>
+    <slot></slot>
+    <nav>
+      <template is="dom-if" if="[[showPrevButton]]">
+        <a class="nav-buttons" id="prevArrow"
+          on-tap="_handlePrevArrowClicked">
+          <iron-icon class="nav-iron-icon" icon="gr-icons:chevron-left"></iron-icon>
+        </a>
+      </template>
+      <template is="dom-if" if="[[showNextButton]]">
+        <a class="nav-buttons" id="nextArrow"
+          on-tap="_handleNextArrowClicked">
+          <iron-icon icon="gr-icons:chevron-right"></iron-icon>
+        </a>
+      </template>
+    </nav>
+  </template>
+  <script src="gr-checkers-list-view.js"></script>
+</dom-module>
