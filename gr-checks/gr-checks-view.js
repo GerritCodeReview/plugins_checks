@@ -57,16 +57,42 @@
       visibilityChangeListenerAdded: {
         type: Boolean,
         value: false
-      }
+      },
+      //make sure this defaults to false
+      _showConfigureButton: {
+        type: Boolean,
+        value: true
+      },
+      _handleConfigureTap: Function
     },
 
     observers: [
       '_pollChecksRegularly(change, revision, getChecks)',
     ],
 
+    attached() {
+      this._getCreateCheckerCapability();
+    },
+
     detached() {
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    },
+
+    _getCreateCheckerCapability() {
+      return this.$.restAPI.getAccount().then(account => {
+        if (!account) { return; }
+        return this.$.restAPI.getAccountCapabilities(['checks-administrateCheckers'])
+            .then(capabilities => {
+              if (capabilities['checks-administrateCheckers']) {
+                this._showConfigureButton = true;
+              }
+            });
+      });
+    },
+
+    _handleConfigureTap() {
+      this.$.listOverlay.open();
     },
 
     _orderChecks(a, b) {
