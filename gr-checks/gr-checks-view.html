@@ -1,4 +1,7 @@
 <link rel="import" href="gr-checks-status.html">
+<link rel="import" href="gr-create-checkers-dialog.html">
+<link rel="import" href="gr-checkers-list.html">
+
 <dom-module id="gr-checks-view">
   <template>
     <style>
@@ -61,6 +64,11 @@
         padding: 24px 0;
         text-align: center;
       }
+
+      #listOverlay {
+        margin: 10px;
+        width: 75%;
+      }
     </style>
 
     <template is="dom-if" if="[[_isLoading(_status)]]">
@@ -86,6 +94,9 @@
     <template is="dom-if" if="[[_hasResults(_status)]]">
       <header>
         <h3>Latest checks for Patchset [[revision._number]]</h3>
+        <template is="dom-if" if="[[_showConfigureButton]]">
+          <gr-button on-tap="_handleConfigureTap"> Configure </gr-button>
+        </template>
       </header>
 
       <table>
@@ -107,7 +118,11 @@
         </tbody>
       </table>
     </template>
-  </template>
 
+    <gr-overlay id="listOverlay" with-backdrop>
+      <gr-checkers-list plugin-rest-api="[[pluginRestApi]]" class="table"></gr-checkers-list>
+    </gr-overlay>
+
+  </template>
   <script src="gr-checks-view.js"></script>
 </dom-module>
