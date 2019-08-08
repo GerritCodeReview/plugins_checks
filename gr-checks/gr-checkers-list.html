@@ -1,0 +1,91 @@
+<link rel="import" href="gr-checkers-list-view.html">
+<dom-module id="gr-checkers-list">
+  <template>
+    <style include="shared-styles"></style>
+    <style include="gr-table-styles"></style>
+    <style>
+      iron-icon {
+        cursor: pointer;
+      }
+    </style>
+    <gr-checkers-list-view
+        create-new=[[_createNewCapability]]
+        on-create-clicked="_handleCreateClicked"
+        filter="[[_filter]]"
+        items-per-page="[[_checkersPerPage]]"
+        on-next-clicked="_handleNextClicked"
+        on-prev-clicked="_handlePrevClicked"
+        on-filter-changed="_handleFilterChanged"
+        show-next-button="[[_showNextButton]]"
+        show-prev-button="[[_showPrevButton]]"
+        items="[[_visibleCheckers]]"
+        loading="[[_loading]]"
+        offset="[[_offset]]">
+      <table id="list" class="genericList">
+        <tr class="headerRow">
+          <th class="name topHeader">Checker Name</th>
+          <th class="name topHeader">Repository</th>
+          <th class="name topHeader">Status</th>
+          <th class="name topHeader">Required</th>
+          <th class="name topHeader">Checker Description</th>
+          <th class="name topHeader"> Edit </th>
+        </tr>
+        <tbody class$="[[computeLoadingClass(_loading)]]">
+          <template is="dom-repeat" items="[[_visibleCheckers]]">
+            <tr class="table">
+              <td class="name">
+                <a>[[item.name]]</a>
+              </td>
+              <td class="name">[[item.repository]]</td>
+              <td class="name">[[item.status]]</td>
+              <td class="name">[[computeBlocking(item)]]</td>
+              <td class="name">[[item.description]]</td>
+              <td on-tap="_handleEditIconClicked">
+                <iron-icon icon="gr-icons:edit"></iron-icon>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </gr-checkers-list-view>
+    <gr-overlay id="createOverlay" with-backdrop>
+      <gr-dialog
+          id="createDialog"
+          class="confirmDialog"
+          confirm-label="Create"
+          on-confirm="_handleCreateConfirm"
+          on-cancel="_handleCreateCancel">
+        <div class="header" slot="header">
+          Create Checkers
+        </div>
+        <div class="main" slot="main">
+          <gr-create-checkers-dialog
+            id="createNewModal"
+            on-cancel="_handleCreateCancel">
+          </gr-create-checkers-dialog>
+        </div>
+      </gr-dialog>
+    </gr-overlay>
+    <gr-overlay id="editOverlay" with-backdrop>
+      <gr-dialog
+          id="editDialog"
+          class="confirmDialog"
+          confirm-label="Save"
+          on-confirm="_handleEditConfirm"
+          on-cancel="_handleEditCancel">
+        <div class="header" slot="header">
+          Edit Checker
+        </div>
+        <div class="main" slot="main">
+          <gr-create-checkers-dialog
+              checker="[[checker]]"
+              on-cancel="_handleEditCancel"
+              id="editModal">
+          </gr-create-checkers-dialog>
+        </div>
+      </gr-dialog>
+    </gr-overlay>
+      <gr-rest-api-interface id="restAPI"></gr-rest-api-interface>
+  </template>
+  <script src="gr-checkers-list.js"></script>
+</dom-module>
