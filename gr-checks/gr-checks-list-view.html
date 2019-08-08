@@ -1,0 +1,79 @@
+<dom-module id="gr-checks-list-view">
+  <template>
+    <style include="shared-styles">
+      #filter {
+        font-size: var(--font-size-normal);
+        max-width: 25em;
+      }
+      #filter:focus {
+        outline: none;
+      }
+      #topContainer {
+        align-items: center;
+        display: flex;
+        height: 3rem;
+        justify-content: space-between;
+        margin: 0 1em;
+      }
+      #createNewContainer:not(.show) {
+        display: none;
+      }
+      a {
+        color: var(--primary-text-color);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      nav {
+        align-items: center;
+        display: flex;
+        height: 3rem;
+        justify-content: flex-end;
+        margin-right: 20px;
+      }
+      nav,
+      iron-icon {
+        color: var(--deemphasized-text-color);
+      }
+      iron-icon {
+        height: 1.85rem;
+        margin-left: 16px;
+        width: 1.85rem;
+      }
+    </style>
+    <div id="topContainer">
+      <div class="filterContainer">
+        <label>Filter:</label>
+        <iron-input
+            type="text"
+            bind-value="{{filter}}">
+          <input
+              is="iron-input"
+              type="text"
+              id="filter"
+              bind-value="{{filter}}">
+        </iron-input>
+      </div>
+      <div id="createNewContainer"
+          class$="[[_computeCreateClass(createNew)]]">
+        <gr-button primary link id="createNew" on-tap="_createNewItem">
+          Create New
+        </gr-button>
+      </div>
+    </div>
+    <slot></slot>
+    <nav>
+      <a id="prevArrow"
+        on-tap="_handlePrevArrowClicked">
+        <iron-icon icon="gr-icons:chevron-left"></iron-icon>
+      </a>
+      <a id="nextArrow"
+        on-tap="_handleNextArrowClicked">
+        <iron-icon icon="gr-icons:chevron-right"></iron-icon>
+      </a>
+    </nav>
+  </template>
+  <script src="gr-checks-list-view.js"></script>
+</dom-module>
