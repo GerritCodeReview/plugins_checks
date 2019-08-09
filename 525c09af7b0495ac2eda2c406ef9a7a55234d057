@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "26c44285_70c385e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7238c5f5_d229012e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 62
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feddaf21_e88ea5ad",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e78aed_e2aa3207",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feddaf21_e88ea5ad",
+      "range": {
+        "startLine": 18,
+        "startChar": 63,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "2a1673a0_c56832c8",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "As far I see both of them catch QueryParseException, and then throw ConfigInvalidException. I think it is consistent.",
+      "parentUuid": "1c18bbb2_b7efd948",
+      "range": {
+        "startLine": 240,
+        "startChar": 13,
+        "endLine": 240,
+        "endChar": 35
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6c012c4_a9bc0ccf",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fee9cf_b95f7851",
+      "range": {
+        "startLine": 240,
+        "startChar": 37,
+        "endLine": 240,
+        "endChar": 53
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a815cfb_99b5f621",
         "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
         "patchSetId": 2
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "24570c22_9b83b49d",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0e8de32_8fc40a1f",
+      "range": {
+        "startLine": 320,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "449d5925_089be4d8",
         "filename": "java/com/google/gerrit/plugins/checks/Checkers.java",
         "patchSetId": 2
@@ -157,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "acfd14e4_47cae58b",
+        "filename": "java/com/google/gerrit/plugins/checks/Checkers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449d5925_089be4d8",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e851388_9d942959",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -168,6 +306,24 @@
       "writtenOn": "2019-07-31T08:35:38Z",
       "side": 1,
       "message": "If you follow my suggestion below, I think this can just be:\n\n  return getPendingChecksOfChecker(checker.get(), query, changes);",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af4d6856_7d73d82d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "See reply to the suggestion below.",
+      "parentUuid": "2e851388_9d942959",
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -197,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "1b522392_06cdef58",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "068afa3d_0f25dbe0",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 69
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7aec1bd5_cbc8d0bc",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -213,6 +393,53 @@
         "startChar": 29,
         "endLine": 117,
         "endChar": 45
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320e2add_c49a7606",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aec1bd5_cbc8d0bc",
+      "range": {
+        "startLine": 117,
+        "startChar": 29,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34076f2c_1f5d1124",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "[1] here.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 57
       },
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
@@ -243,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "9fea497f_da427539",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beb13204_45f47d4a",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e53ccd9a_583a192c",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -254,6 +505,30 @@
       "writtenOn": "2019-07-31T08:35:38Z",
       "side": 1,
       "message": "I think it would be better to return the pending checks of the checker and let the caller add them to the list. That\u0027s cleaner than passing in a list just for the purpose of modifying it.\n\nOf course then this method needs to be renamed to something like \"getPendingChecksOfChecker\".",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49039210_d08f0d22",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "I would obviously agree if it were just one list, but if we return a list to the user, the user has to merge lists multiple times.\nWe could try to make the query checker cleaner, but then the schema querying would not be clean, because there would a for loop like that:\nlist result;\nfor(loop over checkers){\n  list newList \u003d getPendingChecksOfChecker();\n  result \u003d merge(result, newList);\n}\nSee [1]",
+      "parentUuid": "e53ccd9a_583a192c",
       "range": {
         "startLine": 133,
         "startChar": 6,
@@ -289,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "733f2af8_73f96e76",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed14da8d_7023a73c",
+      "range": {
+        "startLine": 171,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 60
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "287edaa0_5e74d6c5",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -309,6 +608,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ee4a711_29e9c3d1",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "287edaa0_5e74d6c5",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 80
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -335,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "b6d476f3_16802cde",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a32cbbfa_10b48d0d",
+      "range": {
+        "startLine": 188,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 53
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8d31032_f23be2c0",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -349,6 +696,24 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "427fbf9f_f44f0888",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8d31032_f23be2c0",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -375,6 +740,30 @@
     },
     {
       "key": {
+        "uuid": "a5ee03a4_12b1b524",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "That\u0027s interesting, I never used such a thing :)\nThe wonders of java, I guess.",
+      "parentUuid": "c36bd8c8_8f76fe1e",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 243,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "757453f3_c5ec324f",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -386,6 +775,30 @@
       "writtenOn": "2019-07-31T08:35:38Z",
       "side": 1,
       "message": "This comment is not fully correct, as the query validation can also pass if there is there is exactly 1 CheckerPredicate. \n\nI think it would be better if this method would return Optional\u003cString\u003e now and let it return Optional.empty() if the query doesn\u0027t contain a scheme predicate.\n\nThe same applies for the getCheckerUuidFromQuery method above.",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 94
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33a8adb7_ac289ba2",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Fixed comment.\nWhy do you think it would be better to return Optional.empty() rather than just throw an exception? Then I would need to check if it is empty, if it is empty, throw an exception, otherwise do .get().\nIn theory it would be possible by the way to merge those two functions - but it would not be clean. I tried to do it cleanly and decided it looks better like this, unfortunately.",
+      "parentUuid": "757453f3_c5ec324f",
       "range": {
         "startLine": 268,
         "startChar": 4,
@@ -421,6 +834,30 @@
     },
     {
       "key": {
+        "uuid": "dcf73b8d_82891a77",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edd605e2_ed486c44",
+      "range": {
+        "startLine": 275,
+        "startChar": 50,
+        "endLine": 275,
+        "endChar": 68
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c8d83e9_2d17784c",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -441,6 +878,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01539904_b91ec959",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c8d83e9_2d17784c",
+      "range": {
+        "startLine": 286,
+        "startChar": 38,
+        "endLine": 286,
+        "endChar": 55
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -490,6 +951,54 @@
     },
     {
       "key": {
+        "uuid": "644a02d0_911f4ebc",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "getRefsByPrefix apparently adds \u0027/\u0027, somehow thought about this issue before :) (also have a testcase for this now) \nDo you think it is better to still add the / although the test passes currently?",
+      "parentUuid": "b82cdc97_526fb325",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be4d9c69_4a6ab621",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b4959c6_fb9da62b",
+      "range": {
+        "startLine": 77,
+        "startChar": 27,
+        "endLine": 77,
+        "endChar": 82
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4216a24d_cd22952c",
         "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
         "patchSetId": 2
@@ -530,6 +1039,48 @@
     },
     {
       "key": {
+        "uuid": "47814fa8_5d19f62f",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4216a24d_cd22952c",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "944d3296_02120ba9",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac279997_95ccceb0",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 33
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e65b1801_6f985125",
         "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
         "patchSetId": 2
@@ -550,6 +1101,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3e960e3_f8de71ef",
+        "filename": "java/com/google/gerrit/plugins/checks/index/CheckSchemePredicate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e65b1801_6f985125",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 11,
+        "endChar": 3
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -576,6 +1151,30 @@
     },
     {
       "key": {
+        "uuid": "330b15e4_7fc0d43b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d4ed5c_3804e398",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 54
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ffb35ab_71f4278d",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
         "patchSetId": 2
@@ -596,6 +1195,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95925c76_51d469ed",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ffb35ab_71f4278d",
+      "range": {
+        "startLine": 677,
+        "startChar": 14,
+        "endLine": 677,
+        "endChar": 42
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -622,6 +1245,30 @@
     },
     {
       "key": {
+        "uuid": "abfdc4f9_58344acf",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2d346a6_0b259118",
+      "range": {
+        "startLine": 702,
+        "startChar": 48,
+        "endLine": 702,
+        "endChar": 54
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da073c6d_0c1aa725",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
         "patchSetId": 2
@@ -642,6 +1289,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d381ba8_be1c375d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/QueryPendingChecksIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-09T16:51:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da073c6d_0c1aa725",
+      "range": {
+        "startLine": 746,
+        "startChar": 24,
+        "endLine": 746,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
