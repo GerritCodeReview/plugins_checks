@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09e029a5_c153bc1d",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-13T12:43:33Z",
+      "side": 1,
+      "message": "seems a lot attributes to pass on :) Are you considering reusing the `gr-checks-list-view` somewhere else ? otherwise maybe its bit too abstract ?\nmaybe consider moving some of the functionalities to the `gr-checks-list-view`. Or restructure a bit like `gr-change-list-view` and the `gr-change-list` structure.\n\n`gr-change-list-view` -\u003e multiple components (gr-change-list, gr-user-head, gr-repo-header, etc)\n\nand each component has their logic inside.",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dfb71a6_3657f0a0",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-13T12:43:33Z",
+      "side": 1,
+      "message": "we need to start adding undefined check here and all observers with more than 1 dependency, as in polymer 2, they will be triggered once at least one dependencies are defined.",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a01581d7_af2f8b96",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-13T12:43:33Z",
+      "side": 1,
+      "message": "is the filter doing name match only ? maybe consider more fields, so people can filter by author or something like that.\n\nand you might want to `trim` the filter here or before, and can take advantage of the `includes` other than `indexOf` :)",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08dff717_be24b4ec",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-13T12:43:33Z",
+      "side": 1,
+      "message": "maybe rename it as `_visibleChecks` as its so similar to the `_showChecks` method :)",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "879e1f6e_4beb840b",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-13T12:43:33Z",
+      "side": 1,
+      "message": "maybe move _showPrevButton and _showNextButton to a computed property instead :) as their sensibilities are totally up to other properties. And you don\u0027t need to call this updateButtons every time :)\n\nsame as other similar properties.",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
