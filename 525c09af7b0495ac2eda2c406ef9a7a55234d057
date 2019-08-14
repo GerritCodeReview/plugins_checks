@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "91652ae1_8a79810b",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-14T16:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "318757d5_6bb7fc4a",
+      "range": {
+        "startLine": 252,
+        "startChar": 15,
+        "endLine": 252,
+        "endChar": 37
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0e8de32_8fc40a1f",
         "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
         "patchSetId": 2
@@ -393,6 +417,24 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e676100b_6d0ef83b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-14T16:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a657040e_476bc1f5",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -652,6 +694,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00a768c8_5429fdae",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-14T16:32:32Z",
+      "side": 1,
+      "message": "Yes, my concern is that it isn\u0027t efficient (addAll seems to be O(n) complexity). This is not a serious concern when there are normally a very small number of checks.",
+      "parentUuid": "e43922c3_d2b705d9",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -949,6 +1015,30 @@
     },
     {
       "key": {
+        "uuid": "af13ac5b_daafe51b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-14T16:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddb3f603_fccb5265",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 94
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edd605e2_ed486c44",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -1158,6 +1248,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5f9e611_635e05eb",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-14T16:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85ed87d_b0f106b0",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
