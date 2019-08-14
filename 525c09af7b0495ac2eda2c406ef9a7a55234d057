@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "5a45dff6_e12aa5bb",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "You are right. I don\u0027t know how I came to this wrong conclusion. Sorry for the confusion.",
+      "parentUuid": "2a1673a0_c56832c8",
+      "range": {
+        "startLine": 240,
+        "startChar": 13,
+        "endLine": 240,
+        "endChar": 35
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a815cfb_99b5f621",
         "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
         "patchSetId": 2
@@ -201,6 +225,30 @@
       "writtenOn": "2019-07-31T08:35:38Z",
       "side": 1,
       "message": "A schema doesn\u0027t have a change query, but a scheme contains n checkers and each of the checkers has a change query. So I think this should be \"Change query of checker\". So the message should contain the UUID of the checker for which the QueryParseException was thrown.\n\nI see that it might be tricky to know which of the queries caused the QueryParseException, maybe we need to extend QueryParseException in Gerrit core first to make that information available.",
+      "range": {
+        "startLine": 252,
+        "startChar": 15,
+        "endLine": 252,
+        "endChar": 37
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "318757d5_6bb7fc4a",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerQuery.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "Ping.\n\nMaybe at least change the message to something like:\n\n  String.format(\"A checker in scheme %s has an invalid query (%s)\", checkers.get(0).getUuid().scheme(), e.getMessage())",
+      "parentUuid": "4a815cfb_99b5f621",
       "range": {
         "startLine": 252,
         "startChar": 15,
@@ -330,6 +378,24 @@
     },
     {
       "key": {
+        "uuid": "a657040e_476bc1f5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "OK, I replied below.",
+      "parentUuid": "af4d6856_7d73d82d",
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "068afa3d_0f25dbe0",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -447,6 +513,30 @@
     },
     {
       "key": {
+        "uuid": "4810a043_f8d04b56",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "OK. Marking this as resolved.",
+      "parentUuid": "34076f2c_1f5d1124",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 57
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beb13204_45f47d4a",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -529,6 +619,30 @@
       "side": 1,
       "message": "I would obviously agree if it were just one list, but if we return a list to the user, the user has to merge lists multiple times.\nWe could try to make the query checker cleaner, but then the schema querying would not be clean, because there would a for loop like that:\nlist result;\nfor(loop over checkers){\n  list newList \u003d getPendingChecksOfChecker();\n  result \u003d merge(result, newList);\n}\nSee [1]",
       "parentUuid": "e53ccd9a_583a192c",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e43922c3_d2b705d9",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "What\u0027s difficult about merging lists? Isn\u0027t it just:\n\n  List\u003cPendingChecksInfo\u003e pendingChecks \u003d new ArrayList();\n  for (int i \u003d 0; i \u003c changes.size(); i++) {\n    pendingChecks.addAll(getPendingChecksOfChecker(checkersOfScheme.get(i), query, changes.get(i));\n  }\n\ninstead of\n\n  List\u003cPendingChecksInfo\u003e pendingChecks \u003d new ArrayList();\n  for (int i \u003d 0; i \u003c changes.size(); i++) {\n    addPendingChecksOfCheckerToList(pendingChecks, checkersOfScheme.get(i), query, changes.get(i));\n  }\n\n?",
+      "parentUuid": "49039210_d08f0d22",
       "range": {
         "startLine": 133,
         "startChar": 6,
@@ -811,6 +925,30 @@
     },
     {
       "key": {
+        "uuid": "ddb3f603_fccb5265",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "\u003e Why do you think it would be better to return Optional.empty() rather than just throw an exception?\n\nIf you are just looking at this method, you can\u0027t know if the non-existence of a scheme in the query is an error or if it\u0027s expected. E.g. if the user specified a CheckerPredicate (and no CheckerSchemePredicate) there is no scheme in the query, but it\u0027s not an error. Hence throwing an exception in this case would be wrong. Now we don\u0027t run into this issue because the method is only called when there is at least one CheckerSchemePredicate in the query. However if this method returns correct results only under certain conditions (query contains at least one CheckerSchemePredicate) then the method should at least document these conditions in its JavaDoc. But writing the method in way so that it works in all cases is usually better than relying on people to read the JavaDoc. That\u0027s why I suggested to change this method so that it returns Optional\u003cString\u003e, because then it would work in all cases.",
+      "parentUuid": "33a8adb7_ac289ba2",
+      "range": {
+        "startLine": 268,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 94
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "edd605e2_ed486c44",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
@@ -996,6 +1134,30 @@
       "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c85ed87d_b0f106b0",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-08-14T13:43:47Z",
+      "side": 1,
+      "message": "\u003e getRefsByPrefix apparently adds \u0027/\u0027\n\nI think this is not true :) I just debugged your test and if I set a breakpoint here I can see that\n\n  allProjectsRepo.getRefDatabase().getRefsByPrefix(\"refs/checkers/foo\")\n\nactually returns the ref for the checker in the foobar scheme, e.g. in my case it returned:\n\n  refs/checkers/foobar/84/84d6d71e343e4fd97f11be6c10e8b990d55123dc\n\nThe test only passes because CheckerSchemePredicate (which is invoked afterwards) filters out the checks for the \u0027foobar\u0027 checker (since the scheme doesn\u0027t match \u0027foo\u0027).\n\n\u003e also have a testcase for this now\n\nThanks, pity that it could not detect this issue, but I also don\u0027t know how it could be rewritten to catch this issue too. So the current test seems to be the best we can do.\n\n\u003e Do you think it is better to still add the / although the test passes currently?\n\nYes. The test just passed because CheckerSchemePredicate does the post-filtering. If this method will be invoked in a different context, the wrong result likely matters.",
+      "parentUuid": "644a02d0_911f4ebc",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     },
     {
       "key": {
