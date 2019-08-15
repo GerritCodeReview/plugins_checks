@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ab0f7e1b_67556f76",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-15T14:27:50Z",
+      "side": 1,
+      "message": "this is actually a hack to make sure the configure button is shown when testing without login. The comment is just a reminder to default to false and then set to true when administrateChecker property is set",
+      "parentUuid": "ec469a89_0938181e",
+      "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a64b6e2c_d5a66b9d",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 5
@@ -47,6 +65,24 @@
       "writtenOn": "2019-08-13T15:46:34Z",
       "side": 1,
       "message": "Maybe rename to _updateCreateCheckerCapability?\n\nIf you want you could also make createCheckerCapability a property and then let _showConfigureButton be computed from that. Then the name _updateCreateCheckerCapability is even more accurate and you could also compute other stuff (later on maybe) from the new createCheckerCapability property. WDYT?",
+      "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5adcd6d0_5e85030b",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-15T14:27:50Z",
+      "side": 1,
+      "message": "making _showConfigureButton a computed property of createCheckerCapability makes sense.\n\nNot really sure if _updateCreateCheckerCapability makes sense to me. The function is just supposed to ask if the user has permission to administrate checker or not. There is no \"update\" going on.",
+      "parentUuid": "37ab4412_fccf8762",
       "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
