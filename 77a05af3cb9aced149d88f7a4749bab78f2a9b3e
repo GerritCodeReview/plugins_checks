@@ -1,0 +1,962 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e147697_b285ae29",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Remove \"WIP\" and write a bit more what you are adding in this change.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "780387fa_e1ecbabe",
+        "filename": "gr-checks/gr-checks-list-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Why would this be useful to *all* links in this component? Maybe restrict this to a specific class? Note that it would otherwise also affect all links in the slot (I think).",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a402fb5c_dac70631",
+        "filename": "gr-checks/gr-checks-list-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Maybe mak the iron-icon rules also more specific (\"nav iron-icon\" for example).",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c043190_4220f262",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "either update the license or remove it",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cfe7487_a13ef51d",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "are these two used?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7729c4ae_4bb4e5a8",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Is this used?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82ae7edc_161bb3fd",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "is this used? what does it do?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88021421_b917b0f3",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "maybe add a semicolon at the end",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e445f0a9_cc1dae5b",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "all events that are emitted from a component should be documented with @event",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90836d46_7f33f8bf",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Nit: I know this is copy and paste from other places, but I would prefer this more symmetric and consistent naming:\n_handleCreateConfirm\n_handleCreateCancel\n_handleEditConfirm\n_handleEditCancel",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3e71a40_9a5f0201",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Why does it have a handler for on-cancel, but not on-confirm? I would understand that it has neither (handlers declared above are enough) or both (need extra handlers). But just having one seems odd.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceb5aeb2_38471028",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "nit: move to line before",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a614d6_cc5e753a",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "nit: maybe \"Save\" instead of \"Edit\"? WDYT?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "268bf397_1340a89b",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "I am fairly unhappy that no component in Gerrit has a top-level comment about what it does. It would be nice if we could start changing that. Just one sentence at the top.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd2240be_6e5f7fdf",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "This never changes, so make it a const instead of a property.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c537bac5_dc75a348",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Some properties would benefit from a comment, e.g. this one.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "000f41a1_bd01bd07",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "The format used in Gerrit for TODOs is:\n\n  // TODO(dhruvsri): Highlight matching part.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ed5e88d_4ab25d0f",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "return false\n\nalso below",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2df31356_29949217",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "This code\n\n  if (condition) {\n    return true;\n  }\n  return false;\n\ncan be replaced by this:\n\n  return condition;\n\nalso below",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df50ba3b_dee3b8b7",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Maybe make _visibleChecks a computed property of _filteredChecks, _startingIndex, _checksPerPage.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 25
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7863a336_dfa03864",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "remove commented code before submission",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "471c15d6_63e767ed",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "extract a const like here: https://gerrit.googlesource.com/gerrit/+/d5e6101a8e50f4a54c55b3d55b82377c8c44f8f6/polygerrit-ui/app/elements/settings/gr-settings-view/gr-settings-view.js#35",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aed79841_3e0a12a6",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Plugins should not use the rest-api directly, but rather plugin.restApi(), see gr-checks.html. \n\nhttps://gerrit.googlesource.com/gerrit/+/d5e6101a8e50f4a54c55b3d55b82377c8c44f8f6/polygerrit-ui/app/elements/shared/gr-js-api-interface/gr-public-js-api.js#329\nhttps://gerrit.googlesource.com/gerrit/+/d5e6101a8e50f4a54c55b3d55b82377c8c44f8f6/polygerrit-ui/app/elements/shared/gr-js-api-interface/gr-plugin-rest-api.js#69",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f846e7c6_50096b06",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "getCheckers returns checks, not checkers? :-)\n\nMaybe rename all \"checks\" to \"checkers\" in all var/file names in this change. A checker is not the same as a check.",
+      "range": {
+        "startLine": 134,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 25
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ede775b_84a0e54e",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Is this still required given that the overlay does not have full width anymore?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20a1f57e_11a757b1",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "cr-checks-list does not have a property \"params\". Why pass this here?",
+      "range": {
+        "startLine": 122,
+        "startChar": 36,
+        "endLine": 122,
+        "endChar": 55
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8edb2274_33c5924e",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "plugins should not use this directly",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "470edc14_ab21344f",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Can you try to do it without !important?",
+      "range": {
+        "startLine": 26,
+        "startChar": 37,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3609e617_0bf25239",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "nit: remove ws",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1837a107_55078151",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "nit: move \u003e to previous line",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7343067_4b5a5d6f",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "update or remove license",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54b88c6f_205573e0",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "resolve the TODO",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0add502_d8ebc2c0",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "REPOS_PER_PAGE",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf720d4a_c3b00c6d",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Add some comments to properties.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "920ae133_7a4635ff",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "rename to repoQuery?",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 11
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06528b26_16427fcb",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "mark \"read-only\"?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aa2b69e_3139ece0",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Can this be removed?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca77afe9_36560444",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "extract a constant and rename",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 19
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5863145d_b01e7723",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Format: // TODO(dhrvusri): ...",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55914cef_d5342dfb",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "maybe extract a constant",
+      "range": {
+        "startLine": 157,
+        "startChar": 18,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16665474_99936cb3",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "document as @event",
+      "range": {
+        "startLine": 181,
+        "startChar": 17,
+        "endLine": 181,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11118f6e_3942a8b1",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "add a dep on FireBehavior",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f74255d1_65fef3a6",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "ws",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ded6796_b8539632",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "80 chars and space after //",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "895b3607_8f586e85",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "remove?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "193b5114_20e12a0c",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Add a comment that 201 means CREATED.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56758fad_400b425c",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Maybe inline the method as it is not doing that much?",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 19
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d06ff66_d24d5ab2",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "don\u0027t use restapi directly",
+      "range": {
+        "startLine": 234,
+        "startChar": 20,
+        "endLine": 234,
+        "endChar": 27
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b35bd37_246bc994",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Can this be formatted with fewer line breaks?",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 13
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0064817_01a46859",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-16T10:42:50Z",
+      "side": 1,
+      "message": "Add a top-level comment what this component is.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
