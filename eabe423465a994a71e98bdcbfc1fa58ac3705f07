@@ -156,6 +156,24 @@
       "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d5faa3_236cd411",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-16T07:49:29Z",
+      "side": 1,
+      "message": "hmm I mean the `_showPrevButton` and `_showNextButton` both can be moved to computed properties as you only expect them to be calculated based on something else (`computed` property), it should help the code readability.\n\n\u003e https://polymer-library.polymer-project.org/1.0/docs/devguide/observers#computed-properties\n\nAnd they seems are internal states only, probably not need to be included in the `properties` at all, from the polymer doc, properties seems are for public API use. We probably can just move them to a `getter` once we move to class based components.",
+      "parentUuid": "baf55471_3ac89bb5",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
