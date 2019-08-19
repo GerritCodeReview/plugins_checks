@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9fc7d410_057ec9d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e147697_b285ae29",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "780387fa_e1ecbabe",
         "filename": "gr-checks/gr-checks-list-view.html",
         "patchSetId": 10
@@ -39,6 +57,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77043a8b_e498f9c8",
+        "filename": "gr-checks/gr-checks-list-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "780387fa_e1ecbabe",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8bcb459c_f5ecd50b",
+        "filename": "gr-checks/gr-checks-list-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a402fb5c_dac70631",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c043190_4220f262",
         "filename": "gr-checks/gr-checks-list-view.js",
         "patchSetId": 10
@@ -85,6 +151,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9326b06_54fbeb86",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c043190_4220f262",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "f93687f5_8bb1eca2",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cfe7487_a13ef51d",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7729c4ae_4bb4e5a8",
         "filename": "gr-checks/gr-checks-list-view.js",
         "patchSetId": 10
@@ -125,6 +239,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1eaa744_2125e2fc",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7729c4ae_4bb4e5a8",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "696f7d31_58d1bf22",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82ae7edc_161bb3fd",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88021421_b917b0f3",
         "filename": "gr-checks/gr-checks-list-view.js",
         "patchSetId": 10
@@ -156,6 +306,24 @@
       "writtenOn": "2019-08-16T10:42:50Z",
       "side": 1,
       "message": "maybe add a semicolon at the end",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81cf28c8_7026c97b",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "I did not get this.",
+      "parentUuid": "88021421_b917b0f3",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -202,6 +370,30 @@
     },
     {
       "key": {
+        "uuid": "12e046a9_f8292e76",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90836d46_7f33f8bf",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 41
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a3e71a40_9a5f0201",
         "filename": "gr-checks/gr-checks-list.html",
         "patchSetId": 10
@@ -213,6 +405,24 @@
       "writtenOn": "2019-08-16T10:42:50Z",
       "side": 1,
       "message": "Why does it have a handler for on-cancel, but not on-confirm? I would understand that it has neither (handlers declared above are enough) or both (need extra handlers). But just having one seems odd.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354dd7e2_e2bd22bf",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "After creating a checker, the dialog needs to close itself and inform the main checkers-list to refresh itself.\nThe dialog closes itself by publishing the \u0027cancel\u0027 event hence a listener for it. \nI feel there might be a better way to do this.",
+      "parentUuid": "a3e71a40_9a5f0201",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -236,6 +446,24 @@
     },
     {
       "key": {
+        "uuid": "da631ec7_70da4d2a",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceb5aeb2_38471028",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67a614d6_cc5e753a",
         "filename": "gr-checks/gr-checks-list.html",
         "patchSetId": 10
@@ -250,6 +478,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10a06b4e_2a2ef75a",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a614d6_cc5e753a",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -270,6 +516,24 @@
     },
     {
       "key": {
+        "uuid": "63bcc1d5_395defac",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "268bf397_1340a89b",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd2240be_6e5f7fdf",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 10
@@ -287,6 +551,24 @@
     },
     {
       "key": {
+        "uuid": "8a75fa49_16041a16",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd2240be_6e5f7fdf",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c537bac5_dc75a348",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 10
@@ -298,6 +580,24 @@
       "writtenOn": "2019-08-16T10:42:50Z",
       "side": 1,
       "message": "Some properties would benefit from a comment, e.g. this one.",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e81f964_29ad4047",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "This is actually not needed now since we are not redirecting the user anymore. Removing it from the file.",
+      "parentUuid": "c537bac5_dc75a348",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -321,6 +621,24 @@
     },
     {
       "key": {
+        "uuid": "0de9e91f_740c36ac",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "000f41a1_bd01bd07",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ed5e88d_4ab25d0f",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 10
@@ -338,6 +656,24 @@
     },
     {
       "key": {
+        "uuid": "4a404b40_4be318ca",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed5e88d_4ab25d0f",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2df31356_29949217",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 10
@@ -352,6 +688,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f94980c_b4929766",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2df31356_29949217",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -375,6 +729,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1300264c_59902dff",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df50ba3b_dee3b8b7",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 25
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -409,6 +787,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c0e4e33_6fce0b77",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "471c15d6_63e767ed",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -452,6 +848,30 @@
     },
     {
       "key": {
+        "uuid": "b548af93_689c233a",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f846e7c6_50096b06",
+      "range": {
+        "startLine": 134,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 25
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ede775b_84a0e54e",
         "filename": "gr-checks/gr-checks-view.html",
         "patchSetId": 10
@@ -489,6 +909,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "340c977f_6e38e0d1",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a1f57e_11a757b1",
+      "range": {
+        "startLine": 122,
+        "startChar": 36,
+        "endLine": 122,
+        "endChar": 55
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -532,6 +976,30 @@
     },
     {
       "key": {
+        "uuid": "b9cb23eb_f0a3b919",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470edc14_ab21344f",
+      "range": {
+        "startLine": 26,
+        "startChar": 37,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3609e617_0bf25239",
         "filename": "gr-checks/gr-create-checks-dialog.html",
         "patchSetId": 10
@@ -549,6 +1017,24 @@
     },
     {
       "key": {
+        "uuid": "ab12a2a6_93d3a919",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3609e617_0bf25239",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1837a107_55078151",
         "filename": "gr-checks/gr-create-checks-dialog.html",
         "patchSetId": 10
@@ -563,6 +1049,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bab6a06_e7ee5f65",
+        "filename": "gr-checks/gr-create-checks-dialog.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1837a107_55078151",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -589,6 +1093,30 @@
     },
     {
       "key": {
+        "uuid": "ca5724a5_67ec3595",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7343067_4b5a5d6f",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54b88c6f_205573e0",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -606,6 +1134,24 @@
     },
     {
       "key": {
+        "uuid": "4f90fb38_9eff2329",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54b88c6f_205573e0",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0add502_d8ebc2c0",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -620,6 +1166,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740e37ff_8a7248a9",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0add502_d8ebc2c0",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -663,6 +1227,48 @@
     },
     {
       "key": {
+        "uuid": "e142a707_e846a512",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf720d4a_c3b00c6d",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6828f8_cc90ac18",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "920ae133_7a4635ff",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 11
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06528b26_16427fcb",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -680,6 +1286,24 @@
     },
     {
       "key": {
+        "uuid": "218184ac_2ab2935e",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06528b26_16427fcb",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aa2b69e_3139ece0",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -694,6 +1318,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df40f852_e82db742",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa2b69e_3139ece0",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -720,6 +1362,30 @@
     },
     {
       "key": {
+        "uuid": "a9be11ac_01097915",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca77afe9_36560444",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 19
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5863145d_b01e7723",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -734,6 +1400,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9073c80d_d03f275a",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5863145d_b01e7723",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -757,6 +1441,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e1474b_c3810ddd",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55914cef_d5342dfb",
+      "range": {
+        "startLine": 157,
+        "startChar": 18,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -806,6 +1514,54 @@
     },
     {
       "key": {
+        "uuid": "fec7db14_2cae9f89",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11118f6e_3942a8b1",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8fc32e8_2a519d9e",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16665474_99936cb3",
+      "range": {
+        "startLine": 181,
+        "startChar": 17,
+        "endLine": 181,
+        "endChar": 21
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f74255d1_65fef3a6",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -820,6 +1576,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1478121c_afa0c848",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f74255d1_65fef3a6",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -840,6 +1614,24 @@
     },
     {
       "key": {
+        "uuid": "a0b4e643_2d2e0450",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ded6796_b8539632",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "895b3607_8f586e85",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -857,6 +1649,24 @@
     },
     {
       "key": {
+        "uuid": "953d4114_0ead45f7",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895b3607_8f586e85",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "193b5114_20e12a0c",
         "filename": "gr-checks/gr-create-checks-dialog.js",
         "patchSetId": 10
@@ -871,6 +1681,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d422aa1f_c44b6483",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "193b5114_20e12a0c",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -894,6 +1722,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72476a31_d68f8ba7",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56758fad_400b425c",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 19
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -943,6 +1795,30 @@
     },
     {
       "key": {
+        "uuid": "5eb049a7_410f4db0",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b35bd37_246bc994",
+      "range": {
+        "startLine": 237,
+        "startChar": 12,
+        "endLine": 237,
+        "endChar": 13
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0064817_01a46859",
         "filename": "gr-checks/gr-repo-chip.js",
         "patchSetId": 10
@@ -957,6 +1833,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82058303_3b01a0c2",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-19T08:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0064817_01a46859",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
