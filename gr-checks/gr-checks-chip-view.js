@@ -74,10 +74,11 @@
       getChecks: Function,
       _checkStatuses: Object,
       _hasChecks: Boolean,
+      _checks: Array,
       _status: {type: String, computed: '_computeStatus(_checkStatuses)'},
       _statusString: {
         type: String,
-        computed: '_computeStatusString(_status, _checkStatuses)',
+        computed: '_computeStatusString(_status, _checkStatuses, _checks)',
       },
       _chipClasses: {type: String, computed: '_computeChipClass(_status)'},
       _downgradeFailureToWarning: {
@@ -127,6 +128,7 @@
       getChecks(change._number, revision._number).then(checks => {
         this.set('_hasChecks', checks.length > 0);
         if (checks.length > 0) {
+          this.set('_checks', checks);
           this.set('_checkStatuses', computeCheckStatuses(checks));
           this.set('_downgradeFailureToWarning', downgradeFailureToWarning(checks));
         }
@@ -164,15 +166,27 @@
           Statuses.STATUS_UNKNOWN;
     },
 
+    computeFailedRequiredChecks(checks) {
+      let failedRequiredChecks = checks.filter(
+        (check) => {return check.status == Statuses.FAILED && check.blocking && check.blocking.length > 0}
+      )
+      return `(${failedRequiredChecks.length} required)`
+    },
+
     /**
      * @param {string} status The overall status of the checks.
      * @param {!Object} checkStatuses The number of checks in each status.
      * @return {string}
      */
-    _computeStatusString(status, checkStatuses) {
+    _computeStatusString(status, checkStatuses, checks) {
       if (checkStatuses.total === 0) return 'No checks';
-      return `${checkStatuses[status]} of ${
+      let statusString = `${checkStatuses[status]} of ${
           checkStatuses.total} checks ${HumanizedStatuses[status]}`;
+      if (status !== Statuses.FAILED) {
+        return statusString;
+      }
+      statusString += this.computeFailedRequiredChecks(checks);
+      return statusString;
     },
 
     /**
