@@ -347,6 +347,24 @@
     },
     {
       "key": {
+        "uuid": "ca68d573_4ae01fb0",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-20T13:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e445f0a9_cc1dae5b",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90836d46_7f33f8bf",
         "filename": "gr-checks/gr-checks-list.html",
         "patchSetId": 10
@@ -825,6 +843,24 @@
     },
     {
       "key": {
+        "uuid": "9b52df3f_c18ffa33",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-20T13:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aed79841_3e0a12a6",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f846e7c6_50096b06",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 10
@@ -883,6 +919,24 @@
       "writtenOn": "2019-08-16T10:42:50Z",
       "side": 1,
       "message": "Is this still required given that the overlay does not have full width anymore?",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3310677_d9131fa1",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-20T13:25:12Z",
+      "side": 1,
+      "message": "The problem with varying width/height along with content was that the navigation button keep moving which makes for bad UX. Had a small chat with Alberto and decided to fix the width of the overlay.",
+      "parentUuid": "9ede775b_84a0e54e",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -950,6 +1004,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3493d46_5b03ab0b",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-20T13:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8edb2274_33c5924e",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -1769,6 +1841,30 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91fdb1f7_1ca0bba5",
+        "filename": "gr-checks/gr-create-checks-dialog.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-20T13:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d06ff66_d24d5ab2",
+      "range": {
+        "startLine": 234,
+        "startChar": 20,
+        "endLine": 234,
+        "endChar": 27
+      },
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
