@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2f2ca33_a3ad3f0e",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T10:21:40Z",
+      "side": 1,
+      "message": "Similar to the two lines below I would prefer \"computeSomething(checks)\" here and then just storing _something instead of _checks as a property.",
+      "revId": "b4a608f952795ac179923f748420a9733fd98243",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5d3ccec_34bd789f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T10:21:40Z",
+      "side": 1,
+      "message": "if (status \u003d\u003d\u003d Statuses.FAILED) {\n        statusString +\u003d `(${something} required)`\n      }\n      return statusString;",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 26
+      },
+      "revId": "b4a608f952795ac179923f748420a9733fd98243",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
