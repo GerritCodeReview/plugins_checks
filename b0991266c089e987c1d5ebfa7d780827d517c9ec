@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7facbd05_1f99f520",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:25:38Z",
+      "side": 1,
+      "message": "Maybe rename to _failedRequiredChecksCount.",
+      "range": {
+        "startLine": 77,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "b0991266c089e987c1d5ebfa7d780827d517c9ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56d6e781_a57c3795",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:25:38Z",
+      "side": 1,
+      "message": "Maybe also replace these two usages of this.set to assigning values directly as in line 131.\n\nhttps://polymer-library.polymer-project.org/2.0/docs/devguide/data-system",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 84
+      },
+      "revId": "b0991266c089e987c1d5ebfa7d780827d517c9ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
