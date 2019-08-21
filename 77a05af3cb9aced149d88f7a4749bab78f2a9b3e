@@ -330,6 +330,24 @@
     },
     {
       "key": {
+        "uuid": "e16a7a05_36679910",
+        "filename": "gr-checks/gr-checks-list-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "Sorry, I meant a \"comma\".",
+      "parentUuid": "81cf28c8_7026c97b",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e445f0a9_cc1dae5b",
         "filename": "gr-checks/gr-checks-list-view.js",
         "patchSetId": 10
@@ -441,6 +459,24 @@
       "side": 1,
       "message": "After creating a checker, the dialog needs to close itself and inform the main checkers-list to refresh itself.\nThe dialog closes itself by publishing the \u0027cancel\u0027 event hence a listener for it. \nI feel there might be a better way to do this.",
       "parentUuid": "a3e71a40_9a5f0201",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58f61746_ffb018ea",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "In such a scenario\n\n  \u003cgr-dialog on-cancel\u003d\"_handleCloseCreate\"\u003e\n    \u003cgr-create-checks-dialog on-cancel\u003d\"_handleCloseCreate\"\u003e\n    \u003c/gr-create-checks-dialog\u003e\n  \u003c/gr-dialog on-cancel\u003e\n\nI would expect the inner cancel event to bubble up. Can you try changing to {bubbles: true} in gr-create-checks-dialog.js:\n\n  this.fire(\u0027cancel\u0027, {reload: true}, {bubbles: true});",
+      "parentUuid": "354dd7e2_e2bd22bf",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -619,6 +655,24 @@
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4af36ce3_2668a46c",
+        "filename": "gr-checks/gr-checks-list.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "4e81f964_29ad4047",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -937,6 +991,24 @@
       "side": 1,
       "message": "The problem with varying width/height along with content was that the navigation button keep moving which makes for bad UX. Had a small chat with Alberto and decided to fix the width of the overlay.",
       "parentUuid": "9ede775b_84a0e54e",
+      "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87dddacc_6089d7fe",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "Sounds good. Nit: Given \"width: 75%\" I guess you can drop \"margin: 10px\".",
+      "parentUuid": "d3310677_d9131fa1",
       "revId": "77a05af3cb9aced149d88f7a4749bab78f2a9b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true

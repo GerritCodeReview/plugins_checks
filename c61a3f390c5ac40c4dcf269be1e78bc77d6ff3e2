@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "2c7d304a_6c05946f",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "So you plan to remove this before merging the change? Then a good pattern is to prepend the comment with \"DO NOT SUBMIT:\". In google3 that would even automatically prevent the change from being submitted.",
+      "parentUuid": "ab0f7e1b_67556f76",
+      "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a64b6e2c_d5a66b9d",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2019-08-13T15:46:34Z",
       "side": 1,
       "message": "I don\u0027t think function are normally listed as a property. Only if they are passed in from the outside as above. This one you can probably remove.",
+      "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd3cb66b_cf2a9d4a",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "WDYT?",
+      "parentUuid": "a64b6e2c_d5a66b9d",
       "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -83,6 +119,24 @@
       "side": 1,
       "message": "making _showConfigureButton a computed property of createCheckerCapability makes sense.\n\nNot really sure if _updateCreateCheckerCapability makes sense to me. The function is just supposed to ask if the user has permission to administrate checker or not. There is no \"update\" going on.",
       "parentUuid": "37ab4412_fccf8762",
+      "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa9a3bb9_950caca0",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "When you introduce a _createCheckerCapability property, then the function would become an update function:\n\n    _updateCreateCheckerCapability() {\n      return this.pluginRestApi.getAccount().then(account \u003d\u003e {\n        if (!account) {\n          this._createCheckerCapability \u003d false;\n          return;\n        }\n        return this.pluginRestApi.getAccountCapabilities([\u0027checks-administrateCheckers\u0027])\n            .then(capabilities \u003d\u003e {\n              this._createCheckerCapability \u003d !!capabilities[\u0027checks-administrateCheckers\u0027];\n            });\n      });\n    },",
+      "parentUuid": "5adcd6d0_5e85030b",
       "revId": "c61a3f390c5ac40c4dcf269be1e78bc77d6ff3e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true

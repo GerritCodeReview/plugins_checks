@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "add2609c_cb987a60",
+        "filename": "gr-checks/gr-checks-list.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-21T12:09:54Z",
+      "side": 1,
+      "message": "Tao is right. gr-checkers-list-view started out as a copy of gr-list-view and on the one hand it is nice to have a generic list view factored out. But given the amount of properties and events that are passed back and forth between gr-checkers-list-view and gr-checkers-list I would recommend to fold both components into one. The resulting component won\u0027t become *that* big, and overall it will be more readable for someone looking at the component the for the first time. WDYT?",
+      "parentUuid": "09e029a5_c153bc1d",
+      "revId": "eabe423465a994a71e98bdcbfc1fa58ac3705f07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9dfb71a6_3657f0a0",
         "filename": "gr-checks/gr-checks-list.js",
         "patchSetId": 4
