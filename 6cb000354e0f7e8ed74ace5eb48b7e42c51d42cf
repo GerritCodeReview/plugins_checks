@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4dd9ada8_47c7baa0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "Nit: This is only used in the else-branch and hence could be moved there.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d9ceaa_45263e1b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "Nit: Word too much.",
+      "range": {
+        "startLine": 106,
+        "startChar": 58,
+        "endLine": 106,
+        "endChar": 61
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656d1a1f_42414e5b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "Nit: As you noticed, it\u0027s currently not possible to ever end up in this state as some earlier code already filters out that case. It might make sense to additionally mention this here to avoid confusion, especially as the test case for this behaves differently.",
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cb1269e_1011bb36",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "In a previous comment, I asked to additionally verify for this case that no data is created in the storage. That\u0027s still missing.",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 48
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d544c5c_59dc3cca",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "Here and below: I don\u0027t know why other tests of the checks plugin use this method but any new code should use ProjectOperations instead.",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 83
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9174a96_f74d3c1e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:23:05Z",
+      "side": 1,
+      "message": "Is there a reason that this test is kept even though I asked to remove it in my previous comment?",
+      "range": {
+        "startLine": 124,
+        "startChar": 14,
+        "endLine": 124,
+        "endChar": 48
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
