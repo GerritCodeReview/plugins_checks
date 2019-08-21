@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "212ea0e9_5ca2e5e7",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd9ada8_47c7baa0",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39d9ceaa_45263e1b",
         "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
         "patchSetId": 5
@@ -65,6 +89,48 @@
     },
     {
       "key": {
+        "uuid": "872810a9_f582a073",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "656d1a1f_42414e5b",
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c0b2302_41c921a7",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d9ceaa_45263e1b",
+      "range": {
+        "startLine": 106,
+        "startChar": 58,
+        "endLine": 106,
+        "endChar": 61
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cb1269e_1011bb36",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
         "patchSetId": 5
@@ -85,6 +151,30 @@
       "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07bd8990_38d12a55",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Sorry! I missed it. I verified it for another test as well.",
+      "parentUuid": "8cb1269e_1011bb36",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 48
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "868c1518_f104fce9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d544c5c_59dc3cca",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 83
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9174a96_f74d3c1e",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
         "patchSetId": 5
@@ -131,6 +245,30 @@
       "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2a9746d_20e6ba69",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-21T15:39:47Z",
+      "side": 1,
+      "message": "Sorry! I saw you said it is not useful but I probably missed the request to remove it. I believed it is okay to keep it since although it doesn\u0027t trigger any new exceptions, it does provide a test for something that can fail in the future. I removed it.",
+      "parentUuid": "b9174a96_f74d3c1e",
+      "range": {
+        "startLine": 124,
+        "startChar": 14,
+        "endLine": 124,
+        "endChar": 48
+      },
+      "revId": "6cb000354e0f7e8ed74ace5eb48b7e42c51d42cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
