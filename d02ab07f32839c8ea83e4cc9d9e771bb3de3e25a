@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71be2a3f_542dd697",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:31:30Z",
+      "side": 1,
+      "message": "It\u0027s a bit misleading that this test doesn\u0027t explicitly create the check. That seems to be part of the setUp() method. Can you improve this test please?",
+      "range": {
+        "startLine": 231,
+        "startChar": 14,
+        "endLine": 231,
+        "endChar": 80
+      },
+      "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "241c5616_95d2d518",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-21T14:31:30Z",
+      "side": 1,
+      "message": "It would be better to use ProjectOperations instead.",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
