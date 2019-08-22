@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1636218_d582529f",
+        "filename": "resources/Documentation/rest-api-checks.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-22T12:04:28Z",
+      "side": 1,
+      "message": "It\u0027s better to avoid an additional click by directly specifying that a CheckInfo entity is returned.",
+      "range": {
+        "startLine": 163,
+        "startChar": 16,
+        "endLine": 163,
+        "endChar": 89
+      },
+      "revId": "47f771a7da1d96f178355b139097fd9cc50b2902",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2292ca8f_503f446c",
+        "filename": "resources/Documentation/rest-api-checks.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-22T12:04:28Z",
+      "side": 1,
+      "message": "typo: resets",
+      "range": {
+        "startLine": 165,
+        "startChar": 55,
+        "endLine": 165,
+        "endChar": 60
+      },
+      "revId": "47f771a7da1d96f178355b139097fd9cc50b2902",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
