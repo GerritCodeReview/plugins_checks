@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5581aae4_70d76164",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "nit: UPPERCASE for constants :) and `url` maybe too general, maybe `CHECK_API` or something more specific, good for readers  :)",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b9f645_f1469642",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "nit: maybe convert this into a util method on this component ? easier to extend it in the future.\n\n```\ncontains(keywords: string, target: string) {\n  return target.toLowerCase().includes(keywords.trim());\n}\n```",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdab901b_aaa06be9",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "maybe return an empty array to keep the return type consistent ? also matches the defined type.",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ada04952_31c85741",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "`maybe Math.max(0, this._startingIndex)`, just in case it went below zero, from the logic it should be impossible to happen but no harm (from the code logic, the if check should never happen as well as the prev button should be disabled..., but maybe).",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dab081e_f3e82b75",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "nit: do we have a convention of methods with `_` or without ? this is more like a general question :)",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d53aa6fe_842a8a38",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "is this the intervalId or something else ? the id should be a number ?",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27a343b0_ae6f3c78",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "is this a todo ?",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db94e08_3fad0a84",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "do you need to handle the failure ?",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dce4681b_87d33e9a",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:36:49Z",
+      "side": 1,
+      "message": "just curious: we only send the first repository in the request ?",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
