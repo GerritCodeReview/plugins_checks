@@ -161,6 +161,7 @@ the URL, it must either match the value provided in the request body via
 ### <a id="check-info"> CheckInfo
 The `CheckInfo` entity describes a check.
 
+
 | Field Name            |          | Description |
 | --------------------- | -------- | ----------- |
 | `repository`          |          | The repository name that this check applies to.
