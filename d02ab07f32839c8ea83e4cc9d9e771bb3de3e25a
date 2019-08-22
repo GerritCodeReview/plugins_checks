@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec4661e8_7fde381b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-22T11:46:35Z",
+      "side": 1,
+      "message": "As far as I see this is the same in the entire file. Almost every test uses the check that is created in setUp(). I don\u0027t think that this test is confusing because this is the same everywhere, and I also think it\u0027s nice that we don\u0027t have to create the check in every test.  It kind of also makes sense since this file is called \"UpdateCheckIT\" so there is no reason imo for the setUp not to create a check for the tests to try to update.\nIt is possible to change that in every test (as in, remove the creation of the check in setUp() and put that in the beginning of every test that uses it) but I believe that wouldn\u0027t do much good.\nWhat do you think?",
+      "parentUuid": "71be2a3f_542dd697",
+      "range": {
+        "startLine": 231,
+        "startChar": 14,
+        "endLine": 231,
+        "endChar": 80
+      },
+      "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "241c5616_95d2d518",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f1d5f1e_ba08ed2b",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-08-22T11:46:35Z",
+      "side": 1,
+      "message": "Fixed here in and in the other test.",
+      "parentUuid": "241c5616_95d2d518",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 55
+      },
+      "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
