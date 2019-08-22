@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dfe7551c_b2e978b9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-22T12:19:29Z",
+      "side": 1,
+      "message": "I was thinking that for this test, it\u0027s crucial that the check exists and that\u0027s why I wouldn\u0027t hide it in a simple setUp() or other helper method. For the other tests, it might not be relevant as they don\u0027t care whether the check already exists or not (and if they do, they should actually specify it explicitly as good test practices recommend). I would actually guess that for most of them we could just remove the line from the setUp() method and they would still succeed and test the right thing. (By the way, I was kind of thinking of the philosophy expressed in TotT 511 for this.)\n\nTo keep the change limited, I would only have adjusted this test as the base situation (\"a check already exists in the storage\") turned out to be crucial and was overlooked previously.\n\nThat being said, it\u0027s not important enough for me, so I\u0027m marking this as resolved.",
+      "parentUuid": "ec4661e8_7fde381b",
+      "range": {
+        "startLine": 231,
+        "startChar": 14,
+        "endLine": 231,
+        "endChar": 80
+      },
+      "revId": "d02ab07f32839c8ea83e4cc9d9e771bb3de3e25a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "241c5616_95d2d518",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 2
