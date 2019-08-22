@@ -143,6 +143,7 @@ the created check.
 
 ### <a id="update-check"> Update Check
 _'POST /changes/1/revisions/1/checks/'_
+
 _'POST /changes/1/revisions/1/checks/test:my-checker'_
 
 Updates a check. The semantics are the same as for [CreateCheck](#create-check).
