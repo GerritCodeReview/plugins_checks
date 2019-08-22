@@ -45,6 +45,29 @@
       "revId": "b0991266c089e987c1d5ebfa7d780827d517c9ec",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "301df2dc_66754229",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-22T09:38:59Z",
+      "side": 1,
+      "message": "need to handle the undefined case in polymer 2 :)",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 182,
+        "endChar": 23
+      },
+      "revId": "b0991266c089e987c1d5ebfa7d780827d517c9ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
