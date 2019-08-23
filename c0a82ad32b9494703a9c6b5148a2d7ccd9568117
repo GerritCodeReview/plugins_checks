@@ -278,6 +278,24 @@
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f1832ad_f5e9fd8b",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Maybe add a comment in the code that explains this discrepancy.",
+      "parentUuid": "2708f6f3_4cae2cf8",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

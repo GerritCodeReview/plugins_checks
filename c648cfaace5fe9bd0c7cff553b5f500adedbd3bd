@@ -979,6 +979,24 @@
     },
     {
       "key": {
+        "uuid": "aed8bd5a_954121f4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Hmmm, if _updateCreateCheckerCapability is only ever called once, then it does not matter. But then maybe rename to _initCreateCheckerCapability? WDYT?",
+      "parentUuid": "e3aa4e9b_3481a75d",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69d168bc_9588d147",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 20
@@ -1049,6 +1067,24 @@
     },
     {
       "key": {
+        "uuid": "13abbe72_8d8854e0",
+        "filename": "gr-checks/gr-create-checkers-dialog.html",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "This is a normal css custom property:\n\n--name: value;\n\nYou would just use it like this:\n\nfont: var(--name);\n\nIf the value of the css custom property is an object like this:\n\n--name: {\n  font: Arial;\n  padding: 1px;\n}\n\nThen using this object requires the use of @apply. So even if you do not *use* @apply here, you are defining something that can only be used with @apply.\n\nBut as I said, the usage of @apply is probably inside gr-autocomplete and thus you have to do it like that, if you don\u0027t want to touch the gr-autocomplete component. So don\u0027t be bothered, I just wanted to point out the problem. We are tracking this in https://crbug.com/gerrit/11277.",
+      "parentUuid": "d5d72a5c_da92b525",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cca91713_94044d7d",
         "filename": "gr-checks/gr-create-checkers-dialog.html",
         "patchSetId": 20
@@ -1078,6 +1114,24 @@
       "side": 1,
       "message": "I found a similar disabled button background color in the settings page but the name used is not that descriptive.\nShould I duplicate the color with a better name in app-theme.html?",
       "parentUuid": "cca91713_94044d7d",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac8278b_da70db4f",
+        "filename": "gr-checks/gr-create-checkers-dialog.html",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Yeah, please do. Or just use the bad name. Or change the bad name to a better one.",
+      "parentUuid": "77f11228_12d6e9ce",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -1148,6 +1202,24 @@
       "side": 1,
       "message": "Else should ideally never happen. If the checker has changed then it should always have a value.",
       "parentUuid": "5152719b_3186c38d",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e10c5bf7_2cc6258f",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Then I would recommend a guard clause:\n\n  if (!this.checker) {\n    console.warn(...);\n    return;\n  }\n\nAlternatively, if you are sure about what you are saying, you could just assert that this.checker is set. It is just nice to be explicit in the code about your assumptions.",
+      "parentUuid": "bacc448b_f7561980",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -1517,6 +1589,30 @@
     },
     {
       "key": {
+        "uuid": "5b94b998_3e51c467",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "54d300a2_63ccf89c",
+      "range": {
+        "startLine": 230,
+        "startChar": 26,
+        "endLine": 230,
+        "endChar": 40
+      },
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25373e3f_bf888a8f",
         "filename": "gr-checks/gr-create-checkers-dialog.js",
         "patchSetId": 20
@@ -1722,6 +1818,24 @@
       "side": 1,
       "message": "might need more properties in the future. Could remove the object and just keep the name. WDYT?",
       "parentUuid": "56bb8c38_736c0a6f",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b5cb15_7f7b3ee1",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T15:03:40Z",
+      "side": 1,
+      "message": "Well, once we are getting closer to TypeScript we will have to add proper types anyway. Feel free to keep \"Object\" here. But you could reference the entity name in the Rest API docs, so even if we cannot tell the compiler what this is, we can at least tell the developer what this is based on.",
+      "parentUuid": "28e4aeaf_19259585",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
