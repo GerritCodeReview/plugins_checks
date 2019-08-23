@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a5d734_ca60217a",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T16:02:38Z",
+      "side": 1,
+      "message": "indentation",
+      "revId": "61a433ef69b8858877ef399965ef5385e0c99845",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

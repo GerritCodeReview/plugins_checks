@@ -1192,6 +1192,24 @@
     },
     {
       "key": {
+        "uuid": "b7996297_5f0269d1",
+        "filename": "gr-checks/gr-create-checkers-dialog.html",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T16:02:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3d47955c_2de16d7b",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2f28a9e_93cde452",
         "filename": "gr-checks/gr-create-checkers-dialog.js",
         "patchSetId": 20
@@ -1292,6 +1310,24 @@
       "side": 1,
       "message": "Added a console.warn() even though I checked it\u0027s never being called in any of the flows we currently expect.",
       "parentUuid": "e10c5bf7_2cc6258f",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b42eda_74b5a493",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T16:02:38Z",
+      "side": 1,
+      "message": "I don\u0027t see the warn() call.",
+      "parentUuid": "fab08e6c_2d7228e8",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -1926,6 +1962,24 @@
       "side": 1,
       "message": "\"entity name in the Rest API docs\"\nwhich API docs are we talking about?",
       "parentUuid": "f8b5cb15_7f7b3ee1",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f244218_24e17d44",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-23T16:02:38Z",
+      "side": 1,
+      "message": "https://gerrit-review.googlesource.com/Documentation/rest-api.html\n\nI *think* repo is a ProjectInfo.",
+      "parentUuid": "79dc2b6c_1f6f68ff",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
