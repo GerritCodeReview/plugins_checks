@@ -997,6 +997,24 @@
     },
     {
       "key": {
+        "uuid": "1aa03ff2_758a1a18",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aed8bd5a_954121f4",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69d168bc_9588d147",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 20
@@ -1085,6 +1103,24 @@
     },
     {
       "key": {
+        "uuid": "d69a4ef9_641643ab",
+        "filename": "gr-checks/gr-create-checkers-dialog.html",
+        "patchSetId": 20
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13abbe72_8d8854e0",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cca91713_94044d7d",
         "filename": "gr-checks/gr-create-checkers-dialog.html",
         "patchSetId": 20
@@ -1132,6 +1168,24 @@
       "side": 1,
       "message": "Yeah, please do. Or just use the bad name. Or change the bad name to a better one.",
       "parentUuid": "77f11228_12d6e9ce",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d47955c_2de16d7b",
+        "filename": "gr-checks/gr-create-checkers-dialog.html",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "(--table-subheader-background-color) is the name used in other places(settings page) so I reused it.",
+      "parentUuid": "4ac8278b_da70db4f",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -1220,6 +1274,24 @@
       "side": 1,
       "message": "Then I would recommend a guard clause:\n\n  if (!this.checker) {\n    console.warn(...);\n    return;\n  }\n\nAlternatively, if you are sure about what you are saying, you could just assert that this.checker is set. It is just nice to be explicit in the code about your assumptions.",
       "parentUuid": "bacc448b_f7561980",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab08e6c_2d7228e8",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "Added a console.warn() even though I checked it\u0027s never being called in any of the flows we currently expect.",
+      "parentUuid": "e10c5bf7_2cc6258f",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -1836,6 +1908,24 @@
       "side": 1,
       "message": "Well, once we are getting closer to TypeScript we will have to add proper types anyway. Feel free to keep \"Object\" here. But you could reference the entity name in the Rest API docs, so even if we cannot tell the compiler what this is, we can at least tell the developer what this is based on.",
       "parentUuid": "28e4aeaf_19259585",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79dc2b6c_1f6f68ff",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "\"entity name in the Rest API docs\"\nwhich API docs are we talking about?",
+      "parentUuid": "f8b5cb15_7f7b3ee1",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true

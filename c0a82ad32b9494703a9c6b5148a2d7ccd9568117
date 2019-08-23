@@ -296,6 +296,24 @@
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d930723_90702a7f",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T15:52:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f1832ad_f5e9fd8b",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
