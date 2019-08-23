@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "61c4d0c5_e651d2b4",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5581aae4_70d76164",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41b9f645_f1469642",
         "filename": "gr-checks/gr-checkers-list.js",
         "patchSetId": 17
@@ -33,6 +51,24 @@
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e26c87c4_dfa47010",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41b9f645_f1469642",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4db1ac72_aaba7a46",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdab901b_aaa06be9",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ada04952_31c85741",
         "filename": "gr-checks/gr-checkers-list.js",
         "patchSetId": 17
@@ -64,6 +118,24 @@
       "writtenOn": "2019-08-22T09:36:49Z",
       "side": 1,
       "message": "`maybe Math.max(0, this._startingIndex)`, just in case it went below zero, from the logic it should be impossible to happen but no harm (from the code logic, the if check should never happen as well as the prev button should be disabled..., but maybe).",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "789219c0_4453e5d8",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "yes, nice observation. The prev and next buttons will handle the logic for us. This feels like an extra check. I think I should probably delete this part then instead of adding more of checks for things that \"should never happen\". WDYT?",
+      "parentUuid": "ada04952_31c85741",
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -84,6 +156,24 @@
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5e7af05_0d4ad70c",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "yeah, _ here makes more sense. Made the change",
+      "parentUuid": "2dab081e_f3e82b75",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -149,6 +239,24 @@
       "writtenOn": "2019-08-22T09:36:49Z",
       "side": 1,
       "message": "just curious: we only send the first repository in the request ?",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2708f6f3_4cae2cf8",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-23T08:55:26Z",
+      "side": 1,
+      "message": "Yes, for now. The backend might support multiple repos in the future which is why I decided to keep it as an array.",
+      "parentUuid": "dce4681b_87d33e9a",
       "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
