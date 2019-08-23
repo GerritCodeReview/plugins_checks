@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "ce8b2093_394e113c",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-23T14:01:36Z",
+      "side": 1,
+      "message": "will this be an issue for dark theme ? maybe use some color variable ?",
+      "revId": "6adf5e67ad294fc2c19aab29245225012a64b618",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd7136d5_9478fa2b",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-23T14:01:36Z",
+      "side": 1,
+      "message": "nit: maybe keep it consistent w / o spaces around `\u003d`  :) same as `[[]]` :)",
+      "range": {
+        "startLine": 135,
+        "startChar": 37,
+        "endLine": 135,
+        "endChar": 40
+      },
+      "revId": "6adf5e67ad294fc2c19aab29245225012a64b618",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12d7ed10_7e3160ad",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 1
@@ -13,6 +53,40 @@
       "writtenOn": "2019-08-22T15:27:29Z",
       "side": 1,
       "message": "Comment formatting: Always add a space after // and then start with a capital char. Also below.",
+      "revId": "6adf5e67ad294fc2c19aab29245225012a64b618",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87730ff1_0c792c1a",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-23T14:01:36Z",
+      "side": 1,
+      "message": "maybe have this filter in a separated line before the return for readability :)\n\nand unlikely but is it possible that the filtered array is empty ?\n\nand maybe always use `\u003d\u003d\u003d` instead :)",
+      "revId": "6adf5e67ad294fc2c19aab29245225012a64b618",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143c4ae5_9065a2d2",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-23T14:01:36Z",
+      "side": 1,
+      "message": "not sure what is the style guide / linter rule we are following, but maybe keep it consistently to have the trailing comma ?",
       "revId": "6adf5e67ad294fc2c19aab29245225012a64b618",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
