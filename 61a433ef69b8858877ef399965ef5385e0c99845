@@ -16,6 +16,24 @@
       "revId": "61a433ef69b8858877ef399965ef5385e0c99845",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d817e13_770f0456",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 21
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-25T10:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a5d734_ca60217a",
+      "revId": "61a433ef69b8858877ef399965ef5385e0c99845",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

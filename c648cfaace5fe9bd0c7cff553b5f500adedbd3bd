@@ -359,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "bab9b8fd_fc38c085",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-25T10:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81f8eb31_9bfb75c9",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d18ed32b_5b3d320f",
         "filename": "gr-checks/gr-checkers-list.js",
         "patchSetId": 20
@@ -1331,6 +1349,24 @@
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac8ad43e_6e523bea",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-25T10:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26b42eda_74b5a493",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
