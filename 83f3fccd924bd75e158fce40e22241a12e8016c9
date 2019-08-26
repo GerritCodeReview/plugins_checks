@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82f2d528_d5c65d8b",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:37:04Z",
+      "side": 1,
+      "message": "Does this comment need to be moved up?",
+      "revId": "83f3fccd924bd75e158fce40e22241a12e8016c9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
