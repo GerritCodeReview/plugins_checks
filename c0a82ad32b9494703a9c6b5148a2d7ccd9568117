@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "e2b7707e_00db0422",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 17
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "I think Math.max(0, this._startingIndex) might be overkill, because `this._startingIndex \u003e\u003d CHECKERS_PER_PAGE` was just checked above.",
+      "parentUuid": "789219c0_4453e5d8",
+      "revId": "c0a82ad32b9494703a9c6b5148a2d7ccd9568117",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dab081e_f3e82b75",
         "filename": "gr-checks/gr-checkers-list.js",
         "patchSetId": 17

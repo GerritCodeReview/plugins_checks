@@ -1804,6 +1804,30 @@
     },
     {
       "key": {
+        "uuid": "5f894862_78f033f6",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "still unresolved",
+      "parentUuid": "e2fc414f_58283e87",
+      "range": {
+        "startLine": 242,
+        "startChar": 26,
+        "endLine": 242,
+        "endChar": 27
+      },
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d7d2330a_4777534e",
         "filename": "gr-checks/gr-create-checkers-dialog.js",
         "patchSetId": 20
@@ -2016,6 +2040,24 @@
       "side": 1,
       "message": "https://gerrit-review.googlesource.com/Documentation/rest-api.html\n\nI *think* repo is a ProjectInfo.",
       "parentUuid": "79dc2b6c_1f6f68ff",
+      "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f2fc413_e8328dc7",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "still unresolved",
+      "parentUuid": "6f244218_24e17d44",
       "revId": "c648cfaace5fe9bd0c7cff553b5f500adedbd3bd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true

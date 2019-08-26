@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "424d9afe_f6e4dc13",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "lines 7 and 8 need one more space indentation for the /** syntax to align the stars properly",
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1452de6_e2239bc7",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "trailing ws, also below",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 62
+      },
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f93aef2_e4a3aa06",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "move \"checker\" prop to the top as a public property",
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edcd318b_2a9ec986",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "Trailing ws, can you fix in all files?",
+      "range": {
+        "startLine": 62,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 30
+      },
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5358f464_ffe9cf2e",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "remove extra empty line",
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01016d6e_c801bce1",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "This can be a private property, because you are just using the value to pass to a child component. It is not something a parent component needs to know about.",
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d88eeab8_07e557bf",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "Personally, I like keeping indentation low, especially for the \"normal\" flow. So I recommend this pattern instead for guard clauses:\n\n  if (guard) {\n    console.warn();\n    return;  \n  }\n  // continue without indentation",
+      "range": {
+        "startLine": 106,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aae63c3_7355595c",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "There is a shorter and mostly more readable notation for\n\n  (a) \u003d\u003e { return b; }\n\nYou can just write\n \n  a \u003d\u003e b\n\nCan you try using it in this change and check whether you think it improves readability?",
+      "range": {
+        "startLine": 240,
+        "startChar": 2,
+        "endLine": 253,
+        "endChar": 6
+      },
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cfc5ec5_40a5f7fa",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 23
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T10:51:35Z",
+      "side": 1,
+      "message": "The /** syntax has just */ at the end, not **/.",
+      "revId": "fc65e518a8cd1e0549ad50dba01f8bf535817862",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
