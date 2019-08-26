@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a2278dc_c4bed78a",
+        "filename": ".eslintrc.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T13:09:30Z",
+      "side": 1,
+      "message": "There is such a file in polygerrit-ui/app/.",
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd132556_2805961b",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T13:09:30Z",
+      "side": 1,
+      "message": "add \"this.\" to both method calls",
+      "range": {
+        "startLine": 134,
+        "startChar": 1,
+        "endLine": 135,
+        "endChar": 77
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd998a08_cca7c632",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T13:09:30Z",
+      "side": 1,
+      "message": "this._ instead of this_",
+      "range": {
+        "startLine": 135,
+        "startChar": 10,
+        "endLine": 135,
+        "endChar": 15
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cefaa77_706cb98f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T13:09:30Z",
+      "side": 1,
+      "message": "Given that the property on Check is called \"blocking\" maybe rename all names from \"...Required...\" to \"...Blocking...\".",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
