@@ -16,6 +16,24 @@
       "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53799290_bf53ab93",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T14:16:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfe4bc1_7dacd74d",
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
