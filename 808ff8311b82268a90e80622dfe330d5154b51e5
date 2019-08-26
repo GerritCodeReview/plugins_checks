@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "65723b4f_ed1dfe8a",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T15:12:44Z",
+      "side": 1,
+      "message": "Ah this is how vscode added the comment for me. I\u0027ll see if I can somehow change the default way vscode adds comments.",
+      "parentUuid": "7fffeb93_a5e88063",
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0eb4e0_05d56f7e",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 3
@@ -74,6 +92,30 @@
       "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51700ccc_274c6dec",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T15:12:44Z",
+      "side": 1,
+      "message": "Ah nice observation. :D",
+      "parentUuid": "0f0eb4e0_05d56f7e",
+      "range": {
+        "startLine": 102,
+        "startChar": 32,
+        "endLine": 102,
+        "endChar": 39
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -100,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "17a490df_ac0f2958",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T15:12:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bcfb17b_a8f6a7e1",
+      "range": {
+        "startLine": 104,
+        "startChar": 42,
+        "endLine": 104,
+        "endChar": 48
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18a09078_bf1d7ad4",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 3
@@ -111,6 +177,30 @@
       "writtenOn": "2019-08-26T14:23:24Z",
       "side": 1,
       "message": "why don\u0027t just use `find`, so you can have the checker directly :)",
+      "range": {
+        "startLine": 133,
+        "startChar": 31,
+        "endLine": 133,
+        "endChar": 40
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7004b13_3000a71c",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T15:12:44Z",
+      "side": 1,
+      "message": "I need the index so that polymer can reflect the changes since I want to modify an array,",
+      "parentUuid": "18a09078_bf1d7ad4",
       "range": {
         "startLine": 133,
         "startChar": 31,
