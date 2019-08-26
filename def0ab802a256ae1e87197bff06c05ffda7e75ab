@@ -157,6 +157,30 @@
       "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08918e18_703669a7",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T13:57:14Z",
+      "side": 1,
+      "message": "Ok. Feel free to keep required then.\n\nMaybe ask Alice when she comes back whether the API naming should be unified.",
+      "parentUuid": "281384b4_857170e2",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
