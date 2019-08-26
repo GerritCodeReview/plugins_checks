@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd9442df_eebb6c16",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "What about this?\n\n  this._filteredCheckers \u003d this._checkers.filter(checker \u003d\u003e\n    this._contains(checker.name, this._filter) ||\n    this._contains(checker.repository, this._filter))",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 80,
+        "endChar": 7
+      },
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb0e6f0a_5e9a470d",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "80 chars",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c0063cd_f9265e34",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "What about this?\n\n  _getCheckers() {\n    const checkersPromise \u003d this.pluginRestApi.fetchJSON({\n      method: \u0027GET\u0027,\n      url: GET_CHECKERS_URL,\n    });\n    checkersPromise.then(checkers \u003d\u003e {\n      if (!checkers) { return; }\n      this._checkers \u003d checkers;\n      this._startingIndex \u003d 0;\n      this._loading \u003d false;\n    });\n  },\n\nOr that?\n\n  _getCheckers() {\n    this.pluginRestApi.fetchJSON({\n      method: \u0027GET\u0027,\n      url: GET_CHECKERS_URL,\n    }).then(checkers \u003d\u003e {\n      if (!checkers) { return; }\n      this._checkers \u003d checkers;\n      this._startingIndex \u003d 0;\n      this._loading \u003d false;\n    });\n  },",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 0
+      },
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "775f1bc5_9bed2529",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "indentation",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "febad98e_88b02c28",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "Maybe the if-statement on one line?",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1959cc9c_a3918a11",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "Maybe the if-statement on one line?",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93196639_5921704c",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "Maybe the if-statement on one line?",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82a5b40f_e3ab25ad",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "Remove this comment and then maybe the if-statement on one line?",
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "140e4382_962f097d",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 24
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-26T14:31:35Z",
+      "side": 1,
+      "message": "What about this?\n\n  const repoToSuggestion \u003d repo \u003d\u003e { name: repo.name, value: repo };\n  return this.pluginRestApi.getRepos(filter, REPOS_PER_PAGE).then(\n    repos \u003d\u003e repos.map(repoToSuggestion)\n  );",
+      "range": {
+        "startLine": 243,
+        "startChar": 1,
+        "endLine": 252,
+        "endChar": 6
+      },
+      "revId": "7c4e96799922765b1aa12c7a1ef60c21f1badc70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
