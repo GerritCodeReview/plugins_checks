@@ -65,6 +65,54 @@
     },
     {
       "key": {
+        "uuid": "99ea3975_039b2a11",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T13:41:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd132556_2805961b",
+      "range": {
+        "startLine": 134,
+        "startChar": 1,
+        "endLine": 135,
+        "endChar": 77
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6771403e_d3c59c89",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T13:41:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd998a08_cca7c632",
+      "range": {
+        "startLine": 135,
+        "startChar": 10,
+        "endLine": 135,
+        "endChar": 15
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cefaa77_706cb98f",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 4
@@ -76,6 +124,30 @@
       "writtenOn": "2019-08-26T13:09:30Z",
       "side": 1,
       "message": "Given that the property on Check is called \"blocking\" maybe rename all names from \"...Required...\" to \"...Blocking...\".",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "281384b4_857170e2",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-26T13:41:28Z",
+      "side": 1,
+      "message": "Yes, but when creating a checker you specify the \"required\" field which then backend translates to \"blocking\".\nI think from the terminology used we mean \"required checks\" and not \"blocking\".",
+      "parentUuid": "0cefaa77_706cb98f",
       "range": {
         "startLine": 171,
         "startChar": 4,
