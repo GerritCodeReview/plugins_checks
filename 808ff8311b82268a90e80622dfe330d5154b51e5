@@ -34,6 +34,92 @@
       "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fffeb93_a5e88063",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-26T14:23:24Z",
+      "side": 1,
+      "message": "/**\n *\n */\n\nyou can format multi-lines comment like above to make it a bit more beautiful :)",
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f0eb4e0_05d56f7e",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-26T14:23:24Z",
+      "side": 1,
+      "message": "Maybe use `checks` instead of `this._checks`. in case the `checks` has more checkers than `this._checks`, and you will still want to add those new checkers and remove the deleted :)",
+      "range": {
+        "startLine": 102,
+        "startChar": 32,
+        "endLine": 102,
+        "endChar": 39
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcfb17b_a8f6a7e1",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-26T14:23:24Z",
+      "side": 1,
+      "message": "if uuid is unique, you can just use `find` instead :)",
+      "range": {
+        "startLine": 104,
+        "startChar": 42,
+        "endLine": 104,
+        "endChar": 48
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a09078_bf1d7ad4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-26T14:23:24Z",
+      "side": 1,
+      "message": "why don\u0027t just use `find`, so you can have the checker directly :)",
+      "range": {
+        "startLine": 133,
+        "startChar": 31,
+        "endLine": 133,
+        "endChar": 40
+      },
+      "revId": "808ff8311b82268a90e80622dfe330d5154b51e5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
