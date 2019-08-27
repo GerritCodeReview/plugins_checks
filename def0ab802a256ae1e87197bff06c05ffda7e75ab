@@ -181,6 +181,30 @@
       "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645b1240_a630ad5e",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-27T21:18:28Z",
+      "side": 1,
+      "message": "\"required\" is fine for the frontend. I actually intend to adjust the corresponding field in CheckInfo to be a boolean field (with name \"required\") as it should indicate whether the backend considers the check to be required for submit (considering all relevant factors like configuration and applicability).",
+      "parentUuid": "08918e18_703669a7",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "def0ab802a256ae1e87197bff06c05ffda7e75ab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
