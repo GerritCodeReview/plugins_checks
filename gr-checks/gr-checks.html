@@ -15,6 +15,12 @@
           '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
       };
 
+      const retryCheck = (change, revision, uuid) => {
+        return plugin.restApi().post(
+          '/changes/' + change + '/revisions/' + revision + '/checks/' + uuid + '/rerun'
+        )
+      }
+
       // TODO(brohlfs): Enable this dashboard column when search queries start
       // returning checks.
       // plugin.registerDynamicCustomComponent(

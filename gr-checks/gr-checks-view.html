@@ -136,6 +136,7 @@
             <th class="topHeader">Started</th>
             <th class="topHeader">Duration</th>
             <th class="topHeader"><!-- actions --></th>
+            <th class="topHeader"><!-- re-run --></th>
             <th class="topHeader">Description</th>
           </tr>
         </thead>
@@ -143,19 +144,19 @@
           <template is="dom-repeat" items="[[_checks]]" as="check">
             <tr>
               <gr-checks-item on-toggle-check-message="_toggleCheckMessage"
-                check="[[check]]" retry-check="[[retryCheck]]">
+                check="[[check]]" retry-check="[[retryCheckAgain]]">
               </gr-checks-item>
             </tr>
             <template is="dom-if" if="[[check.showCheckMessage]]">
               <tr>
-                <td colspan="9" class="check-message-heading">
+                <td colspan="10" class="check-message-heading">
                   <span class="message-heading">
                     Message
                   </span>
                 </td>
               </tr>
               <tr>
-                <td colspan="9" class="check-message">
+                <td colspan="10" class="check-message">
                   <span class="message"> [[check.message]] </span>
                 </td>
               </tr>

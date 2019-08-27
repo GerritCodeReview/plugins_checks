@@ -49,6 +49,12 @@
       /** @type {function(string, string): !Promise<!Object>} */
       retryCheck: Function,
       pluginRestApi: Object,
+      retryCheckAgain: {
+        type: Function,
+        value() {
+          return this._retryCheckAgain.bind(this)
+        }
+      },
       _checks: Object,
       _status: {
         type: Object,
@@ -117,6 +123,16 @@
         }
       }
       return a.checker_name.localeCompare(b.checker_name);
+    },
+
+    _retryCheckAgain(uuid) {
+      this.retryCheck(this.change._number, this.revision._number, uuid).then(
+        res => {
+          this._fetchChecks(this.change, this.revision, this.getChecks);
+        }, e => {
+          console.error(e);
+        }
+      )
     },
 
     /**
