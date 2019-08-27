@@ -15,6 +15,11 @@
             '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
       };
 
+      const retryCheck = (check) => {
+        return plugin.restApi.
+        console.log("retry");
+      }
+
       // TODO(brohlfs): Enable this dashboard column when search queries start
       // returning checks.
       // plugin.registerDynamicCustomComponent(
@@ -38,7 +43,7 @@
           view => {
             view['isConfigured'] = (repository) => Promise.resolve(true);
             // TODO(brohlfs): Implement retry.
-            view['retryCheck'] = (buildId) => undefined;
+            view['retryCheck'] = retryCheck;
             view['getChecks'] = getChecks;
           });
     });

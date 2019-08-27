@@ -74,7 +74,7 @@
     _computeRequiredForMerge(check) {
       return (check.blocking && check.blocking.length === 0) ? "Optional" : "Required";
     },
-    handleClick(event) {
+    _handleReRunClicked(event) {
       event.preventDefault();
       this.retryCheck(this.check.checker_uuid);
     },
