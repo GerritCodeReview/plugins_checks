@@ -40,7 +40,6 @@
         view => {
           view['isConfigured'] = (repository) => Promise.resolve(true);
           // TODO(brohlfs): Implement retry.
-          view['retryCheck'] = (buildId) => undefined;
           view['getChecks'] = getChecks;
         });
       });
