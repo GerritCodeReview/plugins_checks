@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11374930_67707f5f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-28T12:36:36Z",
+      "side": 1,
+      "message": "IIUC currently it shows (0 required) which doesn\u0027t need to be there.",
+      "parentUuid": "39f12844_48c30a0c",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 36
+      },
+      "revId": "ab507af0a80bfdb8288a843022a71b76acfddd3f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "590caa9b_695def69",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-28T08:18:02Z",
       "side": 1,
       "message": "There should be a blank here. Otherwise, you get something like \"1 of 2 checks failed(1 required)\", which looks strange.",
+      "range": {
+        "startLine": 193,
+        "startChar": 24,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "ab507af0a80bfdb8288a843022a71b76acfddd3f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad93a96_b3ecdb39",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-08-28T12:36:36Z",
+      "side": 1,
+      "message": "I did not get this. Which part looks strange? If there is one failing required check then I assume this is the message to be shown.",
+      "parentUuid": "590caa9b_695def69",
       "range": {
         "startLine": 193,
         "startChar": 24,
