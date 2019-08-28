@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e965d8_3b8fdff3",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-28T21:01:41Z",
+      "side": 1,
+      "message": "here also implies that you are removing all checks not returned as well, maybe also mention that",
+      "revId": "e24f72f03098d98921caf7f17a6f1d32360881cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddddb5fb_58f2f6a3",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-08-28T21:01:41Z",
+      "side": 1,
+      "message": "better add a `{showCheckMessage: prevCheck.showCheckMessage}` to make it explicitly. so people know what you want to keep. good for readability",
+      "revId": "e24f72f03098d98921caf7f17a6f1d32360881cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
