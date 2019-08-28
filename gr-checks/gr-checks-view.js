@@ -134,6 +134,28 @@
       )
     },
 
+
+    /**
+     * Merge new checks into old checks to maintain showCheckMessage
+     * property
+     * Loop over checks to make sure no new checks are missed
+     * Merge new check object into prev check
+     * cases: 
+     *  old check was deleted
+     *  new check added
+     *  
+     */
+    _updateChecks(checks) {
+      return checks.map(
+        (check) => {
+          const prevCheck = this._checks.find(
+            (c) => { return c.checker_uuid === check.checker_uuid }
+          )
+          if (!prevCheck) return check;
+          return Object.assign({}, prevCheck, check);
+        });
+    },
+
     /**
      * @param {!Defs.Change} change
      * @param {!Defs.Revision} revision
@@ -148,16 +170,7 @@
           if (!this._checks) {
             this._checks = checks;
           } else {
-            // Merge checks & this_checks to keep showCheckMessage property
-            this._checks = checks.map(
-              (check) => {
-                const prevCheck = this._checks.find(
-                  (c) => { return c.checker_uuid === check.checker_uuid }
-                )
-                if (!prevCheck) return check;
-                return Object.assign({}, check, prevCheck)
-              }
-            )
+            this._checks = this._updateChecks(checks);
           }
           this.set('_status', LoadingStatus.RESULTS);
         } else {
