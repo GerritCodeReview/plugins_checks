@@ -148,14 +148,19 @@
           if (!this._checks) {
             this._checks = checks;
           } else {
-            // Merge checks & this_checks to keep showCheckMessage property
+            /**
+             * Merge new checks into old checks to maintain showCheckMessage
+             * property
+             * Loop over checks to make sure no new checks are missed
+             * Merge new check object into prev check
+             */
             this._checks = checks.map(
               (check) => {
                 const prevCheck = this._checks.find(
                   (c) => { return c.checker_uuid === check.checker_uuid }
                 )
                 if (!prevCheck) return check;
-                return Object.assign({}, check, prevCheck)
+                return Object.assign({}, prevCheck, check);
               }
             )
           }
