@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39f12844_48c30a0c",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-28T08:18:02Z",
+      "side": 1,
+      "message": "Could it be that the frontend code doesn\u0027t distinguish between FAILED and WARNING for the combined check state? This currently means that for the warning combined state (\u003d only optional checks failed up to now), you see \"1 of 2 checks failed(0 required)\". I don\u0027t think that we want to have the \"(0 required)\" part for warnings.",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 36
+      },
+      "revId": "ab507af0a80bfdb8288a843022a71b76acfddd3f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "590caa9b_695def69",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-08-28T08:18:02Z",
+      "side": 1,
+      "message": "There should be a blank here. Otherwise, you get something like \"1 of 2 checks failed(1 required)\", which looks strange.",
+      "range": {
+        "startLine": 193,
+        "startChar": 24,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "ab507af0a80bfdb8288a843022a71b76acfddd3f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
