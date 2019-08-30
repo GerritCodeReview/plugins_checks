@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "480e3378_2da004bd",
+        "filename": "gr-checks/gr-checks-item.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-30T10:53:46Z",
+      "side": 1,
+      "message": "Instead of passing in a Function can gr-checks-item maybe emit an event?",
+      "revId": "86dcc62146e0e632a786382e4a95449f95702fee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e8ef9d_ea2f566d",
+        "filename": "gr-checks/gr-checks.html",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-30T10:53:46Z",
+      "side": 1,
+      "message": "remove todo",
+      "revId": "86dcc62146e0e632a786382e4a95449f95702fee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
