@@ -15,6 +15,7 @@
       revision="[[revision]]"
       get-checks="[[getChecks]]"
       is-configured="[[isConfigured]]"
+      plugin="[[plugin]]"
       retry-check="[[retryCheck]]">
     </gr-checks-view>
   </template>
@@ -26,6 +27,7 @@
     logUrl: 'http://example.com/test-log-url',
     startTime: "2019-02-06T22:25:19.269Z",
     finishTime: "2019-02-06T22:25:44.574Z",
+    checker_name: "test checker"
   };
 const REVISION = {
   "kind": "REWORK",
@@ -51,6 +53,8 @@ suite('gr-checks-view tests', () => {
   let retryCheckSpy;
   let isConfiguredSpy;
   let isConfiguredResolve;
+  let getAccountSpy, getAccountPromise, getAccountResolve;
+  let fetchJSONSpy, fetchJSONPromise, fetchJSONResolve;
 
   setup((done) => {
     sandbox = sinon.sandbox.create();
@@ -70,6 +74,24 @@ suite('gr-checks-view tests', () => {
     retryCheckSpy = sinon.stub();
     retryCheckSpy.returns(Promise.resolve());
 
+    const plugin = {};
+    getAccountSpy = sinon.stub();
+    const getAccountPromise = new Promise((resolve, reject) => {
+      getAccountResolve = resolve;
+    })
+    getAccountSpy.returns(getAccountPromise);
+
+    fetchJSONSpy = sinon.stub();
+    const fetchJSONPromise = new Promise((resolve, reject) => {
+      fetchJSONResolve = resolve;
+    })
+    fetchJSONSpy.returns(fetchJSONPromise)
+
+    plugin.restApi = () => ({
+      getAccount: getAccountSpy,
+      fetchJSON: fetchJSONSpy
+    });
+
     element = fixture('basic', {
       retryCheck: retryCheckSpy,
       getChecks: getChecksSpy,
@@ -80,8 +102,9 @@ suite('gr-checks-view tests', () => {
         'revisions': {
           'first-sha': "test-revision",
           'second-sha': REVISION,
-        }
+        },
       },
+      plugin: plugin,
       revision: REVISION,
     });
     flush(done);
@@ -90,7 +113,8 @@ suite('gr-checks-view tests', () => {
   teardown(() => { sandbox.restore(); });
 
   test('renders loading', () => {
-    assert.equal(element.textContent.trim(), 'Loading...');
+    // Element also contains the hidden gr-overlay hence use includes
+    assert(element.textContent.trim().includes('Loading...'));
   });
 
   test('queries the checks', () => {
