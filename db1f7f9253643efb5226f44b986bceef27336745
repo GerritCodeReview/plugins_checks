@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d80f3175_86f85813",
+        "filename": "gr-checks/gr-checks-item.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-30T13:08:17Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 54,
+        "endChar": 6
+      },
+      "revId": "db1f7f9253643efb5226f44b986bceef27336745",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e01fbf43_9ebcb813",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-08-30T13:08:17Z",
+      "side": 1,
+      "message": "maybe stick to the pattern of \u0027on-bla\u003d\"_handleBla\"\u0027",
+      "revId": "db1f7f9253643efb5226f44b986bceef27336745",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
