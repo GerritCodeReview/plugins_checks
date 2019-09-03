@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6064e050_14ffefb2",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2019-09-03T07:24:08Z",
+      "side": 0,
+      "message": "Which test now ensures that you can update a check without any special permission?",
+      "range": {
+        "startLine": 128,
+        "startChar": 14,
+        "endLine": 128,
+        "endChar": 58
+      },
+      "revId": "1810ab31487b5e441bbd6c85f2a56475ba7ecf34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
