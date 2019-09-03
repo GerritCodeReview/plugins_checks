@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b96b4a3f_c392cf4f",
+        "filename": "java/com/google/gerrit/plugins/checks/Checkers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:14:55Z",
+      "side": 1,
+      "message": "nit: scheme",
+      "range": {
+        "startLine": 80,
+        "startChar": 35,
+        "endLine": 80,
+        "endChar": 41
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "120f347d_8ca06284",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:14:55Z",
+      "side": 1,
+      "message": "Maybe drop this line and rename the \u0027query\u0027 variable to \u0027predicate\u0027 above in line 97?",
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb81d8be_29108869",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:14:55Z",
+      "side": 1,
+      "message": "Maybe just return the result of getPendingChecksOfChecker here and move the declaration of the pendingChecks variable down to the else branch to the only place where it\u0027s needed (e.g. between line 133 and 134).\n\nFor this code path here having the pendingChecks variable is not needed (we initialize an ArrayList above in line 102, but then this ArrayList instance is not used).",
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0168126_be980f49",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:14:55Z",
+      "side": 1,
+      "message": "This should be dropped, it\u0027s only needed if the method uses a generic type, which it doesn\u0027t.\n\nEclipse shows this warning:\n\n\"The type parameter CheckPredicate is hiding the type CheckPredicate\"",
+      "range": {
+        "startLine": 232,
+        "startChar": 17,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae986991_eda8fa02",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:14:55Z",
+      "side": 1,
+      "message": "Instead of passing the ending as an additional parameter into this method, can you just do something like:\n\n  if (!Strings.isNullOrEmpty(scheme) \u0026\u0026 !scheme.endsWith(\"/\")) {\n    scheme \u003d scheme + \"/\";\n  }",
+      "range": {
+        "startLine": 73,
+        "startChar": 61,
+        "endLine": 73,
+        "endChar": 74
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
