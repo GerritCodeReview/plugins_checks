@@ -721,6 +721,30 @@
     },
     {
       "key": {
+        "uuid": "491b88ee_3e4cce00",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-03T07:17:34Z",
+      "side": 1,
+      "message": "Thanks for picking up my suggestion. Let\u0027s optimize this for performance when there is a need for this. Often premature optimization leads to more complicated code, hence we try to avoid this.",
+      "parentUuid": "00a768c8_5429fdae",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "525c09af7b0495ac2eda2c406ef9a7a55234d057",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed14da8d_7023a73c",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 2
