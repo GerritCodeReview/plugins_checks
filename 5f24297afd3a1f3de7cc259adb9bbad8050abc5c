@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a91f89d_91c10e4c",
+        "filename": "gr-checks/gr-checks-item_test.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-03T12:49:11Z",
+      "side": 1,
+      "message": "you may want to move the table column definition to somewhere else and defer the index here. So next time when you change the columns, you don\u0027t need to change all the places.\n\nsomething like this can do:\n```\nconst CHECKER_TABLE_COLUMNS \u003d [\"\", \"COL-1\"];\n\nconst colIndex \u003d CHECKER_TABLE_COLUMNS.indexOf(\"COL-1\");\n```",
+      "revId": "5f24297afd3a1f3de7cc259adb9bbad8050abc5c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1b48714_a2842d02",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-03T12:49:11Z",
+      "side": 1,
+      "message": "nit: `;`, consistency",
+      "revId": "5f24297afd3a1f3de7cc259adb9bbad8050abc5c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
