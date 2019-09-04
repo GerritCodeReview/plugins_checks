@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c23643a0_681e359a",
+        "filename": "java/com/google/gerrit/plugins/checks/Checkers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-09-04T14:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b96b4a3f_c392cf4f",
+      "range": {
+        "startLine": 80,
+        "startChar": 35,
+        "endLine": 80,
+        "endChar": 41
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "120f347d_8ca06284",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2019-09-03T07:14:55Z",
       "side": 1,
       "message": "Maybe drop this line and rename the \u0027query\u0027 variable to \u0027predicate\u0027 above in line 97?",
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "046be863_83898801",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-09-04T14:49:42Z",
+      "side": 1,
+      "message": "The reason I did something so weird was because of the error I would get when using \"orElseThrow\" which uses lambda expression.\nApparently, variables used in lambda expressions have to be final or \"never changed\".\nI think I made it clearer now.",
+      "parentUuid": "120f347d_8ca06284",
       "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "2d091514_4e74e9e1",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-09-04T14:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb81d8be_29108869",
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0168126_be980f49",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 4
@@ -70,6 +130,30 @@
       "writtenOn": "2019-09-03T07:14:55Z",
       "side": 1,
       "message": "This should be dropped, it\u0027s only needed if the method uses a generic type, which it doesn\u0027t.\n\nEclipse shows this warning:\n\n\"The type parameter CheckPredicate is hiding the type CheckPredicate\"",
+      "range": {
+        "startLine": 232,
+        "startChar": 17,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5ab7fa3_e1ff7db6",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-09-04T14:49:42Z",
+      "side": 1,
+      "message": "CheckerPredicate and CheckerSchemePredicate are both considered CheckPredicate.\nFor some reason, if I remove \u003cCheckPredicate\u003e it gives the following error when calling this function with CheckerPredicate.class, for example:\n\"Found CheckerPredicate, request CheckPredicate.\"\nI think CheckPredicate is considered somewhat Generic which is why it may be needed.",
+      "parentUuid": "a0168126_be980f49",
       "range": {
         "startLine": 232,
         "startChar": 17,
@@ -102,6 +186,30 @@
       "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "663ac782_5c5cad64",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheckers.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2019-09-04T14:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae986991_eda8fa02",
+      "range": {
+        "startLine": 73,
+        "startChar": 61,
+        "endLine": 73,
+        "endChar": 74
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
