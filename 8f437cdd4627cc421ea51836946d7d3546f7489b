@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "5f9e97c6_6a2e0c86",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-09T07:31:48Z",
+      "side": 1,
+      "message": "Thanks for explaining and improving the readability. Makes sense now.",
+      "parentUuid": "046be863_83898801",
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb81d8be_29108869",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 4
@@ -154,6 +172,30 @@
       "side": 1,
       "message": "CheckerPredicate and CheckerSchemePredicate are both considered CheckPredicate.\nFor some reason, if I remove \u003cCheckPredicate\u003e it gives the following error when calling this function with CheckerPredicate.class, for example:\n\"Found CheckerPredicate, request CheckPredicate.\"\nI think CheckPredicate is considered somewhat Generic which is why it may be needed.",
       "parentUuid": "a0168126_be980f49",
+      "range": {
+        "startLine": 232,
+        "startChar": 17,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "8f437cdd4627cc421ea51836946d7d3546f7489b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42e9d4ce_117d8b75",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-09T07:31:48Z",
+      "side": 1,
+      "message": "Interesting, I don\u0027t see that in Eclipse. Does it work like this:\n\n  private static int countPredicates(\n      Predicate\u003cCheck\u003e predicate, Class\u003c? extends CheckPredicate\u003e predicateClass) {",
+      "parentUuid": "c5ab7fa3_e1ff7db6",
       "range": {
         "startLine": 232,
         "startChar": 17,
