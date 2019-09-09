@@ -9,7 +9,10 @@
   Polymer({
     is: 'gr-checkers-list',
     properties: {
-      pluginRestApi: Object,
+      pluginRestApi: {
+        type: Object,
+        observer: '_getCheckers'
+      },
       // Checker that will be passed to the editOverlay modal
       checker: Object,
       _checkers: Array,
@@ -50,10 +53,6 @@
     observers: [
       '_showCheckers(_checkers, _filter)',
     ],
-
-    attached() {
-      this._getCheckers();
-    },
 
     _contains(target, keyword) {
       return target.toLowerCase().includes(keyword.toLowerCase().trim());
@@ -117,8 +116,9 @@
       }
     },
 
-    _getCheckers() {
-      this.pluginRestApi.fetchJSON({
+    _getCheckers(pluginRestApi) {
+      if (!pluginRestApi) return;
+      pluginRestApi.fetchJSON({
         method: 'GET',
         url: GET_CHECKERS_URL,
       }).then(checkers => {
