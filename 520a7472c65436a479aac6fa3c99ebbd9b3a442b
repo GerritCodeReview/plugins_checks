@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7499a739_6045dd4d",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-09T13:24:05Z",
+      "side": 1,
+      "message": "can you add a comment here indicate that the reason you moved it from attached to here as the `getCheckers` should be called when pluginRestApi is available or changed for readability ?",
+      "revId": "520a7472c65436a479aac6fa3c99ebbd9b3a442b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
