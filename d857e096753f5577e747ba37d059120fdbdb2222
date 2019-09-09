@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53812434_d65f97c9",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-09T07:31:48Z",
+      "side": 1,
+      "message": "nit: This else is now unnecessary and should be dropped.\n\nIn the project we agreed that no unneeded else branches should be used which is why we configured this to show up as a warning in Eclipse.",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 12
+      },
+      "revId": "d857e096753f5577e747ba37d059120fdbdb2222",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
