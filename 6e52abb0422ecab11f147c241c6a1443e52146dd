@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "482f7580_ed9ab10a",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-09-11T17:50:37Z",
+      "side": 1,
+      "message": "This defeats the purpose of this feature.  If you have a linter that must run across several repositories (say google-java-format across all of the 100 repos on gerrit-review), it is easy to have more than 10 checkers for a single scheme.\n\nAn analyzer has no way of knowing whether there will be less than 10 checkers in advance, so it will have to implement a fallback for this case, largely undoing the benefit of this feature.\n\nInstead of erroring out, could you make this return a random selection of pending checks instead? The CI system could process the checks, setting their status, and then come back for the next 10 pending checks.",
+      "range": {
+        "startLine": 131,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "6e52abb0422ecab11f147c241c6a1443e52146dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
