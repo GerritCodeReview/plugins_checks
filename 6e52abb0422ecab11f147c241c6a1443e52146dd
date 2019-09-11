@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e1f8c53c_5c5ce39d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-09-11T17:52:21Z",
+      "side": 1,
+      "message": "Why 10, and not 100 or 1000?\n\nIs there any reason that the server has to enforce a particular limit? Wouldn\u0027t it be easier to let the client specify \u0026n\u003d10 instead?",
+      "range": {
+        "startLine": 60,
+        "startChar": 67,
+        "endLine": 60,
+        "endChar": 70
+      },
+      "revId": "6e52abb0422ecab11f147c241c6a1443e52146dd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "482f7580_ed9ab10a",
         "filename": "java/com/google/gerrit/plugins/checks/api/QueryPendingChecks.java",
         "patchSetId": 6
