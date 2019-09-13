@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0565c53a_f9e7dc76",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-09-13T12:49:30Z",
+      "side": 1,
+      "message": "remove comma",
+      "range": {
+        "startLine": 126,
+        "startChar": 40,
+        "endLine": 126,
+        "endChar": 41
+      },
+      "revId": "0a6942f45f96929d239ae1d062c7616b2e184f5d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
