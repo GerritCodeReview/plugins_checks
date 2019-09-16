@@ -55,6 +55,13 @@
         computed: '_computeShowPrevButton(_startingIndex, _filteredCheckers)'
       },
     },
+
+    /**
+     * Fired to inform gr-checks-view to show the checkers-list-overlay.
+     *
+     * @event show-checkers-list
+     */
+
     observers: [
       '_showCheckers(_checkers, _filter)',
     ],
@@ -128,6 +135,7 @@
         this._checkers = checkers;
         this._startingIndex = 0;
         this._loading = false;
+        this.fire('show-checkers-list', {bubbles: false});
       });
     },
 
