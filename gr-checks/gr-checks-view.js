@@ -62,6 +62,11 @@
         type: Boolean,
         value: false
       },
+      showConfigureOverlay: {
+        type: Boolean,
+        value: false,
+        notify: true
+      }
     },
 
     observers: [
@@ -81,7 +86,7 @@
     _handleCheckersListResize() {
       // Force polymer to recalculate position of overlay when length of
       // checkers changes
-      this.$.listOverlay.refit();
+      this.$$('#listOverlay').refit();
     },
 
     _initCreateCheckerCapability() {
@@ -98,7 +103,17 @@
     },
 
     _handleConfigureClicked() {
-      this.$.listOverlay.open();
+      if (!this.showConfigureOverlay) this.showConfigureOverlay = true;
+      else this._handleShowCheckersList();
+    },
+
+    _handleShowCheckersList() {
+      const listOverlay = this.$$('#listOverlay');
+      if (!listOverlay) {
+        console.error("List overlay not present");
+        return;
+      }
+      listOverlay.open();
     },
 
     _orderChecks(a, b) {

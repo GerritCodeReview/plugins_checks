@@ -55,6 +55,13 @@
         computed: '_computeShowPrevButton(_startingIndex, _filteredCheckers)'
       },
     },
+
+    /**
+     * Fired to inform gr-checks-view to show the checkers-list-overlay.
+     *
+     * @event show-checkers-list
+     */
+
     observers: [
       '_showCheckers(_checkers, _filter)',
     ],
@@ -121,16 +128,14 @@
       }
     },
 
-    _getCheckers(pluginRestApi) {
-      if (!pluginRestApi) return;
-      pluginRestApi.fetchJSON({
-        method: 'GET',
-        url: GET_CHECKERS_URL,
-      }).then(checkers => {
+    _getCheckers() {
+      if (!this.pluginRestApi) return;
+      this.pluginRestApi.get(GET_CHECKERS_URL).then(checkers => {
         if (!checkers) { return; }
         this._checkers = checkers;
         this._startingIndex = 0;
         this._loading = false;
+        this.fire('show-checkers-list', {bubbles: false});
       });
     },
 
