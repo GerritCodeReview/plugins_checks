@@ -1,7 +1,6 @@
 (function() {
   'use strict';
   const CHECKERS_PER_PAGE = 15;
-  const GET_CHECKERS_URL = "/plugins/checks/checkers/";
 
   /**
    * Show a list of all checkers along with creating/editing them
@@ -9,15 +8,7 @@
   Polymer({
     is: 'gr-checkers-list',
     properties: {
-      /**
-       * Add observer on pluginRestApi to call getCheckers when it's defined
-       * as initially getCheckers was being called before pluginRestApi was
-       * initialised by gr-checks-view
-       */
-      pluginRestApi: {
-        type: Object,
-        observer: '_getCheckers'
-      },
+      pluginRestApi: Object,
       // Checker that will be passed to the editOverlay modal
       checker: Object,
       _checkers: Array,
@@ -55,6 +46,13 @@
         computed: '_computeShowPrevButton(_startingIndex, _filteredCheckers)'
       },
     },
+
+    /**
+     * Fired to inform gr-checks-view to make getChecks call.
+     *
+     * @event reload-checkers
+     */
+
     observers: [
       '_showCheckers(_checkers, _filter)',
     ],
@@ -121,16 +119,6 @@
       }
     },
 
-    _getCheckers(pluginRestApi) {
-      if (!pluginRestApi) return;
-      pluginRestApi.get(GET_CHECKERS_URL).then(checkers => {
-        if (!checkers) { return; }
-        this._checkers = checkers;
-        this._startingIndex = 0;
-        this._loading = false;
-      });
-    },
-
     _handleEditConfirm() {
       this.$.editModal.handleEditChecker();
     },
@@ -143,7 +131,7 @@
 
     _handleEditCancel(e) {
       if (e.detail.reload) {
-        this._getCheckers();
+        this.fire('reload-checkers', {bubbles: false});
       }
       this.$.editOverlay.close();
     },
@@ -167,7 +155,7 @@
 
     _handleCreateCancel(e) {
       if (e.detail.reload) {
-        this._getCheckers();
+        this.fire('reload-checkers', {bubbles: false});
       }
       this.$.createOverlay.close();
     },
