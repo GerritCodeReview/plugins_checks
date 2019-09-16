@@ -14,6 +14,7 @@
   ];
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
+  const GET_CHECKERS_URL = "/plugins/checks/checkers/";
 
   /**
    * @typedef {{
@@ -62,6 +63,11 @@
         type: Boolean,
         value: false
       },
+      showConfigureOverlay: {
+        type: Boolean,
+        value: false,
+        notify: true
+      }
     },
 
     observers: [
@@ -81,7 +87,7 @@
     _handleCheckersListResize() {
       // Force polymer to recalculate position of overlay when length of
       // checkers changes
-      this.$.listOverlay.refit();
+      this.$$('#listOverlay').refit();
     },
 
     _initCreateCheckerCapability() {
@@ -97,8 +103,38 @@
       });
     },
 
+    _getCheckers() {
+      return this.pluginRestApi.get(GET_CHECKERS_URL);
+      //   .then(checkers => {
+      //   if (!checkers) { return; }
+      //   this._checkers = checkers;
+      //   this._startingIndex = 0;
+      //   this._loading = false;
+      //   this.fire('show-checkers-list', {bubbles: false});
+      // });
+    },
+
+    _handleReloadCheckers() {
+      this._getCheckers().then(checkers => {
+        this._checkers = checkers;
+      })
+    },
+
     _handleConfigureClicked() {
-      this.$.listOverlay.open();
+      this._getCheckers().then(checkers => {
+        this._checkers = checkers;
+        this.showConfigureOverlay = true;
+        this.$.listOverlay.open();
+      });
+    },
+
+    _handleShowCheckersList() {
+      const listOverlay = this.$$('#listOverlay');
+      if (!listOverlay) {
+        console.error("List overlay not present");
+        return;
+      }
+      listOverlay.open();
     },
 
     _orderChecks(a, b) {
