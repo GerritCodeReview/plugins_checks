@@ -34,6 +34,24 @@
       "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1167ca3_fae75652",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-09-17T13:26:54Z",
+      "side": 1,
+      "message": "What I would have expected: clicking button in checks-view creates overlay+checkers-list and makes both visible. Creating/opening checkers-list triggers _getCheckers. Then _getCheckers can be kept in checkers-list and you don\u0027t need the event.",
+      "parentUuid": "d1d69eaa_65a82c0a",
+      "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
