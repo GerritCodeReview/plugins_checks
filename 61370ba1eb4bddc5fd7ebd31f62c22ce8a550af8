@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de5cd47e_3216f490",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2019-09-17T11:50:40Z",
+      "side": 1,
+      "message": "That is weird. Why would the list make an API call, if it is not visible at all? And why would an API response be an indication for the list to become visible? It would nicer, if the checks-view would fully control the \"list is visible\" aspect.",
+      "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
