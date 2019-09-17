@@ -16,6 +16,24 @@
       "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1d69eaa_65a82c0a",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-09-17T12:48:34Z",
+      "side": 1,
+      "message": "There is an overlay between gr-checks-view and gr-checkers-list which is the one that ultimately needs to be opened. That\u0027s the reason checkers-list is firing an event to tell checks-view to open the overlay.\nI can have checks-view making the getCheckers call and ultimately deciding if overlay needs to be shown or not. I was unsure if I wanted to move the getCheckers functionality from checkers-list to checks-view.",
+      "parentUuid": "de5cd47e_3216f490",
+      "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
