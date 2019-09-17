@@ -52,6 +52,24 @@
       "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b6f71d4_e34f838d",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-09-17T14:29:09Z",
+      "side": 1,
+      "message": "That is close to what\u0027s opening. The overlay is inside a dom-if, and checkers-list is attached only after clicking the Configure button after which getCheckers is called.\nHow can checkers-list open the overlay though?",
+      "parentUuid": "e1167ca3_fae75652",
+      "revId": "61370ba1eb4bddc5fd7ebd31f62c22ce8a550af8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
