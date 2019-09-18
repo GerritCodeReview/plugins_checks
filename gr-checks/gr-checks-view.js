@@ -62,6 +62,10 @@
         type: Boolean,
         value: false
       },
+      showConfigureOverlayCount: {
+        type: Number,
+        value: 0
+      }
     },
 
     observers: [
@@ -98,7 +102,8 @@
     },
 
     _handleConfigureClicked() {
-      this.$.listOverlay.open();
+      this.showConfigureOverlayCount++;;
+      // this.$.listOverlay.open();
     },
 
     _orderChecks(a, b) {
