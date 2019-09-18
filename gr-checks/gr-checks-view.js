@@ -98,7 +98,9 @@
     },
 
     _handleConfigureClicked() {
-      this.$.listOverlay.open();
+      this.$$('gr-checkers-list')._showConfigureOverlay();
+      // this.showConfigureOverlayCount++;;
+      // this.$.listOverlay.open();
     },
 
     _orderChecks(a, b) {
