@@ -16,7 +16,6 @@
        */
       pluginRestApi: {
         type: Object,
-        observer: '_getCheckers'
       },
       // Checker that will be passed to the editOverlay modal
       checker: Object,
@@ -63,12 +62,21 @@
       return target.toLowerCase().includes(keyword.toLowerCase().trim());
     },
 
+    _showConfigureOverlay() {
+      this.$.listOverlay.open().then(
+        () => {
+          this._getCheckers();
+        }
+      )
+    },
+
     _visibleCheckersChanged(currentVisibleCheckers, previousVisibleCheckers) {
       if (!currentVisibleCheckers || !previousVisibleCheckers) {
+        this.$.listOverlay.refit();
         return;
       }
       if (currentVisibleCheckers.length !== previousVisibleCheckers.length) {
-        this.fire('resize', {bubbles: false});
+        this.$.listOverlay.refit();
       }
     },
 
@@ -121,9 +129,9 @@
       }
     },
 
-    _getCheckers(pluginRestApi) {
-      if (!pluginRestApi) return;
-      pluginRestApi.get(GET_CHECKERS_URL).then(checkers => {
+    _getCheckers() {
+      if (!this.pluginRestApi) return;
+      this.pluginRestApi.get(GET_CHECKERS_URL).then(checkers => {
         if (!checkers) { return; }
         this._checkers = checkers;
         this._startingIndex = 0;
@@ -163,6 +171,10 @@
 
     _handleCreateClicked() {
       this.$.createOverlay.open();
+    },
+
+    _handleOverlayClosed() {
+      console.log("overlay closed");
     },
 
     _handleCreateCancel(e) {
