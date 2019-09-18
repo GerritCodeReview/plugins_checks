@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df1a70f1_fe63d05c",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-18T12:31:37Z",
+      "side": 1,
+      "message": "if you move the API call to parent, i think it will be very hard to maintain in the future. Say if you need to support filter (with API call) in your list, now you will need to pass the filtering to the parent and then pass updated checkers down to child...\n\nIts better to just have everything related to checkers in the list page.",
+      "revId": "a321d0a1bc2d20d801f44267f35200637cf6aafb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
