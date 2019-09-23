@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dde67a6d_04ea0d23",
+        "filename": "gr-checks/gr-checkers-list.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "do you have a linter rule for this repo ? can you run it ? :)",
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "182e6795_65a08d8a",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "can you add a comment here about why we need to observe on `listBody` here, so it will be more clear to other readers who don\u0027t have the whole context.",
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fbd0a5a_7937890f",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "you need to clean up this observer when component detached :)",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0642d2e_b658775d",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "nit: not necessary, but this can be rewritten in one line as:\n\n```\nthis.$.listOverlay.open().then(() \u003d\u003e this._getCheckers());\n```",
+      "range": {
+        "startLine": 73,
+        "startChar": 31,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11b0c322_4878048a",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "do you still need this as you have the observer now ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe836fc_e910ad41",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "should you still keep this ?",
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67fb960_dbae2ff1",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-09-23T14:17:18Z",
+      "side": 1,
+      "message": "can be removed ?",
+      "revId": "e9d6f6c38df7a2a6ee961c98fc4722aa96bada9e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
