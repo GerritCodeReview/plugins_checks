@@ -14,6 +14,7 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
@@ -33,6 +34,7 @@ import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
 import com.google.gerrit.plugins.checks.UrlValidator;
+import com.google.gerrit.plugins.checks.email.CombinedCheckStateUpdatedSender;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
 import com.google.gerrit.server.change.RevisionResource;
@@ -48,6 +50,8 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 @Singleton
 public class PostCheck
     implements RestCollectionModifyView<RevisionResource, CheckResource, CheckInput> {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   private final Provider<CurrentUser> self;
   private final PermissionBackend permissionBackend;
   private final AdministrateCheckersPermission permission;
@@ -55,6 +59,7 @@ public class PostCheck
   private final Checks checks;
   private final Provider<ChecksUpdate> checksUpdate;
   private final CheckJson.Factory checkJsonFactory;
+  private final CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory;
 
   @Inject
   PostCheck(
@@ -64,7 +69,8 @@ public class PostCheck
       Checkers checkers,
       Checks checks,
       @UserInitiated Provider<ChecksUpdate> checksUpdate,
-      CheckJson.Factory checkJsonFactory) {
+      CheckJson.Factory checkJsonFactory,
+      CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory) {
     this.self = self;
     this.permissionBackend = permissionBackend;
     this.permission = permission;
@@ -72,6 +78,7 @@ public class PostCheck
     this.checks = checks;
     this.checksUpdate = checksUpdate;
     this.checkJsonFactory = checkJsonFactory;
+    this.combinedCheckStateUpdatedSenderFactory = combinedCheckStateUpdatedSenderFactory;
   }
 
   @Override
@@ -99,6 +106,9 @@ public class PostCheck
 
     CheckerUuid checkerUuid = CheckerUuid.parse(input.checkerUuid);
 
+    CombinedCheckState oldCombinedCheckState =
+        checks.getCombinedCheckState(rsrc.getProject(), rsrc.getPatchSet().id());
+
     CheckKey key = CheckKey.create(rsrc.getProject(), rsrc.getPatchSet().id(), checkerUuid);
     Optional<Check> check = checks.getCheck(key, GetCheckOptions.defaults());
     Check updatedCheck;
@@ -113,7 +123,29 @@ public class PostCheck
     } else {
       updatedCheck = checksUpdate.get().updateCheck(key, toCheckUpdate(input));
     }
+
+    CombinedCheckState newCombinedCheckState =
+        checks.getCombinedCheckState(rsrc.getProject(), rsrc.getPatchSet().id());
+    if (oldCombinedCheckState != newCombinedCheckState) {
+      sendEmail(rsrc, newCombinedCheckState);
+    }
+
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
+  }
+
+  private void sendEmail(RevisionResource rsrc, CombinedCheckState combinedCheckState) {
+    try {
+      CombinedCheckStateUpdatedSender sender =
+          combinedCheckStateUpdatedSenderFactory.create(
+              rsrc.getProject(), rsrc.getChange().getId());
+      sender.setFrom(self.get().getAccountId());
+      sender.setPatchSet(rsrc.getPatchSet());
+      sender.setCombinedCheckState(combinedCheckState);
+      sender.send();
+    } catch (Exception e) {
+      logger.atSevere().withCause(e).log(
+          "Cannot email update for change %s", rsrc.getChange().getId());
+    }
   }
 
   private static CheckUpdate toCheckUpdate(CheckInput input) throws BadRequestException {

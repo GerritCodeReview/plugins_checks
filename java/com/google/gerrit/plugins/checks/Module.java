@@ -25,6 +25,7 @@ import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory.GetChangeOptions;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory.QueryChangesOptions;
 import com.google.gerrit.plugins.checks.db.NoteDbCheckersModule;
+import com.google.gerrit.plugins.checks.email.ChecksEmailModule;
 import com.google.gerrit.plugins.checks.rules.ChecksSubmitRule;
 import com.google.gerrit.server.DynamicOptions;
 import com.google.gerrit.server.change.ChangeAttributeFactory;
@@ -74,5 +75,6 @@ public class Module extends FactoryModule {
 
     install(new ApiModule());
     install(new ChecksSubmitRule.Module());
+    install(new ChecksEmailModule());
   }
 }
