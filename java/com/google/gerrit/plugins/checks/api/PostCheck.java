@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks.api;
 
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.exceptions.StorageException;
+import com.google.gerrit.extensions.api.changes.NotifyHandling;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -37,6 +38,7 @@ import com.google.gerrit.plugins.checks.UrlValidator;
 import com.google.gerrit.plugins.checks.email.CombinedCheckStateUpdatedSender;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
+import com.google.gerrit.server.change.NotifyResolver;
 import com.google.gerrit.server.change.RevisionResource;
 import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
@@ -59,6 +61,7 @@ public class PostCheck
   private final Checks checks;
   private final Provider<ChecksUpdate> checksUpdate;
   private final CheckJson.Factory checkJsonFactory;
+  private final NotifyResolver notifyResolver;
   private final CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory;
 
   @Inject
@@ -70,6 +73,7 @@ public class PostCheck
       Checks checks,
       @UserInitiated Provider<ChecksUpdate> checksUpdate,
       CheckJson.Factory checkJsonFactory,
+      NotifyResolver notifyResolver,
       CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory) {
     this.self = self;
     this.permissionBackend = permissionBackend;
@@ -78,6 +82,7 @@ public class PostCheck
     this.checks = checks;
     this.checksUpdate = checksUpdate;
     this.checkJsonFactory = checkJsonFactory;
+    this.notifyResolver = notifyResolver;
     this.combinedCheckStateUpdatedSenderFactory = combinedCheckStateUpdatedSenderFactory;
   }
 
@@ -127,13 +132,19 @@ public class PostCheck
     CombinedCheckState newCombinedCheckState =
         checks.getCombinedCheckState(rsrc.getProject(), rsrc.getPatchSet().id());
     if (oldCombinedCheckState != newCombinedCheckState) {
-      sendEmail(rsrc, newCombinedCheckState);
+      sendEmail(rsrc, input, newCombinedCheckState);
     }
 
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
   }
 
-  private void sendEmail(RevisionResource rsrc, CombinedCheckState combinedCheckState) {
+  private void sendEmail(
+      RevisionResource rsrc, CheckInput checkInput, CombinedCheckState combinedCheckState)
+      throws BadRequestException, IOException, ConfigInvalidException {
+    NotifyHandling notifyHandling =
+        checkInput.notify == null ? NotifyHandling.ALL : checkInput.notify;
+    NotifyResolver.Result notify = notifyResolver.resolve(notifyHandling, checkInput.notifyDetails);
+
     try {
       CombinedCheckStateUpdatedSender sender =
           combinedCheckStateUpdatedSenderFactory.create(
@@ -141,6 +152,7 @@ public class PostCheck
       sender.setFrom(self.get().getAccountId());
       sender.setPatchSet(rsrc.getPatchSet());
       sender.setCombinedCheckState(combinedCheckState);
+      sender.setNotify(notify);
       sender.send();
     } catch (Exception e) {
       logger.atSevere().withCause(e).log(
