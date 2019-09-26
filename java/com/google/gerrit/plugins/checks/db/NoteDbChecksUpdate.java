@@ -35,6 +35,7 @@ import com.google.gerrit.plugins.checks.email.CombinedCheckStateUpdatedSender;
 import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.PatchSetUtil;
+import com.google.gerrit.server.change.NotifyResolver;
 import com.google.gerrit.server.extensions.events.GitReferenceUpdated;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNoteUtil;
@@ -89,6 +90,7 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
       CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
       ChangeNotes.Factory notesFactory,
       PatchSetUtil psUtil,
+      NotifyResolver notifyResolver,
       @GerritPersonIdent PersonIdent personIdent) {
     this(
         repoManager,
@@ -100,6 +102,7 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
         combinedCheckStateUpdatedSenderFactory,
         notesFactory,
         psUtil,
+        notifyResolver,
         personIdent,
         Optional.empty());
   }
@@ -115,6 +118,7 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
       CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
       ChangeNotes.Factory notesFactory,
       PatchSetUtil psUtil,
+      NotifyResolver notifyResolver,
       @GerritPersonIdent PersonIdent personIdent,
       @Assisted IdentifiedUser currentUser) {
     this(
@@ -127,6 +131,7 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
         combinedCheckStateUpdatedSenderFactory,
         notesFactory,
         psUtil,
+        notifyResolver,
         personIdent,
         Optional.of(currentUser));
   }
@@ -141,6 +146,7 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
       CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
       ChangeNotes.Factory notesFactory,
       PatchSetUtil psUtil,
+      NotifyResolver notifyResolver,
       @GerritPersonIdent PersonIdent personIdent,
       Optional<IdentifiedUser> currentUser) {
     super(
@@ -148,7 +154,8 @@ public class NoteDbChecksUpdate extends ChecksUpdate {
         combinedCheckStateCache,
         combinedCheckStateUpdatedSenderFactory,
         notesFactory,
-        psUtil);
+        psUtil,
+        notifyResolver);
     this.repoManager = repoManager;
     this.gitRefUpdated = gitRefUpdated;
     this.retryHelper = retryHelper;
