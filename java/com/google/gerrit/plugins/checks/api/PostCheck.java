@@ -113,6 +113,7 @@ public class PostCheck
     } else {
       updatedCheck = checksUpdate.get().updateCheck(key, toCheckUpdate(input));
     }
+
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
   }
 

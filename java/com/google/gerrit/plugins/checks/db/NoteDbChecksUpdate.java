@@ -31,11 +31,14 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
 import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
+import com.google.gerrit.plugins.checks.email.CombinedCheckStateUpdatedSender;
 import com.google.gerrit.server.GerritPersonIdent;
 import com.google.gerrit.server.IdentifiedUser;
+import com.google.gerrit.server.PatchSetUtil;
 import com.google.gerrit.server.extensions.events.GitReferenceUpdated;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNoteUtil;
+import com.google.gerrit.server.notedb.ChangeNotes;
 import com.google.gerrit.server.update.RetryHelper;
 import com.google.inject.assistedinject.Assisted;
 import com.google.inject.assistedinject.AssistedInject;
@@ -56,7 +59,7 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.notes.NoteMap;
 import org.eclipse.jgit.revwalk.RevWalk;
 
-public class NoteDbChecksUpdate implements ChecksUpdate {
+public class NoteDbChecksUpdate extends ChecksUpdate {
   interface Factory {
     NoteDbChecksUpdate create(IdentifiedUser currentUser);
 
@@ -73,9 +76,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
   private final GitReferenceUpdated gitRefUpdated;
   private final RetryHelper retryHelper;
   private final ChangeNoteUtil noteUtil;
-  private final Optional<IdentifiedUser> currentUser;
   private final Checkers checkers;
-  private final CombinedCheckStateCache combinedCheckStateCache;
 
   @AssistedInject
   NoteDbChecksUpdate(
@@ -85,6 +86,9 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       ChangeNoteUtil noteUtil,
       Checkers checkers,
       CombinedCheckStateCache combinedCheckStateCache,
+      CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
+      ChangeNotes.Factory notesFactory,
+      PatchSetUtil psUtil,
       @GerritPersonIdent PersonIdent personIdent) {
     this(
         repoManager,
@@ -93,6 +97,9 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
         noteUtil,
         checkers,
         combinedCheckStateCache,
+        combinedCheckStateUpdatedSenderFactory,
+        notesFactory,
+        psUtil,
         personIdent,
         Optional.empty());
   }
@@ -105,6 +112,9 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       ChangeNoteUtil noteUtil,
       Checkers checkers,
       CombinedCheckStateCache combinedCheckStateCache,
+      CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
+      ChangeNotes.Factory notesFactory,
+      PatchSetUtil psUtil,
       @GerritPersonIdent PersonIdent personIdent,
       @Assisted IdentifiedUser currentUser) {
     this(
@@ -114,6 +124,9 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
         noteUtil,
         checkers,
         combinedCheckStateCache,
+        combinedCheckStateUpdatedSenderFactory,
+        notesFactory,
+        psUtil,
         personIdent,
         Optional.of(currentUser));
   }
@@ -125,20 +138,27 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
       ChangeNoteUtil noteUtil,
       Checkers checkers,
       CombinedCheckStateCache combinedCheckStateCache,
+      CombinedCheckStateUpdatedSender.Factory combinedCheckStateUpdatedSenderFactory,
+      ChangeNotes.Factory notesFactory,
+      PatchSetUtil psUtil,
       @GerritPersonIdent PersonIdent personIdent,
       Optional<IdentifiedUser> currentUser) {
+    super(
+        currentUser,
+        combinedCheckStateCache,
+        combinedCheckStateUpdatedSenderFactory,
+        notesFactory,
+        psUtil);
     this.repoManager = repoManager;
     this.gitRefUpdated = gitRefUpdated;
     this.retryHelper = retryHelper;
     this.noteUtil = noteUtil;
     this.checkers = checkers;
-    this.currentUser = currentUser;
     this.personIdent = personIdent;
-    this.combinedCheckStateCache = combinedCheckStateCache;
   }
 
   @Override
-  public Check createCheck(CheckKey checkKey, CheckUpdate checkUpdate)
+  protected Check createCheckImpl(CheckKey checkKey, CheckUpdate checkUpdate)
       throws DuplicateKeyException, IOException {
     try {
       return retryHelper.execute(
@@ -154,7 +174,7 @@ public class NoteDbChecksUpdate implements ChecksUpdate {
   }
 
   @Override
-  public Check updateCheck(CheckKey checkKey, CheckUpdate checkUpdate) throws IOException {
+  protected Check updateCheckImpl(CheckKey checkKey, CheckUpdate checkUpdate) throws IOException {
     try {
       return retryHelper.execute(
           RetryHelper.ActionType.PLUGIN_UPDATE,
