@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5df9d624_b3a6ce1f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-27T12:47:34Z",
+      "side": 1,
+      "message": "Good point, let me look into this.",
+      "parentUuid": "947ac670_251a14f6",
+      "revId": "bbd25c7d2947c1a6f6ac90fbe86ae1255e267f8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9808070c_f23e9abf",
         "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "10869332_ca3b5504",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-27T12:47:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9808070c_f23e9abf",
+      "revId": "bbd25c7d2947c1a6f6ac90fbe86ae1255e267f8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "772726f1_0ea40ac5",
         "filename": "resources/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdated.soy",
         "patchSetId": 1
@@ -47,6 +83,30 @@
       "writtenOn": "2019-09-27T12:41:02Z",
       "side": 1,
       "message": "nit: sounds very technical\n\nbut I guess it\u0027s in line with other documentation",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 14
+      },
+      "revId": "bbd25c7d2947c1a6f6ac90fbe86ae1255e267f8f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cadc6e14_ecee532a",
+        "filename": "resources/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdated.soy",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-09-27T12:47:34Z",
+      "side": 1,
+      "message": "Yeah, at this point I also don\u0027t care much about the wording in the emails. Once email notifications work, it\u0027s easy to refine the templates later.",
+      "parentUuid": "772726f1_0ea40ac5",
       "range": {
         "startLine": 29,
         "startChar": 6,
