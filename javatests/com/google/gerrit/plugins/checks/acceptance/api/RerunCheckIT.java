@@ -27,6 +27,7 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckState;
+import com.google.gerrit.plugins.checks.api.RerunInput;
 import com.google.gerrit.reviewdb.client.PatchSet;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.util.time.TimeUtil;
@@ -63,7 +64,8 @@ public class RerunCheckIT extends AbstractCheckersTest {
         .upsert();
     Timestamp created = checkOperations.check(checkKey).get().created();
     Timestamp updated = checkOperations.check(checkKey).get().updated();
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
     assertThat(info.message).isEqualTo(null);
     assertThat(info.url).isEqualTo(null);
@@ -76,21 +78,24 @@ public class RerunCheckIT extends AbstractCheckersTest {
   @Test
   public void rerunNotStartedCheck() throws Exception {
     checkOperations.newCheck(checkKey).state(CheckState.NOT_STARTED).upsert();
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
   }
 
   @Test
   public void rerunFinishedCheck() throws Exception {
     checkOperations.newCheck(checkKey).state(CheckState.SUCCESSFUL).upsert();
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
     assertThat(info.updated).isGreaterThan(info.created);
   }
 
   @Test
   public void rerunCheckNotExistingButBackfilled() throws Exception {
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
     assertThat(checkOperations.check(checkKey).exists()).isFalse();
   }
@@ -100,7 +105,8 @@ public class RerunCheckIT extends AbstractCheckersTest {
     Project.NameKey otherProject = projectOperations.newProject().create();
     checkerOperations.checker(checkKey.checkerUuid()).forUpdate().repository(otherProject).update();
     checkOperations.newCheck(checkKey).upsert();
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
   }
 
@@ -110,7 +116,11 @@ public class RerunCheckIT extends AbstractCheckersTest {
     checkerOperations.checker(checkKey.checkerUuid()).forUpdate().repository(otherProject).update();
     assertThrows(
         ResourceNotFoundException.class,
-        () -> checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun());
+        () ->
+            checksApiFactory
+                .revision(patchSetId)
+                .id(checkKey.checkerUuid())
+                .rerun(new RerunInput()));
     assertThat(checkOperations.check(checkKey).exists()).isFalse();
   }
 
@@ -122,7 +132,11 @@ public class RerunCheckIT extends AbstractCheckersTest {
     AuthException thrown =
         assertThrows(
             AuthException.class,
-            () -> checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun());
+            () ->
+                checksApiFactory
+                    .revision(patchSetId)
+                    .id(checkKey.checkerUuid())
+                    .rerun(new RerunInput()));
     assertThat(thrown).hasMessageThat().contains("Authentication required");
   }
 
@@ -130,7 +144,8 @@ public class RerunCheckIT extends AbstractCheckersTest {
   public void canRerunWithoutPermissions() throws Exception {
     requestScopeOperations.setApiUser(user.id());
     checkOperations.newCheck(checkKey).state(CheckState.SUCCESSFUL).upsert();
-    CheckInfo info = checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun();
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun(new RerunInput());
     assertThat(info.state).isEqualTo(CheckState.NOT_STARTED);
   }
 }
