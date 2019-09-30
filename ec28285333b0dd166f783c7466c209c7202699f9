@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b1d87cd_6d22638c",
+        "filename": "java/com/google/gerrit/plugins/checks/ChecksUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-09-30T16:39:03Z",
+      "side": 1,
+      "message": "I agree to what you said in the commit message, but I would rather not do it with an abstract class.\n\nDesign wise, we\u0027re missing the layer that should send emails.\n\nWe have: REST API - Storage\nUsually, that is: REST API - \u0027Business logic\u0027 - storage\n\nWhere \u0027business logic\u0027 would house email sending, which isn\u0027t a database action, but it\u0027s also not an API action.\nCallers from outside the package could only ever call the \u0027business logic\u0027 part.\n\nWe could just add that now by splitting ChecksUpdate into ChecksStorageUpdate and \u003crest\u003e\n\nChecksUpdate is not an interface anymore, it\u0027s just an implementation. It calls ChecksStorageUpdate first and sends email after that.\nbind(ChecksStorageUpdate).to(NoteDbChecksStorageUpdate)\n\nI think it would make sense to briefly discuss this in person with Alice. I don\u0027t want to overcomplicate the issue, but at the same time we tried hard in the past to keep the code extra clean :-)",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "ec28285333b0dd166f783c7466c209c7202699f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a56d52e_5fa1ad17",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-09-30T16:39:03Z",
+      "side": 1,
+      "message": "unintentional change?",
+      "revId": "ec28285333b0dd166f783c7466c209c7202699f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
