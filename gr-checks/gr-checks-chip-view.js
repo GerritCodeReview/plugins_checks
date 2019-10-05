@@ -128,16 +128,18 @@
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
     _fetchChecks(change, revision, getChecks) {
-      getChecks(change._number, revision._number).then(checks => {
-        this.set('_hasChecks', checks.length > 0);
-        if (checks.length > 0) {
-          this._downgradeFailureToWarning =
-            downgradeFailureToWarning(checks);
-          this._failedRequiredChecksCount =
-            this.computeFailedRequiredChecksCount(checks);
-          this._checkStatuses = computeCheckStatuses(checks);
-        }
-      });
+      if (getChecks && change && revision) {
+        getChecks(change._number, revision._number).then(checks => {
+          this.set('_hasChecks', checks.length > 0);
+          if (checks.length > 0) {
+            this._downgradeFailureToWarning =
+              downgradeFailureToWarning(checks);
+            this._failedRequiredChecksCount =
+              this.computeFailedRequiredChecksCount(checks);
+            this._checkStatuses = computeCheckStatuses(checks);
+          }
+        });
+      }
     },
 
     _onVisibililityChange() {

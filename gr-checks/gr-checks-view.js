@@ -140,28 +140,30 @@
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
     _fetchChecks(change, revision, getChecks) {
-      getChecks(change._number, revision._number).then(checks => {
-        if (checks && checks.length) {
-          checks.sort(this._orderChecks);
-          if (!this._checks) {
-            this._checks = checks;
+      if (getChecks && change && revision) {
+        getChecks(change._number, revision._number).then(checks => {
+          if (checks && checks.length) {
+            checks.sort(this._orderChecks);
+            if (!this._checks) {
+              this._checks = checks;
+            } else {
+              // Merge checks & this_checks to keep showCheckMessage property
+              this._checks = checks.map(
+                (check) => {
+                  const prevCheck = this._checks.find(
+                    (c) => { return c.checker_uuid === check.checker_uuid }
+                  )
+                  if (!prevCheck) return check;
+                  return Object.assign({}, check, prevCheck)
+                }
+              )
+            }
+            this.set('_status', LoadingStatus.RESULTS);
           } else {
-            // Merge checks & this_checks to keep showCheckMessage property
-            this._checks = checks.map(
-              (check) => {
-                const prevCheck = this._checks.find(
-                  (c) => { return c.checker_uuid === check.checker_uuid }
-                )
-                if (!prevCheck) return check;
-                return Object.assign({}, check, prevCheck)
-              }
-            )
+            this._checkConfigured();
           }
-          this.set('_status', LoadingStatus.RESULTS);
-        } else {
-          this._checkConfigured();
-        }
-      });
+        });
+      }
     },
 
     _onVisibililityChange() {
