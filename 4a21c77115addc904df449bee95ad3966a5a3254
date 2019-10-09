@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "287a61f8_57f33e00",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:21:41Z",
+      "side": 1,
+      "message": "The default implementation should be in the interface declaration above, so that this class and the CheckApiImpl don\u0027t need to explicitly implement it.  They can just implement the one that takes input.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "4a21c77115addc904df449bee95ad3966a5a3254",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45acd073_b54969da",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:21:41Z",
+      "side": 1,
+      "message": "Does this compile if it doesn\u0027t explicitly implement the rerun with no parameters?",
+      "revId": "4a21c77115addc904df449bee95ad3966a5a3254",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
