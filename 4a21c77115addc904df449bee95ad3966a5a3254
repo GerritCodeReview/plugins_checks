@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "903a8ec6_37791a25",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-09T07:52:31Z",
+      "side": 1,
+      "message": "Oh yes, that\u0027s what I intended to do :(\n\nDone.",
+      "parentUuid": "287a61f8_57f33e00",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "4a21c77115addc904df449bee95ad3966a5a3254",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45acd073_b54969da",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "4a21c77115addc904df449bee95ad3966a5a3254",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2dd6f3c_c20c0e9c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApiImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-09T07:52:31Z",
+      "side": 1,
+      "message": "No, it didn\u0027t compile :(",
+      "parentUuid": "45acd073_b54969da",
+      "revId": "4a21c77115addc904df449bee95ad3966a5a3254",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
