@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c84aaa15_f00809aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:11:01Z",
+      "side": 1,
+      "message": "Although there are no other clients using it, keeping the old interface alongside the new one will simplify this change.  See the other inline comment in CheckApi.java.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "77d8e2e14146ac06b9f6adc716fb893f1c04e8d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6cf7fb_723eb7d0",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckApi.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:11:01Z",
+      "side": 1,
+      "message": "If we keep the existing method too, but give it a default implementation that passes \"new RerunInput()\" to the new one, all the places in the tests where new RerunInput() is explicitly added by this change will not be necessary.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 60
+      },
+      "revId": "77d8e2e14146ac06b9f6adc716fb893f1c04e8d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ecb0de5_3800b67a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:11:01Z",
+      "side": 1,
+      "message": "This change is not necessary if we keep the old interface as mentioned in ChecksApi",
+      "revId": "77d8e2e14146ac06b9f6adc716fb893f1c04e8d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d623d5ae_86c70223",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:11:01Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "77d8e2e14146ac06b9f6adc716fb893f1c04e8d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e82f175_965fa9d3",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/RerunCheckIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-09T07:11:01Z",
+      "side": 1,
+      "message": "Same here and below",
+      "revId": "77d8e2e14146ac06b9f6adc716fb893f1c04e8d0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
