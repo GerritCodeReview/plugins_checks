@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6bcbd297_3bf53d66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b667c78_ce026114",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 9
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c78436d_1586e526",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "197aba21_6f98da7e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c78436d_1586e526",
+      "range": {
+        "startLine": 141,
+        "startChar": 7,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "326e364f_bcba1221",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0af4bf3b_83022035",
+      "range": {
+        "startLine": 172,
+        "startChar": 7,
+        "endLine": 172,
+        "endChar": 13
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac88ac32_c42dcdc4",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e628033a_a2ca3bb7",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac88ac32_c42dcdc4",
+      "range": {
+        "startLine": 239,
+        "startChar": 7,
+        "endLine": 239,
+        "endChar": 13
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "03ebed89_9bc758bf",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a64d9ad_ce84104f",
+      "range": {
+        "startLine": 273,
+        "startChar": 7,
+        "endLine": 273,
+        "endChar": 13
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db840b6e_4a2636c3",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "870227db_c56b614e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-10T00:49:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db840b6e_4a2636c3",
+      "range": {
+        "startLine": 339,
+        "startChar": 7,
+        "endLine": 339,
+        "endChar": 13
+      },
+      "revId": "e51419516030fcd6158ba0523e72ce421adf7e54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
