@@ -1,13 +1,13 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://zuul.opendev.org/t/opendev/buildset/51640402d43e408190b412a5a27937dc",
+      "state": "NOT_RELEVANT",
+      "message": "Project has no jobs configured",
+      "url": "https://zuul.opendev.org/t/opendev/buildset/d7f271485ef644f7a7237fabca022334",
       "started": "2019-10-11T14:35:42Z",
-      "finished": "2019-10-11T14:22:54Z",
+      "finished": "2019-10-11T14:37:44Z",
       "created": "2019-10-11T14:06:59Z",
-      "updated": "2019-10-11T14:35:42Z"
+      "updated": "2019-10-11T14:37:45Z"
     }
   }
 }
