@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6fb089f8_46646a78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-15T13:36:00Z",
+      "side": 1,
+      "message": "Right, that\u0027s another use case that we may address later. In fact I\u0027m already looking into further improvements :)",
+      "parentUuid": "929fdb7e_29eddd12",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 38
+      },
+      "revId": "e581c84651c437b6a5f59cb7b4f75fec76346d97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d1fa81_3a5c19a8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
