@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfd1781d_215a7df1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-15T12:08:18Z",
+      "side": 1,
+      "message": "Why user wouldn\u0027t like to see check detail from FAILED to WARNING? I would expect to see the details if new status is FAILED or WARNING, and forget about old state. Consider the situation, where I am fixing broken code in inline editor.\nI try multiple times, and all the time I would lik to see the details.\n\nOf course, even without details in the mail, I could go to the change screen, switch to checkers tab and see what I\u0027m looking for, but those are additional clicks.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 38
+      },
+      "revId": "e581c84651c437b6a5f59cb7b4f75fec76346d97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e21dcf_cd45bcf9",
+        "filename": "resources/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedHtml.soy",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-15T12:08:18Z",
+      "side": 1,
+      "message": "What is the difference between $check.state and $newCombinedCheckState? Are they the same? If so, why do we need both?",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "e581c84651c437b6a5f59cb7b4f75fec76346d97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fd46b4a_4e17cd7a",
+        "filename": "resources/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedHtml.soy",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-15T12:08:18Z",
+      "side": 1,
+      "message": "I wouldn\u0027t complicate things and just say:\n\n  {if $newCombinedCheckState \u003d\u003d \u0027WARNING\u0027 or $newCombinedCheckState \u003d\u003d \u0027FAILED\u0027}\n  /** Show checker details */",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 87
+      },
+      "revId": "e581c84651c437b6a5f59cb7b4f75fec76346d97",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
