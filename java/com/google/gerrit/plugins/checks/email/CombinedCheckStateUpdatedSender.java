@@ -91,29 +91,29 @@ public class CombinedCheckStateUpdatedSender extends ReplyToChangeSender {
       soyContext.put("newCombinedCheckState", newCombinedCheckState.name());
     }
 
-    if (checker != null) {
-      Map<String, String> checkerData = new HashMap<>();
-      checkerData.put("uuid", checker.getUuid().get());
-      checkerData.put("name", checker.getName());
-      checkerData.put("repository", checker.getRepository().get());
-      checker
-          .getDescription()
-          .ifPresent(description -> checkerData.put("description", description));
-      checker.getUrl().ifPresent(url -> checkerData.put("url", url));
-      soyContext.put("checker", checkerData);
+    if (checker != null && check != null) {
+      soyContext.put("checker", getCheckerData(checker, check));
     }
+  }
 
-    if (check != null) {
-      Map<String, Object> checkData = new HashMap<>();
-      checkData.put("checkerUuid", check.key().checkerUuid().get());
-      checkData.put("change", check.key().patchSet().changeId().get());
-      checkData.put("patchSet", check.key().patchSet().get());
-      checkData.put("repository", check.key().repository().get());
-      checkData.put("state", check.state().name());
-      check.message().ifPresent(message -> checkData.put("message", message));
-      check.url().ifPresent(url -> checkData.put("url", url));
-      soyContext.put("check", checkData);
-    }
+  private static Map<String, Object> getCheckerData(Checker checker, Check check) {
+    Map<String, Object> checkerData = new HashMap<>();
+    checkerData.put("uuid", checker.getUuid().get());
+    checkerData.put("name", checker.getName());
+    checkerData.put("repository", checker.getRepository().get());
+    checker.getDescription().ifPresent(description -> checkerData.put("description", description));
+    checker.getUrl().ifPresent(url -> checkerData.put("url", url));
+
+    Map<String, Object> checkData = new HashMap<>();
+    checkData.put("change", check.key().patchSet().changeId().get());
+    checkData.put("patchSet", check.key().patchSet().get());
+    checkData.put("repository", check.key().repository().get());
+    checkData.put("state", check.state().name());
+    check.message().ifPresent(message -> checkData.put("message", message));
+    check.url().ifPresent(url -> checkData.put("url", url));
+    checkerData.put("check", checkData);
+
+    return checkerData;
   }
 
   @Override
