@@ -16,6 +16,24 @@
       "revId": "78a36b49baf16c5ad86c625b98079131611cbcb6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1e80a50_96e3fa26",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-16T07:38:02Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any, but I\u0027m happy to follow-up on this if anyone can point me to one.",
+      "parentUuid": "ffe0a729_931e4702",
+      "revId": "78a36b49baf16c5ad86c625b98079131611cbcb6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
