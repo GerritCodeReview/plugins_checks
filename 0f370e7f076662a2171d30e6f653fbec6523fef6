@@ -4,10 +4,10 @@
       "state": "SCHEDULED",
       "message": "Change has been enqueued in check",
       "url": "https://zuul.opendev.org/t/zuul/buildset/793b0cc31b8d4591af552f477c409a54",
-      "started": "2019-10-16T10:05:00Z",
+      "started": "2019-10-16T10:05:03Z",
       "finished": "2019-10-16T07:37:06Z",
       "created": "2019-10-16T07:36:57Z",
-      "updated": "2019-10-16T10:05:00Z"
+      "updated": "2019-10-16T10:05:03Z"
     }
   }
 }
