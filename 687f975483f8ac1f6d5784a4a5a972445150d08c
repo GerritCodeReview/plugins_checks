@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "28f341d8_824184f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-17T08:28:56Z",
+      "side": 1,
+      "message": "No, this assumption of having a 1:1 relation between checker and check is only true if you look at in the context of one patch set (which is the case for email notifications). Otherwise Checker is just the configuration/definition of a checker, and there are a many checks that belong to it (one per patch set for each change to which the checker applies). In the data structure we want to keep this separate, e.g. we want to be able to load a checker without loading all its checks.",
+      "parentUuid": "7adcefe9_0999a938",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7d4c6a6_1d45b126",
         "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "425f9f83_942cd18d",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-17T08:28:56Z",
+      "side": 1,
+      "message": "The check already contains the checker UUID. This means we already have this relationship in the model. It\u0027s intentionally only the checker UUID so that checks can be loaded without loading all the checker data.\n\nWe could just pass the Check in here and let this class load the checker data, but I think senders should not load data on their own, and it\u0027s cleaner if all data is passed in.",
+      "parentUuid": "f7d4c6a6_1d45b126",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 52
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
