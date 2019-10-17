@@ -93,6 +93,30 @@
       "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc08b464_ed9ba821",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-17T09:57:13Z",
+      "side": 1,
+      "message": "I agree, that check should be loaded without loading the corresponding checker as well. However, there should be underlying data structure to hoist all the information required for related code paths to access the check and checkers instances, like the template rendering layer here.\n\nWhile it is not in scope of this change, but in core gerrit the same template rendering layer is using ChangeData, that is aware of the complete data structure related to the change, patch sets, approvals and what not.\n\nSo may be something similar could be added in checks plugin, CheckData, then that would contain Check and Checkers instances (and may be even more). So that this method could just be:\n\n  public void setCheck(CheckData cd) {\n  [...]\n\nAnd then access Check an Checker instances through: cd.getCheck() and cd.getChecker().",
+      "parentUuid": "425f9f83_942cd18d",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 52
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
