@@ -141,6 +141,52 @@
       "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9141aef_5a18c564",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-21T20:07:03Z",
+      "side": 1,
+      "message": "Swap the order of the filling of entities, first check data and only then checker data? That\u0027s because, checker.check is set in the end, on the line 114, and the logical pre-requisite is that check data is filled first.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "571a66bd_03b249cf",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-21T20:07:03Z",
+      "side": 1,
+      "message": "It took me time to understand this map in map constructs. What we actually populating here, using maps is these two classes:\n\n  class CheckData {\n    int change;\n    int patchSet;\n    String repository;\n    String state;\n    String message;\n    String url;\n  }\n\n  class CheckerData {\n    String uuid;\n    String name;\n    String repository;\n    String description;\n    String url;\n    CheckData check;\n }\n\nBut we cannot used classes, because Soy template requires maps?\n\n* [1] http://paste.openstack.org/show/785379",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
