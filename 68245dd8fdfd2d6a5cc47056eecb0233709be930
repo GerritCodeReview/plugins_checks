@@ -46,6 +46,29 @@
       "revId": "68245dd8fdfd2d6a5cc47056eecb0233709be930",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8abbbd32_6e2bc3ad",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-10-21T20:46:56Z",
+      "side": 1,
+      "message": "Why this asymmetry in handling of checkUrl between text based and html based rendering code paths? On line 751 checkUrl is rendered directly, and not passed any more to the allChecksOverviewText() method. Here checkUrl is rendered directly on line 763, but in addition it\u0027s now passed again into allChecksOverviewHtml() method?\n\nI think it\u0027s because HTML template would render All checks summary with check URL, e.g.:\n\n  \u003cp\u003e\u003cu\u003e\u003cstrong\u003eAll checks:\u003c/strong\u003e\u003c/u\u003e\u003cbr\u003e\u003cstrong\u003eFailed:\u003c/strong\u003e \u003ca href\u003d\"http://my-checker/12345\"\u003eMy Checker\u003c/a\u003e\u003cbr\u003e\u003c/p\u003e\n\nwhile the TEXT template would render All checks summary without check URL, e.g.:\n\n  All checks:\n  Failed: My Checker\n\nIs this discrepancy expected?",
+      "range": {
+        "startLine": 769,
+        "startChar": 20,
+        "endLine": 769,
+        "endChar": 58
+      },
+      "revId": "68245dd8fdfd2d6a5cc47056eecb0233709be930",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
