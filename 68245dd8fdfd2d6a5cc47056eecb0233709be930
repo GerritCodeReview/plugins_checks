@@ -1,11 +1,13 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
+      "state": "NOT_RELEVANT",
+      "message": "Project has no jobs configured",
+      "url": "https://zuul.opendev.org/t/zuul/buildset/d770b6eba6b345e5bfdcc8f537a76b8e",
       "started": "2019-10-22T22:12:10Z",
+      "finished": "2019-10-22T22:16:49Z",
       "created": "2019-10-16T10:04:59Z",
-      "updated": "2019-10-22T22:12:13Z"
+      "updated": "2019-10-22T22:16:50Z"
     }
   }
 }
