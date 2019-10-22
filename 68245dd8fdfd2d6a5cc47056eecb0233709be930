@@ -1,11 +1,13 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://zuul.opendev.org/t/zuul/buildset/46c2208c513d48e994ba75c909991a43",
       "started": "2019-10-22T18:01:01Z",
+      "finished": "2019-10-22T18:01:03Z",
       "created": "2019-10-16T10:04:59Z",
-      "updated": "2019-10-22T18:01:01Z"
+      "updated": "2019-10-22T18:01:04Z"
     }
   }
 }
