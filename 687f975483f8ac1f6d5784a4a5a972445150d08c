@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "838d83f5_cf43b738",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-23T08:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9141aef_5a18c564",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 67
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "571a66bd_03b249cf",
         "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
         "patchSetId": 1
@@ -187,6 +211,30 @@
       "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6963b232_1c661f32",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-23T08:55:54Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I gave it a try, but soy doesn\u0027t like it:\n\n  com.google.template.soy.data.SoyDataException: Attempting to convert unrecognized object to Soy value (object type com.google.gerrit.plugins.checks.email.CombinedCheckStateUpdatedSender$CheckerData).\n\nI\u0027ve added some JavaDoc to make this method a little clearer.",
+      "parentUuid": "571a66bd_03b249cf",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 40
+      },
+      "revId": "687f975483f8ac1f6d5784a4a5a972445150d08c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
