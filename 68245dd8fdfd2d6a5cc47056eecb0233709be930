@@ -69,6 +69,30 @@
       "revId": "68245dd8fdfd2d6a5cc47056eecb0233709be930",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb40966e_02c06d3c",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2019-10-23T09:05:29Z",
+      "side": 1,
+      "message": "Yes, this is intended. If you chose to receive text emails it\u0027s expected that links cannot be rendered. In the case of the one particular check that causes the combined check state to change to WARNING/FAILED it\u0027s feasible to just include the whole URL as text (l. 751). However for the checks overview which can contain hundreds of checks including the whole URL for each of them as text would be too verbose and make the overview unreadable. Hence the check URLs are omitted here and you only get these links if you chose HTML emails.\n\nI\u0027ve added this info also to the commit message.",
+      "parentUuid": "8abbbd32_6e2bc3ad",
+      "range": {
+        "startLine": 769,
+        "startChar": 20,
+        "endLine": 769,
+        "endChar": 58
+      },
+      "revId": "68245dd8fdfd2d6a5cc47056eecb0233709be930",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
