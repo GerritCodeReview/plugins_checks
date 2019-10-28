@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "848e509f_a051917a",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-28T13:20:07Z",
+      "side": 1,
+      "message": "hmm why check for `refit` is necessary for this ? maybe add a comment on why it `refit` may not exist.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 67
+      },
+      "revId": "1693d7a4d5334cc7fb8ed74aa2a698ec615b27b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adbd8a58_248f81e0",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-28T13:20:07Z",
+      "side": 1,
+      "message": "this can be short to:\n```\nconst prevCheck \u003d this._checks.find(c \u003d\u003e c.checker_uuid \u003d\u003d\u003d  check.checker_uuid)\n```\n😎",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 151,
+        "endChar": 11
+      },
+      "revId": "1693d7a4d5334cc7fb8ed74aa2a698ec615b27b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdc4d055_36ff73fa",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-28T13:20:07Z",
+      "side": 1,
+      "message": "nit: this can be pretty dangerous... as it will lose the `this` inside of the `_orderChecks`, better use either a util pure function (instead of method of this component), or use `(a,b) \u003d\u003e this._orderChecks(a, b)`",
+      "range": {
+        "startLine": 168,
+        "startChar": 27,
+        "endLine": 168,
+        "endChar": 39
+      },
+      "revId": "1693d7a4d5334cc7fb8ed74aa2a698ec615b27b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a80c6fb5_dd691019",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-28T13:20:07Z",
+      "side": 1,
+      "message": "`;`",
+      "revId": "1693d7a4d5334cc7fb8ed74aa2a698ec615b27b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f001c7d3_61b7b8c5",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-28T13:20:07Z",
+      "side": 1,
+      "message": "extra spaces ?",
+      "revId": "1693d7a4d5334cc7fb8ed74aa2a698ec615b27b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
