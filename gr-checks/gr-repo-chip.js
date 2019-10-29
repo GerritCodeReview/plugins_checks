@@ -6,7 +6,7 @@
    */
   Polymer({
     is: 'gr-repo-chip',
-    _legacyUndefinedCheck: true,
+
     properties: {
       // repo type is ProjectInfo
       repo: Object,
@@ -15,10 +15,10 @@
         value: true,
       },
     },
+
     _handleRemoveTap(e) {
       e.preventDefault();
       this.fire('remove', {repo: this.repo});
     },
   })
-
 })();

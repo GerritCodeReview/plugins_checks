@@ -8,6 +8,7 @@
    */
   Polymer({
     is: 'gr-checkers-list',
+
     properties: {
       /**
        * Add observer on pluginRestApi to call getCheckers when it's defined
