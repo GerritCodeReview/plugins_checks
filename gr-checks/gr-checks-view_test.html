@@ -10,6 +10,7 @@
 
 <title>gr-checks-item</title>
 <link rel="import" href="gr-checks-view.html">
+<link rel="import" href="gr-checks-item.html">
 
 <!-- Gr-overlay does not exist in the test framework
 It is expected to be provided by Gerrit core -->
@@ -21,6 +22,7 @@ It is expected to be provided by Gerrit core -->
       Polymer({
         is: 'gr-overlay',
         refit() {},
+        open() {},
       });
     })
   </script>
@@ -116,7 +118,7 @@ It is expected to be provided by Gerrit core -->
     let fetchJSONSpy; let fetchJSONResolve;
     let getAccountCapabilitiesSpy;
     let getAccountCapabilitiesResolve;
-    let postSpy; let postResolve;
+    let postSpy, postResolve, postReject;
     setup(done => {
       sandbox = sinon.sandbox.create();
 
@@ -143,8 +145,9 @@ It is expected to be provided by Gerrit core -->
       getAccountSpy.returns(getAccountPromise);
 
       postSpy = sinon.stub();
-      const postPromise = new Promise(resolve => {
+      const postPromise = new Promise((resolve, reject) => {
         postResolve = resolve;
+        postReject = reject;
       });
       postSpy.returns(postPromise);
 
@@ -339,6 +342,21 @@ It is expected to be provided by Gerrit core -->
       test('renders a table of all the checks', () => {
         const tbody = element.$$('table > tbody');
         assert.lengthOf(tbody.querySelectorAll('gr-checks-item'), 4);
+      });
+
+      test('retry fails with overlay', done => {
+        postReject(new Error('random error'));
+        const errorOverlayStub = sandbox.stub(element.$.errorOverlay, 'open');
+        Polymer.dom.flush();
+        const checksItem = element.querySelectorAll
+            ('table > tbody > gr-checks-item')[0];
+        const reRun = checksItem.querySelectorAll('td')[7];
+        const reRunButton = reRun.querySelector('gr-button');
+        reRunButton.click();
+        flush(() => {
+          assert(errorOverlayStub.called);
+          done();
+        });
       });
 
       suite('message is rendered', () => {
