@@ -195,8 +195,9 @@
           res => {
             this._fetchChecks(this.change, this.revision._number,
                 this.getChecks);
-          }, e => {
-            console.error(e);
+          }, error => {
+            this.retryCheckError = error.message;
+            this.$.errorOverlay.open();
           }
       );
     },
@@ -219,6 +220,10 @@
             return Object.assign({}, prevCheck, check,
                 {showCheckMessage: prevCheck.showCheckMessage});
           });
+    },
+
+    _handleDismissErrorDialog() {
+      this.$.errorOverlay.close();
     },
 
     /**
