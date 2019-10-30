@@ -7,6 +7,7 @@
 
 <title>gr-checks-item</title>
 <link rel="import" href="gr-checks-view.html">
+<link rel="import" href="gr-checks-item.html">
 
 
 <!-- Gr-overlay does not exist in the test framework
@@ -309,6 +310,13 @@ It is expected to be provided by Gerrit core -->
       test('renders a table of all the checks', () => {
         const tbody = element.$$('table > tbody');
         assert.lengthOf(tbody.querySelectorAll('gr-checks-item'), 3);
+      });
+
+      test('retry fails with overlay', () => {
+        const checksItem = element.$$('table > tbody > gr-checks-item');
+        const reRun = checksItem.querySelectorAll('td')[8];
+        const reRunButton = reRun.querySelector('gr-button');
+        reRunButton.click();
       });
 
       suite('create checker capability false', () => {
