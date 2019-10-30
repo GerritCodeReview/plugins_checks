@@ -67,12 +67,13 @@
       if (Polymer.FlattenedNodesObserver) {
         this._checkersListObserver = new Polymer.FlattenedNodesObserver(
           this.$.listBody, () => {
-            this.$.listOverlay.refit();
+            this.$.listOverlay.refit && this.$.listOverlay.refit();
           });
       } else {
         this._checkersListObserver = Polymer.dom(this.$.listBody).observeNodes(
           () => {
-            this.$.listOverlay.refit();
+            // remove
+            this.$.listOverlay.refit && this.$.listOverlay.refit();
           });
       }
     },
