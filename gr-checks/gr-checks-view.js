@@ -128,10 +128,15 @@
       retryCheck(this.change._number, this.revision._number, uuid).then(
         res => {
           this._fetchChecks(this.change, this.revision, this.getChecks);
-        }, e => {
-          console.error(e);
+        }, text => {
+          this.retryCheckError = text;
+          this.$.errorOverlay.open();
         }
       )
+    },
+
+    _handleDismissErrorDialog() {
+      this.$.errorOverlay.close();
     },
 
     /**
