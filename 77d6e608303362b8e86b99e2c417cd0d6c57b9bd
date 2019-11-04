@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f082981_ac361fde",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-11-04T09:38:08Z",
+      "side": 1,
+      "message": "nit: if you want to keep a clone of the check, maybe use `Object.assign({}, check)`, then it will be consistent with what you do when `prevCheck` is defined, and it also won\u0027t give you any surprise if you changed any direct attribute on the check later.",
+      "range": {
+        "startLine": 152,
+        "startChar": 33,
+        "endLine": 152,
+        "endChar": 39
+      },
+      "revId": "77d6e608303362b8e86b99e2c417cd0d6c57b9bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b083fb_0f76b152",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-11-04T09:38:08Z",
+      "side": 1,
+      "message": "maybe just mention that this component will be provided by Gerrit core ? `production` is too technical :)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 59
+      },
+      "revId": "77d6e608303362b8e86b99e2c417cd0d6c57b9bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
