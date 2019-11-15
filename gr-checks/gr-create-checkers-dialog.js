@@ -5,89 +5,97 @@
   const CREATE_CHECKER_URL = '/plugins/checks/checkers/';
   const SCHEME_PATTERN = /^[\w-_.]*$/;
 
-  Polymer({
-    is: 'gr-create-checkers-dialog',
-
-    properties: {
-      checker: {
-        type: Object,
-        observer: '_checkerChanged'
-      },
-      _name: String,
-      _scheme: String,
-      _id: String,
-      _uuid: {
-        type: String,
-        value: ""
-      },
-      pluginRestApi: Object,
-      _url: String,
-      _description: String,
-      _getRepoSuggestions: {
-        type: Function,
-        value() {
-          return this._repoSuggestions.bind(this)
-        }
-      },
-      // The backend might support multiple repos in the future
-      // which is why I decided to keep it as an array.
-      _repos: {
-        type: Array,
-        value: [],
-        notify: true,
-      },
-      _repositorySelected: {
-        type: Boolean,
-        value: false
-      },
-      _handleOnRemove: Function,
-      _errorMsg: {
-        type: String,
-        value: ''
-      },
-      _statuses: {
-        type: Array,
-        value: [
-          {
-            "text": "ENABLED",
-            "value": "ENABLED"
-          },
-          {
-            "text": "DISABLED",
-            "value": "DISABLED"
-          }
-        ],
-        readOnly: true
-      },
-      _required: {
-        type: Boolean,
-        value: false
-      },
-      _status: String,
-      _edit: {
-        type: Boolean,
-        value: false
-      },
-      _query: String
-    },
-
-    behaviours: [
-      Gerrit.FireBehavior,
-    ],
+  class GrCreateCheckersDialog extends Polymer.GestureEventListeners(
+      Polymer.LegacyElementMixin(
+          Polymer.Element)) {
+    static get is() { return 'gr-create-checkers-dialog'; }
     /**
     * Fired when the cancel button is pressed.
     *
     * @event cancel
     */
 
+    constructor() {
+      super();
+      this.behaviours = [
+        Gerrit.FireBehavior,
+      ];
+    }
 
-    observers: [
-      '_updateUUID(_scheme, _id)',
-    ],
+    static get properties() {
+      return {
+        checker: {
+          type: Object,
+          observer: '_checkerChanged',
+        },
+        _name: String,
+        _scheme: String,
+        _id: String,
+        _uuid: {
+          type: String,
+          value: '',
+        },
+        pluginRestApi: Object,
+        _url: String,
+        _description: String,
+        _getRepoSuggestions: {
+          type: Function,
+          value() {
+            return this._repoSuggestions.bind(this);
+          },
+        },
+        // The backend might support multiple repos in the future
+        // which is why I decided to keep it as an array.
+        _repos: {
+          type: Array,
+          value: [],
+          notify: true,
+        },
+        _repositorySelected: {
+          type: Boolean,
+          value: false,
+        },
+        _handleOnRemove: Function,
+        _errorMsg: {
+          type: String,
+          value: '',
+        },
+        _statuses: {
+          type: Array,
+          value: [
+            {
+              text: 'ENABLED',
+              value: 'ENABLED',
+            },
+            {
+              text: 'DISABLED',
+              value: 'DISABLED',
+            },
+          ],
+          readOnly: true,
+        },
+        _required: {
+          type: Boolean,
+          value: false,
+        },
+        _status: String,
+        _edit: {
+          type: Boolean,
+          value: false,
+        },
+        _query: String,
+      };
+    }
+
+    static get observers() {
+      return [
+        '_updateUUID(_scheme, _id)',
+      ];
+    }
 
     _checkerChanged() {
       if (!this.checker) {
-        console.warn("checker not set");
+        console.warn('checker not set');
         return;
       }
       this._edit = true;
@@ -104,15 +112,15 @@
         this.set('_repos', [{name: this.checker.repository}]);
       }
       this._status = this.checker.status;
-    },
+    }
 
     _updateUUID(_scheme, _id) {
-      this._uuid = _scheme + ":" + _id;
-    },
+      this._uuid = _scheme + ':' + _id;
+    }
 
     _handleStatusChange(e) {
       this._status = e.detail.value;
-    },
+    }
 
     _validateRequest() {
       if (!this._name) {
@@ -150,68 +158,68 @@
         return false;
       }
       return true;
-    },
+    }
 
     // TODO(dhruvsri): make sure dialog is scrollable.
 
     _createChecker(checker) {
       return this.pluginRestApi.send(
-        'POST',
-        CREATE_CHECKER_URL,
-        checker,
-      )
-    },
+          'POST',
+          CREATE_CHECKER_URL,
+          checker
+      );
+    }
 
     _editChecker(checker) {
       const url = CREATE_CHECKER_URL + checker.uuid;
       return this.pluginRestApi.send(
-        'POST',
-        url,
-        checker
-      )
-    },
+          'POST',
+          url,
+          checker
+      );
+    }
 
     handleEditChecker() {
       if (!this._validateRequest()) return;
       this._editChecker(this._getCheckerRequestObject()).then(
-        res => {
-          if (res) {
-            this._errorMsg = '';
-            this.fire('cancel', {reload: true}, {bubbles: true});
+          res => {
+            if (res) {
+              this._errorMsg = '';
+              this.fire('cancel', {reload: true}, {bubbles: true});
+            }
+          },
+          error => {
+            this._errorMsg = error;
           }
-        },
-        error => {
-          this._errorMsg = error;
-        }
-      )
-    },
+      );
+    }
 
     _getCheckerRequestObject() {
       return {
-        "name" : this._name,
-        "description" : this._description || '',
-        "uuid" : this._uuid,
-        "repository": this._repos[0].name,
-        "url" : this._url,
-        "status": this._status,
-        "blocking": this._required ? ["STATE_NOT_PASSING"] : [],
-        "query": this._query
-      }
-    },
+        name: this._name,
+        description: this._description || '',
+        uuid: this._uuid,
+        repository: this._repos[0].name,
+        url: this._url,
+        status: this._status,
+        blocking: this._required ? ['STATE_NOT_PASSING'] : [],
+        query: this._query,
+      };
+    }
 
     handleCreateChecker() {
       if (!this._validateRequest()) return;
       // Currently after creating checker there is no reload happening (as
       // this would result in the user exiting the screen).
       this._createChecker(this._getCheckerRequestObject()).then(
-        res => {
-          if (res) this._cleanUp();
-        },
-        error => {
-          this._errorMsg = error;
-        }
-      )
-    },
+          res => {
+            if (res) this._cleanUp();
+          },
+          error => {
+            this._errorMsg = error;
+          }
+      );
+    }
 
     _cleanUp() {
       this._name = '';
@@ -226,32 +234,33 @@
       this._query = '';
       this._status = '';
       this.fire('cancel', {reload: true}, {bubbles: true});
-    },
+    }
 
     _repoSuggestions(filter) {
-      const _makeSuggestion = repo => {return {name: repo.name, value: repo}};
+      const _makeSuggestion = repo => { return {name: repo.name, value: repo}; };
       return this.pluginRestApi.getRepos(filter, REPOS_PER_PAGE).then(
-        repos => repos.map(repo =>  _makeSuggestion(repo))
-      )
-    },
+          repos => repos.map(repo => _makeSuggestion(repo))
+      );
+    }
 
     _handleRepositorySelected(e) {
       this.push('_repos', e.detail.value);
       this._repositorySelected = true;
-    },
+    }
 
     _handleRequiredCheckBoxClicked() {
       this._required = !this._required;
-    },
+    }
 
     _handleOnRemove(e) {
-      let idx = this._repos.indexOf(e.detail.repo);
+      const idx = this._repos.indexOf(e.detail.repo);
       if (idx == -1) return;
       this.splice('_repos', idx, 1);
       if (this._repos.length == 0) {
         this._repositorySelected = false;
       }
-    },
+    }
+  }
 
-  });
+  customElements.define(GrCreateCheckersDialog.is, GrCreateCheckersDialog);
 })();

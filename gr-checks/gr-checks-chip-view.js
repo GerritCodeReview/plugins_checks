@@ -49,77 +49,85 @@
 
   function downgradeFailureToWarning(checks) {
     const hasFailedCheck = checks.some(
-      (check) => {
-        return check.state == Statuses.FAILED;
-      }
-    )
+        check => {
+          return check.state == Statuses.FAILED;
+        }
+    );
     if (!hasFailedCheck) return '';
     const hasRequiredFailedCheck = checks.some(
-      (check) => {
-        return check.state == Statuses.FAILED &&
+        check => {
+          return check.state == Statuses.FAILED &&
                check.blocking && check.blocking.length > 0;
-      }
-    )
+        }
+    );
     return hasRequiredFailedCheck ? '' : 'set';
   }
 
+  class GrChecksChipView extends Polymer.GestureEventListeners(
+      Polymer.LegacyElementMixin(
+          Polymer.Element)) {
+    static get is() { return 'gr-checks-chip-view'; }
 
-  Polymer({
-    is: 'gr-checks-chip-view',
+    static get properties() {
+      return {
+        revision: Object,
+        change: Object,
+        /** @type {function(number, number): !Promise<!Object>} */
+        getChecks: Function,
+        _checkStatuses: Object,
+        _hasChecks: Boolean,
+        _failedRequiredChecksCount: Number,
+        _status: {type: String, computed: '_computeStatus(_checkStatuses)'},
+        _statusString: {
+          type: String,
+          computed: '_computeStatusString(_status, _checkStatuses, _failedRequiredChecksCount)',
+        },
+        _chipClasses: {type: String, computed: '_computeChipClass(_status)'},
+        // Type is set as string so that it reflects on changes
+        // Polymer does not support reflecting changes in Boolean property
+        _downgradeFailureToWarning: {
+          type: String,
+          value: '',
+        },
+        pollChecksInterval: Object,
+        visibilityChangeListenerAdded: {
+          type: Boolean,
+          value: false,
+        },
+      };
+    }
 
-    properties: {
-      revision: Object,
-      change: Object,
-      /** @type {function(number, number): !Promise<!Object>} */
-      getChecks: Function,
-      _checkStatuses: Object,
-      _hasChecks: Boolean,
-      _failedRequiredChecksCount: Number,
-      _status: {type: String, computed: '_computeStatus(_checkStatuses)'},
-      _statusString: {
-        type: String,
-        computed: '_computeStatusString(_status, _checkStatuses, _failedRequiredChecksCount)',
-      },
-      _chipClasses: {type: String, computed: '_computeChipClass(_status)'},
-      // Type is set as string so that it reflects on changes
-      // Polymer does not support reflecting changes in Boolean property
-      _downgradeFailureToWarning: {
-        type: String,
-        value: ''
-      },
-      pollChecksInterval: Object,
-      visibilityChangeListenerAdded: {
-        type: Boolean,
-        value: false
-      }
-    },
+    created() {
+      super.created();
+      Polymer.Gestures.addListener(this, 'tap',
+          () => this.showChecksTable());
+    }
 
     detached() {
+      super.detached();
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
-    },
+    }
 
-    observers: [
-      '_pollChecksRegularly(change, revision, getChecks)',
-    ],
-
-    listeners: {
-      'tap': 'showChecksTable'
-    },
+    static get observers() {
+      return [
+        '_pollChecksRegularly(change, revision, getChecks)',
+      ];
+    }
 
     showChecksTable() {
       this.dispatchEvent(
-        new CustomEvent(
-          'show-checks-table',
-          {
-            bubbles: true,
-            composed: true,
-            detail: {
-              tab: 'change-view-tab-content-checks'
-            }
-          })
-        );
-    },
+          new CustomEvent(
+              'show-checks-table',
+              {
+                bubbles: true,
+                composed: true,
+                detail: {
+                  tab: 'change-view-tab-content-checks',
+                },
+              })
+      );
+    }
 
     /**
      * @param {!Defs.Change} change
@@ -139,7 +147,7 @@
           this._checkStatuses = computeCheckStatuses(checks);
         }
       });
-    },
+    }
 
     _onVisibililityChange() {
       if (document.hidden) {
@@ -147,7 +155,7 @@
         return;
       }
       this._pollChecksRegularly(this.change, this.revision, this.getChecks);
-    },
+    }
 
     _pollChecksRegularly(change, revision, getChecks) {
       if (this.pollChecksInterval) {
@@ -155,12 +163,12 @@
       }
       const poll = () => this._fetchChecks(change, revision, getChecks);
       poll();
-      this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS)
+      this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS);
       if (!this.visibilityChangeListenerAdded) {
         this.visibilityChangeListenerAdded = true;
         this.listen(document, 'visibilitychange', '_onVisibililityChange');
       }
-    },
+    }
 
     /**
      * @param {!Object} checkStatuses The number of checks in each status.
@@ -170,17 +178,17 @@
       return StatusPriorityOrder.find(
           status => checkStatuses[status] > 0) ||
           Statuses.STATUS_UNKNOWN;
-    },
+    }
 
     computeFailedRequiredChecksCount(checks) {
       const failedRequiredChecks = checks.filter(
-        check => {
-          return check.state == Statuses.FAILED &&
+          check => {
+            return check.state == Statuses.FAILED &&
             check.blocking && check.blocking.length > 0;
-        }
+          }
       );
       return failedRequiredChecks.length;
-    },
+    }
 
     /**
      * @param {string} status The overall status of the checks.
@@ -191,12 +199,12 @@
       if (!checkStatuses) return;
       if (checkStatuses.total === 0) return 'No checks';
       let statusString = `${checkStatuses[status]} of ${
-          checkStatuses.total} checks ${HumanizedStatuses[status]}`;
+        checkStatuses.total} checks ${HumanizedStatuses[status]}`;
       if (status === Statuses.FAILED && failedRequiredChecksCount > 0) {
         statusString += ` (${failedRequiredChecksCount} required)`;
       }
       return statusString;
-    },
+    }
 
     /**
      * @param {string} status The overall status of the checks.
@@ -204,6 +212,8 @@
      */
     _computeChipClass(status) {
       return `chip ${window.Gerrit.Checks.statusClass(status)}`;
-    },
-  });
+    }
+  }
+
+  customElements.define(GrChecksChipView.is, GrChecksChipView);
 })();

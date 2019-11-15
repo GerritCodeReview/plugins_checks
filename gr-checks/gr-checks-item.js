@@ -21,30 +21,34 @@
    */
   Defs.Check;
 
-  Polymer({
-    is: 'gr-checks-item',
+  class GrChecksItem extends Polymer.GestureEventListeners(
+      Polymer.LegacyElementMixin(
+          Polymer.Element)) {
+    static get is() { return 'gr-checks-item'; }
 
-    properties: {
+    static get properties() {
+      return {
       /** @type {Defs.Check} */
-      check: Object,
-      /** @type {function(string): !Promise<!Object>} */
-      _startTime: {
-        type: String,
-        computed: '_computeStartTime(check)',
-      },
-      _duration: {
-        type: String,
-        computed: '_computeDuration(check)',
-      },
-      _requiredForMerge: {
-        type: String,
-        computed: '_computeRequiredForMerge(check)'
-      },
-      showCheckMessage: {
-        type: Boolean,
-        value: false,
-      }
-    },
+        check: Object,
+        /** @type {function(string): !Promise<!Object>} */
+        _startTime: {
+          type: String,
+          computed: '_computeStartTime(check)',
+        },
+        _duration: {
+          type: String,
+          computed: '_computeDuration(check)',
+        },
+        _requiredForMerge: {
+          type: String,
+          computed: '_computeRequiredForMerge(check)',
+        },
+        showCheckMessage: {
+          type: Boolean,
+          value: false,
+        },
+      };
+    }
 
     /**
      * Fired when the retry check button is pressed.
@@ -52,24 +56,23 @@
      * @event retry-check
      */
 
-
     /**
      * @param {!Defs.Check} check
      * @return {string}
      */
     _computeStartTime(check) {
-      if (!check.started) return "-";
+      if (!check.started) return '-';
       return check.started;
-    },
+    }
 
     _toggleMessageShown() {
       this.showCheckMessage = !this.showCheckMessage;
-      this.fire('toggle-check-message', {uuid: this.check.checker_uuid})
-    },
+      this.fire('toggle-check-message', {uuid: this.check.checker_uuid});
+    }
 
     _computeExpandIcon(showCheckMessage) {
-      return showCheckMessage ? "gr-icons:expand-less": "gr-icons:expand-more";
-    },
+      return showCheckMessage ? 'gr-icons:expand-less': 'gr-icons:expand-more';
+    }
 
     /**
      * @param {!Defs.Check} check
@@ -77,26 +80,29 @@
      */
     _computeDuration(check) {
       if (!check.started || !check.finished) {
-        return "-";
+        return '-';
       }
       const startTime = moment(check.started);
       const finishTime = check.finished ? moment(check.finished) : moment();
       return generateDurationString(
           moment.duration(finishTime.diff(startTime)));
-    },
+    }
 
     /**
      * @param {!Defs.Check} check
      * @return {string}
      */
     _computeRequiredForMerge(check) {
-      return (check.blocking && check.blocking.length === 0) ? "Optional" : "Required";
-    },
+      return (check.blocking && check.blocking.length === 0) ? 'Optional' : 'Required';
+    }
+
     _handleReRunClicked(event) {
-      this.fire('retry-check',{uuid: this.check.checker_uuid},
-        {bubbles: false});
-    },
-  });
+      this.fire('retry-check', {uuid: this.check.checker_uuid},
+          {bubbles: false});
+    }
+  }
+
+  customElements.define(GrChecksItem.is, GrChecksItem);
 
   const ZERO_SECONDS = '0 sec';
 

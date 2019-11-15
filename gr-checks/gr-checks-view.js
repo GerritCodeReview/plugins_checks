@@ -35,75 +35,83 @@
     NOT_CONFIGURED: 3,
   };
 
-  Polymer({
-    is: 'gr-checks-view',
+  class GrChecksView extends Polymer.GestureEventListeners(
+      Polymer.LegacyElementMixin(
+          Polymer.Element)) {
+    static get is() { return 'gr-checks-view'; }
 
-    properties: {
-      revision: Object,
-      change: Object,
-      /** @type {function(number, number): !Promise<!Object>} */
-      getChecks: Function,
-      /** @type {function(string): !Promise<Boolean>} */
-      isConfigured: Function,
-      /** @type {function(string, string): !Promise<!Object>} */
-      pluginRestApi: Object,
-      _checks: Object,
-      _status: {
-        type: Object,
-        value: LoadingStatus.LOADING,
-      },
-      pollChecksInterval: Number,
-      visibilityChangeListenerAdded: {
-        type: Boolean,
-        value: false
-      },
-      _createCheckerCapability: {
-        type: Boolean,
-        value: false
-      },
-    },
+    static get properties() {
+      return {
+        revision: Object,
+        change: Object,
+        /** @type {function(number, number): !Promise<!Object>} */
+        getChecks: Function,
+        /** @type {function(string): !Promise<Boolean>} */
+        isConfigured: Function,
+        /** @type {function(string, string): !Promise<!Object>} */
+        pluginRestApi: Object,
+        _checks: Object,
+        _status: {
+          type: Object,
+          value: LoadingStatus.LOADING,
+        },
+        pollChecksInterval: Number,
+        visibilityChangeListenerAdded: {
+          type: Boolean,
+          value: false,
+        },
+        _createCheckerCapability: {
+          type: Boolean,
+          value: false,
+        },
+      };
+    }
 
-    observers: [
-      '_pollChecksRegularly(change, revision, getChecks)',
-    ],
+    static get observers() {
+      return [
+        '_pollChecksRegularly(change, revision, getChecks)',
+      ];
+    }
 
     attached() {
+      super.attached();
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
-    },
+    }
 
     detached() {
+      super.detached();
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
-    },
+    }
 
     _handleCheckersListResize() {
       // Force polymer to recalculate position of overlay when length of
       // checkers changes
       this.$.listOverlay.refit();
-    },
+    }
 
     _initCreateCheckerCapability() {
       return this.pluginRestApi.getAccount().then(account => {
         if (!account) { return; }
         return this.pluginRestApi
-          .getAccountCapabilities(['checks-administrateCheckers'])
-          .then(capabilities => {
-            if (capabilities['checks-administrateCheckers']) {
-              this._createCheckerCapability = true;
-            }
-          });
+            .getAccountCapabilities(['checks-administrateCheckers'])
+            .then(capabilities => {
+              if (capabilities['checks-administrateCheckers']) {
+                this._createCheckerCapability = true;
+              }
+            });
       });
-    },
+    }
 
     _handleConfigureClicked() {
       this.$$('gr-checkers-list')._showConfigureOverlay();
-    },
+    }
 
     _orderChecks(a, b) {
       if (a.state != b.state) {
-        let indexA = StatusPriorityOrder.indexOf(a.state);
-        let indexB = StatusPriorityOrder.indexOf(b.state);
+        const indexA = StatusPriorityOrder.indexOf(a.state);
+        const indexB = StatusPriorityOrder.indexOf(b.state);
         if (indexA != -1 && indexB != -1) {
           return indexA - indexB;
         }
@@ -115,24 +123,23 @@
         }
       }
       return a.checker_name.localeCompare(b.checker_name);
-    },
+    }
 
     _handleRetryCheck(e) {
       const uuid = e.detail.uuid;
       const retryCheck = (change, revision, uuid) => {
         return this.pluginRestApi.post(
-          '/changes/' + change + '/revisions/' + revision + '/checks/' + uuid + '/rerun'
-        )
-      }
+            '/changes/' + change + '/revisions/' + revision + '/checks/' + uuid + '/rerun'
+        );
+      };
       retryCheck(this.change._number, this.revision._number, uuid).then(
-        res => {
-          this._fetchChecks(this.change, this.revision, this.getChecks);
-        }, e => {
-          console.error(e);
-        }
-      )
-    },
-
+          res => {
+            this._fetchChecks(this.change, this.revision, this.getChecks);
+          }, e => {
+            console.error(e);
+          }
+      );
+    }
 
     /**
      * Merge new checks into old checks to maintain showCheckMessage
@@ -144,15 +151,15 @@
      */
     _updateChecks(checks) {
       return checks.map(
-        (check) => {
-          const prevCheck = this._checks.find(
-            (c) => { return c.checker_uuid === check.checker_uuid }
-          )
-          if (!prevCheck) return Object.assign({}, check);
-          return Object.assign({}, prevCheck, check,
-            {showCheckMessage: prevCheck.showCheckMessage});
-        });
-    },
+          check => {
+            const prevCheck = this._checks.find(
+                c => { return c.checker_uuid === check.checker_uuid; }
+            );
+            if (!prevCheck) return Object.assign({}, check);
+            return Object.assign({}, prevCheck, check,
+                {showCheckMessage: prevCheck.showCheckMessage});
+          });
+    }
 
     /**
      * @param {!Defs.Change} change
@@ -175,7 +182,7 @@
           this._checkConfigured();
         }
       });
-    },
+    }
 
     _onVisibililityChange() {
       if (document.hidden) {
@@ -183,23 +190,23 @@
         return;
       }
       this._pollChecksRegularly(this.change, this.revision, this.getChecks);
-    },
+    }
 
     _toggleCheckMessage(e) {
       const uuid = e.detail.uuid;
       if (!uuid) {
-        console.warn("uuid not found");
+        console.warn('uuid not found');
         return;
       }
       const idx = this._checks.findIndex(check => check.checker_uuid === uuid);
       if (idx == -1) {
-        console.warn("check not found");
+        console.warn('check not found');
         return;
       }
       // Update subproperty of _checks[idx] so that it reflects to polymer
       this.set(`_checks.${idx}.showCheckMessage`,
-        !this._checks[idx].showCheckMessage)
-    },
+          !this._checks[idx].showCheckMessage);
+    }
 
     _pollChecksRegularly(change, revision, getChecks) {
       if (this.pollChecksInterval) {
@@ -207,12 +214,12 @@
       }
       const poll = () => this._fetchChecks(change, revision, getChecks);
       poll();
-      this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS)
+      this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS);
       if (!this.visibilityChangeListenerAdded) {
         this.visibilityChangeListenerAdded = true;
         this.listen(document, 'visibilitychange', '_onVisibililityChange');
       }
-    },
+    }
 
     _checkConfigured() {
       const repository = this.change['project'];
@@ -221,19 +228,24 @@
             configured ? LoadingStatus.EMPTY : LoadingStatus.NOT_CONFIGURED;
         this.set('_status', status);
       });
-    },
+    }
 
     _isLoading(status) {
       return status === LoadingStatus.LOADING;
-    },
+    }
+
     _isEmpty(status) {
       return status === LoadingStatus.EMPTY;
-    },
+    }
+
     _hasResults(status) {
       return status === LoadingStatus.RESULTS;
-    },
+    }
+
     _isNotConfigured(status) {
       return status === LoadingStatus.NOT_CONFIGURED;
-    },
-  });
+    }
+  }
+
+  customElements.define(GrChecksView.is, GrChecksView);
 })();
