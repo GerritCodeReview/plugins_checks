@@ -23,6 +23,18 @@ To execute the tests run:
   bazel test --test_tag_filters=@PLUGIN@
 ```
 
+To build REST API client library run:
+
+```
+  bazel build plugins/@PLUGIN@:checks-rest-api-client_deploy.jar
+```
+
+The output is created in
+
+```
+  bazel-bin/plugins/@PLUGIN@/@PLUGIN@-rest-api-client_deploy.jar
+```
+
 [Back to @PLUGIN@ documentation index][index]
 
 [index]: index.html
