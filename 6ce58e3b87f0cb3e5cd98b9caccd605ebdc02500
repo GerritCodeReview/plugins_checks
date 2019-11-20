@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "opendev-zuul-third-party-check:plugins_checks": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2019-11-20T19:41:59Z",
+      "created": "2019-11-20T19:42:00Z",
+      "updated": "2019-11-20T19:42:00Z"
+    }
+  }
+}
