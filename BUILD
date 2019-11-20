@@ -6,6 +6,7 @@ package_group(
 package(default_visibility = [":visibility"])
 
 load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+load("//tools/bzl:javadoc.bzl", "java_doc")
 load(
     "//tools/bzl:plugin.bzl",
     "PLUGIN_DEPS_NEVERLINK",
@@ -70,4 +71,23 @@ java_binary(
         ":checks-rest-api-client-lib",
         ":checks-rest-api-shared-lib",
     ],
+)
+
+java_binary(
+    name = "checks-rest-api-client-sources",
+    main_class = "Dummy",
+    runtime_deps = [
+        ":libchecks-rest-api-client-lib-src.jar",
+        ":libchecks-rest-api-shared-lib-src.jar",
+    ],
+)
+
+java_doc(
+    name = "checks-rest-api-client-javadoc",
+    libs = [
+        ":checks-rest-api-client-lib",
+        ":checks-rest-api-shared-lib",
+    ],
+    pkgs = ["com.google.gerrit.plugins.checks"],
+    title = "Checks Rest API Client Documentation",
 )
