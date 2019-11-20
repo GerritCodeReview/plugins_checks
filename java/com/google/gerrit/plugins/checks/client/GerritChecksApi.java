@@ -23,8 +23,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.net.URI;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Collections;
 import java.util.List;
+import javax.net.ssl.SSLContext;
 import org.apache.http.HttpException;
 import org.apache.http.HttpStatus;
 import org.apache.http.auth.AuthScope;
@@ -33,10 +36,14 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 import org.eclipse.jgit.transport.URIish;
 
@@ -50,6 +57,27 @@ public class GerritChecksApi {
   public GerritChecksApi(URIish gerritBaseURL) {
     this.gerritBaseURL = gerritBaseURL;
     this.clientBuilder = HttpClientBuilder.create();
+  }
+
+  public GerritChecksApi allowInsecureHttps() {
+    try {
+      SSLContext sslContext =
+          new SSLContextBuilder()
+              .loadTrustMaterial(
+                  null,
+                  new TrustStrategy() {
+                    public boolean isTrusted(final X509Certificate[] chain, String authType)
+                        throws CertificateException {
+                      return true;
+                    }
+                  })
+              .build();
+      SSLConnectionSocketFactory sslsf =
+          new SSLConnectionSocketFactory(sslContext, new NoopHostnameVerifier());
+      clientBuilder.setSSLSocketFactory(sslsf);
+    } catch (Exception e) {
+    }
+    return this;
   }
 
   public GerritChecksApi setBasicAuthCredentials(String username, String password) {
@@ -101,7 +129,7 @@ public class GerritChecksApi {
       if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
         return newGson()
             .fromJson(
-                EntityUtils.toString(response.getEntity()).split("\n", 2)[1],
+                removeJsonPrefix(EntityUtils.toString(response.getEntity())),
                 new TypeToken<CheckInfo>() {}.getType());
       }
       throw new HttpException(
@@ -110,6 +138,14 @@ public class GerritChecksApi {
       throw new HttpException("Could not update check", e);
     } finally {
       client.close();
+    }
+  }
+
+  private String removeJsonPrefix(String json) {
+    try {
+      return json.split("\n", 2)[1];
+    } catch (Exception e) {
+      return json;
     }
   }
 
