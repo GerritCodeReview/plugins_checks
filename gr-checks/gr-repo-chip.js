@@ -4,20 +4,27 @@
   /**
    * autocomplete chip for getting repository suggestions
    */
-  Polymer({
-    is: 'gr-repo-chip',
-    properties: {
+  class GrRepoChip extends Polymer.GestureEventListeners(
+      Polymer.LegacyElementMixin(
+          Polymer.Element)) {
+    static get is() { return 'gr-repo-chip'; }
+
+    static get properties() {
+      return {
       // repo type is ProjectInfo
-      repo: Object,
-      removable: {
-        type: Boolean,
-        value: true,
-      },
-    },
+        repo: Object,
+        removable: {
+          type: Boolean,
+          value: true,
+        },
+      };
+    }
+
     _handleRemove(e) {
       e.preventDefault();
       this.fire('remove', {repo: this.repo});
-    },
-  })
+    }
+  }
 
+  customElements.define(GrRepoChip.is, GrRepoChip);
 })();
