@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61865314_41cddff2",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2019-11-20T14:02:32Z",
+      "side": 1,
+      "message": "In the original code the property had incorrect name \u0027behavio*u*rs\u0027 - it must be behaviors. I.e. Gerrit.FireBehavior was not used.\n\nThis part of code must either be completely removed or changed to Polymer.mixinBehavior([Gerrit.FireBehavior], ....). Could you please check what is the correct fix in this case?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "dc80576bf9039bd2eb50015364da7dde4099f920",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
