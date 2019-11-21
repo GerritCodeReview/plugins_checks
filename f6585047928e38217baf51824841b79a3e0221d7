@@ -34,6 +34,24 @@
       "revId": "f6585047928e38217baf51824841b79a3e0221d7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebcdc87f_05ede651",
+        "filename": "tools/maven/mvn.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-11-21T11:59:51Z",
+      "side": 1,
+      "message": "And bazelisk is used for line 58, but when ist calls the api_install.sh script, this script itself again uses bazel. So this is not directly connected to this change, but indirectly causes an issue, if the main bazel version installed is not up-to-date.\n\nThe api_install.sh script calls in line 7:\n\n  bazel build //plugins/checks:checks-rest-api-client_deploy.jar //plugins/checks:checks-rest- \n  api-client-sources_deploy.jar //plugins/checks:checks-rest-api-client-javadoc",
+      "parentUuid": "3099bcfa_461df370",
+      "revId": "f6585047928e38217baf51824841b79a3e0221d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
