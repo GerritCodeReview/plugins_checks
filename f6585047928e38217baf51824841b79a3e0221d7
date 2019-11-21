@@ -16,6 +16,24 @@
       "revId": "f6585047928e38217baf51824841b79a3e0221d7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3099bcfa_461df370",
+        "filename": "tools/maven/mvn.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-21T11:11:41Z",
+      "side": 1,
+      "message": "Why? It is asking on line 52 below and if exists, bazelisk should be used for both install and deploy commands, right?\n\nAnyway, I copied/paste this file from the gerrit tree and adjusted it. If it is wrong, then we should fix the same script in gerrit tree as well.",
+      "parentUuid": "64a06126_9f891918",
+      "revId": "f6585047928e38217baf51824841b79a3e0221d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
