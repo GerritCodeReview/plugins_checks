@@ -22,6 +22,30 @@
       "revId": "a8f2a21a622d6f02d442b21a35b9c250bd52718c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b067e55c_bf2038ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-11-27T11:52:12Z",
+      "side": 1,
+      "message": "I think this is a good idea, although this should probably be discussed by the steering committee. Another solution would be to open up `com.google.gerrit.plugins`. That would be more work now, but at least build a foundation for later and would keep it separated from core components.\n\nI would prefer the artifactId with dashes, since this style is already used in com.google.gerrit and in my observation is the more widely used style.",
+      "parentUuid": "bbe1a4a6_3f7f9d15",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "a8f2a21a622d6f02d442b21a35b9c250bd52718c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
