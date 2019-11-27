@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbe1a4a6_3f7f9d15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-27T02:31:32Z",
+      "side": 1,
+      "message": "That would require registration of new Group-Id on Sonatype Jira project. I wonder if we should instead use the existing Group id from gerrit itself, and move the word \"checks\" from groupId to artifactId:\n\n  com.google.gerrit:checks-rest-api-client:3.1.0\n\nOr, even dot instead of dash in artifactId name:\n\n  com.google.gerrit:checks.rest.api.client:3.1.0\n\nThat would have three advantages:\n\n* We could just re-use this Sonatype issue: [1].\n* If the checks plugin would be promoted to core plugin: we wouldn\u0027t need to change anything\n* If the checks plugin feature would be moved to core gerrit: we wouldn\u0027t need to change anything\n\n* [1] https://issues.sonatype.org/browse/OSSRH-7392",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "a8f2a21a622d6f02d442b21a35b9c250bd52718c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
