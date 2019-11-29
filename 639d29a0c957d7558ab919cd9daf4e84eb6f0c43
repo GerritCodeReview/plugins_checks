@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9132192a_ac265853",
+        "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-29T13:33:03Z",
+      "side": 1,
+      "message": "Does it have to be public? Or can it also be package protected?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 7
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56c1b1ea_105751d1",
+        "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-29T13:33:03Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5803e296_2d58b65f",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-29T13:33:03Z",
+      "side": 1,
+      "message": "I would expect them final and be set from a single ctor. See also another comment in this file.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "358944f2_af5e2bfd",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-29T13:33:03Z",
+      "side": 1,
+      "message": "If these parameters are not optional, why no just have once ctor:\n\n  public Checks(URIish gerritBaseUrl,\n      CloseableHttpClient client,\n      boolean isAuthenticated,\n      int changeNumber,\n      int patchSetNumber) {\n  [...]",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c865f239_fc6dc040",
+        "filename": "java/com/google/gerrit/plugins/checks/client/PendingChecks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2019-11-29T13:33:03Z",
+      "side": 1,
+      "message": "Makes sense to have singel setter methods because it can be used either with uuid or with scheme.",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
