@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d14389fe_cccb3fdc",
+        "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-30T12:45:12Z",
+      "side": 1,
+      "message": "Agreed: interfaces should be public, but abstract classes are part of the internal design and should stay at maximum package level.",
+      "parentUuid": "9132192a_ac265853",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 7
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56c1b1ea_105751d1",
         "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
         "patchSetId": 5
@@ -42,6 +66,23 @@
         "endLine": 35,
         "endChar": 9
       },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f80d92e_49616434",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2019-11-30T12:45:12Z",
+      "side": 1,
+      "message": "Do we really need to build this by hand?\nWhy not exposing simply an OpenAPI definition and have some automated tool to generate the client stub?\n\nSee Swagger/OpenAPI at https://swagger.io/",
       "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
