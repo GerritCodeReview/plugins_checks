@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "274f4a14_3a94f015",
+        "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "Ack.\nI will change that in the next patch set.",
+      "parentUuid": "d14389fe_cccb3fdc",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 7
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "56c1b1ea_105751d1",
         "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
         "patchSetId": 5
@@ -60,6 +84,30 @@
       "writtenOn": "2019-11-29T13:33:03Z",
       "side": 1,
       "message": "Same as above.",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 9
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eda9aab_2924e46a",
+        "filename": "java/com/google/gerrit/plugins/checks/client/AbstractEndpoint.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56c1b1ea_105751d1",
       "range": {
         "startLine": 35,
         "startChar": 2,
@@ -89,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "2c81a641_a41090d9",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "I personally would gladly avoid the work involved with building it ourselves.\nWas the OpenAPI approach used before for Gerrit and its plugins?\nI think, it would be a good idea to decide to use the same approach for all APIs used by Gerrit and its plugins, to make development and usage easier. Maybe this would call for a broader discussion?\n\n(At least until this is clarified, I will use this change(series) to implement what I need to continue with my work on the GerritCodeReview-plugin for Jenkins.",
+      "parentUuid": "2f80d92e_49616434",
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5803e296_2d58b65f",
         "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
         "patchSetId": 5
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "8d30c736_24052375",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "I was doing this trying to also follow how it is done for Urs Wolfers rest client for Gerrit. E.g. as it is used in [1] and implements a Gerrit extension point, which sets the id/revision this way [2]. (Although I then should have also followed the naming scheme of the methods.)\n\n\n[1] https://github.com/jenkinsci/gerrit-code-review-plugin/blob/3e9b6cad92f256b9ea4991016ac7448ac07d9686/src/main/java/jenkins/plugins/gerrit/workflow/GerritReviewStep.java#L86\n[2] https://gerrit.googlesource.com/gerrit/+/refs/heads/stable-3.1/java/com/google/gerrit/extensions/api/changes/Changes.java#41",
+      "parentUuid": "5803e296_2d58b65f",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "358944f2_af5e2bfd",
         "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
         "patchSetId": 5
@@ -123,6 +213,30 @@
       "writtenOn": "2019-11-29T13:33:03Z",
       "side": 1,
       "message": "If these parameters are not optional, why no just have once ctor:\n\n  public Checks(URIish gerritBaseUrl,\n      CloseableHttpClient client,\n      boolean isAuthenticated,\n      int changeNumber,\n      int patchSetNumber) {\n  [...]",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b23c7d4d_96bdc01b",
+        "filename": "java/com/google/gerrit/plugins/checks/client/Checks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "See my reply above.\nI am not against it and have thought about it myself actually. As it is done right now, I find it nicely readable in the code, but it is potentially also more error prone, since they might not be set, but required. So I am open to change that. Or maybe have both?",
+      "parentUuid": "358944f2_af5e2bfd",
       "range": {
         "startLine": 46,
         "startChar": 2,
@@ -163,6 +277,30 @@
       "writtenOn": "2019-11-29T13:33:03Z",
       "side": 1,
       "message": "Makes sense to have singel setter methods because it can be used either with uuid or with scheme.",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 3
+      },
+      "revId": "639d29a0c957d7558ab919cd9daf4e84eb6f0c43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6c2f515_7299a5d1",
+        "filename": "java/com/google/gerrit/plugins/checks/client/PendingChecks.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "Hm, I was thinking about automating the differentiation anyway: If a \u0027:\u0027 is in the string, it is a checker uuid and if not, it is a scheme. That would be less error prone and more convenient to use.",
+      "parentUuid": "c865f239_fc6dc040",
       "range": {
         "startLine": 44,
         "startChar": 2,

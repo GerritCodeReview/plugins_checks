@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27fdb021_6aeefe92",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-12-02T09:11:06Z",
+      "side": 1,
+      "message": "Won\u0027t this be available thorugh \"checks-rest-api-shared-lib\"?",
+      "range": {
+        "startLine": 56,
+        "startChar": 43,
+        "endLine": 56,
+        "endChar": 66
+      },
+      "revId": "6ed2c73894c485778fa834c5d9ae3afcc7f2a2b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
