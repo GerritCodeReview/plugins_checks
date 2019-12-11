@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2a96f00_7533f354",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "`value() {return [];}` instead. otherwise it will be shared across all instances if not passed in which probably not what you want and may lead to unexpected behavior.",
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1f10d1_abcc2ee2",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "`patchSetDropdownItems`",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 22
+      },
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "281d8778_08d97a12",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "should not this a `String` ? i think it can be `edit` as well.",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 20
+      },
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b7404a8_7e561c3e",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "why not just pass in the number ? seems you are not using anything else from the revision for `_pollChecksRegularly`",
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e84d9757_7c594708",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "what if the patch set number is `edit` ? or `edit` only exists in Gerrit and won\u0027t be passed down to checks ?",
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9207e0e_6177e253",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "new line above",
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e49a6c_155ab0d6",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-11T16:05:44Z",
+      "side": 1,
+      "message": "can you add a test case to make sure `pollChecksRegularly` will be called with the new revision number in the next interval ?",
+      "revId": "ea145e8b88b67e8afe0fcfcf4a79f30cdc22a122",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
