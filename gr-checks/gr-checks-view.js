@@ -61,20 +61,53 @@
         type: Boolean,
         value: false,
       },
+      allPatchSets: {
+        type: Array,
+        value() { return []; },
+      },
+      _patchSetDropdownItems: {
+        type: Array,
+        value() { return []; },
+      },
+      _currentPatchSet: {
+        type: Number,
+        observer: '_currentPatchSetChanged',
+      },
     },
 
     observers: [
-      '_pollChecksRegularly(change, revision, getChecks)',
+      '_pollChecksRegularly(change, revision._number, getChecks)',
     ],
 
     attached() {
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
+      this._patchSetDropdownItems = this.allPatchSets.filter(patch => {
+        return patch._number !== 'edit';
+      });
+      this._patchSetDropdownItems = this._patchSetDropdownItems.map(patch => {
+        return {
+          text: 'Patchset ' + patch.num,
+          value: patch.num,
+        };
+      });
+      this._currentPatchSet = this.revision._number;
+    },
+
+    _currentPatchSetChanged() {
+      this._pollChecksRegularly(this.change, this._currentPatchSet,
+          this.getChecks);
     },
 
     detached() {
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    },
+
+    _handlePatchSetChanged(e) {
+      const patchSet = e.detail.value;
+      if (patchSet === this._currentPatchSet) return;
+      this._currentPatchSet = patchSet;
     },
 
     _handleCheckersListResize() {
@@ -160,10 +193,10 @@
      * @param {!Defs.Revision} revision
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
-    _fetchChecks(change, revision, getChecks) {
-      if (!getChecks || !change || !revision) return;
+    _fetchChecks(change, revisionNumber, getChecks) {
+      if (!getChecks || !change || !revisionNumber) return;
 
-      getChecks(change._number, revision._number).then(checks => {
+      getChecks(change._number, revisionNumber).then(checks => {
         if (checks && checks.length) {
           checks.sort((a, b) => this._orderChecks(a, b));
           if (!this._checks) {
@@ -183,7 +216,8 @@
         clearInterval(this.pollChecksInterval);
         return;
       }
-      this._pollChecksRegularly(this.change, this.revision, this.getChecks);
+      this._pollChecksRegularly(this.change, this._currentPatchSet,
+          this.getChecks);
     },
 
     _toggleCheckMessage(e) {
@@ -202,11 +236,11 @@
           !this._checks[idx].showCheckMessage);
     },
 
-    _pollChecksRegularly(change, revision, getChecks) {
+    _pollChecksRegularly(change, revisionNumber, getChecks) {
       if (this.pollChecksInterval) {
         clearInterval(this.pollChecksInterval);
       }
-      const poll = () => this._fetchChecks(change, revision, getChecks);
+      const poll = () => this._fetchChecks(change, revisionNumber, getChecks);
       poll();
       this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS);
       if (!this.visibilityChangeListenerAdded) {
