@@ -8,7 +8,6 @@
 <title>gr-checks-item</title>
 <link rel="import" href="gr-checks-view.html">
 
-
 <!-- Gr-overlay does not exist in the test framework
 It is expected to be provided by Gerrit core -->
 <dom-module id="gr-overlay">
@@ -30,7 +29,8 @@ It is expected to be provided by Gerrit core -->
       get-checks="[[getChecks]]"
       is-configured="[[isConfigured]]"
       plugin="[[plugin]]"
-      retry-check="[[retryCheck]]">
+      retry-check="[[retryCheck]]"
+      all-patch-sets="[[allPatchSets]]">
     </gr-checks-view>
   </template>
 </test-fixture>
@@ -79,6 +79,9 @@ It is expected to be provided by Gerrit core -->
       commit: '1c9a1dfd38ea51dc7880f3ddf669100710f0c91b',
     },
   };
+  const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
+
+  const allPatchSets = [{num: 1}, {num: 2}, {num: 3}, {num: 4}];
 
   suite('gr-checks-view tests', () => {
     let element;
@@ -149,6 +152,7 @@ It is expected to be provided by Gerrit core -->
         },
         plugin,
         revision: REVISION,
+        allPatchSets,
       });
       flush(done);
     });
@@ -198,6 +202,7 @@ It is expected to be provided by Gerrit core -->
             getAccountCapabilitiesResolve({'checks-administrateCheckers': false});
             flush(done);
           });
+
           test('checker button does not render', () => {
             assert(!element.$$('gr-button'));
           });
@@ -301,11 +306,6 @@ It is expected to be provided by Gerrit core -->
         assert.isFalse(isConfiguredSpy.called);
       });
 
-      test('renders the header', () => {
-        const header = element.$$('header > h3');
-        assert.equal(header.textContent.trim(), 'Latest checks for Patchset 3');
-      });
-
       test('renders a table of all the checks', () => {
         const tbody = element.$$('table > tbody');
         assert.lengthOf(tbody.querySelectorAll('gr-checks-item'), 3);
@@ -328,8 +328,32 @@ It is expected to be provided by Gerrit core -->
           getAccountCapabilitiesResolve({'checks-administrateCheckers': true});
           flush(done);
         });
+
         test('checker button renders', () => {
           assert(element.$$('gr-button'));
+        });
+      });
+
+      suite('patchset navigation', () => {
+        test('renders the dropdown', () => {
+          assert.isNotNull(element.querySelector('gr-dropdown-list'));
+        });
+
+        test('when patchset updated it fetches new checks', done => {
+          const clock = sinon.useFakeTimers();
+          const fetchChecksStub = sandbox.stub(element,
+              '_fetchChecks');
+          assert.equal(element._currentPatchSet, 3);
+          element._currentPatchSet = 2;
+          const firstCallArgs = fetchChecksStub.args[0];
+          assert.equal(firstCallArgs[1], element._currentPatchSet);
+          clock.tick(CHECKS_POLL_INTERVAL_MS + 1000);
+          flush(() => {
+            assert(fetchChecksStub.callCount === 2);
+            const secondCallArgs = fetchChecksStub.args[1];
+            assert.equal(secondCallArgs[1], element._currentPatchSet);
+            done();
+          });
         });
       });
     });
