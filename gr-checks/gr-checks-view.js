@@ -61,6 +61,17 @@
         type: Boolean,
         value: false,
       },
+      allPatchSets: {
+        type: Array,
+        value: [],
+      },
+      patchSetDropdown: {
+        type: Array,
+      },
+      currentPatchSet: {
+        type: Number,
+        observer: '_currentPatchSetChanged',
+      },
     },
 
     observers: [
@@ -70,11 +81,29 @@
     attached() {
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
+      this.patchSetDropdown = this.allPatchSets.map(patch => {
+        return {
+          text: 'Patchset ' + patch.num,
+          value: patch.num,
+        };
+      });
+      this.currentPatchSet = this.revision._number;
+    },
+
+    _currentPatchSetChanged() {
+      this._pollChecksRegularly(this.change, {_number: this.currentPatchSet},
+          this.getChecks);
     },
 
     detached() {
       clearInterval(this.pollChecksInterval);
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    },
+
+    _handlePatchSetChanged(e) {
+      const patchSet = e.detail.value;
+      if (patchSet === this.currentPatchSet) return;
+      this.currentPatchSet = patchSet;
     },
 
     _handleCheckersListResize() {
@@ -160,10 +189,10 @@
      * @param {!Defs.Revision} revision
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
-    _fetchChecks(change, revision, getChecks) {
-      if (!getChecks || !change || !revision) return;
+    _fetchChecks(change, revisionNumber, getChecks) {
+      if (!getChecks || !change || !revisionNumber) return;
 
-      getChecks(change._number, revision._number).then(checks => {
+      getChecks(change._number, revisionNumber).then(checks => {
         if (checks && checks.length) {
           checks.sort((a, b) => this._orderChecks(a, b));
           if (!this._checks) {
@@ -206,7 +235,7 @@
       if (this.pollChecksInterval) {
         clearInterval(this.pollChecksInterval);
       }
-      const poll = () => this._fetchChecks(change, revision, getChecks);
+      const poll = () => this._fetchChecks(change, revision._number, getChecks);
       poll();
       this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS);
       if (!this.visibilityChangeListenerAdded) {
