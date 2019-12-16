@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56833cac_06156138",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T13:56:40Z",
+      "side": 1,
+      "message": "this part can be removed.",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 64
+      },
+      "revId": "956ac3a9f06f9a67075d442b3256ef378ebd076d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
