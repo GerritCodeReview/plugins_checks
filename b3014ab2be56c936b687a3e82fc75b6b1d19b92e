@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5bf8bcae_c51872c3",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-12-16T15:59:49Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a96d1a74_c4a205c4",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 102
+      },
+      "revId": "b3014ab2be56c936b687a3e82fc75b6b1d19b92e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e1a441a_f3f8fb1b",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "b3014ab2be56c936b687a3e82fc75b6b1d19b92e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d16e6ad8_0a89b9aa",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-12-16T15:59:49Z",
+      "side": 1,
+      "message": "Thanks, it makes sense to observe to currentPatchset.\nI don\u0027t want it to reflect to revision as of now.",
+      "parentUuid": "7e1a441a_f3f8fb1b",
+      "revId": "b3014ab2be56c936b687a3e82fc75b6b1d19b92e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "b3014ab2be56c936b687a3e82fc75b6b1d19b92e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b39ae4a1_9b04bc6d",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2019-12-16T15:59:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8daa1e17_4809216d",
+      "range": {
+        "startLine": 85,
+        "startChar": 61,
+        "endLine": 87,
+        "endChar": 7
+      },
+      "revId": "b3014ab2be56c936b687a3e82fc75b6b1d19b92e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
