@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f670ef0_716a8e42",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "`_`",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce55e118_e97bd5f2",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "`value` as well :)",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c79f0c70_492019c3",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "`_`",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 21
+      },
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0b95858_3e3ee566",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "this won\u0027t work :) map should on the result after filter\n\njust merge these two together.",
+      "range": {
+        "startLine": 84,
+        "startChar": 5,
+        "endLine": 88,
+        "endChar": 16
+      },
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e149c9cd_dfcbe885",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "new line",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83186f7e_561596d2",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "new line",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53f688a_6a454533",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "use `querySelector` or `shadowRoot.querySelector` instead. `$$` is deprecated, try avoid using it.",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c25ba0a6_a2c7f303",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "maybe just `fetch new checks when patchset updated and honor throttling` ?",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d88fb6da_59e56f43",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "is this needed ? and why ?",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca70b8b7_1d6cb1e6",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-16T12:41:01Z",
+      "side": 1,
+      "message": "assert on `fetchChecksStub` should not be called before tick",
+      "revId": "aa95350f803b19fc85736f5f0f867a16ba7f09ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
