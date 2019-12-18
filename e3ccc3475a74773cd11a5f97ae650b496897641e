@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "584f8243_fe6f1c74",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-18T15:16:37Z",
+      "side": 1,
+      "message": "nit: should have some comments for this :)",
+      "revId": "e3ccc3475a74773cd11a5f97ae650b496897641e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
