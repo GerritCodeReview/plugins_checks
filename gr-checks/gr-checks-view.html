@@ -107,6 +107,17 @@
           value="[[_currentPatchSet]]">
         </gr-dropdown-list>
       </template>
+      <template is="dom-if" if="[[_hasResults(_status)]]">
+        <div>
+          <span> Filter By: </span>
+          <gr-dropdown-list
+            class="patch-set-dropdown"
+            items="[[_statuses]]"
+            on-value-change="_handleStatusFilterChanged"
+            value="[[_currentStatus]]">
+          </gr-dropdown-list>
+        <div>
+      </template>
       <template is="dom-if" if="[[_createCheckerCapability]]">
         <gr-button class="configure-button" on-click="_handleConfigureClicked"> Configure </gr-button>
       </template>
@@ -151,24 +162,26 @@
         </thead>
         <tbody>
           <template is="dom-repeat" items="[[_checks]]" as="check">
-            <tr>
-              <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
-                check="[[check]]">
-              </gr-checks-item>
-            </tr>
-            <template is="dom-if" if="[[check.showCheckMessage]]">
+            <template is="dom-if" if="[[_isCheckFiltered(check, _currentStatus)]]">
               <tr>
-                <td colspan="10" class="check-message-heading">
-                  <span class="message-heading">
-                    Message
-                  </span>
-                </td>
+                <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
+                  check="[[check]]">
+                </gr-checks-item>
               </tr>
-              <tr>
-                <td colspan="10" class="check-message">
-                  <span class="message"> [[check.message]] </span>
-                </td>
-              </tr>
+              <template is="dom-if" if="[[check.showCheckMessage]]">
+                <tr>
+                  <td colspan="10" class="check-message-heading">
+                    <span class="message-heading">
+                      Message
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="10" class="check-message">
+                    <span class="message"> [[check.message]] </span>
+                  </td>
+                </tr>
+              </template>
             </template>
           </template>
         </tbody>
