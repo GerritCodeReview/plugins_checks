@@ -13,6 +13,9 @@
     Statuses.NOT_RELEVANT,
   ];
 
+  const ALL_STATES = 'ALL';
+  const CheckStateFilters = [ALL_STATES, ...StatusPriorityOrder];
+
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
 
   /**
@@ -50,11 +53,16 @@
       isConfigured: Function,
       /** @type {function(string, string): !Promise<!Object>} */
       pluginRestApi: Object,
-      _checks: Object,
+      _checks: Array,
       _status: {
         type: Object,
         value: LoadingStatus.LOADING,
       },
+      _visibleChecks: {
+        type: Array,
+        computed: '_computeVisibleChecks(_checks, _currentStatus)',
+      },
+      _statuses: Array,
       pollChecksInterval: Number,
       visibilityChangeListenerAdded: {
         type: Boolean,
@@ -71,6 +79,10 @@
       _currentPatchSet: {
         type: Number,
       },
+      _currentStatus: {
+        type: String,
+        value: ALL_STATES,
+      },
     },
 
     observers: [
@@ -79,6 +91,12 @@
 
     attached() {
       this.pluginRestApi = this.plugin.restApi();
+      this._statuses = CheckStateFilters.map(state => {
+        return {
+          text: state,
+          value: state,
+        };
+      });
       this._initCreateCheckerCapability();
       this._patchSetDropdownItems = Object.values(this.change.revisions)
           .filter(patch => patch._number !== 'edit')
@@ -97,6 +115,14 @@
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
     },
 
+    _computeVisibleChecks(checks, status) {
+      if (!checks) return;
+      return checks.filter(check => {
+        if (status === ALL_STATES) return true;
+        return check.state === status;
+      });
+    },
+
     _computeCurrentPatchSet(revision) {
       this._currentPatchSet = revision._number;
     },
@@ -105,6 +131,12 @@
       const patchSet = e.detail.value;
       if (patchSet === this._currentPatchSet) return;
       this._currentPatchSet = patchSet;
+    },
+
+    _handleStatusFilterChanged(e) {
+      const status = e.detail.value;
+      if (status === this._currentStatus) return;
+      this._currentStatus = status;
     },
 
     _handleCheckersListResize() {
