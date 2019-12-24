@@ -13,6 +13,10 @@
     Statuses.NOT_RELEVANT,
   ];
 
+  const ALL_STATES = 'ALL';
+  const CheckStateFilters = StatusPriorityOrder.slice(0);
+  CheckStateFilters.unshift(ALL_STATES);
+
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
 
   /**
@@ -55,6 +59,7 @@
         type: Object,
         value: LoadingStatus.LOADING,
       },
+      _statuses: Array,
       pollChecksInterval: Number,
       visibilityChangeListenerAdded: {
         type: Boolean,
@@ -75,6 +80,9 @@
       _currentPatchSet: {
         type: Number,
       },
+      _currentStatus: {
+        type: String,
+      },
     },
 
     observers: [
@@ -83,6 +91,13 @@
 
     attached() {
       this.pluginRestApi = this.plugin.restApi();
+      this._statuses = CheckStateFilters.map(state => {
+        return {
+          text: state,
+          value: state,
+        };
+      });
+      this._currentStatus = ALL_STATES;
       this._initCreateCheckerCapability();
       this._patchSetDropdownItems = Object.keys(this.change.revisions)
           .filter(sha => {
@@ -110,6 +125,17 @@
       const patchSet = e.detail.value;
       if (patchSet === this._currentPatchSet) return;
       this._currentPatchSet = patchSet;
+    },
+
+    _handleStatusFilterChanged(e) {
+      const status = e.detail.value;
+      if (status === this._currentStatus) return;
+      this._currentStatus = status;
+    },
+
+    _isCheckFiltered(check, status) {
+      if (status === ALL_STATES) return true;
+      return check.state === status;
     },
 
     _handleCheckersListResize() {
