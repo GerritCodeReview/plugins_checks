@@ -1,5 +1,6 @@
 <link rel="import" href="gr-checks-status.html">
 <link rel="import" href="gr-checkers-list.html">
+<link rel="import" href="gr-checks-item.html">
 
 <dom-module id="gr-checks-view">
   <template>
@@ -48,7 +49,6 @@
       header {
         display: flex;
         margin: 1rem 1rem 0;
-        justify-content: space-between;
       }
 
       table {
@@ -88,8 +88,12 @@
       }
 
       .configure-button {
-        float:right;
+        margin-left: auto;
         margin-top: 10px;
+      }
+
+      .filter {
+        margin-left: 10px;
       }
 
       #listOverlay {
@@ -106,11 +110,23 @@
           value="[[_currentPatchSet]]">
         </gr-dropdown-list>
       </template>
+      <template is="dom-if" if="[[_hasResults(_status)]]">
+        <div class="filter">
+          <span> Filter By: </span>
+          <gr-dropdown-list
+            class="check-state-filter"
+            items="[[_statuses]]"
+            on-value-change="_handleStatusFilterChanged"
+            value="[[_currentStatus]]">
+          </gr-dropdown-list>
+        </div>
+      </template>
       <template is="dom-if" if="[[_createCheckerCapability]]">
-        <gr-button class="configure-button" on-click="_handleConfigureClicked"> Configure </gr-button>
+        <div class="configure-button">
+          <gr-button on-click="_handleConfigureClicked"> Configure </gr-button>
+        </div>
       </template>
     </header>
-
 
     <template is="dom-if" if="[[_isLoading(_status)]]">
       <div class="no-content">
@@ -149,26 +165,26 @@
           </tr>
         </thead>
         <tbody>
-          <template is="dom-repeat" items="[[_checks]]" as="check">
-            <tr>
-              <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
-                check="[[check]]">
-              </gr-checks-item>
-            </tr>
-            <template is="dom-if" if="[[check.showCheckMessage]]">
+          <template is="dom-repeat" items="[[_visibleChecks]]" as="check">
               <tr>
-                <td colspan="10" class="check-message-heading">
-                  <span class="message-heading">
-                    Message
-                  </span>
-                </td>
+                <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
+                  check="[[check]]">
+                </gr-checks-item>
               </tr>
-              <tr>
-                <td colspan="10" class="check-message">
-                  <span class="message"> [[check.message]] </span>
-                </td>
-              </tr>
-            </template>
+              <template is="dom-if" if="[[check.showCheckMessage]]">
+                <tr>
+                  <td colspan="10" class="check-message-heading">
+                    <span class="message-heading">
+                      Message
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="10" class="check-message">
+                    <span class="message"> [[check.message]] </span>
+                  </td>
+                </tr>
+              </template>
           </template>
         </tbody>
       </table>
