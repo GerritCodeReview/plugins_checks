@@ -126,6 +126,14 @@
               value="[[_currentStatus]]">
             </gr-dropdown-list>
           </div>
+          <div>
+            <input type="checkbox"
+              name="blocking"
+              checked$="[[_showBlockingChecksOnly]]"
+              on-click="_handleBlockingCheckboxClicked"
+              value="blocking">
+              Required for Submit(blocking)
+          </div>
         </template>
         <template is="dom-if" if="[[_createCheckerCapability]]">
           <div class="configure-button-container">

@@ -84,6 +84,10 @@
         type: String,
         value: STATE_ALL,
       },
+      _showBlockingChecksOnly: {
+        type: Boolean,
+        value: false,
+      },
     },
 
     observers: [
@@ -136,10 +140,22 @@
       this._currentPatchSet = patchSet;
     },
 
+    _handleBlockingCheckboxClicked() {
+      this._showBlockingChecksOnly = !this._showBlockingChecksOnly;
+    },
+
     _handleStatusFilterChanged(e) {
       const status = e.detail.value;
       if (status === this._currentStatus) return;
       this._currentStatus = status;
+    },
+
+    _isCheckFiltered(check, status, blockingFilter) {
+      const isBlocking = check.blocking && check.blocking.length > 0;
+      let matchesStatus;
+      if (status === ALL_STATES) matchesStatus = true;
+      else matchesStatus = check.state === status;
+      return (blockingFilter) ? isBlocking && matchesStatus : matchesStatus;
     },
 
     _handleCheckersListResize() {
