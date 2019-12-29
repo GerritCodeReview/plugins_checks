@@ -316,7 +316,8 @@ It is expected to be provided by Gerrit core -->
     suite('with checks', () => {
       setup(done => {
         const CHECK3 = Object.assign({}, CHECK1, {state: 'FAILED'});
-        const CHECK4 = Object.assign({}, CHECK1, {state: 'FAILED'});
+        const CHECK4 = Object.assign({}, CHECK1, {state: 'FAILED',
+          blocking: [1, 2, 3]});
         getChecksResolve([CHECK1, CHECK2, CHECK3, CHECK4]);
         flush(done);
       });
@@ -403,6 +404,30 @@ It is expected to be provided by Gerrit core -->
               displayedChecksItems += item.style.display !== 'none';
             });
             assert.equal(displayedChecksItems, 2);
+            done();
+          });
+        });
+      });
+
+      suite('blocking checkbox', () => {
+        test('renders the checkbox', () => {
+          assert.isNotNull(element.querySelector('input[name="blocking"]'));
+        });
+
+        test('default filter is all', () => {
+          assert.equal(element.querySelector('input[name="blocking"]').checked,
+              false);
+        });
+
+        test('blocking checkbox filters checks', done => {
+          element.querySelector('input[name="blocking"]').click();
+          flush(() => {
+            const tbody = element.$$('table > tbody');
+            let displayedChecksItems = 0;
+            tbody.querySelectorAll('gr-checks-item').forEach( item => {
+              displayedChecksItems += item.style.display !== 'none';
+            });
+            assert.equal(displayedChecksItems, 1);
             done();
           });
         });
