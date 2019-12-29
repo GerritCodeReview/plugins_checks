@@ -117,7 +117,15 @@
             on-value-change="_handleStatusFilterChanged"
             value="[[_currentStatus]]">
           </gr-dropdown-list>
+        </div>
         <div>
+          <input type="checkbox"
+            name="blocking"
+            checked$="[[_blockingFilter]]"
+            on-click="_handleBlockingCheckboxClicked"
+            value="blocking"> 
+            Required for Submit(blocking) 
+        </div>
       </template>
       <template is="dom-if" if="[[_createCheckerCapability]]">
         <gr-button class="configure-button" on-click="_handleConfigureClicked"> Configure </gr-button>
@@ -163,7 +171,7 @@
         </thead>
         <tbody>
           <template is="dom-repeat" items="[[_checks]]" as="check">
-            <template is="dom-if" if="[[_isCheckFiltered(check, _currentStatus)]]">
+            <template is="dom-if" if="[[_isCheckFiltered(check, _currentStatus, _blockingFilter)]]">
               <tr>
                 <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
                   check="[[check]]">
