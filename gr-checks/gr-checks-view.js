@@ -60,7 +60,8 @@
       },
       _visibleChecks: {
         type: Array,
-        computed: '_computeVisibleChecks(_checks, _currentStatus)',
+        computed: '_computeVisibleChecks(_checks, _currentStatus, ' +
+          '_showBlockingChecksOnly)',
       },
       _statuses: Array,
       pollChecksInterval: Number,
@@ -83,6 +84,10 @@
       _currentStatus: {
         type: String,
         value: STATE_ALL,
+      },
+      _showBlockingChecksOnly: {
+        type: Boolean,
+        value: false,
       },
     },
 
@@ -118,11 +123,14 @@
           .sort((a, b) => b.value - a.value);
     },
 
-    _computeVisibleChecks(checks, status) {
+    _computeVisibleChecks(checks, status, showBlockingChecksOnly) {
       if (!checks) return;
-      return checks.filter(check =>
-        status === STATE_ALL || check.state === status
-      );
+      return checks.filter(check => {
+        if (showBlockingChecksOnly) {
+          if (!check.blocking || !check.blocking.length) return false;
+        }
+        return status === STATE_ALL || check.state === status;
+      });
     },
 
     _handleRevisionUpdate(revision) {
@@ -136,10 +144,22 @@
       this._currentPatchSet = patchSet;
     },
 
+    _handleBlockingCheckboxClicked() {
+      this._showBlockingChecksOnly = !this._showBlockingChecksOnly;
+    },
+
     _handleStatusFilterChanged(e) {
       const status = e.detail.value;
       if (status === this._currentStatus) return;
       this._currentStatus = status;
+    },
+
+    _isCheckFiltered(check, status, blockingFilter) {
+      const isBlocking = check.blocking && check.blocking.length > 0;
+      let matchesStatus;
+      if (status === ALL_STATES) matchesStatus = true;
+      else matchesStatus = check.state === status;
+      return (blockingFilter) ? isBlocking && matchesStatus : matchesStatus;
     },
 
     _handleCheckersListResize() {
