@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da9beb2d_e0bec794",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "move this to the `observers` below, and rename it to `_updateCurrentPatchSet`, from existing naming convention, we usually use `_compute` for `computed` properties.",
+      "range": {
+        "startLine": 44,
+        "startChar": 19,
+        "endLine": 44,
+        "endChar": 42
+      },
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e12823e3_3f0d7af7",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "no longer needed right ?",
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8e7c418_bd354a5b",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "what if your current revision is `edit` ? maybe always use the latest from the `_patchSetDropdownItems` instead",
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "367360e7_792e4d83",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "do you need to pass `getChecks` all the time ? won\u0027t it be accessible from `this.getChecks` ?",
+      "range": {
+        "startLine": 198,
+        "startChar": 41,
+        "endLine": 198,
+        "endChar": 50
+      },
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b60e23_879fa080",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "not needed anymore ?",
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15b1cf37_f93627bd",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "can be removed right ?",
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d4d1fbc_c8f30768",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 9
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:13:11Z",
+      "side": 1,
+      "message": "nit: `first-sha` -\u003e REVISION2 and `second-sha` -\u003e REVISION seems weird :)",
+      "revId": "720ae5b9ab4d9e98c655397a815fbaa22bd8aa60",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
