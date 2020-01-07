@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e41ccd81_afe67e94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:08:24Z",
+      "side": 1,
+      "message": "what you mean by `blocking` ? checks result should block the submit ? this commit message seems a bit confusing",
+      "revId": "52ee016437ecc30604bb83e7fdd72f4b02009f95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ca6122_b67e2712",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:08:24Z",
+      "side": 1,
+      "message": "why its called with a `Filter` suffix ?",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "52ee016437ecc30604bb83e7fdd72f4b02009f95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7dc2597_30ea3e08",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:08:24Z",
+      "side": 1,
+      "message": "if its a checkbox, the value seems unnecessary",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 17
+      },
+      "revId": "52ee016437ecc30604bb83e7fdd72f4b02009f95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f4f94a_90e37e0c",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:08:24Z",
+      "side": 1,
+      "message": "not sure what this blocking means ? block submit ? if so, `required` seems good enough",
+      "range": {
+        "startLine": 127,
+        "startChar": 32,
+        "endLine": 127,
+        "endChar": 40
+      },
+      "revId": "52ee016437ecc30604bb83e7fdd72f4b02009f95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98fe588c_aee5aa41",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:08:24Z",
+      "side": 1,
+      "message": "`_shouldBlockSubmit` ?",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "52ee016437ecc30604bb83e7fdd72f4b02009f95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
