@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c35ec06f_daadc996",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T13:34:58Z",
+      "side": 1,
+      "message": "this is an error object, not a text",
+      "range": {
+        "startLine": 132,
+        "startChar": 13,
+        "endLine": 132,
+        "endChar": 17
+      },
+      "revId": "f21d8b34f60ac61a726f915d0f99f065f281aea4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
