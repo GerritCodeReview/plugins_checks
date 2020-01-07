@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39d92c4e_cbf3ae55",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:24:21Z",
+      "side": 1,
+      "message": "`\u003c/div\u003e`",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4fe4d3c_b1cc6e3d",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:24:21Z",
+      "side": 1,
+      "message": "nit:extra new line",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2811b4d0_a85632b8",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:24:21Z",
+      "side": 1,
+      "message": "hmm this is really hard to read... maybe just have a separate property for `_visibleChecks` (computed and depends on _checks, _currentStatus) instead.",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a262ace_1f18b6f5",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-07T12:24:21Z",
+      "side": 1,
+      "message": "why not just have the ALL_STATES part of the Statuses ? and just define it in STatusPriorityOrder directly ?",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
