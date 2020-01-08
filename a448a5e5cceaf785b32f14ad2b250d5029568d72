@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74c245d7_07676829",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-08T14:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d92c4e_cbf3ae55",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4fe4d3c_b1cc6e3d",
         "filename": "gr-checks/gr-checks-view.html",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2d335c_c9c1ca55",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-08T14:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4fe4d3c_b1cc6e3d",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "10f6f126_9409b724",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-08T14:38:29Z",
+      "side": 1,
+      "message": "I prefer this method. Having another array visibleChecks seems unnecessary to maintain.\nRegarding readability, I\u0027m not sure how to improve it.",
+      "parentUuid": "2811b4d0_a85632b8",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a262ace_1f18b6f5",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 3
@@ -73,6 +133,24 @@
       "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2b926bb_c630a833",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-08T14:38:29Z",
+      "side": 1,
+      "message": "Yeah, I actually intended to make a deep copy of StatusPriorityOrder.",
+      "parentUuid": "7a262ace_1f18b6f5",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
