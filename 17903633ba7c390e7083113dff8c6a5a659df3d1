@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae22f270_a4f85ee6",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-09T10:48:05Z",
+      "side": 1,
+      "message": "nit: just do `\u003d [ALL_STATES, ...StatusPriorityOrder]`, take advantage of the spread operator.. it has been available for years",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "17903633ba7c390e7083113dff8c6a5a659df3d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a5e93b9_dd11aaa7",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-09T10:48:05Z",
+      "side": 1,
+      "message": "why not just have it defined in properties as the default value ?",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 39
+      },
+      "revId": "17903633ba7c390e7083113dff8c6a5a659df3d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

@@ -119,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "262a51ab_dae56b2c",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-09T10:48:05Z",
+      "side": 1,
+      "message": "Maintain a computed property `_visibleChecks` should be exact the same as to maintain a `_ischeckFiltered` method right ? and you can just use one repeat template instead of both repeat and if.",
+      "parentUuid": "10f6f126_9409b724",
+      "revId": "a448a5e5cceaf785b32f14ad2b250d5029568d72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7a262ace_1f18b6f5",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 3
