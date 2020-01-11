@@ -23,8 +23,6 @@
     FAILED: 'failed',
   };
 
-  const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
-
   const Defs = {};
   /**
    * @typedef {{
@@ -70,7 +68,6 @@
       revision: Object,
       change: Object,
       /** @type {function(number, number): !Promise<!Object>} */
-      getChecks: Function,
       _checkStatuses: Object,
       _hasChecks: Boolean,
       _failedRequiredChecksCount: Number,
@@ -87,24 +84,36 @@
         type: String,
         value: '',
       },
-      pollChecksInterval: Object,
-      visibilityChangeListenerAdded: {
-        type: Boolean,
-        value: false,
-      },
     },
 
-    detached() {
-      clearInterval(this.pollChecksInterval);
-      this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    attached() {
+      Gerrit.on('checks-updated', this._updateChecks.bind(this));
     },
 
     observers: [
-      '_pollChecksRegularly(change, revision, getChecks)',
+      '_pollChecks(change, revision)',
     ],
 
     listeners: {
       click: 'showChecksTable',
+    },
+
+    _pollChecks(change, revision) {
+      if (!change || !revision) return;
+      FetchChecks.beginPolling(change._number, revision._number);
+    },
+
+    _updateChecks(e) {
+      const checks = e.checks;
+      if (!checks) return;
+      this.set('_hasChecks', checks.length > 0);
+      if (checks.length > 0) {
+        this._downgradeFailureToWarning =
+          downgradeFailureToWarning(checks);
+        this._failedRequiredChecksCount =
+          this.computeFailedRequiredChecksCount(checks);
+        this._checkStatuses = computeCheckStatuses(checks);
+      }
     },
 
     showChecksTable() {
@@ -119,50 +128,6 @@
                 },
               })
       );
-    },
-
-    /**
-     * @param {!Defs.Change} change
-     * @param {!Defs.Revision} revision
-     * @param {function(number, number): !Promise<!Object>} getChecks
-     */
-    _fetchChecks(change, revision, getChecks) {
-      if (!getChecks || !change || !revision) return;
-
-      getChecks(change._number, revision._number).then(checks => {
-        this.set('_hasChecks', checks.length > 0);
-        if (checks.length > 0) {
-          this._downgradeFailureToWarning =
-            downgradeFailureToWarning(checks);
-          this._failedRequiredChecksCount =
-            this.computeFailedRequiredChecksCount(checks);
-          this._checkStatuses = computeCheckStatuses(checks);
-        }
-      }, error => {
-        this.set('_hasChecks', false);
-        console.error(error);
-      });
-    },
-
-    _onVisibililityChange() {
-      if (document.hidden) {
-        clearInterval(this.pollChecksInterval);
-        return;
-      }
-      this._pollChecksRegularly(this.change, this.revision, this.getChecks);
-    },
-
-    _pollChecksRegularly(change, revision, getChecks) {
-      if (this.pollChecksInterval) {
-        clearInterval(this.pollChecksInterval);
-      }
-      const poll = () => this._fetchChecks(change, revision, getChecks);
-      poll();
-      this.pollChecksInterval = setInterval(poll, CHECKS_POLL_INTERVAL_MS);
-      if (!this.visibilityChangeListenerAdded) {
-        this.visibilityChangeListenerAdded = true;
-        this.listen(document, 'visibilitychange', '_onVisibililityChange');
-      }
     },
 
     /**

@@ -7,12 +7,10 @@
 <link rel="import" href="gr-checks-change-view-tab-header-view.html">
 
 <dom-module id="gr-checks">
+  <script src="gr-checks-fetch.js"></script>
   <script>
     Gerrit.install(plugin => {
-      const getChecks = (change, revision) => {
-        return plugin.restApi().get(
-            '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
-      };
+      FetchChecks.init(plugin);
 
       // TODO(brohlfs): Enable this dashboard column when search queries start
       // returning checks.
@@ -24,12 +22,9 @@
       //     'gr-checks-change-list-item-cell-view');
       plugin.registerCustomComponent(
           'commit-container',
-          'gr-checks-chip-view').onAttached(
-          view => {
-            view['getChecks'] = getChecks;
-          }
-      );
-      plugin.registerDynamicCustomComponent(
+          'gr-checks-chip-view');
+
+          plugin.registerDynamicCustomComponent(
           'change-view-tab-header',
           'gr-checks-change-view-tab-header-view'
       );
@@ -38,7 +33,6 @@
           'gr-checks-view').onAttached(
           view => {
             view['isConfigured'] = repository => Promise.resolve(true);
-            view['getChecks'] = getChecks;
           });
     });
   </script>
