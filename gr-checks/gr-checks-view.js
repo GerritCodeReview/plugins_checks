@@ -68,6 +68,8 @@
     ],
 
     attached() {
+      Gerrit.on('fetch-checks', this._fetchChecks);
+      FetchChecks.beginPolling();
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
     },
@@ -165,6 +167,7 @@
 
       getChecks(change._number, revision._number).then(checks => {
         if (checks && checks.length) {
+          Gerrit.emit('checks-updated', {checks});
           checks.sort((a, b) => this._orderChecks(a, b));
           if (!this._checks) {
             this._checks = checks;

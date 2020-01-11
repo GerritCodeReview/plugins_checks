@@ -5,14 +5,12 @@
 <link rel="import" href="gr-checks-change-list-item-cell-view.html">
 <link rel="import" href="gr-checks-change-list-header-view.html">
 <link rel="import" href="gr-checks-change-view-tab-header-view.html">
+<link rel="import" href="gr-checks-fetch.js">
 
 <dom-module id="gr-checks">
   <script>
     Gerrit.install(plugin => {
-      const getChecks = (change, revision) => {
-        return plugin.restApi().get(
-            '/changes/' + change + '/revisions/' + revision + '/checks?o=CHECKER');
-      };
+      FetchChecks.init(plugin);
 
       // TODO(brohlfs): Enable this dashboard column when search queries start
       // returning checks.
