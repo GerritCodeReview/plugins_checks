@@ -68,6 +68,8 @@
     ],
 
     attached() {
+      Gerrit.on('fetch-checks', this._fetchChecks);
+      FetchChecks.beginPolling();
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
     },
@@ -160,25 +162,19 @@
      * @param {!Defs.Revision} revision
      * @param {function(number, number): !Promise<!Object>} getChecks
      */
-    _fetchChecks(change, revision, getChecks) {
-      if (!getChecks || !change || !revision) return;
-
-      getChecks(change._number, revision._number).then(checks => {
-        if (checks && checks.length) {
-          checks.sort((a, b) => this._orderChecks(a, b));
-          if (!this._checks) {
-            this._checks = checks;
-          } else {
-            this._checks = this._updateChecks(checks);
-          }
-          this.set('_status', LoadingStatus.RESULTS);
+    _fetchChecks(e) {
+      const checks = e.detail.checks;
+      if (checks && checks.length) {
+        checks.sort((a, b) => this._orderChecks(a, b));
+        if (!this._checks) {
+          this._checks = checks;
         } else {
-          this._checkConfigured();
+          this._checks = this._updateChecks(checks);
         }
-      }, error => {
-        this._checks = [];
-        this.set('_status', LoadingStatus.EMPTY);
-      });
+        this.set('_status', LoadingStatus.RESULTS);
+      } else {
+        this._checkConfigured();
+      }
     },
 
     _onVisibililityChange() {
