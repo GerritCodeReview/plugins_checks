@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05b2111f_afa24389",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-20T02:01:38Z",
+      "side": 1,
+      "message": "nit: these two conditions can be merged with `||`",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 38
+      },
+      "revId": "9e05bfdf4fe97d3032509282aef6b5397eba9fc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5488cac5_18748d19",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-01-20T02:01:38Z",
+      "side": 1,
+      "message": "try not use `$$` any more as its deprecated. You may just assert against the `_visibleChecks`, assume its simple rendering logic and should be controlled and well tested by polymer",
+      "range": {
+        "startLine": 397,
+        "startChar": 34,
+        "endLine": 397,
+        "endChar": 36
+      },
+      "revId": "9e05bfdf4fe97d3032509282aef6b5397eba9fc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
