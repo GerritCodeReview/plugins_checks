@@ -3,7 +3,7 @@
     "opendev-zuul-third-party-check:plugins_checks": {
       "state": "NOT_STARTED",
       "created": "2020-01-08T13:57:49Z",
-      "updated": "2020-01-21T10:26:17Z"
+      "updated": "2020-01-21T10:26:54Z"
     }
   }
 }
