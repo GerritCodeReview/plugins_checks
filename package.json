@@ -1,0 +1,12 @@
+{
+  "name": "checks",
+  "version": "3.1.0-SNAPSHOT",
+  "description": "Checks plugins",
+  "scripts": {
+    "test": "polymer serve",
+    "eslint": "../../node_modules/eslint/bin/eslint.js --ext .html,.js ./gr-checks/",
+    "eslintfix": "npm run eslint -- --fix"
+  },
+  "author": "",
+  "license": "Apache-2.0"
+}
