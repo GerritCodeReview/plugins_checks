@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f70d642_15248848",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-01-21T15:33:58Z",
+      "side": 1,
+      "message": "Does CI run it somewhere?",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "6a18ddeccc6e94e8322e67d416295ae843a03fd9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
