@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "0c610f6b_1abfcb16",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-01-22T16:32:10Z",
+      "side": 1,
+      "message": "This should be 3.2.0-SNAPSHOT as in version.bzl.",
+      "revId": "6a18ddeccc6e94e8322e67d416295ae843a03fd9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bb82368_1ddc7684",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-01-22T16:32:10Z",
+      "side": 1,
+      "message": "Maybe singular \"plugin\".",
+      "range": {
+        "startLine": 4,
+        "startChar": 25,
+        "endLine": 4,
+        "endChar": 32
+      },
+      "revId": "6a18ddeccc6e94e8322e67d416295ae843a03fd9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f70d642_15248848",
         "filename": "package.json",
         "patchSetId": 1
