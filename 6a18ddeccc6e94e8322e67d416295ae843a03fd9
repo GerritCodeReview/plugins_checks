@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "241d10ac_da30fdc2",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-01-22T16:53:55Z",
+      "side": 1,
+      "message": "Because we are not going to publish it as a separate package (at least, in the nearest future),\nI suggest to remove \"version\" completely and add \"private\": true to this file",
+      "parentUuid": "0c610f6b_1abfcb16",
+      "revId": "6a18ddeccc6e94e8322e67d416295ae843a03fd9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bb82368_1ddc7684",
         "filename": "package.json",
         "patchSetId": 1
