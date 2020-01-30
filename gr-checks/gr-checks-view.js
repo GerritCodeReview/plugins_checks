@@ -67,6 +67,7 @@
       _patchSetDropdownItems: {
         type: Array,
         value() { return []; },
+        computed: '_computePatchSetDropdownItems(change)',
       },
       _currentPatchSet: {
         type: Number,
@@ -75,12 +76,21 @@
 
     observers: [
       '_pollChecksRegularly(change, _currentPatchSet, getChecks)',
+      '_computeCurrentPatchSet(revision)',
     ],
 
     attached() {
       this.pluginRestApi = this.plugin.restApi();
       this._initCreateCheckerCapability();
-      this._patchSetDropdownItems = Object.values(this.change.revisions)
+    },
+
+    detached() {
+      clearInterval(this.pollChecksInterval);
+      this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
+    },
+
+    _computePatchSetDropdownItems(change) {
+      return Object.values(change.revisions)
           .filter(patch => patch._number !== 'edit')
           .map(patch => {
             return {
@@ -89,12 +99,6 @@
             };
           })
           .sort((a, b) => b.value - a.value);
-      this._currentPatchSet = this.revision._number;
-    },
-
-    detached() {
-      clearInterval(this.pollChecksInterval);
-      this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
     },
 
     _computeCurrentPatchSet(revision) {
@@ -102,7 +106,8 @@
     },
 
     _handlePatchSetChanged(e) {
-      const patchSet = e.detail.value;
+      // gr-dropdown-list returns value of type "String"
+      const patchSet = parseInt(e.detail.value);
       if (patchSet === this._currentPatchSet) return;
       this._currentPatchSet = patchSet;
     },
