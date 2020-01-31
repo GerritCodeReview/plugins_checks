@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12fc94b5_891e4c64",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-01-31T13:15:05Z",
+      "side": 1,
+      "message": "Is it possible, that change is undefined here?",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "638908a1de6c5796be9a49afef288b1406bece64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28f3f6d6_85aa026b",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-01-31T13:15:05Z",
+      "side": 1,
+      "message": "Is it possible that revision is undefined (or 0) here?",
+      "range": {
+        "startLine": 106,
+        "startChar": 11,
+        "endLine": 106,
+        "endChar": 19
+      },
+      "revId": "638908a1de6c5796be9a49afef288b1406bece64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
