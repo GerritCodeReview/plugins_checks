@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51f2e821_5f099640",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-01-31T14:39:15Z",
+      "side": 1,
+      "message": "_currentPatchSet is a computed property now. Not sure, that you can assign to it.",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "3d2d1538eabbfd6d9f052363f5d1b9dbc8f074a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
