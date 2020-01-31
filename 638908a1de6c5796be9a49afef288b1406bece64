@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d269e513_12f11a7c",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-31T14:27:58Z",
+      "side": 1,
+      "message": "Nice suggestions. \nUpdated. 😄",
+      "parentUuid": "83090743_3e769238",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "638908a1de6c5796be9a49afef288b1406bece64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f3f6d6_85aa026b",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 2
