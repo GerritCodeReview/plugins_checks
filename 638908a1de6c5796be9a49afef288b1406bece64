@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5caa139c_f25e8eb1",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-31T13:29:22Z",
+      "side": 1,
+      "message": "Not sure, still fine to have this check in case it is.",
+      "parentUuid": "12fc94b5_891e4c64",
+      "range": {
+        "startLine": 93,
+        "startChar": 11,
+        "endLine": 93,
+        "endChar": 17
+      },
+      "revId": "638908a1de6c5796be9a49afef288b1406bece64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28f3f6d6_85aa026b",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "638908a1de6c5796be9a49afef288b1406bece64",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8f70224_b5b770c3",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-31T13:29:22Z",
+      "side": 1,
+      "message": "Revision is an object so unlikely to be 0.\nIt\u0027s still fine to have an undefined check.",
+      "parentUuid": "28f3f6d6_85aa026b",
+      "range": {
+        "startLine": 106,
+        "startChar": 11,
+        "endLine": 106,
+        "endChar": 19
+      },
+      "revId": "638908a1de6c5796be9a49afef288b1406bece64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
