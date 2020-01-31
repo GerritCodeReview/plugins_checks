@@ -98,6 +98,20 @@ public class UpdateCheckIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void updateMessage_rejected_tooLong() {
+    CheckInput input = new CheckInput();
+    input.message = new String(new char[(10 << 10) + 1]).replace('\0', 'x');
+
+    BadRequestException thrown =
+        assertThrows(
+            BadRequestException.class,
+            () -> checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).update(input));
+    assertThat(thrown)
+        .hasMessageThat()
+        .contains(String.format("exceeds size limit (%d > %d)", (10 << 10) + 1, 10 << 10));
+  }
+
+  @Test
   public void unsetMessage() throws Exception {
     checkOperations.check(checkKey).forUpdate().message("some message").upsert();
 
