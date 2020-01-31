@@ -22,6 +22,30 @@
       "revId": "3d2d1538eabbfd6d9f052363f5d1b9dbc8f074a0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "087553dc_c52162c4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-01-31T14:43:07Z",
+      "side": 1,
+      "message": "Yes, nice observation.",
+      "parentUuid": "51f2e821_5f099640",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "3d2d1538eabbfd6d9f052363f5d1b9dbc8f074a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
