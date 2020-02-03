@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1361b4bb_c8485c0f",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-03T11:10:39Z",
+      "side": 1,
+      "message": "I ran a linter and it did not complain.",
+      "parentUuid": "6b902827_9564d512",
+      "revId": "1192c858e53636da3d3c8baa3c2fac96dd49d1a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e81f3a22_e7d29e8d",
         "filename": "gr-checks/gr-checks-view_test.html",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "1192c858e53636da3d3c8baa3c2fac96dd49d1a5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b9ec39_419aec60",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 8
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-03T11:10:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e81f3a22_e7d29e8d",
+      "revId": "1192c858e53636da3d3c8baa3c2fac96dd49d1a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
