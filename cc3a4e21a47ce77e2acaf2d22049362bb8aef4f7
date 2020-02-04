@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b8444b0_ff8d7cb3",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-04T12:10:53Z",
+      "side": 1,
+      "message": "this is rare, you only need `auto` on the left ? what does that even mean ?",
+      "revId": "cc3a4e21a47ce77e2acaf2d22049362bb8aef4f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94d4191a_81f1f4bf",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-04T12:10:53Z",
+      "side": 1,
+      "message": "singular ? or maybe `STATE_ALL` or `STATUS_ALL`, or `FILTER_ALL` :) it just doesn\u0027t benefit readability when you have `ALL_STATES` for a specific state or filter",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "cc3a4e21a47ce77e2acaf2d22049362bb8aef4f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
