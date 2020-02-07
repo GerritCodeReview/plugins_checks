@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba689747_6420aa39",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-07T13:59:05Z",
+      "side": 1,
+      "message": "you don\u0027t need to have the repeated logic, maybe just emit an error event and let gr-error-manager handle that ?",
+      "revId": "7e4e2d0a9a011e31649dadebac946c42db835b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
