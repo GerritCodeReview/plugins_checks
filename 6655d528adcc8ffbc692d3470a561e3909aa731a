@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47c335d0_c1643efc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "It would be helpful to mention this in the plugin\u0027s documentation.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9003b528_4b5dcb6c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "Is it intended that this limit is actually 10240 and not 10k as the commit message claims? Is there also reason to not directly write 10240, which would be more readable for persons like me who don\u0027t use the shift operator all the time?",
+      "range": {
+        "startLine": 115,
+        "startChar": 42,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "112e1269_197005d5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether we\u0027re using a BadRequestException in similar cases. I think we typically rather go for ResourceNotFoundException (when directly on the resource in question) and ResourceConflictException (when this is another missing resource but the REST endpoint is not an action on that resource itself). Of course, we also sometimes use StorageException (e.g. when reading from storage doesn\u0027t return a change even though it should exist).",
+      "range": {
+        "startLine": 117,
+        "startChar": 16,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53859e8e_4a7a491e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "Optional: For readability, I think it would be helpful to have this code extracted to an own method (and just pass Project.NameKey to it).",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8288489c_83b65c42",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "Optional: If this part (and in line 136) was extracted to a local variable above line 119, we\u0027d save quite some vertical space and generally increased the overview.",
+      "range": {
+        "startLine": 130,
+        "startChar": 23,
+        "endLine": 130,
+        "endChar": 61
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b012f266_2bd43594",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "Optional: If we passed in Project.NameKey here, we could put the retrieval of the message limit in line 150 and hence only execute it when a message is really set.",
+      "range": {
+        "startLine": 141,
+        "startChar": 61,
+        "endLine": 141,
+        "endChar": 81
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dea49b18_6a299088",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "I would also like to have a test which explicitly modifies the limit value (e.g. message is already rejected when just 101 characters long).\n\nFYI: We have an annotation which allows to set config values. I think it works for plugin tests, too.",
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bc94fb4_c319a4c4",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-07T17:58:27Z",
+      "side": 1,
+      "message": "Optional: For readability of the test, I would prefer to see the actual value in the verified string instead of computing it here again.",
+      "range": {
+        "startLine": 111,
+        "startChar": 33,
+        "endLine": 111,
+        "endChar": 89
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
