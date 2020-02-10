@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b63acb31_0b505784",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-10T10:38:54Z",
+      "side": 1,
+      "message": "I was following the mocks for the message. \nI also think the message looks better without the extra text. I will remove it for now.\nRegarding the implementation, all the work is being done in _computeVisibleChecks. I think reading it makes it pretty clear that both the filters are being honoured, the checkbox and the state filter.",
+      "parentUuid": "fc85ddb7_014eeefb",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 43
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d017e7c4_318417e3",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a103b6_2d33a59f",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-10T10:38:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d017e7c4_318417e3",
+      "range": {
+        "startLine": 127,
+        "startChar": 25,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
