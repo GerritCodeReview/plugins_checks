@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f042107_817522bb",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-10T10:50:25Z",
+      "side": 1,
+      "message": "what I am confused is here.\n\nso if current filter state is `IN PROGRESS`, then if the blocking checkbox is checked, then what result will be shown ? and what about the current filter ? will it reset to ALL ?",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 50
+      },
+      "revId": "495d0b8a6ae7de280c10c5cf56da6dbb0d5ca5f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
