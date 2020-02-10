@@ -1,11 +1,13 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
+      "state": "SUCCESSFUL",
+      "message": "Change passed all voting jobs",
+      "url": "https://zuul.opendev.org/t/zuul/buildset/fa0875072c4c47b69d10969a0b161d5b",
       "started": "2020-02-10T09:27:14Z",
+      "finished": "2020-02-10T09:56:43Z",
       "created": "2020-02-07T10:31:45Z",
-      "updated": "2020-02-10T09:27:17Z"
+      "updated": "2020-02-10T09:56:44Z"
     }
   }
 }
