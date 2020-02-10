@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc85ddb7_014eeefb",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-10T09:04:32Z",
+      "side": 1,
+      "message": "i am not sure i follow this `(blocking)` here, i feel like the message is more clear without this extra note.\n\nafter reading the implementation, i am more confused here. Is this checkbox used for filtering purpose ? and is it a union join with current filters or a negative selection ? i.e: once checked, the result should show existing + blocking checks or blocking checks only ? maybe rephrase this a bit and if you need description to help explain, then add it to title or tooltip",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 43
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d017e7c4_318417e3",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-10T09:04:32Z",
+      "side": 1,
+      "message": "should not this return `[]` to match the type of the visible checks ?",
+      "range": {
+        "startLine": 127,
+        "startChar": 25,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "344b6f86_afbdfb59",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-10T09:04:32Z",
+      "side": 1,
+      "message": "is this used anywhere ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
