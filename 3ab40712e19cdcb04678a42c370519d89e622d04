@@ -116,6 +116,30 @@
       "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bea45760_c6e5f248",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-10T14:13:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "344b6f86_afbdfb59",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 20
+      },
+      "revId": "3ab40712e19cdcb04678a42c370519d89e622d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
