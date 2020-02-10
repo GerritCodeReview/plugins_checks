@@ -17,6 +17,7 @@
   const CheckStateFilters = [STATE_ALL, ...StatusPriorityOrder];
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
+  const CHECKS_LIMIT = 20;
 
   /**
    * @typedef {{
@@ -61,7 +62,7 @@
       _visibleChecks: {
         type: Array,
         computed: '_computeVisibleChecks(_checks, _currentStatus, ' +
-          '_showBlockingChecksOnly)',
+          '_showBlockingChecksOnly, _showAllChecks)',
       },
       _statuses: Array,
       pollChecksInterval: Number,
@@ -89,6 +90,16 @@
         type: Boolean,
         value: false,
       },
+      _showAllChecks: {
+        type: Boolean,
+        value: false,
+      },
+      _filteredChecks: Array,
+      _showMoreChecksButton: {
+        type: Boolean,
+        value: false,
+        notify: true,
+      },
     },
 
     observers: [
@@ -111,6 +122,10 @@
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
     },
 
+    _toggleShowChecks() {
+      this._showAllChecks = !this._showAllChecks;
+    },
+
     _computePatchSetDropdownItems(change) {
       return Object.values(change.revisions)
           .filter(patch => patch._number !== 'edit')
@@ -123,13 +138,26 @@
           .sort((a, b) => b.value - a.value);
     },
 
-    _computeVisibleChecks(checks, status, showBlockingChecksOnly) {
+    _computeShowText(showAllChecks) {
+      return showAllChecks ? 'Show Less' : 'Show All';
+    },
+
+    _computeVisibleChecks(checks, status, showBlockingChecksOnly,
+        showAllChecks) {
       if (!checks) return [];
-      return checks.filter(check => {
+      this._filteredChecks = checks.filter(check => {
         if (showBlockingChecksOnly && (!check.blocking ||
             !check.blocking.length)) return false;
         return status === STATE_ALL || check.state === status;
       });
+      if (this._filteredChecks.length <= CHECKS_LIMIT) {
+        this._showMoreChecksButton = false;
+        return this._filteredChecks;
+      }
+      // Only show the button if there are more results to be displayed
+      this._showMoreChecksButton = true;
+      return showAllChecks ? this._filteredChecks : this._filteredChecks.slice(
+          0, CHECKS_LIMIT);
     },
 
     _handleRevisionUpdate(revision) {
@@ -243,6 +271,12 @@
       getChecks(change._number, revisionNumber).then(checks => {
         if (revisionNumber !== this._currentPatchSet) return;
         if (checks && checks.length) {
+          // REMOVE
+          const xc = [...checks];
+          for (let i = 1; i <= 10; i++) {
+            checks.push(...xc);
+          }
+          // REMOVE
           checks.sort((a, b) => this._orderChecks(a, b));
           if (!this._checks) {
             this._checks = checks;
