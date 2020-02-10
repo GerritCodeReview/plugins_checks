@@ -46,6 +46,30 @@
       "revId": "495d0b8a6ae7de280c10c5cf56da6dbb0d5ca5f1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "458e0b00_57215224",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-10T12:31:45Z",
+      "side": 1,
+      "message": "my bad, was thinking in the wrong direction.",
+      "parentUuid": "d2272481_188b113c",
+      "range": {
+        "startLine": 129,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 50
+      },
+      "revId": "495d0b8a6ae7de280c10c5cf56da6dbb0d5ca5f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
