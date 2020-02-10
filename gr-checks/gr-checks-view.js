@@ -17,6 +17,7 @@
   const CheckStateFilters = [STATE_ALL, ...StatusPriorityOrder];
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
+  const CHECKS_LIMIT = 20;
 
   /**
    * @typedef {{
@@ -87,12 +88,22 @@
         type: Boolean,
         value: false,
       },
+      _showAllChecks: {
+        type: Boolean,
+        value: false,
+      },
+      _filteredChecks: Array,
+      _showMoreChecksButton: {
+        type: Boolean,
+        value: false,
+        notify: true,
+      },
     },
 
     observers: [
       '_pollChecksRegularly(change, _currentPatchSet, getChecks)',
       '_updateVisibleChecks(_checks.*, _currentStatus, ' +
-          '_showBlockingChecksOnly)',
+          '_showBlockingChecksOnly, _showAllChecks)',
     ],
 
     attached() {
@@ -111,6 +122,10 @@
       this.unlisten(document, 'visibilitychange', '_onVisibililityChange');
     },
 
+    _toggleShowChecks() {
+      this._showAllChecks = !this._showAllChecks;
+    },
+
     _computePatchSetDropdownItems(change) {
       return Object.values(change.revisions)
           .filter(patch => patch._number !== 'edit')
@@ -123,10 +138,15 @@
           .sort((a, b) => b.value - a.value);
     },
 
-    _updateVisibleChecks(checksRecord, status, showBlockingChecksOnly) {
+    _computeShowText(showAllChecks) {
+      return showAllChecks ? 'Show Less' : 'Show All';
+    },
+
+    _updateVisibleChecks(checksRecord, status, showBlockingChecksOnly,
+        showAllChecks) {
       const checks = checksRecord.base;
       if (!checks) return [];
-      this._visibleChecks = checks.filter(check => {
+      this._filteredChecks = checks.filter(check => {
         if (showBlockingChecksOnly && (!check.blocking ||
             !check.blocking.length)) return false;
         return status === STATE_ALL || check.state === status;
@@ -137,8 +157,17 @@
       If not notified, then the message for the check is not displayed after
       clicking the toggle
       */
+      if (this._filteredChecks.length <= CHECKS_LIMIT) {
+        this._showMoreChecksButton = false;
+        this._visibleChecks = [...this._filteredChecks];
+      } else {
+        // Only show the button if there are more results to be displayed
+        this._showMoreChecksButton = true;
+        this._visibleChecks = showAllChecks ? this._filteredChecks :
+          this._filteredChecks.slice(0, CHECKS_LIMIT);
+      }
       this._visibleChecks.forEach((val, idx) =>
-        this.notifyPath(`_visibleChecks.${idx}.showCheckMessage`));
+          this.notifyPath(`_visibleChecks.${idx}.showCheckMessage`));
     },
 
     _handleRevisionUpdate(revision) {
