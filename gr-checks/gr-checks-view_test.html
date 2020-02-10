@@ -101,6 +101,7 @@ It is expected to be provided by Gerrit core -->
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
   const STATE_ALL = 'ALL';
+  const CHECKS_LIMIT = 20;
 
   suite('gr-checks-view tests', async () => {
     await readyToTest();
@@ -471,6 +472,24 @@ It is expected to be provided by Gerrit core -->
         });
       });
     });
+
+    suite('with large number of checks', () => {
+      setup(done => {
+        const CHECK3 = Object.assign({}, CHECK1, {state: 'FAILED'});
+        const CHECK4 = Object.assign({}, CHECK1, {state: 'FAILED',
+          blocking: [1, 2, 3]});
+        const checks = [];
+        for (let i = 1;i <= 20;i++) {
+          checks.push(...[CHECK1, CHECK2, CHECK3, CHECK4]);
+        }
+        getChecksResolve(checks);
+        flush(done);
+      });
+      test('rendered checks are limited by default', () => {
+        assert.equal(element._visibleChecks.length, CHECKS_LIMIT);
+      })
+    });
+
   });
 
 </script>
