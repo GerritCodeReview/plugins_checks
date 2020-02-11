@@ -4,6 +4,7 @@
 <script src="/bower_components/web-component-tester/browser.js"></script>
 
 <link rel="import" href="/bower_components/polymer/polymer.html">
+<script src="test-pre-setup.js"></script>
 <script src="../bower_components/iron-test-helpers/mock-interactions.js"></script>
 
 
@@ -100,7 +101,8 @@ It is expected to be provided by Gerrit core -->
   const STATE_ALL = 'ALL';
   const Statuses = window.Gerrit.Checks.Statuses;
 
-  suite('gr-checks-view tests', () => {
+  suite('gr-checks-view tests', async () => {
+    await readyToTest();
     let element;
     let sandbox;
     let getChecksSpy;
