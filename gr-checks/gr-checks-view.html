@@ -185,13 +185,13 @@
           </tr>
         </thead>
         <tbody>
-          <template is="dom-repeat" items="[[_visibleChecks]]" as="check">
+          <template is="dom-repeat" items="[[_visibleChecks]]" as="visibleCheck">
               <tr>
                 <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
-                  check="[[check]]">
+                  check="[[visibleCheck]]">
                 </gr-checks-item>
               </tr>
-              <template is="dom-if" if="[[check.showCheckMessage]]">
+              <template is="dom-if" if="[[visibleCheck.showCheckMessage]]">
                 <tr>
                   <td colspan="10" class="check-message-heading">
                     <span class="message-heading">
@@ -201,7 +201,7 @@
                 </tr>
                 <tr>
                   <td colspan="10" class="check-message">
-                    <span class="message"> [[check.message]] </span>
+                    <span class="message"> [[visibleCheck.message]] </span>
                   </td>
                 </tr>
               </template>

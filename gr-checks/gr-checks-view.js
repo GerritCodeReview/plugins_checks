@@ -60,7 +60,7 @@
       },
       _visibleChecks: {
         type: Array,
-        computed: '_computeVisibleChecks(_checks, _currentStatus, ' +
+        computed: '_computeVisibleChecks(_checks.*, _currentStatus, ' +
           '_showBlockingChecksOnly)',
       },
       _statuses: Array,
@@ -123,7 +123,8 @@
           .sort((a, b) => b.value - a.value);
     },
 
-    _computeVisibleChecks(checks, status, showBlockingChecksOnly) {
+    _computeVisibleChecks(checksRecord, status, showBlockingChecksOnly) {
+      const checks = checksRecord.base;
       if (!checks) return [];
       return checks.filter(check => {
         if (showBlockingChecksOnly && (!check.blocking ||
@@ -224,7 +225,7 @@
       return checks.map(
           check => {
             const prevCheck = this._checks.find(
-                c => { return c.checker_uuid === check.checker_uuid; }
+                c => c.checker_uuid === check.checker_uuid
             );
             if (!prevCheck) return Object.assign({}, check);
             return Object.assign({}, prevCheck, check,
@@ -279,9 +280,11 @@
         console.warn('check not found');
         return;
       }
-      // Update subproperty of _checks[idx] so that it reflects to polymer
-      this.set(`_checks.${idx}.showCheckMessage`,
-          !this._checks[idx].showCheckMessage);
+      this._checks[idx].showCheckMessage = !this._checks[idx].showCheckMessage;
+      // Force data system to pick up array mutations
+      const checks = this._checks;
+      this._checks = [];
+      this._checks = checks;
     },
 
     _pollChecksRegularly(change, revisionNumber, getChecks) {
