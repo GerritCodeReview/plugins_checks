@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "399a06b8_bdc63010",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-02-12T15:46:32Z",
+      "side": 1,
+      "message": "This is observer, i would prefer to name it \n_updateVisibleChecks",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 25
+      },
+      "revId": "b56ea08b68b7a2f13142323064d6143e5c3d88e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63be6df5_24802a10",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1085901
+      },
+      "writtenOn": "2020-02-12T15:46:32Z",
+      "side": 1,
+      "message": "Could you please add comments, why this is needed?",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "b56ea08b68b7a2f13142323064d6143e5c3d88e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
