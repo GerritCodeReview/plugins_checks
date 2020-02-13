@@ -16,6 +16,24 @@
       "revId": "707fc5605006de6d99245d680c7674c63377e391",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30e5b3fa_c32f4f3d",
+        "filename": "gr-checks/gr-checkers-list_test.html",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-13T08:51:58Z",
+      "side": 1,
+      "message": "`gr-overlay` exists in gerrit and this is checks, its different repositories",
+      "parentUuid": "4d9aead1_8cd3d827",
+      "revId": "707fc5605006de6d99245d680c7674c63377e391",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
