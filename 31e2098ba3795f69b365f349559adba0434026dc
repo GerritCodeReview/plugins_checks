@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc970377_378f97eb",
+        "filename": "gr-checks/test-pre-setup.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-13T10:03:05Z",
+      "side": 1,
+      "message": "can you add a link to the same file in `gerrit` repo and note that they need to be in sync :) thx",
+      "revId": "31e2098ba3795f69b365f349559adba0434026dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
