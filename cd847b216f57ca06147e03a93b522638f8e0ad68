@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9e683aa_64da4826",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2020-02-13T13:22:12Z",
+      "side": 1,
+      "message": "*displayed\n\non - maybe after clicking?",
+      "range": {
+        "startLine": 7,
+        "startChar": 44,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "cd847b216f57ca06147e03a93b522638f8e0ad68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
