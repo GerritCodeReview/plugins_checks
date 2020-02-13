@@ -16,6 +16,24 @@
       "revId": "31e2098ba3795f69b365f349559adba0434026dc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8de2e672_9df17cf0",
+        "filename": "gr-checks/test-pre-setup.js",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-13T10:05:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc970377_378f97eb",
+      "revId": "31e2098ba3795f69b365f349559adba0434026dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
