@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2951bab0_44c4a46a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47c335d0_c1643efc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9003b528_4b5dcb6c",
         "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c13e18ee_8d3cd12f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Just habit, I think I read \"k\" as \"\u003c\u003c 10\" in a storage context. Changed to more precise 10_000.",
+      "parentUuid": "9003b528_4b5dcb6c",
+      "range": {
+        "startLine": 115,
+        "startChar": 42,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0d310f70_60974d34",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Obsolete now because the value should actually be retrieved from the Gerrit config, not from the plugin config.",
+      "parentUuid": "112e1269_197005d5",
+      "range": {
+        "startLine": 117,
+        "startChar": 16,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53859e8e_4a7a491e",
         "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b26d970_1f9e3385",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53859e8e_4a7a491e",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2f0207fe_2d45f707",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8288489c_83b65c42",
+      "range": {
+        "startLine": 130,
+        "startChar": 23,
+        "endLine": 130,
+        "endChar": 61
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b012f266_2bd43594",
         "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "ac1f187c_8f85183f",
+        "filename": "java/com/google/gerrit/plugins/checks/api/PostCheck.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b012f266_2bd43594",
+      "range": {
+        "startLine": 141,
+        "startChar": 61,
+        "endLine": 141,
+        "endChar": 81
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dea49b18_6a299088",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
         "patchSetId": 1
@@ -154,6 +298,24 @@
       "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72ace27f_1eb08c69",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dea49b18_6a299088",
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -177,6 +339,30 @@
       "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03ee25c5_24f6870e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/UpdateCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-02-14T10:45:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bc94fb4_c319a4c4",
+      "range": {
+        "startLine": 111,
+        "startChar": 33,
+        "endLine": 111,
+        "endChar": 89
+      },
+      "revId": "6655d528adcc8ffbc692d3470a561e3909aa731a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
