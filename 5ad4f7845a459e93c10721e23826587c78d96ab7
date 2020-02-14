@@ -1,13 +1,13 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "RUNNING",
+      "message": "Jobs have started running",
       "url": "https://zuul.opendev.org/t/zuul/buildset/8bc3b38833f04b5aa51fb4b4809af563",
       "started": "2020-02-14T16:32:31Z",
       "finished": "2020-02-14T16:32:20Z",
       "created": "2020-02-14T16:08:31Z",
-      "updated": "2020-02-14T16:32:31Z"
+      "updated": "2020-02-14T16:32:34Z"
     }
   }
 }
