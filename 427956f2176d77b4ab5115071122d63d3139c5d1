@@ -8,6 +8,13 @@
       "finished": "2019-10-11T21:04:04Z",
       "created": "2019-10-11T14:06:59Z",
       "updated": "2019-10-11T21:04:05Z"
+    },
+    "zuul-check:plugins_checks": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-02-14T21:45:06Z",
+      "created": "2020-02-14T21:45:06Z",
+      "updated": "2020-02-14T21:45:06Z"
     }
   }
 }
