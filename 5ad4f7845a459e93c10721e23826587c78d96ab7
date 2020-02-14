@@ -1,11 +1,9 @@
 {
   "checks": {
     "opendev-zuul-third-party-check:plugins_checks": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
-      "started": "2020-02-14T16:08:31Z",
+      "state": "NOT_STARTED",
       "created": "2020-02-14T16:08:31Z",
-      "updated": "2020-02-14T16:08:35Z"
+      "updated": "2020-02-14T16:14:13Z"
     }
   }
 }
