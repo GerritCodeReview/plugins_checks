@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92071fb2_05869513",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2020-02-14T15:12:42Z",
+      "side": 1,
+      "message": "Why do you once doing [..this._filterChecks] and another one just this._filterChecks?\n\nWhy this cannot be written much simpler?\n\nthis._showMoreChecksButton \u003d this._filteredChecks.length \u003c\u003d CHECKS_LIMIT;\nthis._visibileChecks \u003d this.filteredChecks.slice(0, showAllChecks ? undefined : CHECKS_LIMIT);",
+      "range": {
+        "startLine": 166,
+        "startChar": 51,
+        "endLine": 166,
+        "endChar": 66
+      },
+      "revId": "6556a456bdc788eb2a26086d4ede0d2ca54d87e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
