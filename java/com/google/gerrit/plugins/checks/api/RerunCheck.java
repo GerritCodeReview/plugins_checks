@@ -14,6 +14,11 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.PatchSet;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
@@ -30,8 +35,13 @@ import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
+import com.google.gerrit.plugins.checks.events.RerunCheckEvent;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
+import com.google.gerrit.server.data.PatchSetAttribute;
+import com.google.gerrit.server.events.EventDispatcher;
+import com.google.gerrit.server.events.EventFactory;
+import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -39,6 +49,8 @@ import java.io.IOException;
 import java.util.Optional;
 import javax.inject.Provider;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 @Singleton
 public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
@@ -47,6 +59,9 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
   private final Provider<ChecksUpdate> checksUpdate;
   private final CheckJson.Factory checkJsonFactory;
   private final Checkers checkers;
+  private final EventFactory eventFactory;
+  private final GitRepositoryManager repoManager;
+  private final DynamicItem<EventDispatcher> eventDispatcher;
 
   @Inject
   RerunCheck(
@@ -54,12 +69,18 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
       Checks checks,
       @UserInitiated Provider<ChecksUpdate> checksUpdate,
       CheckJson.Factory checkJsonFactory,
-      Checkers checkers) {
+      Checkers checkers,
+      EventFactory eventFactory,
+      GitRepositoryManager repoManager,
+      DynamicItem<EventDispatcher> eventDispatcher) {
     this.self = self;
     this.checks = checks;
     this.checksUpdate = checksUpdate;
     this.checkJsonFactory = checkJsonFactory;
     this.checkers = checkers;
+    this.eventFactory = eventFactory;
+    this.repoManager = repoManager;
+    this.eventDispatcher = eventDispatcher;
   }
 
   @Override
@@ -74,10 +95,11 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
     if (input == null) {
       input = new RerunInput();
     }
+    PatchSet ps = checkResource.getRevisionResource().getPatchSet();
     CheckKey key =
         CheckKey.create(
             checkResource.getRevisionResource().getProject(),
-            checkResource.getRevisionResource().getPatchSet().id(),
+            ps.id(),
             checkResource.getCheckerUuid());
     Optional<Check> check = checks.getCheck(key, GetCheckOptions.defaults());
     CheckerUuid checkerUuid = checkResource.getCheckerUuid();
@@ -107,7 +129,27 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
           .setUrl("");
       updatedCheck =
           checksUpdate.get().updateCheck(key, builder.build(), input.notify, input.notifyDetails);
+
+      RerunCheckEvent rerunCheckEvent =
+          new RerunCheckEvent(checkResource.getRevisionResource().getChange());
+      rerunCheckEvent.patchSet =
+          patchSetAttributeSupplier(checkResource.getRevisionResource().getChange(), ps);
+      rerunCheckEvent.checkerUuid = key.checkerUuid().get();
+      eventDispatcher.get().postEvent(rerunCheckEvent);
     }
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
+  }
+
+  private Supplier<PatchSetAttribute> patchSetAttributeSupplier(
+      final Change change, PatchSet patchSet) {
+    return Suppliers.memoize(
+        () -> {
+          try (Repository repo = repoManager.openRepository(change.getProject());
+              RevWalk revWalk = new RevWalk(repo)) {
+            return eventFactory.asPatchSetAttribute(revWalk, change, patchSet);
+          } catch (IOException e) {
+            throw new RuntimeException(e);
+          }
+        });
   }
 }
