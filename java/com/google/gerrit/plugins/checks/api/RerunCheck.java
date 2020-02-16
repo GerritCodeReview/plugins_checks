@@ -14,6 +14,7 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
@@ -30,8 +31,11 @@ import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
+import com.google.gerrit.plugins.checks.events.RerunCheckEvent;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
+import com.google.gerrit.server.events.EventDispatcher;
+import com.google.gerrit.server.events.EventFactory;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -47,6 +51,8 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
   private final Provider<ChecksUpdate> checksUpdate;
   private final CheckJson.Factory checkJsonFactory;
   private final Checkers checkers;
+  private final DynamicItem<EventDispatcher> eventDispatcher;
+  private final EventFactory eventFactory;
 
   @Inject
   RerunCheck(
@@ -54,12 +60,16 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
       Checks checks,
       @UserInitiated Provider<ChecksUpdate> checksUpdate,
       CheckJson.Factory checkJsonFactory,
-      Checkers checkers) {
+      Checkers checkers,
+      DynamicItem<EventDispatcher> eventDispatcher,
+      EventFactory eventFactory) {
     this.self = self;
     this.checks = checks;
     this.checksUpdate = checksUpdate;
     this.checkJsonFactory = checkJsonFactory;
     this.checkers = checkers;
+    this.eventDispatcher = eventDispatcher;
+    this.eventFactory = eventFactory;
   }
 
   @Override
@@ -107,6 +117,11 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
           .setUrl("");
       updatedCheck =
           checksUpdate.get().updateCheck(key, builder.build(), input.notify, input.notifyDetails);
+
+      RerunCheckEvent rerunCheckEvent = new RerunCheckEvent();
+      rerunCheckEvent.projectName = checkResource.getRevisionResource().getProject().getName();
+      rerunCheckEvent.checkerUuid = key.checkerUuid().get();
+      eventDispatcher.get().postEvent(rerunCheckEvent);
     }
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
   }
