@@ -34,6 +34,24 @@
       "revId": "7e4e2d0a9a011e31649dadebac946c42db835b67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00fdd40b_a0d8ac34",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-17T11:30:48Z",
+      "side": 1,
+      "message": "what about this comment ?",
+      "parentUuid": "36172d0d_317737ed",
+      "revId": "7e4e2d0a9a011e31649dadebac946c42db835b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
