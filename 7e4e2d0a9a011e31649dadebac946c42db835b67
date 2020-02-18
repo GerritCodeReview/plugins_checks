@@ -52,6 +52,24 @@
       "revId": "7e4e2d0a9a011e31649dadebac946c42db835b67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb80bc5a_28ddcf64",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-18T17:03:03Z",
+      "side": 1,
+      "message": "Sorry, forgot to upload the patchset.\nThanks for the nice suggestion.",
+      "parentUuid": "00fdd40b_a0d8ac34",
+      "revId": "7e4e2d0a9a011e31649dadebac946c42db835b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
