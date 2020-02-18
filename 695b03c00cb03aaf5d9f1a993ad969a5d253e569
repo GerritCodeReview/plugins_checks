@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4560f34b_7717a65e",
+        "filename": ".zuul.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2020-02-18T00:56:59Z",
+      "side": 1,
+      "message": "Can this be generalized into a role or job?  I think most of the plugins\u0027 tests will be runnable with the target \"plugins/$plugin-name/...\"",
+      "revId": "695b03c00cb03aaf5d9f1a993ad969a5d253e569",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
