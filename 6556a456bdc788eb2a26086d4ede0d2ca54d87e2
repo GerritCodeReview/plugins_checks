@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "62859689_7d5a76a2",
+        "filename": "gr-checks/gr-checks-view.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-18T19:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7389043d_6e4de0d6",
+      "revId": "6556a456bdc788eb2a26086d4ede0d2ca54d87e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92071fb2_05869513",
         "filename": "gr-checks/gr-checks-view.js",
         "patchSetId": 5
@@ -63,6 +81,30 @@
       "revId": "6556a456bdc788eb2a26086d4ede0d2ca54d87e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4274bfe8_48bda47a",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-18T19:34:09Z",
+      "side": 1,
+      "message": "Great suggestion.",
+      "parentUuid": "8d645708_32cd7425",
+      "range": {
+        "startLine": 166,
+        "startChar": 51,
+        "endLine": 166,
+        "endChar": 66
+      },
+      "revId": "6556a456bdc788eb2a26086d4ede0d2ca54d87e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
