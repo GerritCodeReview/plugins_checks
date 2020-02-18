@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a074c2d_a18affe7",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-18T17:26:38Z",
+      "side": 1,
+      "message": "do you still need this ?",
+      "revId": "1f29cd6ac85be30dddeefff71cf104a34d589de1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
