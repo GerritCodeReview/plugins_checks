@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7e6bd43_ecc7bdb0",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-19T11:49:08Z",
+      "side": 1,
+      "message": "nit: when you get chance, just inline this to: `/changes/${change}/revisions/${revision}/checks/${uuid}/rerun`",
+      "range": {
+        "startLine": 209,
+        "startChar": 10,
+        "endLine": 210,
+        "endChar": 24
+      },
+      "revId": "3332c23840dfdb18848848f5ba1e8d2d7a5e34a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a3a87a3_feee0267",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 12
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-19T11:49:08Z",
+      "side": 1,
+      "message": "outdated description",
+      "range": {
+        "startLine": 347,
+        "startChar": 12,
+        "endLine": 347,
+        "endChar": 36
+      },
+      "revId": "3332c23840dfdb18848848f5ba1e8d2d7a5e34a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cac66317_6d68d65b",
+        "filename": "gr-checks/gr-checks-view_test.html",
+        "patchSetId": 12
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-19T11:49:08Z",
+      "side": 1,
+      "message": "assert on at least first argument to make sure its fired with the correct event (in case you have multiple events now or future)",
+      "revId": "3332c23840dfdb18848848f5ba1e8d2d7a5e34a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
