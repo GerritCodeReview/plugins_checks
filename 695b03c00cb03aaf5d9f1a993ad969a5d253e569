@@ -16,6 +16,24 @@
       "revId": "695b03c00cb03aaf5d9f1a993ad969a5d253e569",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c3e631_dca80e20",
+        "filename": ".zuul.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1087826
+      },
+      "writtenOn": "2020-02-20T14:54:07Z",
+      "side": 1,
+      "message": "Oh, the script I was working from ran the tests as \"plugins/plugin-name:plugin-name\", so I made that the default[1].  As I understood it, the checks plugin was the one exception to that.  But if they can all run with this pattern, we can definitely change the default and remove this customization.\n\n[1] https://gerrit-review.googlesource.com/c/zuul/jobs/+/255092/6/zuul.d/jobs.yaml#51",
+      "parentUuid": "4560f34b_7717a65e",
+      "revId": "695b03c00cb03aaf5d9f1a993ad969a5d253e569",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
