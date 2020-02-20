@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9c7f112_f649d637",
+        "filename": "java/com/google/gerrit/plugins/checks/events/RerunCheckEvent.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-02-20T10:00:32Z",
+      "side": 1,
+      "message": "The idea of the trigger event for checks was to not explicitly tie it to a change or patch set. Instead, it should rather be a trigger for a CI system to call the pending checks endpoint again. We could consider to include additional details in the future to avoid roundtrips but those details would be chosen with utmost care.",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "634614dbfb8e74710cda44c4f1467fe9f6735487",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
