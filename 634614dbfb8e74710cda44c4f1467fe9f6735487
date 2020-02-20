@@ -22,6 +22,30 @@
       "revId": "634614dbfb8e74710cda44c4f1467fe9f6735487",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69124900_a834b51b",
+        "filename": "java/com/google/gerrit/plugins/checks/events/RerunCheckEvent.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-02-20T11:33:56Z",
+      "side": 1,
+      "message": "Done. Also updated the commit message to mention the design decision to not tie the trigger event to a change or patch set.",
+      "parentUuid": "a9c7f112_f649d637",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 50
+      },
+      "revId": "634614dbfb8e74710cda44c4f1467fe9f6735487",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
