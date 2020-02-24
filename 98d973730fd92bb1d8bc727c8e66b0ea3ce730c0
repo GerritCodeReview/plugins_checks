@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c7ff5ba1_e62d0642",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-24T16:00:08Z",
+      "side": 1,
+      "message": "Yes, there is a different poller for table.",
+      "parentUuid": "fda464b2_c10ec50a",
+      "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "912b4df4_9e39779f",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 4
@@ -75,6 +93,30 @@
       "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be423342_0e9012db",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-24T16:00:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "912b4df4_9e39779f",
+      "range": {
+        "startLine": 131,
+        "startChar": 56,
+        "endLine": 131,
+        "endChar": 72
+      },
+      "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
