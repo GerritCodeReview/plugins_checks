@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ac401be_3dfe1114",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-24T09:56:32Z",
+      "side": 1,
+      "message": "if you don\u0027t listen to the revision any more and always use `current_revision`, then what if you land on the page with an older patchset ? like https://gerrit-review.googlesource.com/c/gerrit/+/230892/12",
+      "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
