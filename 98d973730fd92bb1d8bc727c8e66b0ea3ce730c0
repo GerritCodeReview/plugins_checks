@@ -52,6 +52,29 @@
       "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "912b4df4_9e39779f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-02-24T13:29:00Z",
+      "side": 1,
+      "message": "this is confusing, can you add a comment on the `current_revision` ? and make sure it always points to the latest revision (in various cases like we have a `edit` revision now)",
+      "range": {
+        "startLine": 131,
+        "startChar": 56,
+        "endLine": 131,
+        "endChar": 72
+      },
+      "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
