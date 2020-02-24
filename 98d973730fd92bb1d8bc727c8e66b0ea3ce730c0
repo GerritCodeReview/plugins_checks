@@ -16,6 +16,24 @@
       "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b571827b_9813e23f",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-24T11:34:17Z",
+      "side": 1,
+      "message": "It should ask for the latest patchset ie ps 18 in this case.\nI just checked and it\u0027s doing exactly what it\u0027s supposed to.\nhttps://screenshot.googleplex.com/VkYXq6ZA8b7",
+      "parentUuid": "9ac401be_3dfe1114",
+      "revId": "98d973730fd92bb1d8bc727c8e66b0ea3ce730c0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
