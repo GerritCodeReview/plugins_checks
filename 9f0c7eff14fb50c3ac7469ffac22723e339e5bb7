@@ -45,6 +45,54 @@
       "revId": "9f0c7eff14fb50c3ac7469ffac22723e339e5bb7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0a276db_0de6e597",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-25T13:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a046b327_3a3f0f9b",
+      "range": {
+        "startLine": 131,
+        "startChar": 71,
+        "endLine": 131,
+        "endChar": 73
+      },
+      "revId": "9f0c7eff14fb50c3ac7469ffac22723e339e5bb7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2e66708_72885c60",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-02-25T13:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86fb4068_19c7065d",
+      "range": {
+        "startLine": 131,
+        "startChar": 33,
+        "endLine": 131,
+        "endChar": 61
+      },
+      "revId": "9f0c7eff14fb50c3ac7469ffac22723e339e5bb7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
