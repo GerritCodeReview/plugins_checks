@@ -20,6 +20,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.stream.Collectors.toList;
 import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Streams;
@@ -136,12 +137,13 @@ public class CheckerOperationsImpl implements CheckerOperations {
     return builder.build();
   }
 
-  @Override
-  public ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName) throws IOException {
+  @VisibleForTesting
+  public ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName, String checkerRef)
+      throws IOException {
     try (Repository repo = repoManager.openRepository(allProjectsName);
         RevWalk rw = new RevWalk(repo);
         ObjectReader or = repo.newObjectReader()) {
-      Ref ref = repo.exactRef(CheckerRef.REFS_META_CHECKERS);
+      Ref ref = repo.exactRef(checkerRef);
       if (ref == null) {
         return ImmutableSet.of();
       }
@@ -163,6 +165,11 @@ public class CheckerOperationsImpl implements CheckerOperations {
             .collect(toImmutableSet());
       }
     }
+  }
+
+  @Override
+  public ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName) throws IOException {
+    return checkersOf(repositoryName, CheckerRef.REFS_META_CHECKERS);
   }
 
   @Override
