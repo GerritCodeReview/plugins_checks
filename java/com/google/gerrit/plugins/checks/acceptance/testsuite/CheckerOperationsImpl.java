@@ -136,12 +136,12 @@ public class CheckerOperationsImpl implements CheckerOperations {
     return builder.build();
   }
 
-  @Override
-  public ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName) throws IOException {
+  private ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName, String checkerRef)
+      throws IOException {
     try (Repository repo = repoManager.openRepository(allProjectsName);
         RevWalk rw = new RevWalk(repo);
         ObjectReader or = repo.newObjectReader()) {
-      Ref ref = repo.exactRef(CheckerRef.REFS_META_CHECKERS);
+      Ref ref = repo.exactRef(checkerRef);
       if (ref == null) {
         return ImmutableSet.of();
       }
@@ -163,6 +163,16 @@ public class CheckerOperationsImpl implements CheckerOperations {
             .collect(toImmutableSet());
       }
     }
+  }
+
+  @Override
+  public ImmutableSet<CheckerUuid> checkersOf(Project.NameKey repositoryName) throws IOException {
+    return checkersOf(repositoryName, CheckerRef.REFS_META_CHECKERS);
+  }
+
+  public ImmutableSet<CheckerUuid> legacyCheckersOf(Project.NameKey repositoryName)
+      throws IOException {
+    return checkersOf(repositoryName, CheckerRef.LEGACY_REFS_META_CHECKERS);
   }
 
   @Override
