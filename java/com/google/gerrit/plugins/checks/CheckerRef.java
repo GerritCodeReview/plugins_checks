@@ -26,6 +26,8 @@ public class CheckerRef {
   /** Ref that stores the repository to checkers map. */
   public static final String REFS_META_CHECKERS = "refs/meta/checkers/";
 
+  public static final String LEGACY_REFS_META_CHECKERS = "refs/meta/checkers/";
+
   /** Suffix for check refs. */
   public static final String CHECKS_SUFFIX = "/checks";
 

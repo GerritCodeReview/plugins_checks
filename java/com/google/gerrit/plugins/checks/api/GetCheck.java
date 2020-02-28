@@ -29,7 +29,7 @@ import org.kohsuke.args4j.Option;
 
 public class GetCheck implements RestReadView<CheckResource> {
   private final CheckJson.Factory checkJsonFactory;
-
+  private final MigrationCheckerRef migrationCheckerRef;
   private final EnumSet<ListChecksOption> options = EnumSet.noneOf(ListChecksOption.class);
 
   @Option(name = "-o", usage = "Output options")
@@ -43,13 +43,15 @@ public class GetCheck implements RestReadView<CheckResource> {
   }
 
   @Inject
-  GetCheck(CheckJson.Factory checkJsonFactory) {
+  GetCheck(CheckJson.Factory checkJsonFactory, MigrationCheckerRef migrationCheckerRef) {
     this.checkJsonFactory = checkJsonFactory;
+    this.migrationCheckerRef = migrationCheckerRef;
   }
 
   @Override
   public Response<CheckInfo> apply(CheckResource resource)
-      throws AuthException, BadRequestException, ResourceConflictException, IOException {
+      throws AuthException, BadRequestException, ResourceConflictException, IOException, Exception {
+    migrationCheckerRef.migrate();
     return Response.ok(checkJsonFactory.create(options).format(resource.getCheck()));
   }
 }

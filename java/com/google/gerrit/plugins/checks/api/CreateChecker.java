@@ -59,6 +59,7 @@ public class CreateChecker
   private final CheckerJson checkerJson;
   private final AdministrateCheckersPermission permission;
   private final ProjectCache projectCache;
+  private final MigrationCheckerRef migrationCheckerRef;
 
   @Inject
   public CreateChecker(
@@ -68,7 +69,8 @@ public class CreateChecker
       @UserInitiated Provider<CheckersUpdate> checkersUpdate,
       CheckerJson checkerJson,
       AdministrateCheckersPermission permission,
-      ProjectCache projectCache) {
+      ProjectCache projectCache,
+      MigrationCheckerRef migrationCheckerRef) {
     this.self = self;
     this.permissionBackend = permissionBackend;
     this.checkerQueryProvider = checkerQueryProvider;
@@ -76,12 +78,14 @@ public class CreateChecker
     this.checkerJson = checkerJson;
     this.permission = permission;
     this.projectCache = projectCache;
+    this.migrationCheckerRef = migrationCheckerRef;
   }
 
   @Override
   public Response<CheckerInfo> apply(TopLevelResource parentResource, CheckerInput input)
       throws RestApiException, PermissionBackendException, IOException, ConfigInvalidException,
           StorageException {
+    migrationCheckerRef.migrate();
     if (!self.get().isIdentifiedUser()) {
       throw new AuthException("Authentication required");
     }
