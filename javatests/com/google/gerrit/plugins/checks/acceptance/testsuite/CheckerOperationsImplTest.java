@@ -742,6 +742,26 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
             CheckersByRepositoryNotes.computeRepositorySha1(allProjects));
   }
 
+  @Test
+  public void migrateLegacyMetaRef() throws Exception {
+    CheckerUuid checkerWithBadRef = CheckerUuid.parse("test:my-checker1");
+
+    try (Repository repo = repoManager.openRepository(allProjects);
+        TestRepository<Repository> testRepo = new TestRepository<>(repo)) {
+      testRepo
+          .branch(CheckerRef.LEGACY_REFS_META_CHECKERS)
+          .commit()
+          .add(
+              CheckersByRepositoryNotes.computeRepositorySha1(allProjects).getName(),
+              checkerWithBadRef.toString())
+          .create();
+    }
+    CheckerUuid checkerWithGoodRef = createCheckerInServer(createArbitraryCheckerInput());
+
+    assertThat(checkerOperations.checkersOf(allProjects))
+        .containsExactly(checkerWithBadRef, checkerWithGoodRef);
+  }
+
   private CheckerInput createArbitraryCheckerInput() {
     CheckerInput checkerInput = new CheckerInput();
     checkerInput.uuid = "test:my-checker";
