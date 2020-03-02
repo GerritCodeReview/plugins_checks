@@ -15,13 +15,27 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
 import java.util.Optional;
+import java.util.Set;
 
 @AutoValue
 public abstract class CheckUpdate {
+
+  @FunctionalInterface
+  public interface OverridesModification {
+    /**
+     * Applies the modification to the given overrides.
+     *
+     * @param originalOverrides current overrides
+     * @return the desired resulting overrides (not the diff of the overrides!)
+     */
+    Set<CheckOverride> apply(ImmutableSet<CheckOverride> originalOverrides);
+  }
+
   public abstract Optional<CheckState> state();
 
   public abstract Optional<String> message();
@@ -32,10 +46,12 @@ public abstract class CheckUpdate {
 
   public abstract Optional<Timestamp> finished();
 
+  public abstract OverridesModification overridesModification();
+
   public abstract Builder toBuilder();
 
   public static Builder builder() {
-    return new AutoValue_CheckUpdate.Builder();
+    return new AutoValue_CheckUpdate.Builder().setOverridesModification(in -> in);
   }
 
   @AutoValue.Builder
@@ -49,6 +65,8 @@ public abstract class CheckUpdate {
     public abstract Builder setStarted(Timestamp started);
 
     public abstract Builder setFinished(Timestamp finished);
+
+    public abstract Builder setOverridesModification(OverridesModification overridesModification);
 
     public Builder unsetStarted() {
       return setStarted(TimeUtil.never());

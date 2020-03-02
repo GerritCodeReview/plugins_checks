@@ -133,6 +133,7 @@ public final class CheckOperationsImpl implements CheckOperations {
     testUpdate.started().ifPresent(update::setStarted);
     testUpdate.finished().ifPresent(update::setFinished);
     testUpdate.url().ifPresent(update::setUrl);
+    update.setOverridesModification(testUpdate.overridesModification()::apply);
     return update.build();
   }
 }

@@ -1,16 +1,22 @@
 package com.google.gerrit.plugins.checks.db;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.common.Nullable;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
+import com.google.gerrit.plugins.checks.CheckOverride;
 import com.google.gerrit.plugins.checks.CheckUpdate;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /** Representation of {@link Check} that can be serialized with GSON. */
 class NoteDbCheck {
@@ -22,6 +28,30 @@ class NoteDbCheck {
   @Nullable public String url;
   @Nullable public Timestamp started;
   @Nullable public Timestamp finished;
+  @Nullable public Set<CheckOverrideForGson> overrides;
+
+  private class CheckOverrideForGson {
+    public Integer overrider;
+    public String reason;
+    public Timestamp created;
+  }
+
+  private CheckOverride toCheckOverride(CheckOverrideForGson tmp) {
+    CheckOverride.Builder checkOverride =
+        CheckOverride.builder()
+            .setCreated(tmp.created)
+            .setOverrider(Account.id(tmp.overrider))
+            .setReason(tmp.reason);
+    return checkOverride.build();
+  }
+
+  private CheckOverrideForGson toCheckOverrideForGson(CheckOverride checkOverride) {
+    CheckOverrideForGson tmp = new CheckOverrideForGson();
+    tmp.created = checkOverride.created();
+    tmp.overrider = checkOverride.overrider().get();
+    tmp.reason = checkOverride.reason();
+    return tmp;
+  }
 
   public Timestamp created;
   public Timestamp updated;
@@ -40,6 +70,14 @@ class NoteDbCheck {
     }
     if (finished != null) {
       newCheck.setFinished(finished);
+    }
+    if (overrides != null) {
+      newCheck.setOverrides(
+          overrides.stream()
+              .map(override -> toCheckOverride(override))
+              .collect(Collectors.toSet()));
+    } else {
+      newCheck.setOverrides(ImmutableSet.of());
     }
     return newCheck.build();
   }
@@ -88,6 +126,23 @@ class NoteDbCheck {
       } else {
         finished = update.finished().get();
       }
+      modified = true;
+    }
+    if (overrides == null) {
+      overrides = new HashSet<>();
+    }
+    Set<CheckOverrideForGson> newOverrides =
+        update.overridesModification()
+            .apply(
+                ImmutableSet.copyOf(
+                    overrides.stream()
+                        .map(override -> toCheckOverride(override))
+                        .collect(Collectors.toSet())))
+            .stream()
+            .map(override -> toCheckOverrideForGson(override))
+            .collect(Collectors.toSet());
+    if (!overrides.equals(newOverrides)) {
+      overrides = newOverrides;
       modified = true;
     }
     return modified;

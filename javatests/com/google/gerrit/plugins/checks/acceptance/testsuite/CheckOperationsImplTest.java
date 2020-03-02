@@ -25,12 +25,15 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
+import com.google.gerrit.plugins.checks.CheckOverride;
 import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
@@ -382,6 +385,22 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
   }
 
   @Test
+  public void overridesOfExistingCheckCanBeRetrieved() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    CheckOverride checkOverride =
+        CheckOverride.builder()
+            .setOverrider(Account.id(1))
+            .setReason("reason")
+            .setCreated(new Timestamp(1234567L))
+            .build();
+    checkOperations.newCheck(checkKey).addOverride(checkOverride).upsert();
+
+    ImmutableSet<CheckOverride> overrides = checkOperations.check(checkKey).get().overrides();
+    assertOverride(overrides.asList().get(0), checkOverride);
+  }
+
+  @Test
   public void updateWithoutAnyParametersIsANoop() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
     CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
@@ -518,6 +537,26 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
   }
 
   @Test
+  public void overridesCanBeCleared() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    CheckOverride checkOverride =
+        CheckOverride.builder()
+            .setOverrider(Account.id(1))
+            .setReason("reason")
+            .setCreated(new Timestamp(1234567L))
+            .build();
+    checkOperations.newCheck(checkKey).addOverride(checkOverride).upsert();
+
+    ImmutableSet<CheckOverride> overrides = checkOperations.check(checkKey).get().overrides();
+    assertOverride(overrides.asList().get(0), checkOverride);
+
+    checkOperations.check(checkKey).forUpdate().clearOverrides().upsert();
+    overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).isEmpty();
+  }
+
+  @Test
   public void getNotesAsText() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
     PatchSet.Id patchSetId = createChange().getPatchSetId();
@@ -571,6 +610,37 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
     assertThat(checkInfo.updated).isEqualTo(check.updated());
   }
 
+  @Test
+  public void overridesCanBeAdded() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    Timestamp timestamp = new Timestamp(1000L);
+    CheckOverride checkOverride1 =
+        CheckOverride.builder()
+            .setCreated(timestamp)
+            .setReason("for test1")
+            .setOverrider(Account.id(1))
+            .build();
+    checkOperations.newCheck(checkKey).addOverride(checkOverride1).upsert();
+
+    CheckOverride checkOverride2 =
+        CheckOverride.builder()
+            .setCreated(timestamp)
+            .setReason("for test2")
+            .setOverrider(Account.id(1))
+            .build();
+    checkOperations.check(checkKey).forUpdate().addOverride(checkOverride2).upsert();
+
+    ImmutableSet<CheckOverride> overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).hasSize(2);
+    assertOverride(overrides.asList().get(1), checkOverride1);
+    assertOverride(overrides.asList().get(0), checkOverride2);
+
+    checkOperations.check(checkKey).forUpdate().clearOverrides().upsert();
+    overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).hasSize(0);
+  }
+
   private CheckInfo getCheckFromServer(CheckKey checkKey) throws RestApiException {
     return checksApiFactory.revision(checkKey.patchSet()).id(checkKey.checkerUuid()).get();
   }
@@ -609,5 +679,11 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
   private static void assertTimestamp(Timestamp actual, Timestamp expected) {
     long timestampDiffMs = Math.abs(actual.getTime() - expected.getTime());
     assertThat(timestampDiffMs).isAtMost(SECONDS.toMillis(1));
+  }
+
+  private static void assertOverride(CheckOverride actual, CheckOverride expected) {
+    assertTimestamp(actual.created(), expected.created());
+    assertThat(actual.overrider()).isEqualTo(expected.overrider());
+    assertThat(actual.reason()).isEqualTo(expected.reason());
   }
 }

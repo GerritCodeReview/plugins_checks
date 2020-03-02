@@ -15,12 +15,17 @@
 package com.google.gerrit.plugins.checks.acceptance.testsuite;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.google.gerrit.acceptance.testsuite.ThrowingConsumer;
 import com.google.gerrit.plugins.checks.CheckKey;
+import com.google.gerrit.plugins.checks.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
 
 @AutoValue
 public abstract class TestCheckUpdate {
@@ -36,12 +41,14 @@ public abstract class TestCheckUpdate {
 
   public abstract Optional<Timestamp> finished();
 
+  public abstract Function<ImmutableSet<CheckOverride>, Set<CheckOverride>> overridesModification();
+
   abstract ThrowingConsumer<TestCheckUpdate> checkUpdater();
 
   public abstract Builder toBuilder();
 
   public static Builder builder(CheckKey key) {
-    return new AutoValue_TestCheckUpdate.Builder().key(key);
+    return new AutoValue_TestCheckUpdate.Builder().key(key).overridesModification(in -> in);
   }
 
   @AutoValue.Builder
@@ -65,6 +72,25 @@ public abstract class TestCheckUpdate {
     public abstract Builder started(Timestamp started);
 
     public abstract Builder finished(Timestamp finished);
+
+    public abstract Builder overridesModification(
+        Function<ImmutableSet<CheckOverride>, Set<CheckOverride>> overridesModification);
+
+    abstract Function<ImmutableSet<CheckOverride>, Set<CheckOverride>> overridesModification();
+
+    public Builder addOverride(CheckOverride checkOverride) {
+      Function<ImmutableSet<CheckOverride>, Set<CheckOverride>> previousModification =
+          overridesModification();
+      overridesModification(
+          originalOverrides ->
+              Sets.union(
+                  previousModification.apply(originalOverrides), ImmutableSet.of(checkOverride)));
+      return this;
+    }
+
+    public Builder clearOverrides() {
+      return overridesModification(originalMembers -> ImmutableSet.of());
+    }
 
     public Builder clearStarted() {
       return started(TimeUtil.never());
