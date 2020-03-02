@@ -19,11 +19,13 @@ import static com.google.inject.Scopes.SINGLETON;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.config.FactoryModule;
+import com.google.gerrit.extensions.registration.DynamicMap;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.plugins.checks.api.ApiModule;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory.GetChangeOptions;
 import com.google.gerrit.plugins.checks.api.ChangeCheckAttributeFactory.QueryChangesOptions;
+import com.google.gerrit.plugins.checks.api.SingleOverridePolicy;
 import com.google.gerrit.plugins.checks.db.NoteDbCheckersModule;
 import com.google.gerrit.plugins.checks.email.ChecksEmailModule;
 import com.google.gerrit.plugins.checks.rules.ChecksSubmitRule;
@@ -40,6 +42,7 @@ import com.google.gerrit.server.restapi.change.GetChange;
 import com.google.gerrit.server.restapi.change.QueryChanges;
 import com.google.gerrit.sshd.commands.Query;
 import com.google.inject.Provides;
+import com.google.inject.name.Names;
 
 public class Module extends FactoryModule {
   @Override
@@ -68,6 +71,12 @@ public class Module extends FactoryModule {
         .in(SINGLETON);
 
     DynamicSet.bind(binder(), ChangeAttributeFactory.class).to(ChangeCheckAttributeFactory.class);
+
+    DynamicMap.mapOf(binder(), OverridePolicy.class);
+    bind(OverridePolicy.class)
+        .annotatedWith(Names.named("SingleOverride"))
+        .to(SingleOverridePolicy.class);
+
     bind(DynamicOptions.DynamicBean.class)
         .annotatedWith(Exports.named(GetChange.class))
         .to(GetChangeOptions.class);
