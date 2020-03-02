@@ -8,9 +8,12 @@ import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckUpdate;
 import com.google.gerrit.plugins.checks.CheckerUuid;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /** Representation of {@link Check} that can be serialized with GSON. */
 class NoteDbCheck {
@@ -22,6 +25,7 @@ class NoteDbCheck {
   @Nullable public String url;
   @Nullable public Timestamp started;
   @Nullable public Timestamp finished;
+  @Nullable public Set<CheckOverride> overrides;
 
   public Timestamp created;
   public Timestamp updated;
@@ -40,6 +44,9 @@ class NoteDbCheck {
     }
     if (finished != null) {
       newCheck.setFinished(finished);
+    }
+    if (overrides != null) {
+      newCheck.setOverrides(overrides);
     }
     return newCheck.build();
   }
@@ -88,6 +95,13 @@ class NoteDbCheck {
       } else {
         finished = update.finished().get();
       }
+      modified = true;
+    }
+    if (update.newOverride().isPresent()) {
+      if (overrides == null) {
+        overrides = new HashSet<>();
+      }
+      overrides.add(update.newOverride().get());
       modified = true;
     }
     return modified;

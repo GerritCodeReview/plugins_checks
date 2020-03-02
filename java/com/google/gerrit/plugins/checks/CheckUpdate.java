@@ -15,6 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
@@ -31,6 +32,8 @@ public abstract class CheckUpdate {
   public abstract Optional<Timestamp> started();
 
   public abstract Optional<Timestamp> finished();
+
+  public abstract Optional<CheckOverride> newOverride();
 
   public abstract Builder toBuilder();
 
@@ -49,6 +52,8 @@ public abstract class CheckUpdate {
     public abstract Builder setStarted(Timestamp started);
 
     public abstract Builder setFinished(Timestamp finished);
+
+    public abstract Builder setNewOverride(CheckOverride overrides);
 
     public Builder unsetStarted() {
       return setStarted(TimeUtil.never());

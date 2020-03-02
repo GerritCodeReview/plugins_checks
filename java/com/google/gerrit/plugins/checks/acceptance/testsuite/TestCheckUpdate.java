@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks.acceptance.testsuite;
 import com.google.auto.value.AutoValue;
 import com.google.gerrit.acceptance.testsuite.ThrowingConsumer;
 import com.google.gerrit.plugins.checks.CheckKey;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.sql.Timestamp;
@@ -35,6 +36,8 @@ public abstract class TestCheckUpdate {
   public abstract Optional<Timestamp> started();
 
   public abstract Optional<Timestamp> finished();
+
+  public abstract Optional<CheckOverride> newOverride();
 
   abstract ThrowingConsumer<TestCheckUpdate> checkUpdater();
 
@@ -65,6 +68,8 @@ public abstract class TestCheckUpdate {
     public abstract Builder started(Timestamp started);
 
     public abstract Builder finished(Timestamp finished);
+
+    public abstract Builder newOverride(CheckOverride override);
 
     public Builder clearStarted() {
       return started(TimeUtil.never());
