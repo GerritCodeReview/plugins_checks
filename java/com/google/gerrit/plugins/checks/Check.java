@@ -15,11 +15,15 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableSet;
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import java.sql.Timestamp;
 import java.util.Optional;
+import java.util.Set;
 
 @AutoValue
 public abstract class Check {
@@ -28,6 +32,7 @@ public abstract class Check {
         .setState(CheckState.NOT_STARTED)
         .setCreated(ps.createdOn())
         .setUpdated(ps.createdOn())
+        .setOverrides(ImmutableSet.of())
         .build();
   }
 
@@ -55,6 +60,9 @@ public abstract class Check {
   /** Timestamp of when this check was last updated. */
   public abstract Timestamp updated();
 
+  @Nullable
+  public abstract ImmutableSet<CheckOverride> overrides();
+
   public abstract Builder toBuilder();
 
   public static Builder builder(CheckKey key) {
@@ -78,6 +86,8 @@ public abstract class Check {
     public abstract Builder setCreated(Timestamp created);
 
     public abstract Builder setUpdated(Timestamp updated);
+
+    public abstract Builder setOverrides(Set<CheckOverride> overrides);
 
     public abstract Check build();
   }

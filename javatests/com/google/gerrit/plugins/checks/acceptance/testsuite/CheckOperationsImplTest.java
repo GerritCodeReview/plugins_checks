@@ -25,6 +25,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
@@ -36,6 +37,7 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckInput;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.io.IOException;
@@ -569,6 +571,30 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
     assertThat(checkInfo.finished).isEqualTo(check.finished().get());
     assertThat(checkInfo.created).isEqualTo(check.created());
     assertThat(checkInfo.updated).isEqualTo(check.updated());
+  }
+
+  @Test
+  public void addOverride() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    CheckOverride checkOverride = new CheckOverride();
+    Timestamp timestamp = new Timestamp(1000L);
+    checkOverride.overriddenOn = timestamp;
+    checkOverride.overrider = 1;
+    checkOverride.reason = "for test1";
+    checkOperations.newCheck(checkKey).addOverride(checkOverride).upsert();
+
+    checkOverride.reason = "for test2";
+    checkOperations.check(checkKey).forUpdate().addOverride(checkOverride).upsert();
+
+    ImmutableSet<CheckOverride> overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).hasSize(2);
+    CheckOverride checkOverride1 = overrides.asList().get(0);
+    assertThat(checkOverride1.overrider).isEqualTo(1);
+    assertThat(checkOverride1.overriddenOn).isEqualTo(timestamp);
+    assertThat(checkOverride1.reason).isEqualTo("for test1");
+    CheckOverride checkOverride2 = overrides.asList().get(1);
+    assertThat(checkOverride2.reason).isEqualTo("for test2");
   }
 
   private CheckInfo getCheckFromServer(CheckKey checkKey) throws RestApiException {

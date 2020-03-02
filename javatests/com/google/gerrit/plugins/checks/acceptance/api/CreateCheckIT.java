@@ -409,6 +409,7 @@ public class CreateCheckIT extends AbstractCheckersTest {
         + uuid
         + "\": {\n"
         + "      \"state\": \"RUNNING\",\n"
+        + "      \"overrides\": [],\n"
         + "      \"created\": \""
         + Instant.ofEpochMilli(created.getTime())
         + "\",\n"
