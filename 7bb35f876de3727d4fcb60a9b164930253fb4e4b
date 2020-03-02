@@ -16,6 +16,24 @@
       "revId": "7bb35f876de3727d4fcb60a9b164930253fb4e4b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7078f024_50d156de",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2020-03-02T10:23:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "067862fe_e01139cb",
+      "revId": "7bb35f876de3727d4fcb60a9b164930253fb4e4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
