@@ -31,17 +31,20 @@ public class CheckApiImpl implements CheckApi {
   private final UpdateCheck updateCheck;
   private final CheckResource checkResource;
   private final RerunCheck rerunCheck;
+  private final OverrideCheck overrideCheck;
 
   @Inject
   CheckApiImpl(
       GetCheck getCheck,
       UpdateCheck updateCheck,
       @Assisted CheckResource checkResource,
-      RerunCheck rerunCheck) {
+      RerunCheck rerunCheck,
+      OverrideCheck overrideCheck) {
     this.getCheck = getCheck;
     this.updateCheck = updateCheck;
     this.checkResource = checkResource;
     this.rerunCheck = rerunCheck;
+    this.overrideCheck = overrideCheck;
   }
 
   @Override
@@ -69,6 +72,15 @@ public class CheckApiImpl implements CheckApi {
       return rerunCheck.apply(checkResource, input).value();
     } catch (Exception e) {
       throw asRestApiException("Cannot rerun check", e);
+    }
+  }
+
+  @Override
+  public CheckInfo override(CheckOverrideInput input) throws RestApiException {
+    try {
+      return overrideCheck.apply(checkResource, input).value();
+    } catch (Exception e) {
+      throw asRestApiException("Cannot override check", e);
     }
   }
 }

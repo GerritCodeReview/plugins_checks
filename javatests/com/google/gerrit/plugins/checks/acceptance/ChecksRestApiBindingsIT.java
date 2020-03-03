@@ -48,7 +48,8 @@ public class ChecksRestApiBindingsIT extends AbstractCheckersTest {
       ImmutableList.of(
           RestCall.get("/changes/%s/revisions/%s/checks~checks/%s"),
           RestCall.post("/changes/%s/revisions/%s/checks~checks/%s"),
-          RestCall.post("/changes/%s/revisions/%s/checks~checks/%s/rerun"));
+          RestCall.post("/changes/%s/revisions/%s/checks~checks/%s/rerun"),
+          RestCall.post("/changes/%s/revisions/%s/checks~checks/%s/override"));
 
   @Test
   public void rootEndpoints() throws Exception {

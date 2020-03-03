@@ -33,6 +33,9 @@ public interface CheckApi {
 
   /** Reruns the check and returns the {@link CheckInfo} for the updated check. */
   CheckInfo rerun(RerunInput input) throws RestApiException;
+
+  /** Overrides the check and returns the {@link CheckInfo} for the updated check. */
+  CheckInfo override(CheckOverrideInput input) throws RestApiException;
   /**
    * A default implementation which allows source compatibility when adding new methods to the
    * interface.
@@ -50,6 +53,11 @@ public interface CheckApi {
 
     @Override
     public CheckInfo rerun(RerunInput input) throws RestApiException {
+      throw new NotImplementedException();
+    }
+
+    @Override
+    public CheckInfo override(CheckOverrideInput input) throws RestApiException {
       throw new NotImplementedException();
     }
   }
