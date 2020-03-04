@@ -74,8 +74,12 @@ public class CheckerConfigSubject extends Subject {
     check("status()").that(checker().getStatus()).isEqualTo(expectedStatus);
   }
 
-  public IterableSubject hasBlockingConditionSetThat() {
-    return check("blockingConditions()").that(checker().getBlockingConditions());
+  public void isRequired() {
+    check("required()").that(checker().getRequired()).isTrue();
+  }
+
+  public void isOptional() {
+    check("required()").that(checker().getRequired()).isFalse();
   }
 
   public void hasQuery(String expectedQuery) {

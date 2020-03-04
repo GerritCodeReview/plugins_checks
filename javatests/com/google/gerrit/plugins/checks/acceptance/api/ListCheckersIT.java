@@ -96,11 +96,7 @@ public class ListCheckersIT extends AbstractCheckersTest {
         .nonParseableConfig()
         .invalidate();
     checkerOperations.checker(invalidCheckerUuid2).forInvalidation().invalidUuid().invalidate();
-    checkerOperations
-        .checker(invalidCheckerUuid3)
-        .forInvalidation()
-        .invalidBlockingCondition()
-        .invalidate();
+    checkerOperations.checker(invalidCheckerUuid3).forInvalidation().invalidRequired().invalidate();
     checkerOperations.checker(invalidCheckerUuid4).forInvalidation().invalidStatus().invalidate();
     checkerOperations.checker(invalidCheckerUuid5).forInvalidation().unsetUuid().invalidate();
     checkerOperations.checker(invalidCheckerUuid6).forInvalidation().unsetName().invalidate();

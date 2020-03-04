@@ -19,14 +19,12 @@ import static com.google.common.truth.Truth.assertWithMessage;
 import static com.google.gerrit.plugins.checks.testing.CheckerConfigSubject.assertThat;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.truth.StringSubject;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.plugins.checks.CheckerCreation;
 import com.google.gerrit.plugins.checks.CheckerQuery;
 import com.google.gerrit.plugins.checks.CheckerUpdate;
 import com.google.gerrit.plugins.checks.CheckerUuid;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.server.extensions.events.GitReferenceUpdated;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
@@ -454,40 +452,30 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void setBlockingConditions() throws Exception {
+  public void setRequired() throws Exception {
     CheckerConfig checker = createArbitraryChecker(checkerUuid);
-    assertThat(checker).hasBlockingConditionSetThat().isEmpty();
-    assertThat(checker).configStringList("blocking").isEmpty();
+    assertThat(checker).isOptional();
+    assertThat(checker).configStringList("required").containsExactly("false");
 
-    CheckerUpdate checkerUpdate =
-        CheckerUpdate.builder()
-            .setBlockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING))
-            .build();
+    CheckerUpdate checkerUpdate = CheckerUpdate.builder().setRequired(true).build();
     checker = updateChecker(checkerUuid, checkerUpdate);
-    assertThat(checker)
-        .hasBlockingConditionSetThat()
-        .containsExactly(BlockingCondition.STATE_NOT_PASSING);
-    assertThat(checker).configStringList("blocking").containsExactly("state not passing");
+    assertThat(checker).isRequired();
+    assertThat(checker).configStringList("required").containsExactly("true");
 
-    checkerUpdate = CheckerUpdate.builder().setBlockingConditions(ImmutableSortedSet.of()).build();
+    checkerUpdate = CheckerUpdate.builder().setRequired(false).build();
     checker = updateChecker(checkerUuid, checkerUpdate);
-    assertThat(checker).hasBlockingConditionSetThat().isEmpty();
-    assertThat(checker).configStringList("blocking").isEmpty();
+    assertThat(checker).isOptional();
+    assertThat(checker).configStringList("required").containsExactly("false");
   }
 
   @Test
-  public void setBlockingConditionsDuringCreate() throws Exception {
+  public void setRequiredDuringCreate() throws Exception {
     CheckerCreation checkerCreation = getPrefilledCheckerCreationBuilder().build();
-    CheckerUpdate checkerUpdate =
-        CheckerUpdate.builder()
-            .setBlockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING))
-            .build();
+    CheckerUpdate checkerUpdate = CheckerUpdate.builder().setRequired(true).build();
     CheckerConfig checker = createChecker(checkerCreation, checkerUpdate);
 
-    assertThat(checker)
-        .hasBlockingConditionSetThat()
-        .containsExactly(BlockingCondition.STATE_NOT_PASSING);
-    assertThat(checker).configStringList("blocking").containsExactly("state not passing");
+    assertThat(checker).isRequired();
+    assertThat(checker).configStringList("required").containsExactly("true");
   }
 
   @Test
