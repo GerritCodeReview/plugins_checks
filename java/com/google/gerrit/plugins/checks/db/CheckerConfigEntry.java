@@ -26,7 +26,6 @@ import com.google.gerrit.plugins.checks.Checker;
 import com.google.gerrit.plugins.checks.CheckerCreation;
 import com.google.gerrit.plugins.checks.CheckerUpdate;
 import com.google.gerrit.plugins.checks.CheckerUuid;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import java.text.MessageFormat;
 import java.util.Locale;
@@ -260,26 +259,30 @@ enum CheckerConfigEntry {
     }
   },
 
-  BLOCKING_CONDITIONS("blocking") {
+  REQUIRED("required") {
     @Override
     void readFromConfig(CheckerUuid checkerUuid, Checker.Builder checker, Config config)
         throws ConfigInvalidException {
-      checker.setBlockingConditions(
-          getEnumSet(config, SECTION_NAME, super.keyName, BlockingCondition.values()));
+      try {
+        checker.setRequired(config.getBoolean(SECTION_NAME, null, super.keyName, false));
+      } catch (IllegalArgumentException e) {
+        throw new ConfigInvalidException(e.getMessage());
+      }
     }
 
     @Override
     void initNewConfig(Config config, CheckerCreation checkerCreation) {
-      // Do nothing. Blocking conditions will be set by updateConfigValue.
+      config.setBoolean(SECTION_NAME, null, super.keyName, false);
     }
 
     @Override
     void updateConfigValue(Config config, CheckerUpdate checkerUpdate) {
       checkerUpdate
-          .getBlockingConditions()
+          .getRequired()
           .ifPresent(
-              blockingConditions ->
-                  setEnumList(config, SECTION_NAME, null, super.keyName, blockingConditions));
+              required -> {
+                config.setBoolean(SECTION_NAME, null, super.keyName, required);
+              });
     }
   },
 
