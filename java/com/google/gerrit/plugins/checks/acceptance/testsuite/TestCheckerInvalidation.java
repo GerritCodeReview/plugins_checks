@@ -23,7 +23,7 @@ public abstract class TestCheckerInvalidation {
 
   public abstract boolean invalidUuid();
 
-  public abstract boolean invalidBlockingCondition();
+  public abstract boolean invalidRequired();
 
   public abstract boolean invalidStatus();
 
@@ -44,7 +44,7 @@ public abstract class TestCheckerInvalidation {
         .checkerInvalidator(checkerInvalidator)
         .nonParseableConfig(false)
         .invalidUuid(false)
-        .invalidBlockingCondition(false)
+        .invalidRequired(false)
         .invalidStatus(false)
         .unsetUuid(false)
         .unsetName(false)
@@ -67,11 +67,11 @@ public abstract class TestCheckerInvalidation {
 
     abstract Builder invalidUuid(boolean invalidUuid);
 
-    public Builder invalidBlockingCondition() {
-      return invalidBlockingCondition(true);
+    public Builder invalidRequired() {
+      return invalidRequired(true);
     }
 
-    abstract Builder invalidBlockingCondition(boolean invalidBlockingCondition);
+    abstract Builder invalidRequired(boolean invalidRequired);
 
     public Builder invalidStatus() {
       return invalidStatus(true);

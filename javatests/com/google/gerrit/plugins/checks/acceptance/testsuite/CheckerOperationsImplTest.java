@@ -22,7 +22,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.eclipse.jgit.lib.Constants.OBJ_BLOB;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.Checker;
@@ -30,7 +29,6 @@ import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerInfo;
 import com.google.gerrit.plugins.checks.api.CheckerInput;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
@@ -74,7 +72,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     assertThat(foundChecker.repository).isEqualTo(allProjects.get());
     assertThat(foundChecker.status).isEqualTo(CheckerStatus.ENABLED);
     assertThat(foundChecker.query).isEqualTo("status:open");
-    assertThat(foundChecker.blocking).isEmpty();
+    assertThat(foundChecker.required).isFalse();
     assertThat(foundChecker.url).isNull();
     assertThat(foundChecker.description).isNull();
     assertThat(foundChecker.created).isNotNull();
@@ -187,7 +185,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     CheckerUuid checkerUuid = checkerOperations.newChecker().required().create();
 
     CheckerInfo checker = getCheckerFromServer(checkerUuid);
-    assertThat(checker.blocking).isNotEmpty();
+    assertThat(checker.required).isTrue();
   }
 
   @Test
@@ -195,7 +193,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     CheckerUuid checkerUuid = checkerOperations.newChecker().optional().create();
 
     CheckerInfo checker = getCheckerFromServer(checkerUuid);
-    assertThat(checker.blocking).isEmpty();
+    assertThat(checker.required).isFalse();
   }
 
   @Test
@@ -348,24 +346,17 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
   }
 
   @Test
-  public void blockingConditionsOfExistingCheckerCanBeRetrieved() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations
-            .newChecker()
-            .blockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING))
-            .create();
+  public void requiredOfExistingCheckerCanBeRetrieved() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().required().create();
 
-    ImmutableSortedSet<BlockingCondition> blockingConditions =
-        checkerOperations.checker(checkerUuid).get().getBlockingConditions();
-
-    assertThat(blockingConditions).containsExactly(BlockingCondition.STATE_NOT_PASSING);
+    assertThat(checkerOperations.checker(checkerUuid).get().getRequired()).isTrue();
   }
 
   @Test
   public void requiredStateOfExistingCheckerCanBeRetrieved() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().required().create();
 
-    boolean required = checkerOperations.checker(checkerUuid).get().isRequired();
+    boolean required = checkerOperations.checker(checkerUuid).get().getRequired();
 
     assertWithMessage("checker.required()").that(required).isTrue();
   }
@@ -374,7 +365,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
   public void optionalStateOfExistingCheckerCanBeRetrieved() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().optional().create();
 
-    boolean required = checkerOperations.checker(checkerUuid).get().isRequired();
+    boolean required = checkerOperations.checker(checkerUuid).get().getRequired();
 
     assertWithMessage("checker.required()").that(required).isFalse();
   }
@@ -486,7 +477,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
     checkerOperations.checker(checkerUuid).forUpdate().optional().update();
 
     assertWithMessage("checker.required()")
-        .that(checkerOperations.checker(checkerUuid).get().isRequired())
+        .that(checkerOperations.checker(checkerUuid).get().getRequired())
         .isFalse();
   }
 
@@ -496,7 +487,7 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
 
     checkerOperations.checker(checkerUuid).forUpdate().required().update();
     assertWithMessage("checker.required()")
-        .that(checkerOperations.checker(checkerUuid).get().isRequired())
+        .that(checkerOperations.checker(checkerUuid).get().getRequired())
         .isTrue();
   }
 
@@ -554,18 +545,14 @@ public class CheckerOperationsImplTest extends AbstractCheckersTest {
   }
 
   @Test
-  public void blockingConditionsCanBeMadeInvalid() throws Exception {
+  public void requiredCanBeMadeInvalid() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
 
-    checkerOperations
-        .checker(checkerUuid)
-        .forInvalidation()
-        .invalidBlockingCondition()
-        .invalidate();
+    checkerOperations.checker(checkerUuid).forInvalidation().invalidRequired().invalidate();
 
     ConfigInvalidException thrown =
         assertThrows(ConfigInvalidException.class, () -> checkers.getChecker(checkerUuid));
-    assertThat(thrown).hasMessageThat().contains("Invalid value: checker.blocking");
+    assertThat(thrown).hasMessageThat().contains("Invalid boolean value: checker.required=invalid");
   }
 
   @Test

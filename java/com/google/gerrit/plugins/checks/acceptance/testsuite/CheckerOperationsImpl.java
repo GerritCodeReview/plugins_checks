@@ -131,7 +131,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
     checkerCreation.url().ifPresent(builder::setUrl);
     checkerCreation.repository().ifPresent(builder::setRepository);
     checkerCreation.status().ifPresent(builder::setStatus);
-    checkerCreation.blockingConditions().ifPresent(builder::setBlockingConditions);
+    checkerCreation.required().ifPresent(builder::setRequired);
     checkerCreation.query().ifPresent(builder::setQuery);
     return builder.build();
   }
@@ -261,8 +261,8 @@ public class CheckerOperationsImpl implements CheckerOperations {
         setValueInCheckerConfig("uuid", "invalid");
       }
 
-      if (testCheckerInvalidation.invalidBlockingCondition()) {
-        addValueInCheckerConfig("blocking", "invalid");
+      if (testCheckerInvalidation.invalidRequired()) {
+        setValueInCheckerConfig("required", "invalid");
       }
 
       if (testCheckerInvalidation.invalidStatus()) {
@@ -347,7 +347,7 @@ public class CheckerOperationsImpl implements CheckerOperations {
       checkerUpdate.url().ifPresent(builder::setUrl);
       checkerUpdate.repository().ifPresent(builder::setRepository);
       checkerUpdate.status().ifPresent(builder::setStatus);
-      checkerUpdate.blockingConditions().ifPresent(builder::setBlockingConditions);
+      checkerUpdate.required().ifPresent(builder::setRequired);
       checkerUpdate.query().ifPresent(builder::setQuery);
       return builder.build();
     }

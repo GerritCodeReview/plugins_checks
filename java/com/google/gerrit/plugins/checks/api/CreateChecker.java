@@ -15,7 +15,6 @@
 package com.google.gerrit.plugins.checks.api;
 
 import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.DuplicateKeyException;
 import com.google.gerrit.exceptions.StorageException;
@@ -122,8 +121,8 @@ public class CreateChecker
     if (input.status != null) {
       checkerUpdateBuilder.setStatus(input.status);
     }
-    if (input.blocking != null) {
-      checkerUpdateBuilder.setBlockingConditions(ImmutableSortedSet.copyOf(input.blocking));
+    if (input.required != null) {
+      checkerUpdateBuilder.setRequired(input.required);
     }
     if (input.query != null) {
       checkerUpdateBuilder.setQuery(validateQuery(checkerUuid, repository, input.query));

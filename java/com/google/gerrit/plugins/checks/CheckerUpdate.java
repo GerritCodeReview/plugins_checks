@@ -18,9 +18,7 @@ import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import java.util.Optional;
 
@@ -54,10 +52,10 @@ public abstract class CheckerUpdate {
   public abstract Optional<CheckerStatus> getStatus();
 
   /**
-   * Defines the new blocking conditions for the checker. Specifies the entire set, not a delta. If
-   * not specified, the blocking conditions remain unchanged.
+   * Defines the new submit requirement for the checker. Specifies the entire set, not a delta. If
+   * not specified, the requirement remain unchanged.
    */
-  public abstract Optional<ImmutableSortedSet<BlockingCondition>> getBlockingConditions();
+  public abstract Optional<Boolean> getRequired();
 
   /** Defines the new query for the checker. If not specified, the query remains unchanged. */
   public abstract Optional<String> getQuery();
@@ -80,8 +78,7 @@ public abstract class CheckerUpdate {
 
     public abstract Builder setStatus(CheckerStatus status);
 
-    public abstract Builder setBlockingConditions(
-        ImmutableSortedSet<BlockingCondition> blockingConditions);
+    public abstract Builder setRequired(Boolean required);
 
     public abstract Builder setQuery(String query);
 

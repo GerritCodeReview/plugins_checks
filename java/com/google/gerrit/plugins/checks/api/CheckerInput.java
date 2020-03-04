@@ -14,8 +14,6 @@
 
 package com.google.gerrit.plugins.checks.api;
 
-import java.util.Set;
-
 public class CheckerInput {
   public String uuid;
   public String name;
@@ -23,6 +21,6 @@ public class CheckerInput {
   public String url;
   public String repository;
   public CheckerStatus status;
-  public Set<BlockingCondition> blocking;
+  public Boolean required;
   public String query;
 }
