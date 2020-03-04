@@ -18,7 +18,6 @@ import com.google.common.base.MoreObjects;
 import com.google.gerrit.common.Nullable;
 import java.sql.Timestamp;
 import java.util.Objects;
-import java.util.Set;
 
 /** REST API representation of a {@link com.google.gerrit.plugins.checks.Check}. */
 public class CheckInfo {
@@ -54,7 +53,7 @@ public class CheckInfo {
   public CheckerStatus checkerStatus;
 
   /** Blocking conditions that apply to this check. */
-  public Set<BlockingCondition> blocking;
+  public boolean required;
 
   /** Description of the checker that produced this check */
   public String checkerDescription;
@@ -78,7 +77,7 @@ public class CheckInfo {
         && Objects.equals(other.updated, updated)
         && Objects.equals(other.checkerName, checkerName)
         && Objects.equals(other.checkerStatus, checkerStatus)
-        && Objects.equals(other.blocking, blocking)
+        && Objects.equals(other.required, required)
         && Objects.equals(other.checkerDescription, checkerDescription);
   }
 
@@ -98,7 +97,7 @@ public class CheckInfo {
         updated,
         checkerName,
         checkerStatus,
-        blocking,
+        required,
         checkerDescription);
   }
 
@@ -118,7 +117,7 @@ public class CheckInfo {
         .add("updated", updated)
         .add("checkerName", checkerName)
         .add("checkerStatus", checkerStatus)
-        .add("blocking", blocking)
+        .add("required", required)
         .add("checkerDescription", checkerDescription)
         .toString();
   }

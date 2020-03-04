@@ -17,7 +17,6 @@ package com.google.gerrit.plugins.checks.acceptance.api;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.acceptance.UseClockStep;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.restapi.AuthException;
@@ -26,7 +25,6 @@ import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerTestData;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerInfo;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.server.config.ConfigResource;
@@ -112,19 +110,14 @@ public class GetCheckerIT extends AbstractCheckersTest {
 
   @Test
   public void getCheckerReturnsBlockingCondition() throws Exception {
-    CheckerUuid checkerUuid =
-        checkerOperations
-            .newChecker()
-            .blockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING))
-            .create();
-    assertThat(getCheckerInfo(checkerUuid).blocking)
-        .containsExactly(BlockingCondition.STATE_NOT_PASSING);
+    CheckerUuid checkerUuid = checkerOperations.newChecker().required().create();
+    assertThat(getCheckerInfo(checkerUuid).required).isTrue();
   }
 
   @Test
   public void getOptionalChecker() throws Exception {
-    CheckerUuid checkerUuid = checkerOperations.newChecker().optional().create();
-    assertThat(getCheckerInfo(checkerUuid).blocking).isEmpty();
+    CheckerUuid checkerUuid = checkerOperations.newChecker().required(false).create();
+    assertThat(getCheckerInfo(checkerUuid).required).isFalse();
   }
 
   @Test
@@ -208,13 +201,9 @@ public class GetCheckerIT extends AbstractCheckersTest {
   }
 
   @Test
-  public void getCheckerWithInvalidBlockingConditionFails() throws Exception {
+  public void getCheckerWithInvalidRequiredFails() throws Exception {
     CheckerUuid checkerUuid = checkerOperations.newChecker().create();
-    checkerOperations
-        .checker(checkerUuid)
-        .forInvalidation()
-        .invalidBlockingCondition()
-        .invalidate();
+    checkerOperations.checker(checkerUuid).forInvalidation().invalidRequired().invalidate();
 
     RestApiException thrown =
         assertThrows(RestApiException.class, () -> getCheckerInfo(checkerUuid));

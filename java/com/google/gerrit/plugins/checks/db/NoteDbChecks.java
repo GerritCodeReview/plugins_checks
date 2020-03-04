@@ -194,7 +194,7 @@ class NoteDbChecks implements Checks {
 
       boolean isRequired =
           checker.getStatus() == CheckerStatus.ENABLED
-              && checker.isRequired()
+              && checker.getRequired()
               && checkerQueryProvider.get().isCheckerRelevant(checker, changeData);
       statesAndRequired.put(check.state(), isRequired);
     }
