@@ -16,12 +16,19 @@ package com.google.gerrit.plugins.checks;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.flogger.FluentLogger;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
+import com.google.gerrit.plugins.checks.api.CheckOverride;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInfo;
 import com.google.gerrit.plugins.checks.api.CheckSubmitImpactInfo;
+import com.google.gerrit.plugins.checks.api.OverrideImpact;
+import com.google.gerrit.server.account.AccountLoader;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.assistedinject.Assisted;
 import java.io.IOException;
+import java.util.stream.Collectors;
+import javax.inject.Named;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 
 /** Formats a {@link Check} as JSON. */
@@ -52,11 +59,19 @@ public class CheckJson {
 
   private final Checkers checkers;
   private final ImmutableSet<ListChecksOption> options;
+  private final OverridePolicy overridePolicy;
+  private final AccountLoader.Factory infoFactory;
 
   @Inject
-  CheckJson(Checkers checkers, @Assisted Iterable<ListChecksOption> options) {
+  CheckJson(
+      Checkers checkers,
+      @Assisted Iterable<ListChecksOption> options,
+      @Named("SingleOverride") OverridePolicy overridePolicy,
+      AccountLoader.Factory infoFactory) {
     this.checkers = checkers;
     this.options = ImmutableSet.copyOf(options);
+    this.overridePolicy = overridePolicy;
+    this.infoFactory = infoFactory;
   }
 
   public CheckInfo format(Check check) throws IOException {
@@ -78,6 +93,10 @@ public class CheckJson {
     if (options.contains(ListChecksOption.CHECKER)) {
       populateCheckerFields(check.key().checkerUuid(), info);
     }
+
+    if (options.contains(ListChecksOption.SUBMIT_IMPACT)) {
+      populateSubmitImpact(check, check.key().checkerUuid(), info);
+    }
     return info;
   }
 
@@ -89,12 +108,54 @@ public class CheckJson {
               checker -> {
                 info.checkerName = checker.getName();
                 info.checkerStatus = checker.getStatus();
-                info.submitImpact = new CheckSubmitImpactInfo();
-                info.submitImpact.required = checker.getRequired();
                 info.checkerDescription = checker.getDescription().orElse(null);
               });
     } catch (ConfigInvalidException e) {
       logger.atWarning().withCause(e).log("skipping invalid checker %s", checkerUuid);
     }
+  }
+
+  private void populateSubmitImpact(Check check, CheckerUuid checkerUuid, CheckInfo info)
+      throws IOException {
+    try {
+      info.submitImpact = new CheckSubmitImpactInfo();
+      populateCheckerRequired(checkerUuid, info);
+      if (info.submitImpact.required) {
+        calculateOverride(check, info);
+      }
+    } catch (ConfigInvalidException e) {
+      logger.atWarning().withCause(e).log("skipping invalid checker %s", checkerUuid);
+      info.submitImpact = null;
+    }
+  }
+
+  private void calculateOverride(Check check, CheckInfo info) {
+    if (check.overrides() != null) {
+      info.submitImpact.overrides =
+          check.overrides().stream().map(override -> toInfo(override)).collect(Collectors.toList());
+    }
+    OverrideImpact overrideImpact = overridePolicy.computeImpact(check.overrides());
+    info.submitImpact.message = overrideImpact.message.orElse(null);
+    if (overrideImpact.overridden) {
+      info.submitImpact.required = false;
+    }
+  }
+
+  private void populateCheckerRequired(CheckerUuid checkerUuid, CheckInfo info)
+      throws IOException, ConfigInvalidException {
+    checkers
+        .getChecker(checkerUuid)
+        .ifPresent(
+            checker -> {
+              info.submitImpact.required = checker.getRequired();
+            });
+  }
+
+  private CheckOverrideInfo toInfo(CheckOverride checkOverride) {
+    CheckOverrideInfo info = new CheckOverrideInfo();
+    info.overrider = infoFactory.create(true).get(Account.id(checkOverride.overrider));
+    info.reason = checkOverride.reason;
+    info.overriddenOn = checkOverride.overriddenOn;
+    return info;
   }
 }

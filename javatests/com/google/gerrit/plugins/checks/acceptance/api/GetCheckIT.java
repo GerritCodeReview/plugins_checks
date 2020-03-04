@@ -41,6 +41,7 @@ import com.google.gerrit.plugins.checks.ListChecksOption;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerTestData;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInput;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CheckSubmitImpactInfo;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
@@ -97,7 +98,9 @@ public class GetCheckIT extends AbstractCheckersTest {
     expectedCheckInfo.submitImpact = new CheckSubmitImpactInfo();
     expectedCheckInfo.submitImpact.required = false;
     expectedCheckInfo.checkerDescription = "Description";
-    assertThat(getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER))
+    assertThat(
+            getCheckInfo(
+                patchSetId, checkerUuid, ListChecksOption.CHECKER, ListChecksOption.SUBMIT_IMPACT))
         .isEqualTo(expectedCheckInfo);
   }
 
@@ -119,7 +122,7 @@ public class GetCheckIT extends AbstractCheckersTest {
     RestResponse r =
         adminRestSession.get(
             String.format(
-                "/changes/%s/revisions/%s/checks~checks/%s?o=CHECKER",
+                "/changes/%s/revisions/%s/checks~checks/%s?o=CHECKER&o=SUBMIT_IMPACT",
                 patchSetId.changeId().get(), patchSetId.get(), checkerUuid.get()));
     r.assertOK();
     CheckInfo checkInfo =
@@ -130,7 +133,7 @@ public class GetCheckIT extends AbstractCheckersTest {
     r =
         adminRestSession.get(
             String.format(
-                "/changes/%s/revisions/%s/checks~checks/%s?O=1",
+                "/changes/%s/revisions/%s/checks~checks/%s?O=1&O=2",
                 patchSetId.changeId().get(), patchSetId.get(), checkerUuid.get()));
     r.assertOK();
     checkInfo = newGson().fromJson(r.getReader(), new TypeToken<CheckInfo>() {}.getType());
@@ -263,7 +266,7 @@ public class GetCheckIT extends AbstractCheckersTest {
   }
 
   @Test
-  public void getCheckReturnsRequiredOnlyForCheckerOption() throws Exception {
+  public void getCheckReturnsRequiredOnlyForSubmitImpactOption() throws Exception {
     CheckerUuid checkerUuid =
         checkerOperations.newChecker().repository(project).required().create();
 
@@ -272,8 +275,29 @@ public class GetCheckIT extends AbstractCheckersTest {
 
     assertThat(getCheckInfo(patchSetId, checkerUuid).submitImpact).isNull();
     assertThat(
-            getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER).submitImpact.required)
+            getCheckInfo(patchSetId, checkerUuid, ListChecksOption.SUBMIT_IMPACT)
+                .submitImpact
+                .required)
         .isTrue();
+  }
+
+  @Test
+  public void getCheckReturnsOverridesOnlyForSubmitImpactOption() throws Exception {
+    CheckerUuid checkerUuid =
+        checkerOperations.newChecker().repository(project).required().create();
+
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).upsert();
+    CheckOverrideInput checkOverrideInput = new CheckOverrideInput();
+    checkOverrideInput.reason = "some reason";
+    checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).override(checkOverrideInput);
+
+    assertThat(getCheckInfo(patchSetId, checkerUuid).submitImpact).isNull();
+    assertThat(
+            getCheckInfo(patchSetId, checkerUuid, ListChecksOption.SUBMIT_IMPACT)
+                .submitImpact
+                .overrides)
+        .hasSize(1);
   }
 
   @Test
@@ -291,7 +315,6 @@ public class GetCheckIT extends AbstractCheckersTest {
 
     // Checker fields are not set.
     assertThat(check.checkerName).isNull();
-    assertThat(check.submitImpact).isNull();
     assertThat(check.checkerStatus).isNull();
 
     // Check that at least some non-checker fields are set to ensure that we didn't get a completely

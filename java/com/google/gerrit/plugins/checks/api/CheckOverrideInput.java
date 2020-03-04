@@ -14,6 +14,15 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.gerrit.common.Nullable;
+import com.google.gerrit.extensions.api.changes.NotifyHandling;
+import com.google.gerrit.extensions.api.changes.NotifyInfo;
+import com.google.gerrit.extensions.api.changes.RecipientType;
+import java.util.Map;
+
 public class CheckOverrideInput {
   public String reason;
+
+  @Nullable public NotifyHandling notify;
+  @Nullable public Map<RecipientType, NotifyInfo> notifyDetails;
 }

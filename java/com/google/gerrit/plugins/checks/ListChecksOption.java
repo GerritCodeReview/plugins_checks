@@ -18,8 +18,8 @@ import com.google.gerrit.extensions.client.ListOption;
 
 /** Options for requesting checks. */
 public enum ListChecksOption implements ListOption {
-  CHECKER(0);
-
+  CHECKER(0),
+  SUBMIT_IMPACT(1);
   private final int value;
 
   ListChecksOption(int value) {

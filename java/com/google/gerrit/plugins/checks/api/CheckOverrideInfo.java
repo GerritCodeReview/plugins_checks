@@ -15,36 +15,37 @@
 package com.google.gerrit.plugins.checks.api;
 
 import com.google.common.base.MoreObjects;
-import java.util.List;
+import com.google.gerrit.extensions.common.AccountInfo;
+import java.sql.Timestamp;
 import java.util.Objects;
 
-public class CheckSubmitImpactInfo {
-  public boolean required;
-  public List<CheckOverrideInfo> overrides;
-  public String message;
+public class CheckOverrideInfo {
+  public AccountInfo overrider;
+  public String reason;
+  public Timestamp overriddenOn;
 
   @Override
   public boolean equals(Object o) {
-    if (!(o instanceof CheckSubmitImpactInfo)) {
+    if (!(o instanceof CheckOverrideInfo)) {
       return false;
     }
-    CheckSubmitImpactInfo other = (CheckSubmitImpactInfo) o;
-    return Objects.equals(other.required, required)
-        && Objects.equals(other.overrides, overrides)
-        && Objects.equals(other.message, message);
+    CheckOverrideInfo other = (CheckOverrideInfo) o;
+    return Objects.equals(other.overrider, overrider)
+        && Objects.equals(other.reason, reason)
+        && Objects.equals(other.overriddenOn, overriddenOn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(required, overrides, message);
+    return Objects.hash(overrider, reason, overriddenOn);
   }
 
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this)
-        .add("required", required)
-        .add("overrides", overrides)
-        .add("message", message)
+        .add("overrider", overrider)
+        .add("reason", reason)
+        .add("overriden_on", overriddenOn)
         .toString();
   }
 }

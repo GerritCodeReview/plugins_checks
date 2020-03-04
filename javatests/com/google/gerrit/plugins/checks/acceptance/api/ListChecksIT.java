@@ -102,7 +102,10 @@ public class ListChecksIT extends AbstractCheckersTest {
     expectedCheckInfo2.submitImpact.required = false;
     expectedCheckInfo2.checkerStatus = CheckerStatus.ENABLED;
 
-    assertThat(checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER))
+    assertThat(
+            checksApiFactory
+                .revision(patchSetId)
+                .list(ListChecksOption.CHECKER, ListChecksOption.SUBMIT_IMPACT))
         .containsExactly(expectedCheckInfo1, expectedCheckInfo2);
   }
 
@@ -139,7 +142,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     RestResponse r =
         adminRestSession.get(
             String.format(
-                "/changes/%s/revisions/%s/checks~checks/?o=CHECKER",
+                "/changes/%s/revisions/%s/checks~checks/?o=CHECKER&o=SUBMIT_IMPACT",
                 patchSetId.changeId().get(), patchSetId.get()));
     r.assertOK();
     List<CheckInfo> checkInfos =
@@ -150,7 +153,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     r =
         adminRestSession.get(
             String.format(
-                "/changes/%s/revisions/%s/checks~checks/?O=1",
+                "/changes/%s/revisions/%s/checks~checks/?O=1&O=2",
                 patchSetId.changeId().get(), patchSetId.get()));
     r.assertOK();
     checkInfos = newGson().fromJson(r.getReader(), new TypeToken<List<CheckInfo>>() {}.getType());
@@ -168,7 +171,10 @@ public class ListChecksIT extends AbstractCheckersTest {
     checkOperations.newCheck(CheckKey.create(project, patchSetId, checkerUuid2)).upsert();
     checkerOperations.checker(checkerUuid2).forInvalidation().nonParseableConfig().invalidate();
 
-    List<CheckInfo> checks = checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER);
+    List<CheckInfo> checks =
+        checksApiFactory
+            .revision(patchSetId)
+            .list(ListChecksOption.CHECKER, ListChecksOption.SUBMIT_IMPACT);
 
     assertThat(checks).hasSize(2);
 
