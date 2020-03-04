@@ -17,7 +17,6 @@ package com.google.gerrit.plugins.checks.api;
 import com.google.common.base.MoreObjects;
 import java.sql.Timestamp;
 import java.util.Objects;
-import java.util.Set;
 
 public class CheckerInfo {
   public String uuid;
@@ -26,7 +25,7 @@ public class CheckerInfo {
   public String url;
   public String repository;
   public CheckerStatus status;
-  public Set<BlockingCondition> blocking;
+  public boolean required;
   public String query;
   public Timestamp created;
   public Timestamp updated;
@@ -34,7 +33,7 @@ public class CheckerInfo {
   @Override
   public int hashCode() {
     return Objects.hash(
-        uuid, name, description, url, repository, status, blocking, query, created, updated);
+        uuid, name, description, url, repository, status, required, query, created, updated);
   }
 
   @Override
@@ -49,7 +48,7 @@ public class CheckerInfo {
         && Objects.equals(url, o.url)
         && Objects.equals(repository, o.repository)
         && Objects.equals(status, o.status)
-        && Objects.equals(blocking, o.blocking)
+        && Objects.equals(required, o.required)
         && Objects.equals(query, o.query)
         && Objects.equals(created, o.created)
         && Objects.equals(updated, o.updated);
@@ -64,7 +63,7 @@ public class CheckerInfo {
         .add("repository", repository)
         .add("url", url)
         .add("status", status)
-        .add("blockingConditions", blocking)
+        .add("required", required)
         .add("query", query)
         .add("created", created)
         .add("updated", updated)

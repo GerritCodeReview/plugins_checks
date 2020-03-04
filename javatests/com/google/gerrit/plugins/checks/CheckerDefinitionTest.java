@@ -15,37 +15,27 @@
 package com.google.gerrit.plugins.checks;
 
 import static com.google.common.truth.Truth.assertThat;
-import static com.google.gerrit.plugins.checks.api.BlockingCondition.STATE_NOT_PASSING;
 
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.server.util.time.TimeUtil;
-import java.util.EnumSet;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Test;
 
 public class CheckerDefinitionTest {
 
   @Test
-  public void notRequiredIfNoBlockingCondition() {
-    Checker checker = newChecker().setBlockingConditions(ImmutableSortedSet.of()).build();
+  public void notRequired() {
+    Checker checker = newChecker().setRequired(false).build();
 
-    assertThat(checker.isRequired()).isFalse();
+    assertThat(checker.getRequired()).isFalse();
   }
 
   @Test
-  public void requiredIfHasBlockingConditionStateNotPassing() {
-    Checker checker =
-        newChecker().setBlockingConditions(ImmutableSortedSet.of(STATE_NOT_PASSING)).build();
+  public void required() {
+    Checker checker = newChecker().setRequired(true).build();
 
-    assertThat(checker.isRequired()).isTrue();
-  }
-
-  @Test
-  public void allBlockingConditionsConsidered() {
-    assertThat(EnumSet.allOf(BlockingCondition.class)).containsExactly(STATE_NOT_PASSING);
+    assertThat(checker.getRequired()).isTrue();
   }
 
   private Checker.Builder newChecker() {

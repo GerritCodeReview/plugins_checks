@@ -15,10 +15,7 @@
 package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import java.sql.Timestamp;
 import java.util.Optional;
@@ -80,11 +77,11 @@ public abstract class Checker {
   public abstract CheckerStatus getStatus();
 
   /**
-   * Returns the blocking conditions for the checker.
+   * Returns whether this check is required for submission.
    *
-   * @return the blocking conditions for the checker.
+   * @return boolean that determintes if this check is required for submission.
    */
-  public abstract ImmutableSortedSet<BlockingCondition> getBlockingConditions();
+  public abstract boolean getRequired();
 
   /**
    * Returns the query for the checker.
@@ -126,24 +123,6 @@ public abstract class Checker {
     return CheckerStatus.DISABLED == getStatus();
   }
 
-  /**
-   * Checks whether a {@link Checker} is required for submission or not.
-   *
-   * @return true if the {@link Checker} required for submission.
-   */
-  public boolean isRequired() {
-    ImmutableSet<BlockingCondition> blockingConditions = getBlockingConditions();
-    if (blockingConditions.isEmpty()) {
-      return false;
-    } else if (blockingConditions.size() > 1
-        || !blockingConditions.contains(BlockingCondition.STATE_NOT_PASSING)) {
-      // When a new blocking condition is introduced, this needs to be adjusted to respect that.
-      String errorMessage = String.format("illegal blocking conditions %s", blockingConditions);
-      throw new IllegalStateException(errorMessage);
-    }
-    return true;
-  }
-
   /** A builder for an {@link Checker}. */
   @AutoValue.Builder
   public abstract static class Builder {
@@ -161,7 +140,7 @@ public abstract class Checker {
 
     public abstract Builder setStatus(CheckerStatus status);
 
-    public abstract Builder setBlockingConditions(Iterable<BlockingCondition> enumList);
+    public abstract Builder setRequired(boolean required);
 
     public abstract Builder setQuery(String query);
 

@@ -15,10 +15,8 @@
 package com.google.gerrit.plugins.checks.acceptance.testsuite;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.acceptance.testsuite.ThrowingConsumer;
 import com.google.gerrit.entities.Project;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import java.util.Optional;
 
@@ -34,7 +32,7 @@ public abstract class TestCheckerUpdate {
 
   public abstract Optional<CheckerStatus> status();
 
-  public abstract Optional<ImmutableSortedSet<BlockingCondition>> blockingConditions();
+  public abstract Optional<Boolean> required();
 
   public abstract Optional<String> query();
 
@@ -74,15 +72,14 @@ public abstract class TestCheckerUpdate {
     abstract Builder status(CheckerStatus status);
 
     public Builder optional() {
-      return blockingConditions(ImmutableSortedSet.of());
+      return required(false);
     }
 
     public Builder required() {
-      return blockingConditions(ImmutableSortedSet.of(BlockingCondition.STATE_NOT_PASSING));
+      return required(true);
     }
 
-    public abstract Builder blockingConditions(
-        ImmutableSortedSet<BlockingCondition> blockingConditions);
+    public abstract Builder required(Boolean required);
 
     public abstract Builder query(String query);
 

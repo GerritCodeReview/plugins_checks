@@ -18,7 +18,6 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.git.testing.CommitSubject.assertCommit;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.acceptance.UseClockStep;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
@@ -32,7 +31,6 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerOperations.PerCheckerOperations;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerTestData;
-import com.google.gerrit.plugins.checks.api.BlockingCondition;
 import com.google.gerrit.plugins.checks.api.CheckerInfo;
 import com.google.gerrit.plugins.checks.api.CheckerInput;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
@@ -74,7 +72,7 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     assertThat(info.url).isNull();
     assertThat(info.repository).isEqualTo(input.repository);
     assertThat(info.status).isEqualTo(CheckerStatus.ENABLED);
-    assertThat(info.blocking).isEmpty();
+    assertThat(info.required).isFalse();
     assertThat(info.query).isEqualTo("status:open");
     assertThat(info.created).isEqualTo(expectedCreationTimestamp);
     assertThat(info.updated).isEqualTo(info.created);
@@ -339,10 +337,10 @@ public class CreateCheckerIT extends AbstractCheckersTest {
     input.uuid = "test:my-checker";
     input.name = "My Checker";
     input.repository = allProjects.get();
-    input.blocking = ImmutableSet.of(BlockingCondition.STATE_NOT_PASSING);
+    input.required = true;
 
     CheckerInfo info = checkersApi.create(input).get();
-    assertThat(info.blocking).containsExactly(BlockingCondition.STATE_NOT_PASSING);
+    assertThat(info.required).isTrue();
   }
 
   @Test
