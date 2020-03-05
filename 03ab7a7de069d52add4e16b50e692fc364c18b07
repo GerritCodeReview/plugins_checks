@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "53841503_0be6327c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-05T10:23:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f57150c_0002a0f7",
+      "revId": "03ab7a7de069d52add4e16b50e692fc364c18b07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c912d47_97a422b8",
         "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "03ab7a7de069d52add4e16b50e692fc364c18b07",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05c3706f_efddbf68",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-05T10:23:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c912d47_97a422b8",
+      "revId": "03ab7a7de069d52add4e16b50e692fc364c18b07",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
