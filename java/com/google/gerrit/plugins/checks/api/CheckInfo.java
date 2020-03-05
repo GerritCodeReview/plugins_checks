@@ -52,8 +52,8 @@ public class CheckInfo {
   /** Status of the checker that produced this check. */
   public CheckerStatus checkerStatus;
 
-  /** Blocking conditions that apply to this check. */
-  public boolean required;
+  /** Submit impact that apply to this check. */
+  public CheckSubmitImpactInfo submitImpact;
 
   /** Description of the checker that produced this check */
   public String checkerDescription;
@@ -77,7 +77,7 @@ public class CheckInfo {
         && Objects.equals(other.updated, updated)
         && Objects.equals(other.checkerName, checkerName)
         && Objects.equals(other.checkerStatus, checkerStatus)
-        && Objects.equals(other.required, required)
+        && Objects.equals(other.submitImpact, submitImpact)
         && Objects.equals(other.checkerDescription, checkerDescription);
   }
 
@@ -97,7 +97,7 @@ public class CheckInfo {
         updated,
         checkerName,
         checkerStatus,
-        required,
+        submitImpact,
         checkerDescription);
   }
 
@@ -117,7 +117,7 @@ public class CheckInfo {
         .add("updated", updated)
         .add("checkerName", checkerName)
         .add("checkerStatus", checkerStatus)
-        .add("required", required)
+        .add("submitImpact", submitImpact)
         .add("checkerDescription", checkerDescription)
         .toString();
   }
