@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
+import com.google.gerrit.plugins.checks.api.CheckSubmitImpactInfo;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.assistedinject.Assisted;
@@ -73,6 +74,7 @@ public class CheckJson {
 
     info.created = check.created();
     info.updated = check.updated();
+    info.submitImpact = new CheckSubmitImpactInfo();
 
     if (options.contains(ListChecksOption.CHECKER)) {
       populateCheckerFields(check.key().checkerUuid(), info);
@@ -88,7 +90,7 @@ public class CheckJson {
               checker -> {
                 info.checkerName = checker.getName();
                 info.checkerStatus = checker.getStatus();
-                info.required = checker.getRequired();
+                info.submitImpact.required = checker.getRequired();
                 info.checkerDescription = checker.getDescription().orElse(null);
               });
     } catch (ConfigInvalidException e) {
