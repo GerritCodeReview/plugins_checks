@@ -93,7 +93,7 @@ public class GetCheckIT extends AbstractCheckersTest {
     expectedCheckInfo.repository = project.get();
     expectedCheckInfo.checkerName = "My Checker";
     expectedCheckInfo.checkerStatus = CheckerStatus.ENABLED;
-    expectedCheckInfo.required = false;
+    expectedCheckInfo.submitImpact = null;
     expectedCheckInfo.checkerDescription = "Description";
     assertThat(getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER))
         .isEqualTo(expectedCheckInfo);
@@ -111,7 +111,7 @@ public class GetCheckIT extends AbstractCheckersTest {
     expectedCheckInfo.repository = project.get();
     expectedCheckInfo.checkerName = "My Checker";
     expectedCheckInfo.checkerStatus = CheckerStatus.ENABLED;
-    expectedCheckInfo.required = false;
+    expectedCheckInfo.submitImpact = null;
 
     RestResponse r =
         adminRestSession.get(
@@ -267,8 +267,10 @@ public class GetCheckIT extends AbstractCheckersTest {
     CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
     checkOperations.newCheck(checkKey).upsert();
 
-    assertThat(getCheckInfo(patchSetId, checkerUuid).required).isFalse();
-    assertThat(getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER).required).isTrue();
+    assertThat(getCheckInfo(patchSetId, checkerUuid).submitImpact).isNull();
+    assertThat(
+            getCheckInfo(patchSetId, checkerUuid, ListChecksOption.CHECKER).submitImpact.required)
+        .isTrue();
   }
 
   @Test
@@ -286,7 +288,7 @@ public class GetCheckIT extends AbstractCheckersTest {
 
     // Checker fields are not set.
     assertThat(check.checkerName).isNull();
-    assertThat(check.required).isFalse();
+    assertThat(check.submitImpact).isNull();
     assertThat(check.checkerStatus).isNull();
 
     // Check that at least some non-checker fields are set to ensure that we didn't get a completely

@@ -90,13 +90,13 @@ public class ListChecksIT extends AbstractCheckersTest {
     CheckInfo expectedCheckInfo1 = checkOperations.check(checkKey1).asInfo();
     expectedCheckInfo1.repository = project.get();
     expectedCheckInfo1.checkerName = checkerName1;
-    expectedCheckInfo1.required = false;
+    expectedCheckInfo1.submitImpact = null;
     expectedCheckInfo1.checkerStatus = CheckerStatus.ENABLED;
 
     CheckInfo expectedCheckInfo2 = checkOperations.check(checkKey2).asInfo();
     expectedCheckInfo2.repository = project.get();
     expectedCheckInfo2.checkerName = checkerName2;
-    expectedCheckInfo2.required = false;
+    expectedCheckInfo2.submitImpact = null;
     expectedCheckInfo2.checkerStatus = CheckerStatus.ENABLED;
 
     assertThat(checksApiFactory.revision(patchSetId).list(ListChecksOption.CHECKER))
@@ -122,13 +122,13 @@ public class ListChecksIT extends AbstractCheckersTest {
     CheckInfo expectedCheckInfo1 = checkOperations.check(checkKey1).asInfo();
     expectedCheckInfo1.repository = project.get();
     expectedCheckInfo1.checkerName = checkerName1;
-    expectedCheckInfo1.required = false;
+    expectedCheckInfo1.submitImpact = null;
     expectedCheckInfo1.checkerStatus = CheckerStatus.ENABLED;
 
     CheckInfo expectedCheckInfo2 = checkOperations.check(checkKey2).asInfo();
     expectedCheckInfo2.repository = project.get();
     expectedCheckInfo2.checkerName = checkerName2;
-    expectedCheckInfo2.required = false;
+    expectedCheckInfo2.submitImpact = null;
     expectedCheckInfo2.checkerStatus = CheckerStatus.ENABLED;
 
     RestResponse r =
@@ -172,7 +172,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     assertThat(maybeCheck1).isPresent();
     CheckInfo check1 = maybeCheck1.get();
     assertThat(check1.checkerName).isEqualTo(checkerName1);
-    assertThat(check1.required).isFalse();
+    assertThat(check1.submitImpact.required).isFalse();
     assertThat(check1.checkerStatus).isEqualTo(CheckerStatus.ENABLED);
 
     Optional<CheckInfo> maybeCheck2 =
@@ -180,7 +180,7 @@ public class ListChecksIT extends AbstractCheckersTest {
     assertThat(maybeCheck2).isPresent();
     CheckInfo check2 = maybeCheck2.get();
     assertThat(check2.checkerName).isNull();
-    assertThat(check2.required).isFalse();
+    assertThat(check2.submitImpact).isNull();
     assertThat(check2.checkerStatus).isNull();
   }
 
