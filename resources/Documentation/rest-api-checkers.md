@@ -37,7 +37,7 @@ checker.
     "uuid": "test:my-checker",
     "name": "MyChecker",
     "repository": "examples/Foo",
-    "blocking": [],
+    "required": false,
     "description": "A simple checker.",
     "created": "2019-01-31 09:59:32.126000000"
   }
@@ -110,7 +110,7 @@ Unsetting properties:
 * '`repository`: Cannot be unset. Attempting to set it to an empty string ("")
   or a string that is empty after trim is rejected as `400 Bad Request`.
 * `status`: Cannot be unset.
-* `blocking`: Can be unset by setting an empty list (\[\]) for it.
+* `required`: Cannot be unset. Can be either true or false.
 * `query`: Can be unset by setting an empty string ("") for it. Note that the
   default for newly-created checkers is not empty; see [below](#query).
 
@@ -185,7 +185,7 @@ The `CheckerCreateInput` entity contains information for creating a checker.
 | `url`           | optional | The URL of the checker.
 | `repository`    |          | The (exact) name of the repository for which the checker applies.
 | `status`        | optional | The status of the checker; one of `ENABLED` or `DISABLED`.
-| `blocking`      | optional | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
+| `required`      | optional | True if checks produced by this checker must pass for the change to be submitted, false otherwise. <br />Default is false.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
 
 ### <a id="checker-info"> CheckerInfo
@@ -199,7 +199,7 @@ The `CheckerInfo` entity describes a checker.
 | `url`           | optional | The URL of the checker.
 | `repository`    |          | The (exact) name of the repository for which the checker applies.
 | `status`        |          | The status of the checker; one of `ENABLED` or `DISABLED`.
-| `blocking`      |          | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
+| `required`      | optional | True if checks produced by this checker must pass for the change to be submitted, false otherwise.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
 | `created`       |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the checker was created.
 | `updated`       |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the checker was last updated.
@@ -214,25 +214,8 @@ The `CheckerUpdateInput` entity contains information for updating a checker.
 | `url`           | optional | The URL of the checker.
 | `repository`    | optional | The (exact) name of the repository for which the checker applies.
 | `status`        | optional | The status of the checker; one of `ENABLED` or `DISABLED`.
-| `blocking`      | optional | A list of [conditions](#blocking-conditions) that describe when the checker should block change submission.
+| `required`      | optional | True if checks produced by this checker must pass for the change to be submitted, false otherwise. <br />Default is false.
 | `query`         | optional | A [query](#query) that limits changes for which the checker is relevant.
-
-## <a id="blocking-conditions"> Blocking Conditions
-
-Blocking conditions allow checkers to specify the conditions under which checks
-will block change submission. The conditions configured for a checker are
-represented as a list of enum values. When there are multiple blocking
-conditions, any one of them is sufficient to block submission; in other words,
-conditions are ORed together.
-
-There is currently only a single type of blocking condition:
-`STATE_NOT_PASSING`. Intuitively, if a checker sets this blocking condition,
-that means that users need to wait for all checks, for example build and test,
-to pass before submitting the change. In other words, we might say the checker
-is _required_.
-
-Technically, `STATE_NOT_PASSING` requires the combined check state on the change
-to be either `SUCCESSFUL`, `WARNING`, or `NOT_RELEVANT`.
 
 ## <a id="query"> Query
 
