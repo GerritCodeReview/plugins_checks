@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5999d2b7_1de1db16",
+        "filename": "resources/Documentation/rest-api-checks.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-09T12:52:07Z",
+      "side": 1,
+      "message": "This is changed to a new option in a follow-up change.",
+      "range": {
+        "startLine": 193,
+        "startChar": 182,
+        "endLine": 193,
+        "endChar": 196
+      },
+      "revId": "f2296be220bc2800a05a0aac5955c4ea528d45f1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
