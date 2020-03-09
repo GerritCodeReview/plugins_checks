@@ -23,6 +23,7 @@ import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerTestData;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.TestCheckerCreation;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInput;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import org.junit.Before;
@@ -99,6 +100,20 @@ public class GetCombinedCheckStateIT extends AbstractCheckersTest {
     CombinedCheckState combinedCheckState = checks.getCombinedCheckState(project, patchSetId);
 
     assertThat(combinedCheckState).isEqualTo(CombinedCheckState.SUCCESSFUL);
+  }
+
+  @Test
+  public void returnsWarningWhenFailedCheckOverridden() throws Exception {
+    CheckerUuid checkerUuid = newRequiredChecker().create();
+    setCheckState(checkerUuid, CheckState.FAILED);
+
+    CheckOverrideInput checkOverrideInput = new CheckOverrideInput();
+    checkOverrideInput.reason = "testing";
+    checksApiFactory.revision(patchSetId).id(checkerUuid).override(checkOverrideInput);
+
+    CombinedCheckState combinedCheckState = checks.getCombinedCheckState(project, patchSetId);
+
+    assertThat(combinedCheckState).isEqualTo(CombinedCheckState.WARNING);
   }
 
   @Test

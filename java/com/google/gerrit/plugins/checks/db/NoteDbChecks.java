@@ -33,10 +33,12 @@ import com.google.gerrit.plugins.checks.CheckerRef;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.OverridePolicy;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState.CheckStateCount;
+import com.google.gerrit.plugins.checks.api.OverrideImpact;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.inject.Inject;
@@ -47,6 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
+import javax.inject.Named;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
@@ -61,6 +64,7 @@ class NoteDbChecks implements Checks {
   private final CheckBackfiller checkBackfiller;
   private final Provider<CheckerQuery> checkerQueryProvider;
   private final GitRepositoryManager repoManager;
+  private final OverridePolicy overridePolicy;
 
   @Inject
   NoteDbChecks(
@@ -69,13 +73,15 @@ class NoteDbChecks implements Checks {
       Checkers checkers,
       CheckBackfiller checkBackfiller,
       Provider<CheckerQuery> checkerQueryProvider,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      @Named("SingleOverride") OverridePolicy overridePolicy) {
     this.changeDataFactory = changeDataFactory;
     this.checkNotesFactory = checkNotesFactory;
     this.checkers = checkers;
     this.checkBackfiller = checkBackfiller;
     this.checkerQueryProvider = checkerQueryProvider;
     this.repoManager = repoManager;
+    this.overridePolicy = overridePolicy;
   }
 
   @Override
@@ -194,12 +200,20 @@ class NoteDbChecks implements Checks {
 
       boolean isRequired =
           checker.getStatus() == CheckerStatus.ENABLED
-              && checker.getRequired()
+              && getRequiredAfterOverrides(check, checker)
               && checkerQueryProvider.get().isCheckerRelevant(checker, changeData);
       statesAndRequired.put(check.state(), isRequired);
     }
 
     return statesAndRequired.build();
+  }
+
+  boolean getRequiredAfterOverrides(Check check, Checker checker) {
+    if (!checker.getRequired()) {
+      return false;
+    }
+    OverrideImpact overrideImpact = overridePolicy.computeImpact(check.overrides());
+    return !overrideImpact.overridden;
   }
 
   private ImmutableList<Checker> getCheckersForBackfiller(

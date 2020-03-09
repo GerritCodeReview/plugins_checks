@@ -25,6 +25,7 @@ import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.TestCheckerCreation.Builder;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInput;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import org.junit.Before;
 import org.junit.Test;
@@ -102,6 +103,21 @@ public class ChecksSubmitRuleIT extends AbstractCheckersTest {
 
     assertThat(changeInfo.submittable).isFalse();
     assertThat(changeInfo.requirements).containsExactly(SUBMIT_REQUIREMENT_INFO);
+  }
+
+  @Test
+  public void overriddenCheckDoesNotBlockSubmit() throws Exception {
+    CheckerUuid checkerUuid = newRequiredChecker().create();
+    postCheckResult(checkerUuid, CheckState.FAILED);
+
+    CheckOverrideInput checkOverrideInput = new CheckOverrideInput();
+    checkOverrideInput.reason = "testing";
+    checksApiFactory.revision(testPatchSetId).id(checkerUuid).override(checkOverrideInput);
+
+    ChangeInfo changeInfo = gApi.changes().id(testChangeId).get();
+
+    assertThat(changeInfo.submittable).isTrue();
+    assertThat(changeInfo.requirements).isEmpty();
   }
 
   @Test
