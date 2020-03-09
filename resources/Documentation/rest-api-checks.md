@@ -170,6 +170,23 @@ the request body.
 This REST endpoint supports rerunning a check. It also resets all relevant check
 fields such as `message`, `url`, `started` and `finished`.
 
+### <a id="override-check"> Override Check
+
+_'POST /changes/1/revisions/1/checks/test:my-checker/override'_
+
+Overrides a check. As response the [CheckInfo](#check-info) entity is retured
+that describes the overridden check. The result is returned with [submit impact details](#option-submit-impact)
+since this information relates to overriding checks.
+
+Notification options may be specified as [CheckOverrideInput](#check-override-input)
+entity in the request body. Also, a reason must for override must be specified.
+The reason's length must not exceed 300 characters.
+
+The same user can't override the same check twice.
+
+This REST endpoint supports overriding a check. Therefore, it allows checks that
+correlate to a required checker become optional for submission.
+
 ## <a id="json-entities"> JSON Entities
 
 ### <a id="check-info"> CheckInfo
@@ -190,7 +207,7 @@ The `CheckInfo` entity describes a check.
 | `updated`             |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the check was last updated.
 | `checker_name`        | optional | The name of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `checker_status`      | optional | The [status](rest-api-checkers.md#checker-info) of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
-| `submit_impact`       | optional | The [CheckSubmitImpactInfo](#check-submit-impact-info) that depends on the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
+| `submit_impact`       | optional | The [CheckSubmitImpactInfo](#check-submit-impact-info) that depends on the checker that produced this check.<br />Only set if [submit impact details](#option-submit-impact) are requested.
 | `checker_description` | optional | The description of the checker that reported this check.
 
 ### <a id="check-submit-impact-info"> CheckSubmitImpactInfo
@@ -199,6 +216,17 @@ The `CheckSubmitImpactInfo` entity describes a check's impact on the submission.
 | Field Name            |          | Description |
 | --------------------- | -------- | ----------- |
 | `required`            |          | True if the check must pass for the change to be submitted. False, otherwise.
+| `overrides`           |          | List of [CheckOverrideInfo](#check-override-info) entities the describe the overrides of this check.
+| `messsage`            | optional | A message that describes how many additional overrides are required in the case that the check is required, overridden, but still requires more overrides for it to become optional.
+
+### <a id="check-override-info"> CheckOverrideInfo
+The `CheckSubmitImpactInfo` entity describes a check's impact on the submission.
+
+| Field Name            |          | Description |
+| --------------------- | -------- | ----------- |
+| `overrider`           |          | [AccountInfo](../../../Documentation/rest-api-accounts.html#account-info) entity that represents the user that performed the override.
+| `reason`              |          | The reason that the user put as input when performing the override.
+| `overriden_on`        |          | The [timestamp](../../../Documentation/rest-api.html#timestamp) of when the user performed the override.
 
 ### <a id="check-input"> CheckInput
 The `CheckInput` entity contains information for creating or updating a check.
@@ -222,6 +250,15 @@ The `RerunInput` entity contains information for rerunning a check.
 | `notify`        | optional | Notify handling that defines to whom email notifications should be sent when the combined check state changes due to rerunning this check. Allowed values are `NONE`, `OWNER`, `OWNER_REVIEWERS` and `ALL`. If not set, the default is `OWNER`. Regardless of this setting there are no email notifications for rerunning checks on non-current patch sets.
 | `notify_details`| optional | Additional information about whom to notify when the combined check state changes due to rerunning this check as a map of recipient type to [NotifyInfo](../../../Documentation/rest-api-changes.html#notify-info) entity. Regardless of this setting there are no email notifications for rerunning checks on non-current patch sets.
 
+### <a id="check-override-input"> CheckOverrideInput
+The `CheckOverrideInput` entity contains information for overriding a check.
+
+| Field Name      |          | Description |
+| --------------- | -------- | ----------- |
+| `reason`        |          | Reason for overriding this check.
+| `notify`        | optional | Notify handling that defines to whom email notifications should be sent when the combined check state changes due to overriding this check. Allowed values are `NONE`, `OWNER`, `OWNER_REVIEWERS` and `ALL`. If not set, the default is `OWNER`. Regardless of this setting there are no email notifications for overriding checks on non-current patch sets.
+| `notify_details`| optional | Additional information about whom to notify when the combined check state changes due to overriding this check as a map of recipient type to [NotifyInfo](../../../Documentation/rest-api-changes.html#notify-info) entity. Regardless of this setting there are no email notifications for overriding checks on non-current patch sets.
+
 ### <a id="check-state"> CheckState (enum)
 The `CheckState` enum can have the following values: `NOT_STARTED`, `FAILED`,
 `SCHEDULED`, `RUNNING`, `SUCCESSFUL` and `NOT_RELEVANT`.
@@ -232,3 +269,5 @@ The following query options are supported in the `o` field of certain requests:
 
 * <a id="option-checker"></a> `CHECKER`: Include details from the configuration of
   the checker that produced this check.
+* <a id="option-submit-impact"></a> `SUBMIT_IMPACT`: Include details about the
+  impact of this check on the submission of the change.
