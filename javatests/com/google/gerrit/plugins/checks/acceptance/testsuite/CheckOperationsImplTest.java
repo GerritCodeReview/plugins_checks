@@ -594,6 +594,24 @@ public class CheckOperationsImplTest extends AbstractCheckersTest {
     assertThat(checkOverride2.reason).isEqualTo("for test2");
   }
 
+  @Test
+  public void removeOverrides() throws Exception {
+    CheckerUuid checkerUuid = checkerOperations.newChecker().repository(project).create();
+    CheckKey checkKey = CheckKey.create(project, createChange().getPatchSetId(), checkerUuid);
+    CheckOverride checkOverride = new CheckOverride();
+    checkOverride.overriddenOn = new Timestamp(1234567L);
+    checkOverride.overrider = 1;
+    checkOverride.reason = "for test";
+    checkOperations.newCheck(checkKey).newOverride(checkOverride).upsert();
+
+    ImmutableSet<CheckOverride> overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).hasSize(1);
+
+    checkOperations.check(checkKey).forUpdate().removeOverrides(true).upsert();
+    overrides = checkOperations.check(checkKey).get().overrides();
+    assertThat(overrides).hasSize(0);
+  }
+
   private CheckInfo getCheckFromServer(CheckKey checkKey) throws RestApiException {
     return checksApiFactory.revision(checkKey.patchSet()).id(checkKey.checkerUuid()).get();
   }

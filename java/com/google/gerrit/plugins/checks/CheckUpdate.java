@@ -35,6 +35,8 @@ public abstract class CheckUpdate {
 
   public abstract Optional<CheckOverride> newOverride();
 
+  public abstract Optional<Boolean> removeOverrides();
+
   public abstract Builder toBuilder();
 
   public static Builder builder() {
@@ -54,6 +56,8 @@ public abstract class CheckUpdate {
     public abstract Builder setFinished(Timestamp finished);
 
     public abstract Builder setNewOverride(CheckOverride overrides);
+
+    public abstract Builder setRemoveOverrides(Boolean removeOverrides);
 
     public Builder unsetStarted() {
       return setStarted(TimeUtil.never());

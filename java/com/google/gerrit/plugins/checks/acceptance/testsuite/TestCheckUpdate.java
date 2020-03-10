@@ -39,6 +39,8 @@ public abstract class TestCheckUpdate {
 
   public abstract Optional<CheckOverride> newOverride();
 
+  public abstract Optional<Boolean> removeOverrides();
+
   abstract ThrowingConsumer<TestCheckUpdate> checkUpdater();
 
   public abstract Builder toBuilder();
@@ -70,6 +72,8 @@ public abstract class TestCheckUpdate {
     public abstract Builder finished(Timestamp finished);
 
     public abstract Builder newOverride(CheckOverride override);
+
+    public abstract Builder removeOverrides(Boolean removeOverrides);
 
     public Builder clearStarted() {
       return started(TimeUtil.never());

@@ -104,6 +104,12 @@ class NoteDbCheck {
       overrides.add(update.newOverride().get());
       modified = true;
     }
+    if (update.removeOverrides().isPresent() && update.removeOverrides().get()) {
+      if (overrides != null && overrides.size() > 0) {
+        overrides = new HashSet<>();
+        modified = true;
+      }
+    }
     return modified;
   }
 }
