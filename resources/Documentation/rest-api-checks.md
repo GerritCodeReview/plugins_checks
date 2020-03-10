@@ -170,6 +170,8 @@ the request body.
 This REST endpoint supports rerunning a check. It also resets all relevant check
 fields such as `message`, `url`, `started` and `finished`.
 
+Additionally, all overrides are cleared when rerunning a check.
+
 ### <a id="override-check"> Override Check
 
 _'POST /changes/1/revisions/1/checks/test:my-checker/override'_

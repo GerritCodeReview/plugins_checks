@@ -26,8 +26,10 @@ import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
 import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.CheckerUuid;
+import com.google.gerrit.plugins.checks.ListChecksOption;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInput;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.server.util.time.TimeUtil;
 import com.google.inject.Inject;
@@ -112,6 +114,27 @@ public class RerunCheckIT extends AbstractCheckersTest {
         ResourceNotFoundException.class,
         () -> checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).rerun());
     assertThat(checkOperations.check(checkKey).exists()).isFalse();
+  }
+
+  @Test
+  public void rerunCheckRemovesOverrides() throws Exception {
+    CheckerUuid requiredChecker =
+        checkerOperations.newChecker().required().repository(project).create();
+    CheckKey requiredCheckKey = CheckKey.create(project, patchSetId, requiredChecker);
+    checkOperations.newCheck(requiredCheckKey).state(CheckState.FAILED).upsert();
+    CheckOverrideInput checkOverrideInput = new CheckOverrideInput();
+    checkOverrideInput.reason = "testing";
+    CheckInfo info =
+        checksApiFactory.revision(patchSetId).id(requiredChecker).override(checkOverrideInput);
+    assertThat(info.submitImpact.overrides).hasSize(1);
+
+    checksApiFactory.revision(patchSetId).id(requiredChecker).rerun();
+    info =
+        checksApiFactory
+            .revision(patchSetId)
+            .id(requiredChecker)
+            .get(ListChecksOption.SUBMIT_IMPACT);
+    assertThat(info.submitImpact.overrides).hasSize(0);
   }
 
   @Test

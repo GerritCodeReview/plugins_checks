@@ -104,7 +104,8 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
           .unsetFinished()
           .unsetStarted()
           .setMessage("")
-          .setUrl("");
+          .setUrl("")
+          .setRemoveOverrides(true);
       updatedCheck =
           checksUpdate.get().updateCheck(key, builder.build(), input.notify, input.notifyDetails);
     }
