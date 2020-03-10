@@ -46,6 +46,7 @@ import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.acceptance.AbstractCheckersTest;
 import com.google.gerrit.plugins.checks.api.ChangeCheckInfo;
 import com.google.gerrit.plugins.checks.api.CheckInput;
+import com.google.gerrit.plugins.checks.api.CheckOverrideInput;
 import com.google.gerrit.plugins.checks.api.CheckState;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.plugins.checks.api.RerunInput;
@@ -365,6 +366,39 @@ public class ChecksEmailIT extends AbstractCheckersTest {
   }
 
   @Test
+  public void combinedCheckUpdatedEmailAfterCheckOverrideToOwnerOnly() throws Exception {
+    // Create a required checker.
+    CheckerUuid checkerUuid =
+        checkerOperations.newChecker().repository(project).required().create();
+
+    // Create a check that sets the combined check state to FAILED.
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+    checkOperations.newCheck(checkKey).state(CheckState.FAILED).upsert();
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.FAILED);
+
+    sender.clear();
+
+    // Override the check so that the combined check state is changed to WARNING.
+    CheckOverrideInput input = new CheckOverrideInput();
+    input.reason = "reason";
+    requestScopeOperations.setApiUser(bot.id());
+    checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).override(input);
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.WARNING);
+
+    // Expect email because the combined check state was updated.
+    // The email is only sent to the change owner because the new combined check state !=
+    // SUCCESSFUL.
+    List<Message> messages = sender.getMessages();
+    assertThat(messages).hasSize(1);
+
+    Message message = messages.get(0);
+    assertThat(message.from().getName()).isEqualTo(bot.fullName() + " (Code Review)");
+    assertThat(message.body())
+        .contains("The combined check state has been updated to " + CombinedCheckState.WARNING);
+    assertThat(message.rcpt()).containsExactly(owner.getNameEmail());
+  }
+
+  @Test
   public void noCombinedCheckUpdatedEmailOnCheckRerunIfCombinedCheckStateIsNotChanged()
       throws Exception {
     // Create two required checkers.
@@ -385,6 +419,35 @@ public class ChecksEmailIT extends AbstractCheckersTest {
     // Rerun only one check so that the combined check state stays FAILED.
     requestScopeOperations.setApiUser(bot.id());
     checksApiFactory.revision(patchSetId).id(checkKey1.checkerUuid()).rerun();
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.FAILED);
+
+    // Expect that no email was sent because the combined check state was not updated.
+    assertThat(sender.getMessages()).isEmpty();
+  }
+
+  @Test
+  public void noCombinedCheckUpdatedEmailOnCheckOverrideIfCombinedCheckStateIsNotChanged()
+      throws Exception {
+    // Create two required checkers.
+    CheckerUuid checkerUuid1 =
+        checkerOperations.newChecker().repository(project).required().create();
+    CheckerUuid checkerUuid2 =
+        checkerOperations.newChecker().repository(project).required().create();
+
+    // Create 2 checks that set the combined check state to FAILED.
+    CheckKey checkKey1 = CheckKey.create(project, patchSetId, checkerUuid1);
+    checkOperations.newCheck(checkKey1).state(CheckState.FAILED).upsert();
+    CheckKey checkKey2 = CheckKey.create(project, patchSetId, checkerUuid2);
+    checkOperations.newCheck(checkKey2).state(CheckState.FAILED).upsert();
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.FAILED);
+
+    sender.clear();
+
+    // Override only one check so that the combined check state stays FAILED.
+    CheckOverrideInput input = new CheckOverrideInput();
+    input.reason = "reason";
+    requestScopeOperations.setApiUser(bot.id());
+    checksApiFactory.revision(patchSetId).id(checkKey1.checkerUuid()).override(input);
     assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.FAILED);
 
     // Expect that no email was sent because the combined check state was not updated.
@@ -502,6 +565,42 @@ public class ChecksEmailIT extends AbstractCheckersTest {
     testNotifySettingsForRerunCheck(checkerUuid, ImmutableSet.of(user), NotifyHandling.NONE, user);
   }
 
+  @Test
+  public void overrideCheckRespectsNotifySettings() throws Exception {
+    // Create a required checker.
+    CheckerUuid checkerUuid =
+        checkerOperations.newChecker().repository(project).required().create();
+
+    testNotifySettingsForPostCheck(
+        checkerUuid, ImmutableSet.of(), NotifyHandling.ALL, owner, reviewer, starrer, watcher);
+
+    testNotifySettingsForOverrideCheck(
+        checkerUuid,
+        ImmutableSet.of(user),
+        NotifyHandling.ALL,
+        user,
+        owner,
+        reviewer,
+        starrer,
+        watcher);
+
+    checkerUuid = checkerOperations.newChecker().repository(project).required().create();
+    testNotifySettingsForPostCheck(checkerUuid, ImmutableSet.of(), NotifyHandling.OWNER, owner);
+    testNotifySettingsForOverrideCheck(
+        checkerUuid, ImmutableSet.of(user), NotifyHandling.OWNER, user, owner);
+
+    checkerUuid = checkerOperations.newChecker().repository(project).required().create();
+    testNotifySettingsForPostCheck(
+        checkerUuid, ImmutableSet.of(), NotifyHandling.OWNER_REVIEWERS, owner, reviewer);
+    testNotifySettingsForOverrideCheck(
+        checkerUuid, ImmutableSet.of(user), NotifyHandling.OWNER_REVIEWERS, user, owner, reviewer);
+
+    checkerUuid = checkerOperations.newChecker().repository(project).required().create();
+    testNotifySettingsForPostCheck(checkerUuid, ImmutableSet.of(), NotifyHandling.NONE);
+    testNotifySettingsForOverrideCheck(
+        checkerUuid, ImmutableSet.of(user), NotifyHandling.NONE, user);
+  }
+
   private void testNotifySettingsForRerunCheck(
       CheckerUuid checkerUuid, NotifyHandling notify, TestAccount... expectedRecipients)
       throws RestApiException {
@@ -546,6 +645,53 @@ public class ChecksEmailIT extends AbstractCheckersTest {
       assertThat(message.body())
           .contains(
               "The combined check state has been updated to " + CombinedCheckState.IN_PROGRESS);
+      assertThat(message.rcpt())
+          .containsExactlyElementsIn(
+              Arrays.stream(expectedRecipients)
+                  .map(TestAccount::getNameEmail)
+                  .collect(toImmutableList()));
+    }
+  }
+
+  private void testNotifySettingsForOverrideCheck(
+      CheckerUuid checkerUuid,
+      Set<TestAccount> accountsToNotify,
+      NotifyHandling notify,
+      TestAccount... expectedRecipients)
+      throws RestApiException {
+    // Create a check that sets the combined check state to FAILED.
+    CheckKey checkKey = CheckKey.create(project, patchSetId, checkerUuid);
+
+    checkOperations.check(checkKey).forUpdate().state(CheckState.FAILED).upsert();
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.FAILED);
+
+    sender.clear();
+
+    // create an override
+    requestScopeOperations.setApiUser(bot.id());
+    CheckOverrideInput checkOverrideInput = new CheckOverrideInput();
+    if (!accountsToNotify.isEmpty()) {
+      checkOverrideInput.notifyDetails =
+          ImmutableMap.of(
+              RecipientType.TO,
+              new NotifyInfo(
+                  accountsToNotify.stream().map(TestAccount::username).collect(toImmutableList())));
+    }
+    checkOverrideInput.notify = notify;
+    checkOverrideInput.reason = "reason";
+    checksApiFactory.revision(patchSetId).id(checkKey.checkerUuid()).override(checkOverrideInput);
+    assertThat(getCombinedCheckState()).isEqualTo(CombinedCheckState.WARNING);
+
+    List<Message> messages = sender.getMessages();
+    if (expectedRecipients.length == 0) {
+      assertThat(messages).isEmpty();
+    } else {
+      assertThat(messages).hasSize(1);
+
+      Message message = messages.get(0);
+      assertThat(message.from().getName()).isEqualTo(bot.fullName() + " (Code Review)");
+      assertThat(message.body())
+          .contains("The combined check state has been updated to " + CombinedCheckState.WARNING);
       assertThat(message.rcpt())
           .containsExactlyElementsIn(
               Arrays.stream(expectedRecipients)
