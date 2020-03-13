@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2573342_652785ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-13T16:15:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c9e2e5b_ab89f5e5",
+      "range": {
+        "startLine": 16,
+        "startChar": 28,
+        "endLine": 16,
+        "endChar": 46
+      },
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c606a64_bf08847f",
         "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0c2ae94b_d171ab0e",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-13T16:15:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c606a64_bf08847f",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61c16d31_e5bf889c",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 6
@@ -59,6 +107,24 @@
       "writtenOn": "2020-03-13T14:29:42Z",
       "side": 1,
       "message": "This looks like we are renaming and then deleting which seems wrong: A rename would delete the old ref already. If it does not, because that\u0027s the bug we are falling over in JGit, how about doing the following:\n\n\n   Ref old \u003d repo.exactRef(\"refs/meta/checkers/\");\n   Ref newRef \u003d repo.exactRef(\"refs/meta/checkers\");\n   if (old \u003d\u003d null) {\n     // already migrated\n     return;\n    }\n    if(newRef \u003d\u003d null) {\n      // Create refs/meta/checkers at the tip of refs/meta/checkers/ \n      RefUpdate update \u003d repo.updateRef(\"refs/meta/checkers\");\n      update.setExpectedOldObjectId(ObjectId.zeroId());\n      update.setNewObjectId(old.getObjectId());\n      update.setForceUpdate(true); // not sure if this needs to be forced, please check\n      update.update(...); // check update with util\n    } \n    // Delete refs/meta/checkers/ \n    RefUpdate update \u003d repo.updateRef(\"refs/meta/checkers\");\n    update.setExpectedOldObjectId(old.getObjectId());\n    update.setNewObjectId(ObjectId.zeroId());\n    update.setForceUpdate(true); // not sure if this needs to be forced, please check\n    update.update(...); // check update with util",
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53dfe208_fee7b7db",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-13T16:15:05Z",
+      "side": 1,
+      "message": "The first update.update() in fact returns LOCK_FAILURE. This error doesn\u0027t occur when using another ref (e.g \"refs/meta/aaa\" instead of \"refs/meta/checkers\").\nSo anyway, this is really buggy, and the usual solutions don\u0027t seem to work.\nAlso, as you mentioned, the renaming is also buggy, but I don\u0027t see a way around it: It\u0027s supposed to also delete, but it doesn\u0027t. That\u0027s why I rename and then after the rename is successful, only then I delete.\n\nBut now doing this assignment and reading your comments I\u0027m really happy to hear that in normal cases it\u0027s really simple and straightforward ;)",
+      "parentUuid": "61c16d31_e5bf889c",
       "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
