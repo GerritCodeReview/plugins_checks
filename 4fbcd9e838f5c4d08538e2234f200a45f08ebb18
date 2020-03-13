@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "82516483_977432d2",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T14:29:42Z",
+      "side": 1,
+      "message": "I see no reason, why it would not work (it\u0027s the exact same operations, create and delete refs) and it protects us against a temporary intermediary state, so I recommend trying it. I left some code in the other comment that should work.",
+      "parentUuid": "15bc47a6_5cd64dec",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8805c212_d0cc508d",
         "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
         "patchSetId": 4

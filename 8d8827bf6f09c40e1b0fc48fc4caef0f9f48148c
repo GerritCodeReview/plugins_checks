@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c9e2e5b_ab89f5e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T14:29:42Z",
+      "side": 1,
+      "message": "nit: LifecycleListener",
+      "range": {
+        "startLine": 16,
+        "startChar": 28,
+        "endLine": 16,
+        "endChar": 46
+      },
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c606a64_bf08847f",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckerOperationsImpl.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T14:29:42Z",
+      "side": 1,
+      "message": "nit: remove. This is just used in the test. Make checkerOf(NameKey, String) public and annotate it with @VisibleForTesting",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c16d31_e5bf889c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T14:29:42Z",
+      "side": 1,
+      "message": "This looks like we are renaming and then deleting which seems wrong: A rename would delete the old ref already. If it does not, because that\u0027s the bug we are falling over in JGit, how about doing the following:\n\n\n   Ref old \u003d repo.exactRef(\"refs/meta/checkers/\");\n   Ref newRef \u003d repo.exactRef(\"refs/meta/checkers\");\n   if (old \u003d\u003d null) {\n     // already migrated\n     return;\n    }\n    if(newRef \u003d\u003d null) {\n      // Create refs/meta/checkers at the tip of refs/meta/checkers/ \n      RefUpdate update \u003d repo.updateRef(\"refs/meta/checkers\");\n      update.setExpectedOldObjectId(ObjectId.zeroId());\n      update.setNewObjectId(old.getObjectId());\n      update.setForceUpdate(true); // not sure if this needs to be forced, please check\n      update.update(...); // check update with util\n    } \n    // Delete refs/meta/checkers/ \n    RefUpdate update \u003d repo.updateRef(\"refs/meta/checkers\");\n    update.setExpectedOldObjectId(old.getObjectId());\n    update.setNewObjectId(ObjectId.zeroId());\n    update.setForceUpdate(true); // not sure if this needs to be forced, please check\n    update.update(...); // check update with util",
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
