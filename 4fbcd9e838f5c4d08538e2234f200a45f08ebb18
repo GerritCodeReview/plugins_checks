@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "469de901_dda8e807",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "I\u0027d move this into the CheckerRefMigration class and make it (package private) because it\u0027s only needed for that.",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3d924cd_edc72de1",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "nit: CheckerRefMigration",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "902c9dac_5b398e73",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "nit: this should be a private static final TMP_REF member of the class.\nnit: refs/tmp/checker-migration",
+      "range": {
+        "startLine": 62,
+        "startChar": 22,
+        "endLine": 62,
+        "endChar": 69
+      },
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "408b7748_75766333",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "Right now, we do:\n\n1) Rename refs/meta/checkers/ to refs/tmp/...\n2) Rename refs/tmp/... to refs/meta/checkers\n\nDid you check if we can do:\n1) Create refs/meta/checkers and have it point to the tip of refs/meta/checkers/\n2) Delete refs/meta/checkers/\n\nThat\u0027d spare the tmp.",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8805c212_d0cc508d",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "Using a BatchUpdate is unnecessary because you are just deleting a single ref. The following example is from DeleteRef:\n\n    try (Repository repository \u003d repoManager.openRepository(allProjectsName)) {\n      RefUpdate.Result result;\n      RefUpdate u \u003d repository.updateRef(refName);\n      u.setExpectedOldObjectId(repository.exactRef(ref).getObjectId());\n      u.setNewObjectId(ObjectId.zeroId());\n      u.setForceUpdate(true);\n      RefUpdateUtil.checkResult(u.delete());\n    }\n\nThis allows you to delete the Op further down.",
+      "range": {
+        "startLine": 95,
+        "startChar": 9,
+        "endLine": 95,
+        "endChar": 20
+      },
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d076943a_f7fc0e6e",
+        "filename": "java/com/google/gerrit/plugins/checks/api/MigrationCheckerRef.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "allProjectsName is a subclass of Project.NameKey, so you can replace this by \"allProjectsName\".",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 50
+      },
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "294588bb_904e0280",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/MigrationCheckerRefIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-13T12:15:45Z",
+      "side": 1,
+      "message": "Please assert that refs in the repo both before and after your migration. So check that before we have a refs/meta/checkers/ and after we have a refs/meta/checkers",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
