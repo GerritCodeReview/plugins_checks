@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2331f378_a09134bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-16T18:56:05Z",
+      "side": 1,
+      "message": "What gave you the impression that we completely want to switch away from BlockingConditions? The idea for OverrideChecks was only to change CheckInfo as returning BlockingConditions turned out to be not well suited for that API. If we migrated from BlockingConditions to the required flag also for checkers, we\u0027d need to consider additional aspects (e.g. a potential NoteDb migration). Hence, please only include the changes to CheckInfo in this change.\n\nIt might be useful to split out the other modifications to another change. As you already did the effort of the implementation, we can reconsider whether we also want to change the checker representation (it has been on my mind) but it shouldn\u0027t block any of the OverrideChecks implementation.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 64
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb969c2b_14c73128",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-16T18:56:05Z",
+      "side": 1,
+      "message": "It would be good to add this change and the next two follow-up ones to the same Gerrit topic so that they are only submitted together.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd59ab8_3d3a677c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-16T18:56:05Z",
+      "side": 1,
+      "message": "When we do frontend breaking changes, we need to ensure that it\u0027s still possible to keep the systems running. For this, we typically introduce something new on the backend, roll this out to servers, adjust the frontend, roll this out, and then do cleanups/removals on the backend. Hence, the approach of this change which directly changes the API doesn\u0027t work.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
