@@ -128,6 +128,24 @@
       "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebaec6fb_2861e129",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-16T11:36:51Z",
+      "side": 1,
+      "message": "\u003e But now doing this assignment and reading your comments I\u0027m really happy to hear that in normal cases it\u0027s really simple and straightforward ;)\n\nYes, this is really broken :-(\n\nThanks for checking the alternative. I am a bit concerned that this get\u0027s fixed up in JGit at some point and we won\u0027t be able to use the API at all to fix it up. The test will at least make it so that we notice.",
+      "parentUuid": "53dfe208_fee7b7db",
+      "revId": "8d8827bf6f09c40e1b0fc48fc4caef0f9f48148c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
