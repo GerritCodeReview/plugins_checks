@@ -382,6 +382,24 @@
       "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bdd7e2d_ba71c501",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/MigrationCheckerRefIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T12:07:59Z",
+      "side": 1,
+      "message": "Ok, we can skip this if you want.\n\nWhen I write a test that mingles with the repo, I try to make as little assumptions as possible about the production code and assert state on the repo instead. This way, the prod code can be changed under our feet and the test still guarantees that the assumptions made remain correct.\n\nIn this example, if one would change just checkersOf and the migration, the test might succeed even though the migration stopped working.",
+      "parentUuid": "819aef99_f9f3bd5e",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

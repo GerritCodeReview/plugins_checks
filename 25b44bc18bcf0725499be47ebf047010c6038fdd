@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "0cee1930_54a12bad",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T12:07:59Z",
+      "side": 1,
+      "message": "The upgrade will fail, but this could be intended here.\n\nIf the exception message has a description or link to documentation of what the state is and how one would use C-Git to get out fix the issue, I think that\u0027d be OK. WDYT?",
+      "parentUuid": "78ca77d6_77f00889",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "411c68e0_fb6c82fe",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 8

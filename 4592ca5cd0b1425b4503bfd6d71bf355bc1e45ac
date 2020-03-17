@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cccd0eb_c3143616",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T12:07:59Z",
+      "side": 1,
+      "message": "IllegalStateException? or just a log if you don\u0027t want to stop the upgrade (see my other comment)\n\nResourceConflictE is a RestApiE, but this is never called from a REST API.",
+      "range": {
+        "startLine": 71,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 41
+      },
+      "revId": "4592ca5cd0b1425b4503bfd6d71bf355bc1e45ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
