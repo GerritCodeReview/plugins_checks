@@ -346,6 +346,24 @@
       "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a79bf59_e36f4505",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/MigrationCheckerRefIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T08:00:00Z",
+      "side": 1,
+      "message": "This code still looks the same?\n\nThis could be something like:\n\nRef legacy \u003d repo.exactRef(\"refs/meta/checkers/\");\nassertThat(legacy).isNotNull();\nassertThat(repo.exactRef(\"refs/meta/checkers\")).isNull();\n\n// migrate\n\nassertThat(repo.exactRef(\"refs/meta/checkers/\")).isNull();\nRef migrated \u003d repo.exactRef(\"refs/meta/checkers/\");\nassertThat(migrated).isNotNull();\nassertThat(migrated.objectId()).isEqualTo(legacy.objectId());",
+      "parentUuid": "01c924c3_3c29c675",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

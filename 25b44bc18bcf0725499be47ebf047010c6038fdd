@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ad07938_4938b35e",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRef.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T08:00:00Z",
+      "side": 1,
+      "message": "Remove this. You have that in the class as member now. The test can just use the string directly.",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80a6380e_6bc00465",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T08:00:00Z",
+      "side": 1,
+      "message": "nit: move right after the logger.\n\nFrom [1]: \"What is important is that each class uses some logical order\". So two private static final members should be grouped together.\n\n[1] https://google.github.io/styleguide/javaguide.html#s3.4.2-ordering-class-contents",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef3eafc9_da440bb9",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T08:00:00Z",
+      "side": 1,
+      "message": "This isn\u0027t called during loading, but during Init which is essentially an upgrade step. Does that fact change this assessment?",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "411c68e0_fb6c82fe",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-17T08:00:00Z",
+      "side": 1,
+      "message": "nit: An inline comment explaining why we do a rename followed by a delete would help the reader here (I was confused as well when reading this but it\u0027s because of a bug/behavior in JGit that we could explain here).",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
