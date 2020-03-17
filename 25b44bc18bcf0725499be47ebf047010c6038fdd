@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b263e47b_5e304049",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRef.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-17T11:55:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ad07938_4938b35e",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80a6380e_6bc00465",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0963df0e_2005c1b7",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-17T11:55:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80a6380e_6bc00465",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "78ca77d6_77f00889",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-17T11:55:24Z",
+      "side": 1,
+      "message": "Are there any terrible consequences of throwing an exception during an upgrade?\nIf not, I guess it makes sense to fail.",
+      "parentUuid": "ef3eafc9_da440bb9",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "411c68e0_fb6c82fe",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 8
@@ -67,6 +121,24 @@
       "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65de905e_5b427996",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-17T11:55:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "411c68e0_fb6c82fe",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

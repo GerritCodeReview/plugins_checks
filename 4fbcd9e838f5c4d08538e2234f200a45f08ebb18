@@ -364,6 +364,24 @@
       "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "819aef99_f9f3bd5e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/MigrationCheckerRefIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-17T11:55:24Z",
+      "side": 1,
+      "message": "But this is what checkersOf is doing\nAs you requested in another comment, checkersOf(allProjects) is using the correct ref, and checkersOf(allProjects,\"refs/meta/checkers/\" using the old ref.",
+      "parentUuid": "4a79bf59_e36f4505",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
