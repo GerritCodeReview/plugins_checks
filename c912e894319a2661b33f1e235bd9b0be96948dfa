@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f25963c7_60623c46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "With my previous comment I actually wanted to express that the first paragraph is not true. Let me give you more context and another answer why we are making this change:\n\nBlockingConditions are a configuration option of checkers. On a check, though, we don\u0027t need to reveal individual configuration options. On the contrary, it\u0027s even a nuisance as the frontend needs to interpret them correctly. Hence, we switch to a new field which is targeted at the needs of the frontend and user: The field directly indicates whether this specific check is relevant for submit of a change or not. This new field has additional advantages. For instance, the backend can accurately reflect the submit impact as considered within the submit rule.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8d582ce_5b390587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "Please add a sentence/paragraph saying that no storage changes are necessary and hence no migration is required. In addition, please mention that we don\u0027t expect to break anyone with this API change as only the frontend should currently use that field in the API.",
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87b93ef9_66715b1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "Actually, the idea is rather to group related aspects, in this case all fields which are in direct relation to whether a change can be submitted.",
+      "range": {
+        "startLine": 20,
+        "startChar": 26,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5c1fd81_f8f79711",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "Typo: Shouldn\u0027t this be singular?",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 65
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80212f0e_32e82ce3",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "After switching to Boolean, add some code here to match \u0027false\u0027 to null.",
+      "range": {
+        "startLine": 92,
+        "startChar": 32,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2a6c7b6_5463abb7",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "This method unfortunately doesn\u0027t cover all computations determining the required state of a check. When we only had the field with the blocking conditions, we should have actually cleared it when the checker didn\u0027t apply to the change. This logic is used for the SubmitRule for checks. For the required field, which is shown to users and tells them about the effect of this check on submission, we should try to include the same logic. Hence, the value should switch from true to false if the checker doesn\u0027t apply to the change.\n\nPointers: ChecksSubmitRule is the SubmitRule for checks; NoteDbChecks#getStatesAndRequiredMap contains the logic I\u0027m referring to.\n\nIf you want, we can also correct this in a follow-up change. We only shouldn\u0027t forget it. Please tell me what you prefer.",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0413de3_fb92e115",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "For the REST API, we typically use Boolean instead of boolean as we indicate \u0027false\u0027 via null values (\u003d no entry in JSON). Please switch to Boolean.",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6d2f087_02642a27",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T12:20:37Z",
+      "side": 1,
+      "message": "Here\u0027s another reason we typically use Boolean instead boolean: When we have options like ListChecksOption, we also want to be able to have unset values. Primitive values always require a value and could give a wrong impression as in this case.\n\nWhen switching to Boolean, please update this and the other tests to a null check.",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 73
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
