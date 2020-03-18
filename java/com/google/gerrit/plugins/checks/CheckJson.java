@@ -17,7 +17,9 @@ package com.google.gerrit.plugins.checks;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.plugins.checks.api.CheckInfo;
+import com.google.gerrit.server.query.change.ChangeData;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import com.google.inject.assistedinject.Assisted;
 import java.io.IOException;
@@ -51,11 +53,19 @@ public class CheckJson {
 
   private final Checkers checkers;
   private final ImmutableSet<ListChecksOption> options;
+  private final ChangeData.Factory changeDataFactory;
+  private final Provider<CheckerQuery> checkerQueryProvider;
 
   @Inject
-  CheckJson(Checkers checkers, @Assisted Iterable<ListChecksOption> options) {
+  CheckJson(
+      Checkers checkers,
+      @Assisted Iterable<ListChecksOption> options,
+      ChangeData.Factory changeDataFactory,
+      Provider<CheckerQuery> checkerQueryProvider) {
     this.checkers = checkers;
     this.options = ImmutableSet.copyOf(options);
+    this.changeDataFactory = changeDataFactory;
+    this.checkerQueryProvider = checkerQueryProvider;
   }
 
   public CheckInfo format(Check check) throws IOException {
@@ -75,12 +85,16 @@ public class CheckJson {
     info.updated = check.updated();
 
     if (options.contains(ListChecksOption.CHECKER)) {
-      populateCheckerFields(check.key().checkerUuid(), info);
+      ChangeData changeData =
+          changeDataFactory.create(check.key().repository(), check.key().patchSet().changeId());
+      populateCheckerFields(check.key().checkerUuid(), info, changeData);
     }
     return info;
   }
 
-  private void populateCheckerFields(CheckerUuid checkerUuid, CheckInfo info) throws IOException {
+  private void populateCheckerFields(CheckerUuid checkerUuid, CheckInfo info, ChangeData changeData)
+      throws IOException {
+
     try {
       checkers
           .getChecker(checkerUuid)
@@ -89,7 +103,11 @@ public class CheckJson {
                 info.checkerName = checker.getName();
                 info.checkerStatus = checker.getStatus();
                 info.blocking = checker.getBlockingConditions();
-                info.required = checker.isRequired() ? true : null;
+                info.required =
+                    checker.isRequired()
+                            && checkerQueryProvider.get().isCheckerRelevant(checker, changeData)
+                        ? true
+                        : null;
                 info.checkerDescription = checker.getDescription().orElse(null);
               });
     } catch (ConfigInvalidException e) {
