@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cc16ea6_15d5351e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done, thanks for the detailed explanation.",
+      "parentUuid": "f25963c7_60623c46",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8d582ce_5b390587",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -39,6 +63,24 @@
       "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdc48857_5a12ea8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Already added that we don\u0027t break anyone, added now that no migration is required.",
+      "parentUuid": "a8d582ce_5b390587",
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "f24af5b2_5400799a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b93ef9_66715b1f",
+      "range": {
+        "startLine": 20,
+        "startChar": 26,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5c1fd81_f8f79711",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -85,6 +151,30 @@
       "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b6d6a63_aa0c3d08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c1fd81_f8f79711",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 65
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +224,54 @@
     },
     {
       "key": {
+        "uuid": "191f7026_51aff583",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "I\u0027m creating a follow-up for this now.",
+      "parentUuid": "a2a6c7b6_5463abb7",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5e3232e_0718d586",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80212f0e_32e82ce3",
+      "range": {
+        "startLine": 92,
+        "startChar": 32,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0413de3_fb92e115",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
         "patchSetId": 6
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "5721340e_d0b673f5",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0413de3_fb92e115",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 16
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6d2f087_02642a27",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
         "patchSetId": 6
@@ -177,6 +339,30 @@
       "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e97ac9_2fe995d8",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T13:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6d2f087_02642a27",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 73
+      },
+      "revId": "c912e894319a2661b33f1e235bd9b0be96948dfa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
