@@ -400,6 +400,24 @@
       "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728cd295_d82093ea",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/MigrationCheckerRefIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T09:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bdd7e2d_ba71c501",
+      "revId": "4fbcd9e838f5c4d08538e2234f200a45f08ebb18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

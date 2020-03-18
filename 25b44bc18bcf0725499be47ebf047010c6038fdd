@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "687f23ec_59631a18",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T09:41:43Z",
+      "side": 1,
+      "message": "I think fixing the issue depends on the exact error, and there might be many types of possible errors. The most likely one is just an error that can be solved by retrying, or perhaps the target ref already existed and needs to be deleted first.\nEither way, I think the new message is informative enough?",
+      "parentUuid": "0cee1930_54a12bad",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "411c68e0_fb6c82fe",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 8

@@ -22,6 +22,30 @@
       "revId": "4592ca5cd0b1425b4503bfd6d71bf355bc1e45ac",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c42f975_b890fe65",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T09:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cccd0eb_c3143616",
+      "range": {
+        "startLine": 71,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 41
+      },
+      "revId": "4592ca5cd0b1425b4503bfd6d71bf355bc1e45ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
