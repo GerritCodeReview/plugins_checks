@@ -111,7 +111,18 @@ public class CheckersByRepositoryNotes extends VersionedMetaData {
 
   @Override
   protected String getRefName() {
-    return CheckerRef.REFS_META_CHECKERS;
+    // To allow for an online migration of the old checker ref (refs/meta/checkers/) to the new ref
+    // (refs/meta/checkers) we need to check which state we are in here. If we the legacy ref
+    // exists, we operate on that instead. The migration will move to the new ref eventually and
+    // delete the old ref. At that point, we'll start using the new ref here.
+    // TODO(paiking): Remove when migration on googlesource.com is done.
+    boolean useLegacyRef = false;
+    try {
+      useLegacyRef = repo.exactRef("refs/meta/checkers/") != null;
+    } catch (IOException e) {
+      logger.atWarning().withCause(e).log("Unable to check for legacy checker ref");
+    }
+    return useLegacyRef ? "refs/meta/checkers/" : CheckerRef.REFS_META_CHECKERS;
   }
 
   /**
