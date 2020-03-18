@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73e44865_4dca9456",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T15:19:50Z",
+      "side": 1,
+      "message": "Typo: Omit.",
+      "range": {
+        "startLine": 115,
+        "startChar": 76,
+        "endLine": 115,
+        "endChar": 78
+      },
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c1f73b3_b643ca0c",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T15:19:50Z",
+      "side": 1,
+      "message": "What about throwing an IllegalStateException here? If Gerrit can\u0027t determine the right ref, it\u0027s better to block the operation.",
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcd657c1_d7a5d395",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerRefMigrationTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-18T15:19:50Z",
+      "side": 1,
+      "message": "Could we please also have the equivalent test for the new ref (e.g. readFromNewRefWhenMigrated())?",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
