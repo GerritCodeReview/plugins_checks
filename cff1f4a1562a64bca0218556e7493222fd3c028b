@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd91ba14_8d5012b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T11:35:59Z",
+      "side": 1,
+      "message": "I understand the issue with the migration. Removed for now, if we decide to do it later then I can quickly get it from the first patchset.",
+      "parentUuid": "2331f378_a09134bd",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 64
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb969c2b_14c73128",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c1f5321b_4ecff10c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T11:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb969c2b_14c73128",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fd59ab8_3d3a677c",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "567e42d9_8ff07cf6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T11:35:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd59ab8_3d3a677c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "cff1f4a1562a64bca0218556e7493222fd3c028b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
