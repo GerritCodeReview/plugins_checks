@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "zuul-check:plugins_checks": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-03-18T11:33:28Z",
+      "created": "2020-03-18T11:33:29Z",
+      "updated": "2020-03-18T11:33:29Z"
+    }
+  }
+}
