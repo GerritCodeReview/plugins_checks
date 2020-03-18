@@ -191,7 +191,15 @@ The `CheckInfo` entity describes a check.
 | `checker_name`        | optional | The name of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `checker_status`      | optional | The [status](rest-api-checkers.md#checker-info) of the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `blocking`            | optional | Set of [blocking conditions](rest-api-checkers.md#blocking-conditions) that apply to this checker.<br />Only set if [checker details](#option-checker) are requested.
+| `submit_impact`       | optional | The [CheckSubmitImpactInfo](#check-submit-impact-info) that depends on the checker that produced this check.<br />Only set if [checker details](#option-checker) are requested.
 | `checker_description` | optional | The description of the checker that reported this check.
+
+### <a id="check-submit-impact-info"> CheckSubmitImpactInfo
+The `CheckSubmitImpactInfo` entity describes a check's impact on the submission.
+
+| Field Name            |          | Description |
+| --------------------- | -------- | ----------- |
+| `required`            |          | True if the check must pass for the change to be submitted. False, otherwise.
 
 ### <a id="check-input"> CheckInput
 The `CheckInput` entity contains information for creating or updating a check.
