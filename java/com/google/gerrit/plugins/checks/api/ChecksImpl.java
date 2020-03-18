@@ -19,10 +19,13 @@ import static com.google.gerrit.server.api.ApiUtil.asRestApiException;
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.extensions.restapi.IdString;
 import com.google.gerrit.extensions.restapi.RestApiException;
+import com.google.gerrit.plugins.checks.CheckerQuery;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.ListChecksOption;
 import com.google.gerrit.server.change.RevisionResource;
+import com.google.gerrit.server.query.change.ChangeData;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.assistedinject.Assisted;
 import java.util.Arrays;
 
@@ -37,6 +40,8 @@ class ChecksImpl implements com.google.gerrit.plugins.checks.api.Checks {
   private final ListChecks listChecks;
   private final PostCheck postCheck;
   private final RevisionResource revisionResource;
+  private final Provider<CheckerQuery> checkerQueryProvider;
+  private final ChangeData.Factory changeDataFactory;
 
   @Inject
   ChecksImpl(
@@ -44,12 +49,16 @@ class ChecksImpl implements com.google.gerrit.plugins.checks.api.Checks {
       ChecksCollection checksCollection,
       ListChecks listChecks,
       PostCheck postCheck,
+      Provider<CheckerQuery> checkerQueryProvider,
+      ChangeData.Factory changeDataFactory,
       @Assisted RevisionResource revisionResource) {
     this.checkApiImplFactory = checkApiImplFactory;
     this.checksCollection = checksCollection;
     this.listChecks = listChecks;
-    this.postCheck = postCheck;
     this.revisionResource = revisionResource;
+    this.checkerQueryProvider = checkerQueryProvider;
+    this.changeDataFactory = changeDataFactory;
+    this.postCheck = postCheck;
   }
 
   @Override
