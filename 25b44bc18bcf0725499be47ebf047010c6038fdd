@@ -143,6 +143,24 @@
     },
     {
       "key": {
+        "uuid": "b71c4856_54e3c414",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-18T12:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "687f23ec_59631a18",
+      "revId": "25b44bc18bcf0725499be47ebf047010c6038fdd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "411c68e0_fb6c82fe",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckerRefMigration.java",
         "patchSetId": 8
