@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "88527cff_bf311ebd",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-18T15:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73e44865_4dca9456",
+      "range": {
+        "startLine": 115,
+        "startChar": 76,
+        "endLine": 115,
+        "endChar": 78
+      },
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c1f73b3_b643ca0c",
         "filename": "java/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotes.java",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d28797f_e3214355",
+        "filename": "java/com/google/gerrit/plugins/checks/db/CheckersByRepositoryNotes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-18T15:26:10Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "7c1f73b3_b643ca0c",
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "822188db_efb3167d",
+        "filename": "javatests/com/google/gerrit/plugins/checks/db/CheckerRefMigrationTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-03-18T15:26:10Z",
+      "side": 1,
+      "message": "Sure. Done.",
+      "parentUuid": "bcd657c1_d7a5d395",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "242459b34f183146c773ade7c76c6ee1c4154bc4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
