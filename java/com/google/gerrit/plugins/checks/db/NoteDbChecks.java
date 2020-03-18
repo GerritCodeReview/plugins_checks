@@ -30,11 +30,11 @@ import com.google.gerrit.plugins.checks.CheckKey;
 import com.google.gerrit.plugins.checks.Checker;
 import com.google.gerrit.plugins.checks.CheckerQuery;
 import com.google.gerrit.plugins.checks.CheckerRef;
+import com.google.gerrit.plugins.checks.CheckerRequiredForSubmit;
 import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.api.CheckState;
-import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState;
 import com.google.gerrit.plugins.checks.api.CombinedCheckState.CheckStateCount;
 import com.google.gerrit.server.git.GitRepositoryManager;
@@ -61,6 +61,7 @@ class NoteDbChecks implements Checks {
   private final CheckBackfiller checkBackfiller;
   private final Provider<CheckerQuery> checkerQueryProvider;
   private final GitRepositoryManager repoManager;
+  private final CheckerRequiredForSubmit checkerRequiredForSubmit;
 
   @Inject
   NoteDbChecks(
@@ -69,13 +70,15 @@ class NoteDbChecks implements Checks {
       Checkers checkers,
       CheckBackfiller checkBackfiller,
       Provider<CheckerQuery> checkerQueryProvider,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      CheckerRequiredForSubmit checkerRequiredForSubmit) {
     this.changeDataFactory = changeDataFactory;
     this.checkNotesFactory = checkNotesFactory;
     this.checkers = checkers;
     this.checkBackfiller = checkBackfiller;
     this.checkerQueryProvider = checkerQueryProvider;
     this.repoManager = repoManager;
+    this.checkerRequiredForSubmit = checkerRequiredForSubmit;
   }
 
   @Override
@@ -192,10 +195,7 @@ class NoteDbChecks implements Checks {
         continue;
       }
 
-      boolean isRequired =
-          checker.getStatus() == CheckerStatus.ENABLED
-              && checker.isRequired()
-              && checkerQueryProvider.get().isCheckerRelevant(checker, changeData);
+      boolean isRequired = checkerRequiredForSubmit.isRequiredForSubmit(checker, changeData);
       statesAndRequired.put(check.state(), isRequired);
     }
 
