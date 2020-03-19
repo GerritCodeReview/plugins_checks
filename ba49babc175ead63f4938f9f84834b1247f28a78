@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9733fc8b_f1bc0d6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:37:01Z",
+      "side": 1,
+      "message": "Please see my other comment about the term \"not relevant\". In addition, the idea is rather that the \u0027required\u0027 field should accurately reflect whether the check is taken into account for submit considerations.",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "ba49babc175ead63f4938f9f84834b1247f28a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0686183_6a1d310f",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:37:01Z",
+      "side": 1,
+      "message": "We always put @Assisted fields at the end of the parameter list.",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 50
+      },
+      "revId": "ba49babc175ead63f4938f9f84834b1247f28a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "625da4b1_f874e65a",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:37:01Z",
+      "side": 1,
+      "message": "The submit rule also includes a check of the enabled status. Shouldn\u0027t we include it here as well?",
+      "range": {
+        "startLine": 106,
+        "startChar": 16,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "ba49babc175ead63f4938f9f84834b1247f28a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31ee0a12_8a1f892e",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:37:01Z",
+      "side": 1,
+      "message": "We are duplicating this code here and for the submit rule. How do we ensure that we stay consistent (e.g. that when someone changes that part in the submit rule computation that we update it here as well)?",
+      "range": {
+        "startLine": 107,
+        "startChar": 20,
+        "endLine": 108,
+        "endChar": 96
+      },
+      "revId": "ba49babc175ead63f4938f9f84834b1247f28a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1374a2e9_e4b49353",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:37:01Z",
+      "side": 1,
+      "message": "I guess this is coming from the \u0027isCheckerRelevant()\u0027 method. Actually, the name of that method is not ideal. We do have not relevant checks and those have the status NOT_RELEVANT. Whenever a checker doesn\u0027t apply to a change, I have always used the term a \"non applying checker\". Hence, please don\u0027t use the term \"not relevant check\" here. It might be very confusing. I would also avoid to transfer the term from checker to check as done in this test name as that might additionally add confusion.\n\n(We should probably consider to rename the other method.)",
+      "range": {
+        "startLine": 281,
+        "startChar": 14,
+        "endLine": 281,
+        "endChar": 25
+      },
+      "revId": "ba49babc175ead63f4938f9f84834b1247f28a78",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
