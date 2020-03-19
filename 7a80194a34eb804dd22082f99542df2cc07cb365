@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c47ab5bb_0ef4caf0",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "Will the new ListChecksOption be added in a later change?",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f16de622_6c7f1196",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "At some point, we should extract this to a method. If you don\u0027t want to do it now, please do it when adding the additional fields to CheckSubmitImpactInfo.",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b031848_283ef39a",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "This sounds strange to me. What about \"Submit impact of this check\"?",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca10186e_83a6f2bd",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "Please add Javadoc descriptions for the class and the \u0027required\u0027 field.",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b8ad393_64ff79d9",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "I think we should change this test to not be specific for the \u0027required\u0027 field as that\u0027s not necessary. The test could just look in general at the \u0027submitImpact\u0027 field.",
+      "range": {
+        "startLine": 269,
+        "startChar": 14,
+        "endLine": 269,
+        "endChar": 57
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af99fbe_33f42e0e",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListChecksIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-19T16:04:10Z",
+      "side": 1,
+      "message": "This test doesn\u0027t explicitly care about the \u0027required\u0027 field. It\u0027s absolutely sufficient to just look at \u0027submitImpact\u0027.\n\n(The test in general is actually verifying a bit too much but fixing that goes beyond the scope of this change.)",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 54
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
