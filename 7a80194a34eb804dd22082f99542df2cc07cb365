@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0784235f_a22d02ca",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T15:20:04Z",
+      "side": 1,
+      "message": "Reference for posterity: I35986873a.",
+      "parentUuid": "7b528f37_3618e04f",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f16de622_6c7f1196",
         "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
         "patchSetId": 8
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f16de622_6c7f1196",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3269da1_74f028ae",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T15:20:04Z",
+      "side": 1,
+      "message": "By \"Done\", were you referring to the modifications you did in the previous change with introducing the class/method to compute the boolean flag? With my comment, I actually meant that we should have the whole computation of the \"submitImpact\" field in an own method. I see this is done in I35986873a, so we can skip it for now.",
+      "parentUuid": "2a5d3ed6_caa273e5",
       "range": {
         "startLine": 107,
         "startChar": 16,
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "I don\u0027t think it\u0027s a good idea to have double documentation, as the exact same java docs that I would write here would also be in rest-api-checks.md: Iba8272fb9.\n\nAlso, I\u0027ve been reading the book you\u0027ve mentioned a while ago, and it mentioned java docs of this type: https://imgur.com/a/1waHFKC\nSource: \"Clean Code\" Chapter 4.\nThe example details that writing redundant docs is not good. Another example is in CheckInfo. Is it really necessary to have the following comment? It essentially says the same as the type and the field\u0027s name.\n  /** Timestamp of when this check was created. */\n  public Timestamp created;\n\nFor this case, the doc for \"CheckSubmitImpactInfo\" would be something about \"check submit impact\" which is already in the name of the entity.\n\nI understand the idea behind this rule: Some fields really do require a comment, but I think that this solution is an overkill in this case.\n\nDo you think it\u0027s okay to avoid having this javadoc, then?\nI would also suggest removing the javadoc from CheckInfo, but we can have another discussion about that.",
       "parentUuid": "ca10186e_83a6f2bd",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8bb0431_9122d708",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T15:20:04Z",
+      "side": 1,
+      "message": "It\u0027s great that you\u0027re reading \"Clean Code\". I agree that not every Javadoc comment is reasonable and that we should only write helpful ones. The latter is not an excuse to not write them, though. We should rather strive to think harder about what an appropriate comment would be.\n\nOur Java style guide (see https://google.github.io/styleguide/javaguide.html#s7.3-javadoc-where-required) also points out when Javadoc comments are necessary. Whenever possible, we should follow that guide. It clearly says that public classes and members should have Javadoc comments. There are only exceptions for self-explanatory methods and overrides.\n\nSo, for public classes, we should definitely have a Javadoc description. Honestly, I would write some more details than just what is mentioned in the public REST API documentation.\nBy the way, our REST API documentation is definitely not enough explanation for our internal code. It\u0027s not linked in any way. When we\u0027re working with code, we should have necessary explanations right next to the code.\n\nThe public fields might be a case where we could argue that they are actually similar to the self-explanatory methods. For instance, if we wrote \"Indicates whether a check is required\" as description of the \"required\" field, we wouldn\u0027t add any additional value. Can you think of a better description, though? What additional context might be helpful for somebody else who doesn\u0027t know this code or the behavior of checks very well?\n\nRegarding CheckInfo, I agree that some descriptions could be improved. Some of them already contain very helpful additional details you couldn\u0027t immediately get from just the field name (e.g. \"Short message explaining the check state.\"). If you have an idea for a better description of some of the others, I\u0027d welcome a separate change for them.",
+      "parentUuid": "616683e1_ba4c0efb",
       "range": {
         "startLine": 20,
         "startChar": 13,
