@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe44cb3b_104de98b",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRequiredForSubmit.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T14:47:31Z",
+      "side": 1,
+      "message": "FYI: If we keep this class, we should consider another name. The current one is very unusual for a Java class.",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 37
+      },
+      "revId": "a9b301f96a352491b773bdec3f2877c008c9dfa1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "654c04f5_7629ccd1",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRequiredForSubmit.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T14:47:31Z",
+      "side": 1,
+      "message": "I actually expected this to end up as a method in Checks. Is there an additional advantage to having this in an own class?",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "a9b301f96a352491b773bdec3f2877c008c9dfa1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e791a0_0915d8b7",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckerRequiredForSubmit.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-20T14:47:31Z",
+      "side": 1,
+      "message": "The callers of this method seemed to create the ChangeData instance just because of this method. Can\u0027t we do the relevant call inside this method instead of passing in the parameter?",
+      "range": {
+        "startLine": 17,
+        "startChar": 54,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "a9b301f96a352491b773bdec3f2877c008c9dfa1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
