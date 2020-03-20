@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b528f37_3618e04f",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "Yes. I added this when implementing the overriding checks.",
+      "parentUuid": "c47ab5bb_0ef4caf0",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f16de622_6c7f1196",
         "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a5d3ed6_caa273e5",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f16de622_6c7f1196",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b77e881_db5c07b2",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b031848_283ef39a",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca10186e_83a6f2bd",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2020-03-19T16:04:10Z",
       "side": 1,
       "message": "Please add Javadoc descriptions for the class and the \u0027required\u0027 field.",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "616683e1_ba4c0efb",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s a good idea to have double documentation, as the exact same java docs that I would write here would also be in rest-api-checks.md: Iba8272fb9.\n\nAlso, I\u0027ve been reading the book you\u0027ve mentioned a while ago, and it mentioned java docs of this type: https://imgur.com/a/1waHFKC\nSource: \"Clean Code\" Chapter 4.\nThe example details that writing redundant docs is not good. Another example is in CheckInfo. Is it really necessary to have the following comment? It essentially says the same as the type and the field\u0027s name.\n  /** Timestamp of when this check was created. */\n  public Timestamp created;\n\nFor this case, the doc for \"CheckSubmitImpactInfo\" would be something about \"check submit impact\" which is already in the name of the entity.\n\nI understand the idea behind this rule: Some fields really do require a comment, but I think that this solution is an overkill in this case.\n\nDo you think it\u0027s okay to avoid having this javadoc, then?\nI would also suggest removing the javadoc from CheckInfo, but we can have another discussion about that.",
+      "parentUuid": "ca10186e_83a6f2bd",
       "range": {
         "startLine": 20,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f2ebb19b_7cc8a4b8",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b8ad393_64ff79d9",
+      "range": {
+        "startLine": 269,
+        "startChar": 14,
+        "endLine": 269,
+        "endChar": 57
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9af99fbe_33f42e0e",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListChecksIT.java",
         "patchSetId": 8
@@ -137,6 +257,30 @@
       "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c986ed96_69cdcdca",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ListChecksIT.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-20T08:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af99fbe_33f42e0e",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 54
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
