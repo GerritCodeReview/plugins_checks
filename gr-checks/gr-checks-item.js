@@ -89,8 +89,8 @@
      * @return {string}
      */
     _computeRequiredForMerge(check) {
-      return (check.blocking && check.blocking.length === 0) ? 'Optional' :
-        'Required';
+      return (check.submit_impact && check.submit_impact.required) ? 'Optional'
+        : 'Required';
     },
     _handleReRunClicked(event) {
       this.fire('retry-check', {uuid: this.check.checker_uuid},
