@@ -57,7 +57,7 @@
     const hasRequiredFailedCheck = checks.some(
         check => {
           return check.state == Statuses.FAILED &&
-               check.blocking && check.blocking.length > 0;
+               check.submit_impact && check.submit_impact.required;
         }
     );
     return hasRequiredFailedCheck ? '' : 'set';
@@ -180,7 +180,7 @@
       const failedRequiredChecks = checks.filter(
           check => {
             return check.state == Statuses.FAILED &&
-            check.blocking && check.blocking.length > 0;
+            check.submit_impact && check.submit_impact.required;
           }
       );
       return failedRequiredChecks.length;
