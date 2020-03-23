@@ -50,7 +50,7 @@ It is expected to be provided by Gerrit core -->
     checker_name: 'test checker',
     state: 'RUNNING',
     checker_status: 'ENABLED',
-    blocking: [],
+    submit_impact: {required: false},
     checker_description: 'No-op jobs for testing purposes',
     message: '\n\nChange-Id: I8df212a28ae23cc239afd10ee4f506887e03ab70\n',
     showCheckMessage: undefined,
@@ -64,7 +64,7 @@ It is expected to be provided by Gerrit core -->
     checker_name: 'test checker2',
     state: 'RUNNING',
     checker_status: 'ENABLED',
-    blocking: [],
+    submit_impact: {required: false},
     checker_description: 'No-op jobs for testing purposes 2',
     message: '\n\nChange-Id: I8df212a28ae23cc239afd10ee4f506887e03ab70\n',
     showCheckMessage: undefined,
@@ -331,7 +331,7 @@ It is expected to be provided by Gerrit core -->
       setup(done => {
         const CHECK3 = Object.assign({}, CHECK1, {state: 'FAILED'});
         const CHECK4 = Object.assign({}, CHECK1, {state: 'FAILED',
-          blocking: [1, 2, 3]});
+          submit_impact: {required: true}});
         getChecksResolve([CHECK1, CHECK2, CHECK3, CHECK4]);
         flush(done);
       });
@@ -496,7 +496,7 @@ It is expected to be provided by Gerrit core -->
       setup(done => {
         const CHECK3 = Object.assign({}, CHECK1, {state: 'FAILED'});
         const CHECK4 = Object.assign({}, CHECK1, {state: 'FAILED',
-          blocking: [1, 2, 3]});
+          submit_impact: {required: true}});
         const checks = [];
         for (let i = 1; i <= 20; i++) {
           checks.push(...[CHECK1, CHECK2, CHECK3, CHECK4]);
