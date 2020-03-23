@@ -147,8 +147,9 @@
       const checks = checksRecord.base;
       if (!checks) return [];
       this._filteredChecks = checks.filter(check => {
-        if (showBlockingChecksOnly && (!check.blocking ||
-            !check.blocking.length)) return false;
+        if (showBlockingChecksOnly && !this._computeBlocking(check)) {
+          return false;
+        }
         return status === STATE_ALL || check.state === status;
       });
       /* The showCheckMessage property is notified for change because the
@@ -208,6 +209,10 @@
       this.$$('gr-checkers-list')._showConfigureOverlay();
     },
 
+    _computeBlocking(check) {
+      return check.submit_impact && check.submit_impact.required;
+    },
+
     _orderChecks(a, b) {
       if (a.state != b.state) {
         const indexA = StatusPriorityOrder.indexOf(a.state);
@@ -218,9 +223,8 @@
         return indexA == -1 ? 1 : -1;
       }
       if (a.state === Statuses.FAILED) {
-        if (a.blocking && b.blocking &&
-            a.blocking.length !== b.blocking.length) {
-          return a.blocking.length == 0 ? 1 : -1;
+        if (this._computeBlocking(a) != this._computeBlocking(b)) {
+          return this._computeBlocking(a) == 0 ? 1 : -1;
         }
       }
       return a.checker_name.localeCompare(b.checker_name);
