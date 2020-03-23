@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "1c4b9173_19f40e47",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckJson.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-23T09:03:46Z",
+      "side": 1,
+      "message": "Right, sorry for the imperfect ordering",
+      "parentUuid": "f3269da1_74f028ae",
+      "range": {
+        "startLine": 107,
+        "startChar": 16,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b031848_283ef39a",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckInfo.java",
         "patchSetId": 8
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "It\u0027s great that you\u0027re reading \"Clean Code\". I agree that not every Javadoc comment is reasonable and that we should only write helpful ones. The latter is not an excuse to not write them, though. We should rather strive to think harder about what an appropriate comment would be.\n\nOur Java style guide (see https://google.github.io/styleguide/javaguide.html#s7.3-javadoc-where-required) also points out when Javadoc comments are necessary. Whenever possible, we should follow that guide. It clearly says that public classes and members should have Javadoc comments. There are only exceptions for self-explanatory methods and overrides.\n\nSo, for public classes, we should definitely have a Javadoc description. Honestly, I would write some more details than just what is mentioned in the public REST API documentation.\nBy the way, our REST API documentation is definitely not enough explanation for our internal code. It\u0027s not linked in any way. When we\u0027re working with code, we should have necessary explanations right next to the code.\n\nThe public fields might be a case where we could argue that they are actually similar to the self-explanatory methods. For instance, if we wrote \"Indicates whether a check is required\" as description of the \"required\" field, we wouldn\u0027t add any additional value. Can you think of a better description, though? What additional context might be helpful for somebody else who doesn\u0027t know this code or the behavior of checks very well?\n\nRegarding CheckInfo, I agree that some descriptions could be improved. Some of them already contain very helpful additional details you couldn\u0027t immediately get from just the field name (e.g. \"Short message explaining the check state.\"). If you have an idea for a better description of some of the others, I\u0027d welcome a separate change for them.",
       "parentUuid": "616683e1_ba4c0efb",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5db77be_20625739",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-23T09:03:46Z",
+      "side": 1,
+      "message": "I tried something - is this useful?",
+      "parentUuid": "d8bb0431_9122d708",
       "range": {
         "startLine": 20,
         "startChar": 13,
