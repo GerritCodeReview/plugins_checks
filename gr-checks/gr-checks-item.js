@@ -92,8 +92,13 @@
       return (check.blocking && check.blocking.length === 0) ? 'Optional' :
         'Required';
     },
-    _handleReRunClicked(event) {
+    _handleReRunClicked() {
       this.fire('retry-check', {uuid: this.check.checker_uuid},
+          {bubbles: false});
+    },
+
+    _handleOverrideClicked() {
+      this.fire('override-check', {uuid: this.check.checker_uuid},
           {bubbles: false});
     },
   });

@@ -142,6 +142,14 @@
         border-collapse: collapse;
       }
 
+      .override-reason {
+        margin-top: var(--spacing-l);
+      }
+
+      .error {
+        color: var(--error-text-color);
+      }
+
     </style>
 
     <header class$="[[_computeHeaderClass(_currentPatchSet, _patchSetDropdownItems)]]">
@@ -201,6 +209,45 @@
       </div>
     </template>
 
+    <gr-overlay with-backdrop id="overrideOverlay">
+      <gr-dialog
+          id="overrideDialog"
+          confirm-label="Override"
+          on-confirm="_handleOverrideConfirm"
+          on-cancel="_handleOverrideCancel">
+        <div class="header" slot="header">
+          Override Checks
+        </div>
+        <div slot="main">
+          <div>
+            <span> Overriding will convert a failing check that’s ‘required for
+            submit’ to ‘not required for submit’. </span>
+          </div>
+          <div>
+            <span> The checks you want to
+            override are: Check 1</span>
+          </div>
+          <div class="override-reason"> 
+            <span> Override message (Reason for override) </span>
+          </div>
+          <div>
+            <iron-autogrow-textarea
+              id="overrideInput"
+              rows="4"
+              max-rows="15"
+              bind-value="{{_overrideReason}}"
+              placeholder="Max 300 characters.">
+            </iron-autogrow-textarea>
+          </div>
+          <template is="dom-if" if="[[_showOverrideErrorMessage]]">
+            <div>
+              <span class="error"> Error Message must be less than 300 characters</span>
+            </div>
+          </template>
+        </div>
+      </gr-dialog>
+    </gr-overlay>
+
     <template is="dom-if" if="[[_hasResults(_status)]]">
       <table class="checks-table">
         <thead>
@@ -213,13 +260,17 @@
             <th class="topHeader">Duration</th>
             <th class="topHeader"><!-- actions --></th>
             <th class="topHeader"><!-- re-run --></th>
+            <th class="topHeader"><!-- override --></th>
             <th class="topHeader">Description</th>
           </tr>
         </thead>
         <tbody>
           <template is="dom-repeat" items="[[_visibleChecks]]" as="check">
               <tr>
-                <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
+                <gr-checks-item
+                  on-retry-check="_handleRetryCheck"
+                  on-toggle-check-message="_toggleCheckMessage"
+                  on-override-check="_handleOverrideCheck"
                   check="[[check]]">
                 </gr-checks-item>
               </tr>

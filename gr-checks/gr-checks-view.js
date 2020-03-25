@@ -18,6 +18,7 @@
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
   const CHECKS_LIMIT = 20;
+  const OVERRIDE_LIMIT = 300;
 
   /**
    * @typedef {{
@@ -97,6 +98,14 @@
         type: Boolean,
         value: false,
         notify: true,
+      },
+      _overrideReason: {
+        type: String,
+        value: '',
+      },
+      _showOverrideErrorMessage: {
+        type: Boolean,
+        value: false,
       },
     },
 
@@ -208,6 +217,10 @@
       this.$$('gr-checkers-list')._showConfigureOverlay();
     },
 
+    _handleOverrideCheck() {
+      this.$.overrideOverlay.open();
+    },
+
     _orderChecks(a, b) {
       if (a.state != b.state) {
         const indexA = StatusPriorityOrder.indexOf(a.state);
@@ -224,6 +237,21 @@
         }
       }
       return a.checker_name.localeCompare(b.checker_name);
+    },
+
+    _handleOverrideConfirm(e) {
+      if (this._overrideReason.length > OVERRIDE_LIMIT) {
+        this._showOverrideErrorMessage = true;
+        return;
+      }
+      const uuid = e.detail.uuid;
+      const url = `/changes/${this.change._number}/revisions/` +
+        `${this.revision._number}/${uuid}/override`;
+      this.pluginRestApi.post(url).then(res => {
+        console.log(res);
+      }, error => {
+        this.fire('show-error', {message: error.message});
+      });
     },
 
     _handleRetryCheck(e) {
