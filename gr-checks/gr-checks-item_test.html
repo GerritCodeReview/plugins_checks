@@ -28,7 +28,8 @@
     DURATION: 6,
     DETAILS: 7,
     RERUN: 8,
-    DESCRIPTION: 9,
+    OVERRIDE: 9,
+    DESCRIPTION: 10,
   };
   suite('gr-checks-item tests', async () => {
     await readyToTest();
@@ -63,6 +64,17 @@
 
     test('renders the start time', () => {
       assert.equal(element._startTime, '2019-02-06T22:25:19.269Z');
+    });
+
+    test('does not render override if check is not failing', () => {
+      element.check = {
+        checkId: 'test-check-id',
+        url: 'http://example.com/test-log-url',
+        started: '2019-02-06T22:25:19.269Z',
+        finished: '2019-02-06T22:25:19.269Z',
+      };
+      const idx = CHECKS_ITEM.OVERRIDE;
+      const name = element.$$(`td:nth-child(${idx})`);
     });
 
     suite('duration', () => {
