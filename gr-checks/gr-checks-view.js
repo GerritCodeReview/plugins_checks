@@ -18,6 +18,7 @@
 
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
   const CHECKS_LIMIT = 20;
+  const OVERRIDE_LIMIT = 300;
 
   /**
    * @typedef {{
@@ -97,6 +98,18 @@
         type: Boolean,
         value: false,
         notify: true,
+      },
+      _overrideReason: {
+        type: String,
+        value: '',
+      },
+      _showOverrideErrorMessage: {
+        type: Boolean,
+        value: false,
+      },
+      _overrideErrorMessage: {
+        type: String,
+        value: '',
       },
     },
 
@@ -214,6 +227,16 @@
       return check.submit_impact && check.submit_impact.required;
     },
 
+    _handleOverrideCheck(e) {
+      const check = e.detail.check;
+      this._overrideCheck = check;
+      this.$.overrideOverlay.open();
+    },
+
+    _handleOverrideCancel() {
+      this.$.overrideOverlay.close();
+    },
+
     _orderChecks(a, b) {
       if (a.state != b.state) {
         const indexA = StatusPriorityOrder.indexOf(a.state);
@@ -229,6 +252,29 @@
         }
       }
       return a.checker_name.localeCompare(b.checker_name);
+    },
+
+    _handleOverrideConfirm(e) {
+      if (!this._overrideReason.length) {
+        this._showOverrideErrorMessage = true;
+        this._overrideErrorMessage =
+          'Error Message must be non-empty';
+        return;
+      }
+      if (this._overrideReason.length > OVERRIDE_LIMIT) {
+        this._showOverrideErrorMessage = true;
+        this._overrideErrorMessage =
+          'Error Message must be less than 300 characters';
+        return;
+      }
+      const uuid = this._overrideCheck.checker_uuid;
+      const url = `/changes/${this.change._number}/revisions/` +
+        `${this.revision._number}/${uuid}/override`;
+      this.pluginRestApi.post(url).then(res => {
+        console.log(res);
+      }, error => {
+        this.fire('show-error', {message: error.message});
+      });
     },
 
     _handleRetryCheck(e) {
@@ -284,6 +330,10 @@
         if (revisionNumber !== this._currentPatchSet) return;
         if (checks && checks.length) {
           checks.sort((a, b) => this._orderChecks(a, b));
+          // REMOVE THIS LINE
+          checks.forEach(check => {
+            check.submit_impact = JSON.parse('{"required":false,"message":"One more override required","overrides":[{"reason":"Because I can","overriden_on":"2020-04-02 17:44:16.0","overrider":{"id":1000000,"name":"Gal","displayname":null,"email":null,"username":null}}]}');
+          });
           if (!this._checks) {
             this._checks = checks;
           } else {
@@ -322,6 +372,14 @@
       // Update subproperty of _checks[idx] so that it reflects to polymer
       this.set(`_checks.${idx}.showCheckMessage`,
           !this._checks[idx].showCheckMessage);
+    },
+
+    _showOverrideMessage(check) {
+      return check.submit_impact && check.submit_impact.message;
+    },
+
+    _showOverrideInfo(check) {
+      return check.submit_impact && check.submit_impact.overrides.length;
     },
 
     _pollChecksRegularly(change, revisionNumber, getChecks) {

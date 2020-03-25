@@ -5,6 +5,7 @@
 <script src="../../../bower_components/moment/min/moment.min.js"></script>
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <script src="test-pre-setup.js"></script>
+<script src="gr-checks-all-statuses.js"></script>
 
 <title>gr-checks-item</title>
 <link rel="import" href="gr-checks-item.html">
@@ -28,7 +29,8 @@
     DURATION: 6,
     DETAILS: 7,
     RERUN: 8,
-    DESCRIPTION: 9,
+    OVERRIDE: 9,
+    DESCRIPTION: 10,
   };
   suite('gr-checks-item tests', async () => {
     await readyToTest();
@@ -63,6 +65,65 @@
 
     test('renders the start time', () => {
       assert.equal(element._startTime, '2019-02-06T22:25:19.269Z');
+    });
+
+    test('does not render override if check is not failing', () => {
+      element.check = {
+        checkId: 'test-check-id',
+        url: 'http://example.com/test-log-url',
+        started: '2019-02-06T22:25:19.269Z',
+        finished: '2019-02-06T22:25:19.269Z',
+      };
+      const idx = CHECKS_ITEM.OVERRIDE;
+      const override = element.querySelector(`td:nth-child(${idx})`);
+      assert.isNotOk(override.querySelector('gr-button'));
+    });
+
+    test('_computeRequiredForMerge & _computeShowExpandCheckMessage', () => {
+      let check = {
+        checkId: 'test-check-id',
+        url: 'http://example.com/test-log-url',
+        started: '2019-02-06T22:25:19.269Z',
+        finished: '2019-02-06T22:25:19.269Z',
+      };
+      assert.isNotOk(element._computeShowExpandCheckMessage(check));
+      assert.equal(element._computeRequiredForMerge(check), 'Optional');
+      check.submit_impact = {
+        required: true,
+        overrides: [],
+      }
+      assert.isNotOk(element._computeShowExpandCheckMessage(check));
+      assert.equal(element._computeRequiredForMerge(check), 'Required');
+      check.submit_impact = {
+        required: true,
+        overrides: [{}],
+      }
+      assert.isOk(element._computeShowExpandCheckMessage(check));
+      assert.equal(element._computeRequiredForMerge(check), 'Required');
+      check.submit_impact = {
+        required: false,
+        overrides: [{}],
+      }
+      assert.isOk(element._computeShowExpandCheckMessage(check));
+      assert.equal(element._computeRequiredForMerge(check),
+        'Overriden to optional');
+    });
+
+    test('render override if check is failing', done => {
+      element.check = {
+        checkId: 'test-check-id',
+        url: 'http://example.com/test-log-url',
+        started: '2019-02-06T22:25:19.269Z',
+        finished: '2019-02-06T22:25:19.269Z',
+        state: 'FAILED',
+      };
+      const idx = CHECKS_ITEM.OVERRIDE;
+      flush(() => {
+        const override = element.querySelector(`td:nth-child(${idx})`);
+        assert.isOk(override.querySelector('gr-button'));
+        done();
+      });
+
     });
 
     suite('duration', () => {

@@ -12,22 +12,6 @@
 <link rel="import" href="gr-checks-view.html">
 <link rel="import" href="gr-checks-item.html">
 
-<!-- Gr-overlay does not exist in the test framework
-It is expected to be provided by Gerrit core -->
-<dom-module id="gr-overlay">
-  <template>
-  </template>
-  <script>
-    readyToTest().then(() => {
-      Polymer({
-        is: 'gr-overlay',
-        refit() {},
-        open() {},
-      });
-    });
-  </script>
-</dom-module>
-
 <test-fixture id="basic">
   <template is="dom-template">
     <gr-checks-view
@@ -184,6 +168,13 @@ It is expected to be provided by Gerrit core -->
         },
         plugin,
         revision: REVISION,
+      });
+      const overlays = element.querySelectorAll('gr-overlay');
+      overlays.forEach(overlay => {
+        overlay.refit = () => {};
+        overlay.open = () => {
+          return Promise.resolve(() => {});
+        };
       });
       flush(done);
     });
@@ -527,6 +518,47 @@ It is expected to be provided by Gerrit core -->
         });
       });
     });
+
+    suite.only('override checks', () => {
+      setup(done => {
+        element._overrideCheck = CHECK1;
+        element._overrideCheck.submit_impact = {
+          required: true,
+          overrides: [],
+        }
+        element.$.overrideOverlay.open();
+        flush(() => {
+          done();
+        });
+      });
+
+      test('empty reason throws an error', () => {
+        assert.equal(element._overrideReason, '');
+        element._handleOverrideConfirm();
+        assert.isTrue(element._showOverrideErrorMessage);
+        assert.equal(element._overrideErrorMessage,
+          'Error Message must be non-empty');
+      });
+
+      test('reason must be less than 300 characters', () => {
+        element._overrideReason = 'a'.repeat(400);
+        element._handleOverrideConfirm();
+        assert.isTrue(element._showOverrideErrorMessage);
+        assert.equal(element._overrideErrorMessage,
+          'Error Message must be less than 300 characters');
+      });
+
+      test('override check', () => {
+        element._overrideReason = 'a'.repeat(100);
+        element._handleOverrideConfirm();
+        const expectedUrl = '/changes/2/revisions/3/' +
+          'codestyle-a6a0e4682515f3521897c5f950d1394f4619d928/override';
+        assert.isTrue(postSpy.calledWith(expectedUrl));
+        console.log(element);
+      });
+
+    });
+
   });
 
 </script>
