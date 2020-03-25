@@ -26,7 +26,7 @@
       }
     </style>
     <td>
-      <template is="dom-if" if="[[check.message]]">
+      <template is="dom-if" if="[[_computeShowExpandCheckMessage(check)]]">
           <iron-icon class="nav-icon expand-message" on-click="_toggleMessageShown"
             icon="[[_computeExpandIcon(showCheckMessage)]]">
           </iron-icon>
@@ -59,6 +59,16 @@
         on-click="_handleReRunClicked">
         Re-run
       </gr-button>
+    </td>
+    <td>
+      <template is="dom-if" if="[[_isFailedCheck(check)]]">
+        <gr-button
+          link
+          no-uppercase
+          on-click="_handleOverrideClicked">
+          Override
+        </gr-button>
+      </template>
     </td>
     <td>[[check.checker_description]]</td>
   </template>
