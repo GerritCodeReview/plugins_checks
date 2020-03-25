@@ -131,6 +131,11 @@
       // change.current_revision always points to latest patchset
       getChecks(change._number, change.revisions[change.current_revision]
           ._number).then(checks => {
+        // REMOVE THIS LINE
+        checks.forEach(check => {
+          check.submit_impact = JSON.parse('{"required":false,"message":"One more override required","overrides":[{"reason":"Because I can","overriden_on":"2020-04-02 17:44:16.0","overrider":{"id":1000000,"name":"Gal","displayname":null,"email":null,"username":null}}]}');
+        });
+        this._checks = checks;
         this.set('_hasChecks', checks.length > 0);
         if (checks.length > 0) {
           this._downgradeFailureToWarning =
@@ -198,6 +203,12 @@
         checkStatuses.total} checks ${HumanizedStatuses[status]}`;
       if (status === Statuses.FAILED && failedRequiredChecksCount > 0) {
         statusString += ` (${failedRequiredChecksCount} required)`;
+      }
+      const overridenCount = this._checks.filter(check => check.submit_impact
+        && check.submit_impact.overrides.length).length;
+      if (overridenCount) {
+        const overridenString = `, ${overridenCount} overriden`;
+        return statusString + overridenString;
       }
       return statusString;
     },

@@ -527,6 +527,35 @@ It is expected to be provided by Gerrit core -->
         });
       });
     });
+
+    suite.only('override checks', () => {
+      setup(() => {
+        element._overrideCheck = CHECK1;
+        element._overrideCheck.submit_impact = {
+          required: true,
+          overrides: [],
+        }
+        element.$.overrideOverlay.open();
+      });
+
+      test('empty reason throws an error', () => {
+        assert.equal(element._overrideReason, '');
+        element._handleOverrideConfirm();
+        assert.isTrue(element._showOverrideErrorMessage);
+        assert.equal(element._overrideErrorMessage,
+          'Error Message must be non-empty');
+      });
+
+      test('reason must be less than 300 characters', () => {
+        element._overrideReason = 'a'.repeat(400);
+        element._handleOverrideConfirm();
+        assert.isTrue(element._showOverrideErrorMessage);
+        assert.equal(element._overrideErrorMessage,
+          'Error Message must be less than 300 characters');
+      });
+
+    });
+
   });
 
 </script>
