@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "8c38291c_f2bd8616",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-25T11:27:18Z",
+      "side": 1,
+      "message": "I made a suggestion directly on the text.\n\nWe still need a Javadoc description for this class. What about:\n\n  Summary of the impact the check has on the submission of the change. Besides a general indication, this may also include related details which help users to better understand that impact.",
+      "parentUuid": "e5db77be_20625739",
+      "range": {
+        "startLine": 20,
+        "startChar": 13,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "7a80194a34eb804dd22082f99542df2cc07cb365",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b8ad393_64ff79d9",
         "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/GetCheckIT.java",
         "patchSetId": 8
