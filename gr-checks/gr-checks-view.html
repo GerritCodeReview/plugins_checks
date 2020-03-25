@@ -142,6 +142,22 @@
         border-collapse: collapse;
       }
 
+      .override-reason {
+        margin-top: var(--spacing-l);
+      }
+
+      .error {
+        color: var(--error-text-color);
+      }
+
+      .overrider-name, .override-reason {
+        font-weight: var(--font-weight-bold);
+      }
+
+      .override-cell {
+        border-bottom: 1px solid var(--border-color);
+      }
+
     </style>
 
     <header class$="[[_computeHeaderClass(_currentPatchSet, _patchSetDropdownItems)]]">
@@ -201,6 +217,44 @@
       </div>
     </template>
 
+    <gr-overlay with-backdrop id="overrideOverlay">
+      <gr-dialog
+          id="overrideDialog"
+          confirm-label="Override"
+          on-confirm="_handleOverrideConfirm"
+          on-cancel="_handleOverrideCancel">
+        <div class="header" slot="header">
+          Override Checks
+        </div>
+        <div slot="main">
+          <div>
+            <span> Overriding will convert a failing check that’s ‘required for
+            submit’ to ‘not required for submit’. </span>
+          </div>
+          <div>
+            <span> The check you want to override is [[_overrideCheck.checker_name]]</span>
+          </div>
+          <div class="override-reason"> 
+            <span> Override message (Reason for override) </span>
+          </div>
+          <div>
+            <iron-autogrow-textarea
+              id="overrideInput"
+              rows="4"
+              max-rows="15"
+              bind-value="{{_overrideReason}}"
+              placeholder="Max 300 characters.">
+            </iron-autogrow-textarea>
+          </div>
+          <template is="dom-if" if="[[_showOverrideErrorMessage]]">
+            <div>
+              <span class="error"> Error Message must be less than 300 characters</span>
+            </div>
+          </template>
+        </div>
+      </gr-dialog>
+    </gr-overlay>
+
     <template is="dom-if" if="[[_hasResults(_status)]]">
       <table class="checks-table">
         <thead>
@@ -213,17 +267,50 @@
             <th class="topHeader">Duration</th>
             <th class="topHeader"><!-- actions --></th>
             <th class="topHeader"><!-- re-run --></th>
+            <th class="topHeader"><!-- override --></th>
             <th class="topHeader">Description</th>
           </tr>
         </thead>
         <tbody>
           <template is="dom-repeat" items="[[_visibleChecks]]" as="check">
-              <tr>
-                <gr-checks-item on-retry-check="_handleRetryCheck" on-toggle-check-message="_toggleCheckMessage"
-                  check="[[check]]">
-                </gr-checks-item>
-              </tr>
-              <template is="dom-if" if="[[check.showCheckMessage]]">
+            <tr>
+              <gr-checks-item
+                on-retry-check="_handleRetryCheck"
+                on-toggle-check-message="_toggleCheckMessage"
+                on-override-check="_handleOverrideCheck"
+                check="[[check]]">
+              </gr-checks-item>
+            </tr>
+            <template is="dom-if" if="[[check.showCheckMessage]]">
+              <template is="dom-if" if="[[_showOverrideMessage(check)]]">
+                <tr class="override-cell">
+                  <td colspan="10">
+                    <span> [[check.submit_impact.message]]</span>
+                  </td>
+                </tr>
+              </template>
+              <template is="dom-if" if="[[_showOverrideInfo(check)]]">
+                <template is="dom-repeat" items="[[check.submit_impact.overrides]]" as="overrider">
+                  <tr>
+                    <td colspan="10">
+                      <span>
+                        Overriden by <span class="overrider-name">[[overrider.overrider.name]]</span> at
+                        <gr-date-formatter
+                          has-tooltip
+                          show-date-and-time
+                          date-str="[[overrider.overriden_on]]">
+                        </gr-date-formatter>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="override-cell">
+                    <td colspan="10">
+                      <span> Override Message: <span class="override-reason"> [[overrider.reason]] </span> </span>
+                    </td>
+                  </tr>
+                </template>
+              </template>
+              <template is="dom-if" if="[[check.message]]">
                 <tr>
                   <td colspan="10" class="check-message-heading">
                     <span class="message-heading">
@@ -237,6 +324,7 @@
                   </td>
                 </tr>
               </template>
+            </template>
           </template>
         </tbody>
       </table>

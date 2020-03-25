@@ -61,6 +61,16 @@
       return check.started;
     },
 
+    _computeShowExpandCheckMessage(check) {
+      /** Show expand icon if there is any message associated with the check,
+       * someone has voted to override the check, or if the backend has set
+       * a specific override message
+       */
+      return check.message || (check.submit_impact &&
+        check.submit_impact.overrides.length) || (check.submit_impact &&
+          check.submit_impact.message);
+    },
+
     _toggleMessageShown() {
       this.showCheckMessage = !this.showCheckMessage;
       this.fire('toggle-check-message', {uuid: this.check.checker_uuid});
@@ -89,11 +99,27 @@
      * @return {string}
      */
     _computeRequiredForMerge(check) {
-      return (check.submit_impact && check.submit_impact.required) ? 'Required'
-        : 'Optional';
+      if (check.submit_impact) {
+        const required = check.submit_impact.required;
+        if (required) return 'Required';
+        /** It's impossible to override a non-optional check hence we can be
+         * sure that if overrides were performed and the check is now not
+         * required, that it was overriden to optional
+         */
+        if (!required && check.submit_impact.overrides.length > 0) {
+          return 'Overriden to optional';
+        }
+      }
+      return 'Optional';
     },
-    _handleReRunClicked(event) {
+
+    _handleReRunClicked() {
       this.fire('retry-check', {uuid: this.check.checker_uuid},
+          {bubbles: false});
+    },
+
+    _handleOverrideClicked() {
+      this.fire('override-check', {check: this.check},
           {bubbles: false});
     },
   });
