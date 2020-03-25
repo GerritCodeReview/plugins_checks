@@ -22,6 +22,30 @@
       "revId": "4bfa6edb93b20a9c2516f82f240a0b590657b0ec",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca0d0d13_a3ca7d7c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckSubmitImpactInfo.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-25T13:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09c82584_23a047c0",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "4bfa6edb93b20a9c2516f82f240a0b590657b0ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
