@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4b8ce8f_d9a3b1b8",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-25T10:26:11Z",
+      "side": 1,
+      "message": "Ack, though I\u0027m not sure how to get CheckerStatus and isRequired without the checker.\nI guess we can get the Checker by using the Check, but I think this is a weird thing to do when we already have the Checker, isn\u0027t it?\nAnyway, yes, I think it will make more sense in the change about overrides.",
+      "parentUuid": "83450cb4_a8217c6e",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 67
+      },
+      "revId": "25b7157436326fad3176190ed0a6328b231e623e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368caa09_521b8e1c",
         "filename": "java/com/google/gerrit/plugins/checks/api/ChecksImpl.java",
         "patchSetId": 3
@@ -39,6 +63,24 @@
       "revId": "25b7157436326fad3176190ed0a6328b231e623e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "203ce0a7_2dcaf556",
+        "filename": "java/com/google/gerrit/plugins/checks/api/ChecksImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-25T10:26:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "368caa09_521b8e1c",
+      "revId": "25b7157436326fad3176190ed0a6328b231e623e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
