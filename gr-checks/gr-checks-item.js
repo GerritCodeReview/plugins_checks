@@ -61,6 +61,11 @@
       return check.started;
     },
 
+    _computeShowExpandCheckMessage(check) {
+      return check.message || (check.submit_impact &&
+        check.submit_impact.overrides.length);
+    },
+
     _toggleMessageShown() {
       this.showCheckMessage = !this.showCheckMessage;
       this.fire('toggle-check-message', {uuid: this.check.checker_uuid});
@@ -92,8 +97,13 @@
       return (check.blocking && check.blocking.length === 0) ? 'Optional' :
         'Required';
     },
-    _handleReRunClicked(event) {
+    _handleReRunClicked() {
       this.fire('retry-check', {uuid: this.check.checker_uuid},
+          {bubbles: false});
+    },
+
+    _handleOverrideClicked() {
+      this.fire('override-check', {uuid: this.check.checker_uuid},
           {bubbles: false});
     },
   });
