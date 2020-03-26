@@ -1,0 +1,365 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33649150_9a95ef06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "With the overrideModifications, this isn\u0027t accurate anymore, is it?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f8b3e3d_bb221668",
+        "filename": "java/com/google/gerrit/plugins/checks/Check.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "This field shouldn\u0027t be nullable. If no overrides exist, the set should simply be empty.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4da925d_079d49b8",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/TestCheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Specifying overrides by using this type is cumbersome in tests as CheckOperationsImplTest#addOverrides shows. There should also also be a test API for the overrides which uses the fluent and test builder style. I would suggest to start another builder chain when using addOverride(). The resulting test API should look something like:\n\n  checkOperations.check(checkKey).forUpdate().addOverride().at(nineOClock).reason(\"emergency\").for(user).upsert();\n\nIt should also be possible to skip the timestamp or reason, though:\n\n  checkOperations.check(checkKey).forUpdate().addOverride().for(user).upsert();\n\nAnd multiple override can be added like this:\n\n  checkOperations.check(checkKey).forUpdate().addOverride().for(user).addOverride().for(anotherUser).upsert();\n\nWe\u0027ll also need additional tests for this in CheckOperationsImplTest.",
+      "range": {
+        "startLine": 44,
+        "startChar": 60,
+        "endLine": 44,
+        "endChar": 73
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a80c9662_77ff2591",
+        "filename": "java/com/google/gerrit/plugins/checks/acceptance/testsuite/TestCheckUpdate.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "What about clearOverrides?",
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f343e0a9_a7361651",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "This is the wrong package. This class should be next to the com.google.gerrit.plugins.checks.Check class.",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d92bb555_7c7bf077",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "I deliberately named this \"Override\" in my design. There\u0027s no need to include the term \"Check\" in the class name.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2567ac2_e01285af",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Javadoc idea: \"An override for a check. Overrides influence the submit impact of a check. Checks which are configured as required for submit can be switched to optional via overrides.\"",
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd40fed_50c15835",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "New DTOs should be AutoValue classes (reason: standardized, simple solution for immutable classes with additional benefits). As the enclosing Check class is already an AutoValue class, it\u0027s even more strange that this class isn\u0027t.",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a36140d2_93627e1b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Javadoc idea: \"User who performed the override.\"",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8eedd298_47109a05",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Javadoc idea: \"Mandatory reason/justification why this override was done.\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2255eaff_72d23c31",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "I reconsidered the name of this field and I think it\u0027s better if we named it \"created\" instead. That\u0027s in line with other entities we have. We should do the same for the REST API. Sorry for the name change.",
+      "range": {
+        "startLine": 22,
+        "startChar": 19,
+        "endLine": 22,
+        "endChar": 31
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05fc4536_8f6fe071",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Javadoc idea: \"Timestamp of when this override happened.\"",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e2e215b_8dcbaa57",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "This has an unintended side-effect: It will update the JSON representation to have an empty set for overrides even if another field is modified.",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb71a42e_c4a18b3b",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbCheck.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "How can the override field ever get back to null?",
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9c87833_569b41e1",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/CreateCheckIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "As the overrides field is nullable, no overrides will be represented by not even mentioning this field in the JSON representation. Please don\u0027t simply adjust a test just because the implementation changed. This actually hinted at an issue with the current code.",
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ae9d5eb_e20901b2",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperationsImplTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "This test is completely different than the ones for the other fields. If you look at the rest of this test class, you can see that all fields are separately checked for correct reads and writes. We should have the same for overrides. Those tests should also be inserted at suitable locations in this test class as the other tests are ordered. You should additionally look at the tests for members/subgroups of the test API of groups as those should be similar to what we need here.",
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c56818b_6fe84ab7",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/testsuite/CheckOperationsImplTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "I think we should add a custom Truth subject for overrides. It would make such assertions more readable and also produce better failure messages.",
+      "range": {
+        "startLine": 591,
+        "startChar": 0,
+        "endLine": 597,
+        "endChar": 61
+      },
+      "revId": "07dddf4dbc0983631a2396cfccbf9b03bffbe18e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

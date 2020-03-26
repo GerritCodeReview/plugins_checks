@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f63f7464_85c23753",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "I added suggestions for Javadoc descriptions which contain more than just a repetition of the field/class name to the latest patch set. To come up with something like that, I also need to think more than just a minute about them. Please try to come up with something reasonable next time so that I don\u0027t have to spend time on this.",
+      "parentUuid": "5200504c_d8410897",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "4caf516843bd34d7e196751c4949ba00c399fefe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de4bffd3_45012caa",
         "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
         "patchSetId": 1
@@ -201,6 +225,30 @@
       "side": 1,
       "message": "I\u0027m still confused about this. It mentions a runtime error:\nFailed to invoke public com.google.gerrit.entities.Account$Id() with no args\n\nAnyway, as far as I understand this is not supported for storage in noteDb and JSON.",
       "parentUuid": "de4bffd3_45012caa",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4caf516843bd34d7e196751c4949ba00c399fefe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f6b213b_01f7b205",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-26T19:40:23Z",
+      "side": 1,
+      "message": "Well, there\u0027s a reason the class NoteDbCheck exists. As you noticed, you needed to adjust it to store overrides in NoteDb. As that class is a \"Representation of {@link Check} that can be serialized with GSON.\" (Javadoc description of the class), what do you think you need for overrides?\n\nBy the way, the error you quoted is absolutely expected. Gson tries to instantiate classes via their default/no-arg constructor, which doesn\u0027t exist for AutoValues.",
+      "parentUuid": "06c5996b_91deedbd",
       "range": {
         "startLine": 20,
         "startChar": 9,
