@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89224e2b_17553b92",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Needs a Javadoc description. When you write it, keep in mind that this is an extension point and hence needs sufficient context for people implementing it.",
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5854d7e3_86304d6c",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Needs more details and guidance for people implementing it.",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e23781a4_6e120381",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Better would be:\n\n  Existing overrides for the check.",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 53
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de0507fd_091b7800",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Needs more details and guidance for people implementing it.",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d8b402_2e301a62",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "It\u0027s very strange to use the \u0027abstract\u0027 modifier on interface methods. It\u0027s also redundant. Hence, omit.\n\nThe \u0027public\u0027 modifier is also unnecessary as all interface methods are always public.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40f34f3a_fa8e87cd",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Why is this class in a different package than OverridePolicy?",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "872c7941_de44f139",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Should be an AutoValue.",
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd825955_24af4ab8",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "Needs a Javadoc description.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b331385_56681d8c",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "This description is misleading. Someone implementing an override policy could think that this should be true as soon as one override is present.\n\nI would rather write something like:\n\n Indication whether the {@link OverridePolicy} considers the check as successfully being overridden by the present overrides.\n\nIn addition, make it a Javadoc description, not just a comment. The same holds for the \u0027message\u0027 field.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1055627e_35dc9469",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:30:35Z",
+      "side": 1,
+      "message": "We can provide more details here so that people implementing the extension point have some guidance what this is for:\n\n A short message providing additional details or explanations. This can be used to describe why existing overrides are not sufficient. Another use could be to call out that a special kind of override happened.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
