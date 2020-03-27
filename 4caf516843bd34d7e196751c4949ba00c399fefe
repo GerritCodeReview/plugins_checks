@@ -258,6 +258,30 @@
       "revId": "4caf516843bd34d7e196751c4949ba00c399fefe",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f60e39_f8bd76cb",
+        "filename": "java/com/google/gerrit/plugins/checks/api/CheckOverride.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-27T14:52:05Z",
+      "side": 1,
+      "message": "From what I understand, the way to solve this is to ensure that all parameters of NodeDbCheck don\u0027t contain Account.Id. Therefore, I\u0027ll need to create a class that\u0027s identical to the current CheckOverride (and then change the Integer to Account.Id in the current CheckOverride.\nThis way, I have two identical classes except that one has Integer and the other has Account.Id.\nIn NoteDbCheck, I\u0027ll need to convert between those classes a few times (three times, because of the implementation of overridesModification).\n\nI wrote the code that I mentioned above and I\u0027m now tempted to delete it because it is very unclean and confusing.\nDid you expect this? Is there a cleaner way to do this?\nIf this is the way to do it, I\u0027d like to go back to using Integer.",
+      "parentUuid": "2f6b213b_01f7b205",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4caf516843bd34d7e196751c4949ba00c399fefe",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
