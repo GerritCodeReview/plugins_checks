@@ -111,6 +111,29 @@
     },
     {
       "key": {
+        "uuid": "a0fde800_0d9ccf3e",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:48:54Z",
+      "side": 1,
+      "message": "It might be best to use ImmutableSet here as implementations of this interface should know that they can\u0027t modify existing overrides.",
+      "range": {
+        "startLine": 31,
+        "startChar": 47,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "40f34f3a_fa8e87cd",
         "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
         "patchSetId": 1
