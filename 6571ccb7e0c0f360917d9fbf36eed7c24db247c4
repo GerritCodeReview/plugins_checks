@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a8b3cc6_ee02d394",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "FYI: We typically use a different writing style for commit messages. Most of the time, they are not written from a first-person perspective.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 33
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e7411d2_f390280a",
+        "filename": "java/com/google/gerrit/plugins/checks/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "Without seeing how the extension point is used and implementations for it looked up, it\u0027s difficult to decide whether DynamicMap is the right type. I\u0027d move this to the change which does use the extension point for the first time.",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 53
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ea46ddc_d7e07f95",
+        "filename": "java/com/google/gerrit/plugins/checks/Module.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "Since nothing is currently annotated with that name, this binding currently binds nothing. I also don\u0027t see why we even need the naming. We won\u0027t have two different variants of SingleOverridePolicy which would do different things.",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 53
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cd6d947_82f82c6b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/SingleOverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "This policy is not part of the API. This class shouldn\u0027t be in this package.",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ae5a2a2_7dfd1e04",
+        "filename": "java/com/google/gerrit/plugins/checks/api/SingleOverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "Unit test for this class?",
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24d22b45_f95da8bd",
+        "filename": "java/com/google/gerrit/plugins/checks/api/SingleOverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "If the set of overrides could be null, we should add a @Nullable annotation to the interface. I don\u0027t think we should work with null values, though. If no overrides exist, it\u0027s best to work with an empty set.",
+      "range": {
+        "startLine": 26,
+        "startChar": 33,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd1750c_9a7c9549",
+        "filename": "java/com/google/gerrit/plugins/checks/api/SingleOverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-03-27T11:46:56Z",
+      "side": 1,
+      "message": "It\u0027s typically better to check for emptiness instead of a size\u003e0 check.",
+      "range": {
+        "startLine": 26,
+        "startChar": 54,
+        "endLine": 26,
+        "endChar": 74
+      },
+      "revId": "6571ccb7e0c0f360917d9fbf36eed7c24db247c4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
