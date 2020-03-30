@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "721ecd4f_4b3e9bb3",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89224e2b_17553b92",
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5854d7e3_86304d6c",
         "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00666185_7316dd42",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5854d7e3_86304d6c",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "fddf6eb6_94506abc",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e23781a4_6e120381",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 53
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de0507fd_091b7800",
         "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
         "patchSetId": 1
@@ -85,6 +151,30 @@
       "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039cbb01_5c25b864",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de0507fd_091b7800",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +224,54 @@
     },
     {
       "key": {
+        "uuid": "418465ae_4b8ddff8",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7d8b402_2e301a62",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6086f330_0cfabf23",
+        "filename": "java/com/google/gerrit/plugins/checks/OverridePolicy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0fde800_0d9ccf3e",
+      "range": {
+        "startLine": 31,
+        "startChar": 47,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40f34f3a_fa8e87cd",
         "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
         "patchSetId": 1
@@ -154,6 +292,30 @@
       "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e798bcd6_b7531b31",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40f34f3a_fa8e87cd",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +359,48 @@
     },
     {
       "key": {
+        "uuid": "ad85ae66_0d6337d8",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "872c7941_de44f139",
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc9e523d_fcbaaae8",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd825955_24af4ab8",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b331385_56681d8c",
         "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
         "patchSetId": 1
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "dd729c8e_0510fa7b",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b331385_56681d8c",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1055627e_35dc9469",
         "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
         "patchSetId": 1
@@ -240,6 +468,30 @@
       "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04457a7a_3d5fb246",
+        "filename": "java/com/google/gerrit/plugins/checks/api/OverrideImpact.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-03-30T07:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1055627e_35dc9469",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "6a6b3ca4e4fdb1ab7f10ba64783410690c139a8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
