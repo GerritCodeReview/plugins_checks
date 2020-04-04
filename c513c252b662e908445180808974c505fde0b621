@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b28dc51_50553924",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-04T20:57:32Z",
+      "side": 1,
+      "message": "How can `revision` become undefined? Can you clarify in the commit message?\n\nIt `revision` is initially undefined, then that should not be a problem according to: https://polymer-library.polymer-project.org/2.0/docs/devguide/observers\n\nYou only need to check for undefined, if `revision` may change back to undefined later.",
+      "revId": "c513c252b662e908445180808974c505fde0b621",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
