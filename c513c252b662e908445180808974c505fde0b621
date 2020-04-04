@@ -16,6 +16,24 @@
       "revId": "c513c252b662e908445180808974c505fde0b621",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06c96f88_45e3888e",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2020-04-04T21:22:29Z",
+      "side": 1,
+      "message": "I saw this in the console log that this was throwing undefined.\n\nI mean i was looking for something unrelated and just happen to see it.",
+      "parentUuid": "2b28dc51_50553924",
+      "revId": "c513c252b662e908445180808974c505fde0b621",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
