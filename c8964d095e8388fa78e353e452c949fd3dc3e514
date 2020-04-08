@@ -16,6 +16,24 @@
       "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2307a8cb_913c516c",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-08T18:45:44Z",
+      "side": 1,
+      "message": "Yeah, but I think that showCheckMessage is directly connected to the check object so should be a property of it.\nHaving a separate map doesn\u0027t make sense if I want to add another property in the future, then I create one more map for it.",
+      "parentUuid": "c10d01ed_5aef8619",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
