@@ -16,6 +16,24 @@
       "revId": "00ee5ab6990e80a6e4e14aeb42349bdcfa7d1b85",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ae6ef88_ebe4e419",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-08T09:42:54Z",
+      "side": 0,
+      "message": "Replaced with CustomEvent.",
+      "parentUuid": "8d68842b_18bac105",
+      "revId": "00ee5ab6990e80a6e4e14aeb42349bdcfa7d1b85",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
