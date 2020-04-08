@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c10d01ed_5aef8619",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-08T14:16:59Z",
+      "side": 1,
+      "message": "i think you should decouple showCheckMessage from the checks. If your check holds the service response, then let it be the same as service response, state like showCheckMessage can be stored in a separate map, every check has a check_uuid, so its pretty easy to map the state with every check",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
