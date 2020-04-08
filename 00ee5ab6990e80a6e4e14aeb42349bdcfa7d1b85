@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d68842b_18bac105",
+        "filename": "gr-checks/gr-create-checkers-dialog.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-08T08:38:41Z",
+      "side": 0,
+      "message": "this whole idea of introducing FireBehavior is to support legacy interface of \u0027fire\u0027 on polymer legacy element (https://gerrit-review.googlesource.com/c/gerrit/+/233192), it won\u0027t affect anything if you still use legacy elements. So I am fine just remove this.\n\nBut \u0027fire\u0027 won\u0027t work without this if it\u0027s not legacy element any more. Since you are removing the dependency of this fallback, maybe just replace all \u0027fire\u0027 methods with \u0027dispatchEvent\u0027 as suggested by polymer : https://polymer-library.polymer-project.org/3.0/docs/devguide/events#custom-events",
+      "revId": "00ee5ab6990e80a6e4e14aeb42349bdcfa7d1b85",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
