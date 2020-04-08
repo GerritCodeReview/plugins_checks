@@ -34,6 +34,24 @@
       "revId": "695b03c00cb03aaf5d9f1a993ad969a5d253e569",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8c6534a_1b4087fc",
+        "filename": ".zuul.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1087826
+      },
+      "writtenOn": "2020-04-08T18:32:43Z",
+      "side": 1,
+      "message": "I\u0027ve updated the default in https://gerrit-review.googlesource.com/262475 so this change is now moot.  Thanks!",
+      "parentUuid": "96c3e631_dca80e20",
+      "revId": "695b03c00cb03aaf5d9f1a993ad969a5d253e569",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
