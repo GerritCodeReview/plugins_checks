@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52cce002_27a8c579",
+        "filename": "gr-checks/gr-checks-item.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-08T12:59:56Z",
+      "side": 1,
+      "message": "for all \u0027fire\u0027 events, it implicitly sets \u0027composed\u0027 and \u0027bubbles\u0027 to true by default while you need to do the same when create customEvent, as mentioned in the polymer document:\n\n```\nnew CustomEvent(\u0027my-event\u0027, {bubbles: true, composed: true});\n\nBackwards compatibility. The fire instance method in the legacy API sets both bubbles and composed to true by default. To get the same behavior, you need to specify both options when you create a custom event, as shown above.\n```",
+      "revId": "06a4ea0794b425939e597159cdd7706a55d01f64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
