@@ -71,14 +71,11 @@
       _query: String,
     },
 
-    behaviors: [
-      Gerrit.FireBehavior,
-    ],
     /**
-    * Fired when the cancel button is pressed.
-    *
-    * @event cancel
-    */
+     * Fired when the cancel button is pressed.
+     *
+     * @event cancel
+     */
 
     observers: [
       '_updateUUID(_scheme, _id)',
