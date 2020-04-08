@@ -34,6 +34,24 @@
       "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9eb235c_2b068d0a",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-08T19:06:04Z",
+      "side": 1,
+      "message": "i think you can solve both issues by just changing the interface of your check (or displayedCheckItem), something like: `{check: serviceResCheck, ...otherStates}`, then you don\u0027t need to worry about assigning new checks from API response while persisting your states..",
+      "parentUuid": "2307a8cb_913c516c",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
