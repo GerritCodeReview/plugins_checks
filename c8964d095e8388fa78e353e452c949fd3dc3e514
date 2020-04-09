@@ -52,6 +52,24 @@
       "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85aacd4e_1a08c756",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-09T09:02:55Z",
+      "side": 1,
+      "message": "Maybe, but for only one property to me it\u0027s not worth the effort now to keep a completely different state(otherStates).\nI also don\u0027t want to be blocked on that. We can discuss this in a follow up change if necessary.\nThis change is only for the bug fix.",
+      "parentUuid": "a9eb235c_2b068d0a",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
