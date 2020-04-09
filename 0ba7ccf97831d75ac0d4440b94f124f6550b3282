@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69abd00d_118c4762",
+        "filename": "gr-checks/gr-checkers-list_test.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-09T14:10:51Z",
+      "side": 1,
+      "message": "Maybe move to where the mock for `refit` is defined?",
+      "revId": "0ba7ccf97831d75ac0d4440b94f124f6550b3282",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "764720a9_84093ba8",
+        "filename": "gr-checks/gr-checkers-list_test.html",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-09T14:10:51Z",
+      "side": 1,
+      "message": "Why not keep `flush(done)`?",
+      "revId": "0ba7ccf97831d75ac0d4440b94f124f6550b3282",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
