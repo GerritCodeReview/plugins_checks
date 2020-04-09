@@ -88,6 +88,24 @@
       "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "891693b4_3bc1fefd",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-09T12:28:00Z",
+      "side": 1,
+      "message": "It\u0027s a matter of opinion.\nI do not believe creating a new map for a property that is inherently linked to the checks object is the best solution.\nEven if that were to be the case, it would require a further refactor which I would prefer to do in a follow up change.\nBoth of these factors shouldn\u0027t result in this bug fix being blocked.\nRegarding external contributors, I did not understand what you mean, and I don\u0027t see how that is relevant to this.",
+      "parentUuid": "0949b7bd_e66b2abf",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
