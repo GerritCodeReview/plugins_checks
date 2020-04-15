@@ -128,6 +128,24 @@
       "revId": "134a1ff8f21b6dcb227d9359769aabfdbedec1b7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50aa7cf2_1b788971",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-15T08:54:07Z",
+      "side": 1,
+      "message": "??? mock tap is the action, you don\u0027t do unit tests by mocking actions without proper assertion on the expected outcome from that action... for example, one way to test the `_handleRemove` here is to mock tap on remove button, and assert on \u0027remove\u0027 event fired...",
+      "parentUuid": "4639b10c_18e1315d",
+      "revId": "134a1ff8f21b6dcb227d9359769aabfdbedec1b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
