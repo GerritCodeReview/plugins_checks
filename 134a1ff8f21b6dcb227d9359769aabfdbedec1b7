@@ -146,6 +146,24 @@
       "revId": "134a1ff8f21b6dcb227d9359769aabfdbedec1b7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59af19a3_040e6eb3",
+        "filename": "gr-checks/gr-repo-chip.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-15T08:57:37Z",
+      "side": 1,
+      "message": "Ahh that\u0027s what you mean.\nYeah sure, would be a pretty pointless test and beyond the scope of this change.\nNo need to block this.",
+      "parentUuid": "50aa7cf2_1b788971",
+      "revId": "134a1ff8f21b6dcb227d9359769aabfdbedec1b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
