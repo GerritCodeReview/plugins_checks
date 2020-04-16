@@ -16,6 +16,24 @@
       "revId": "70acc6a48f36f2ecb478377f6e9be2c22b00c06f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d37cefc_c4d2e6f1",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-16T20:25:10Z",
+      "side": 1,
+      "message": "its intended, check out `server.go` in main repo",
+      "parentUuid": "b4b1719b_b4a63835",
+      "revId": "70acc6a48f36f2ecb478377f6e9be2c22b00c06f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
