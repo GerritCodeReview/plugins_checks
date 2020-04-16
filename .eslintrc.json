@@ -1,7 +1,8 @@
 {
   "extends": ["eslint:recommended", "google"],
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "sourceType": "module"
   },
   "env": {
     "browser": true,
@@ -48,7 +49,10 @@
       "error",
       80,
       2,
-      {"ignoreComments": true}
+      {
+        "ignoreComments": true,
+        "ignorePattern": "^import .*;$"
+      }
     ],
     "new-cap": ["error", { "capIsNewExceptions": ["Polymer", "LegacyElementMixin", "GestureEventListeners", "LegacyDataMixin"] }],
     "no-console": "off",
@@ -97,5 +101,13 @@
   ],
   "settings": {
     "html/report-bad-indent": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*_html.js", "*-styles.js", "externs.js"],
+      "rules": {
+        "max-len": "off"
+      }
+    }
+  ]
 }
