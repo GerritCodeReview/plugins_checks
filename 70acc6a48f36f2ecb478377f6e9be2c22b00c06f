@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4b1719b_b4a63835",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2020-04-16T18:55:16Z",
+      "side": 1,
+      "message": "`plugins_` ?\nIs the _ intentional or a typo?",
+      "revId": "70acc6a48f36f2ecb478377f6e9be2c22b00c06f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
