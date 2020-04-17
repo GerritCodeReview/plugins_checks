@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a0d5ebf_35426de9",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T18:17:16Z",
+      "side": 1,
+      "message": "Needs a comment like \"maps check uuid to boolean\".\n\nNeeds a better name. What about _checkToShowMessageMap? Or maybe just _showMessageMap?\n\nAnd about using an actual Map instead of Object?",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 23
+      },
+      "revId": "bcf3d1a75f403e6e9c276d27bbf38d53718d8493",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
