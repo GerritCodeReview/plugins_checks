@@ -106,6 +106,24 @@
       "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92159c05_9c1343ce",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T08:42:04Z",
+      "side": 1,
+      "message": "Generally I agree with Tao in that `showCheckMessage` should be kept separate from the `check` object itself. Eventually we would want a ChecksStore/ChecksService to maintain the overall checks state. Then you would go even further and let `checks` be managed by the store, but UI state local to gr-checks-view or gr-checks-item would be kept locally. So `checks` and `showCheckMessage` would then be separated even more.\n\nIf you are going to refactor this, then I would recommend to make `showCheckMessage` a property of \u003cgr-checks-item\u003e and move all 3 \u003ctr\u003e elements from \u003cgr-checks-view\u003e into \u003cgr-checks-item\u003e. Then you don\u0027t have to maintain a map at all.\n\nThat said, I am fine with dealing with that in a separate change. Especially given that Dmitrii is waiting for the bug to be fixed.",
+      "parentUuid": "891693b4_3bc1fefd",
+      "revId": "c8964d095e8388fa78e353e452c949fd3dc3e514",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
