@@ -98,6 +98,11 @@
         value: false,
         notify: true,
       },
+      // Stores uuids of checks for which the expanded message is to be shown
+      _showMessageMap: {
+        type: Map,
+        value: () => {return new Map()},
+      },
     },
 
     observers: [
@@ -151,17 +156,9 @@
             !check.blocking.length)) return false;
         return status === STATE_ALL || check.state === status;
       });
-      /* The showCheckMessage property is notified for change because the
-      changes to showCheckMessage are not reflected to the dom as the object
-      check has the same reference as before
-      If not notified, then the message for the check is not displayed after
-      clicking the toggle
-      */
       this._showMoreChecksButton = this._filteredChecks.length > CHECKS_LIMIT;
       this._visibleChecks = this._filteredChecks.slice(0, showAllChecks ?
         undefined : CHECKS_LIMIT);
-      this._visibleChecks.forEach((val, idx) =>
-        this.notifyPath(`_visibleChecks.${idx}.showCheckMessage`));
     },
 
     _handleRevisionUpdate(revision) {
@@ -243,24 +240,6 @@
     },
 
     /**
-     * Explicity add showCheckMessage to maintain it
-     * Loop over checks to make sure no new checks are missed
-     * Remove any check that is not returned the next time
-     * Ensure message is updated
-     */
-    _updateChecks(checks) {
-      return checks.map(
-          check => {
-            const prevCheck = this._checks.find(
-                c => c.checker_uuid === check.checker_uuid
-            );
-            if (!prevCheck) return Object.assign({}, check);
-            return Object.assign({}, check,
-                {showCheckMessage: prevCheck.showCheckMessage});
-          });
-    },
-
-    /**
      * @param {!Defs.Change} change
      * @param {!Defs.Revision} revision
      * @param {function(number, number): !Promise<!Object>} getChecks
@@ -272,11 +251,7 @@
         if (revisionNumber !== this._currentPatchSet) return;
         if (checks && checks.length) {
           checks.sort((a, b) => this._orderChecks(a, b));
-          if (!this._checks) {
-            this._checks = checks;
-          } else {
-            this._checks = this._updateChecks(checks);
-          }
+          this._checks = checks;
           this.set('_status', LoadingStatus.RESULTS);
         } else {
           this._checkConfigured();
@@ -302,14 +277,15 @@
         console.warn('uuid not found');
         return;
       }
-      const idx = this._checks.findIndex(check => check.checker_uuid === uuid);
-      if (idx == -1) {
+      const check = this._checks.find(check => check.checker_uuid === uuid);
+      if (!check) {
         console.warn('check not found');
         return;
       }
-      // Update subproperty of _checks[idx] so that it reflects to polymer
-      this.set(`_checks.${idx}.showCheckMessage`,
-          !this._checks[idx].showCheckMessage);
+      this._showMessageMap = {
+        ...this._showMessageMap, 
+        [uuid]: !this._showMessageMap[uuid]
+      };
     },
 
     _pollChecksRegularly(change, revisionNumber, getChecks) {
@@ -333,6 +309,10 @@
             configured ? LoadingStatus.EMPTY : LoadingStatus.NOT_CONFIGURED;
         this.set('_status', status);
       });
+    },
+
+    _computeShowCheckMessage(check, _showMessageMap) {
+      return _showMessageMap[check.checker_uuid];
     },
 
     _isLoading(status) {
