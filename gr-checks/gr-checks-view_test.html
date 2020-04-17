@@ -104,6 +104,12 @@ It is expected to be provided by Gerrit core -->
   const CHECKS_POLL_INTERVAL_MS = 60 * 1000;
   const STATE_ALL = 'ALL';
   const CHECKS_LIMIT = 20;
+  const LoadingStatus = {
+    LOADING: 0,
+    EMPTY: 1,
+    RESULTS: 2,
+    NOT_CONFIGURED: 3,
+  };
 
   suite('gr-checks-view tests', async () => {
     await readyToTest();
@@ -268,74 +274,52 @@ It is expected to be provided by Gerrit core -->
     suite('checks updated properly', () => {
       setup(done => {
         element._checks = [CHECK1, CHECK2];
+        element.set('_status', LoadingStatus.RESULTS);
+        element._toggleCheckMessage({detail: {uuid: CHECK1.checker_uuid}});
         flush(done);
       });
 
-      test('message is updated', () => {
-        const NEW_CHECKS = [Object.assign({}, CHECK1),
-          Object.assign({}, CHECK2)];
-        NEW_CHECKS[0].message = 'New message 1';
+      test('message is rendered', () => {
+        assert.equal(element.querySelector('.checks-table').querySelector
+          ('.check-message').innerText.trim() , CHECK1.message.trim());
+      });
+
+      test('check is updated', done => {
+        const NEW_CHECKS = [
+          Object.assign({}, CHECK1, {
+            message: 'New message 1', state: 'SUCCESSFUL',
+          }),
+          Object.assign({}, CHECK2)
+        ];
         NEW_CHECKS[1].message = 'New message 2';
-        const EXPECTED_CHECKS = [Object.assign({}, CHECK1),
-          Object.assign({}, CHECK2)];
-        EXPECTED_CHECKS[0].message = 'New message 1';
-        EXPECTED_CHECKS[1].message = 'New message 2';
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.equal(UPDATED_CHECKS[0].message, NEW_CHECKS[0].message);
-        assert.equal(UPDATED_CHECKS[1].message, NEW_CHECKS[1].message);
-      });
-
-      test('total checks updated if one is deleted', () => {
-        const NEW_CHECKS = [Object.assign({}, CHECK1)];
-        const EXPECTED_CHECKS = [Object.assign({}, CHECK1)];
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.equal(UPDATED_CHECKS.length, 1);
-        assert.deepEqual(UPDATED_CHECKS, EXPECTED_CHECKS);
-      });
-
-      test('status is updated', () => {
-        const NEW_CHECKS = [Object.assign({}, CHECK1),
-          Object.assign({}, CHECK2)];
-        NEW_CHECKS[0].state = 'SUCCESSFUL';
-        NEW_CHECKS[1].state = 'FAILED';
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.deepEqual(UPDATED_CHECKS, NEW_CHECKS);
-      });
-
-      test('showMessage property is retained', () => {
-        element._checks[0].showCheckMessage = true;
-        element._checks[1].showCheckMessage = false;
-
-        const NEW_CHECKS = [Object.assign({}, CHECK1),
-          Object.assign({}, CHECK2)];
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.equal(UPDATED_CHECKS[0].showCheckMessage,
-            CHECK1.showCheckMessage);
-        assert.equal(UPDATED_CHECKS[1].showCheckMessage,
-            CHECK2.showCheckMessage);
-
-        element._checks[0].showCheckMessage = undefined;
-        element._checks[1].showCheckMessage = undefined;
+        element._checks = NEW_CHECKS;
+        flush(() => {
+          const table = element.querySelector('.checks-table');
+          assert.equal(table.querySelector('.check-message').innerText.trim()
+            , NEW_CHECKS[0].message.trim());
+          assert.equal(table.querySelector('gr-checks-status').innerText.trim()
+            , 'Successful');
+          done();
+        });
       });
 
 
-      test('url is not set if new check has no url', () => {
+      test('url & message not set if new check does not have them', done => {
         const NEW_CHECKS = [Object.assign({}, CHECK1),
           Object.assign({}, CHECK2)];
         delete NEW_CHECKS[0]['url'];
-        delete NEW_CHECKS[1]['url'];
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.isNotOk(UPDATED_CHECKS[0].url);
-        assert.isNotOk(UPDATED_CHECKS[1].url);
+        NEW_CHECKS[0].message = '';
+        element._checks = NEW_CHECKS;
+        flush(() => {
+          const table = element.querySelector('.checks-table');
+          assert.equal(table.querySelector('.check-message').innerText.trim()
+            , NEW_CHECKS[0].message.trim());
+          assert.isTrue(table.querySelector('.details').
+            hasAttribute('disabled'));
+          done();
+        });
       });
 
-      test('message is not shown if new check has no message', () => {
-        const NEW_CHECKS = [Object.assign({}, CHECK1),
-          Object.assign({}, CHECK2)];
-        NEW_CHECKS[0].message = '';
-        const UPDATED_CHECKS = element._updateChecks(NEW_CHECKS);
-        assert.equal(UPDATED_CHECKS[0].message, NEW_CHECKS[0].message);
-      });
     });
 
     suite('with checks', () => {

@@ -223,7 +223,7 @@
                   check="[[check]]">
                 </gr-checks-item>
               </tr>
-              <template is="dom-if" if="[[check.showCheckMessage]]">
+              <template is="dom-if" if="[[_computeShowCheckMessage(check, _showCheckMessage)]]">
                 <tr>
                   <td colspan="10" class="check-message-heading">
                     <span class="message-heading">
