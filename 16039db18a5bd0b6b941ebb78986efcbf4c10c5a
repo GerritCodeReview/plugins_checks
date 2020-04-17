@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f28fdf3_46d5314b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T09:59:55Z",
+      "side": 1,
+      "message": "Do we have a stable-3.1 branch for checks? If not, then we may have to create one first and only do this change on master.",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7e54a60_9fb7721e",
+        "filename": "gr-checks/gr-checkers-list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T09:59:55Z",
+      "side": 1,
+      "message": "The formatting is broken here and in some other places.",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e412a0_d8798540",
+        "filename": "gr-checks/gr-checks-change-list-item-cell-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T09:59:55Z",
+      "side": 1,
+      "message": "formatting",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebaef99c_7d2b6c4a",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-17T09:59:55Z",
+      "side": 1,
+      "message": "formatting, also below",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
