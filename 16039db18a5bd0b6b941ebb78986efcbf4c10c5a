@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f1d91df6_79c4c297",
+        "filename": "gr-checks/gr-checks-change-list-item-cell-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-17T15:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73e412a0_d8798540",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebaef99c_7d2b6c4a",
         "filename": "gr-checks/gr-checks-chip-view.js",
         "patchSetId": 2
@@ -103,6 +121,24 @@
       "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3871e7c_1cbb2d92",
+        "filename": "gr-checks/gr-checks-chip-view.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-17T15:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebaef99c_7d2b6c4a",
+      "revId": "16039db18a5bd0b6b941ebb78986efcbf4c10c5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
