@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72a26926_3f1be9d1",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-20T08:53:59Z",
+      "side": 1,
+      "message": "That sounds like the values in the map are uuids. It should be clear from the comment what the keys and the values are. What about:\n\nMaps uuid strings of checks to booleans that express the expanded state.",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "ff01c951602e3c615bdbec90d6ec964e8cb42cab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da22be3_436068be",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-20T08:53:59Z",
+      "side": 1,
+      "message": "Just use set() here.\n\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set",
+      "revId": "ff01c951602e3c615bdbec90d6ec964e8cb42cab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b747920c_44819fa7",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-20T08:53:59Z",
+      "side": 1,
+      "message": "Use get() here.\n\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get",
+      "revId": "ff01c951602e3c615bdbec90d6ec964e8cb42cab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f47e7ef_beaa40d4",
+        "filename": "gr-checks/gr-checks-view.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2020-04-20T08:53:59Z",
+      "side": 1,
+      "message": "Maybe add `|| false` or add `!!`. That will force the return value to be a boolean and never be undefined.",
+      "range": {
+        "startLine": 315,
+        "startChar": 6,
+        "endLine": 315,
+        "endChar": 12
+      },
+      "revId": "ff01c951602e3c615bdbec90d6ec964e8cb42cab",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
