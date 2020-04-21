@@ -22,6 +22,46 @@
       "revId": "737bb53203f88abc0fede51be52ff1d2a6392e53",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61d150e4_da25a841",
+        "filename": "gr-checks/BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-04-21T22:33:47Z",
+      "side": 1,
+      "message": "This can be simplified, as :gr-checks output is one single file: checks.js:\n\n  cp $(location :gr-checks) [...]",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "737bb53203f88abc0fede51be52ff1d2a6392e53",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4d5428_e73f71f2",
+        "filename": "package-lock.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-04-21T22:33:47Z",
+      "side": 1,
+      "message": "Why is this file needed? If I build delete-project plugin migrated to Polymer 3, then this file is not created.",
+      "revId": "737bb53203f88abc0fede51be52ff1d2a6392e53",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
