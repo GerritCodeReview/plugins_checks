@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6daad22a_3714f3eb",
+        "filename": "gr-checks/BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-04-21T22:17:23Z",
+      "side": 1,
+      "message": "Changing the extension from .html to .js changed the semantic of the polygerrit_plugin rule.\n\n  html_plugin \u003d app.endswith(\".html\")\n\netc. So that there is no checks.html artifact created any more, but only checks.js. Yet, the name of entry point loaded from HttpModule wasn\u0027t changed: [1]. Fixed in: [2].\n\n* [1] https://gerrit.googlesource.com/plugins/checks/+/refs/heads/master/java/com/google/gerrit/plugins/checks/HttpModule.java#31\n* [2] https://gerrit-review.googlesource.com/c/plugins/checks/+/263852",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "737bb53203f88abc0fede51be52ff1d2a6392e53",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
