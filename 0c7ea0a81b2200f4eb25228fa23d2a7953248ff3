@@ -16,6 +16,24 @@
       "revId": "0c7ea0a81b2200f4eb25228fa23d2a7953248ff3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669e1269_8d3d927e",
+        "filename": "java/com/google/gerrit/plugins/checks/HttpModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2020-04-28T21:26:20Z",
+      "side": 1,
+      "message": "no need, its just a placeholder for google specific releases, as we roll out java changes and javascript changes in two separate parts, the `html` placeholder there is just to make sure it still works fine without the java change.\n\nThis change is already rolled out to live, and its only loading *.js now, the generated html is not used",
+      "parentUuid": "930f64e8_bdf29808",
+      "revId": "0c7ea0a81b2200f4eb25228fa23d2a7953248ff3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
