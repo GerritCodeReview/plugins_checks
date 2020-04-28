@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "930f64e8_bdf29808",
+        "filename": "java/com/google/gerrit/plugins/checks/HttpModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-04-28T18:36:08Z",
+      "side": 1,
+      "message": "Should we revert this change now? After I8c0fe8f8861b0ce8eb097908deb7fc1d6678316c, both checks.html and checks.js generated again:\n\n  $ unzip -t bazel-bin/plugins/checks/checks.jar | grep static/\n    testing: static/                  OK\n    testing: static/checks.js         OK\n    testing: static/checks.html       OK",
+      "revId": "0c7ea0a81b2200f4eb25228fa23d2a7953248ff3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
