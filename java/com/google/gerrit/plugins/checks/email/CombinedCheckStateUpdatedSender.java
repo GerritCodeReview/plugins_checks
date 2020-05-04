@@ -35,6 +35,7 @@ import com.google.gerrit.server.mail.send.EmailArguments;
 import com.google.gerrit.server.mail.send.ReplyToChangeSender;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,7 +59,7 @@ public class CombinedCheckStateUpdatedSender extends ReplyToChangeSender {
   }
 
   @Override
-  protected void init() throws EmailException {
+  protected void init() throws EmailException, IOException {
     super.init();
 
     ccAllApprovals();
