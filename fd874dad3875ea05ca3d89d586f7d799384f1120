@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c9fefdf_2ebd22bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-13T15:16:40Z",
+      "side": 1,
+      "message": "This CI change is related: [1]. I would expect that we don\u0027t trigger the build at all.\n\nHow the GerritForge CI is currently working it would be even enough to just not trigger the build. The actual checks copying across patch set is not needed, because submitability is still based on Verified label and not checker (because there is no way to expose checker on dashboards).\n\n* [1] https://gerrit-review.googlesource.com/c/gerrit-ci-scripts/+/267386",
+      "range": {
+        "startLine": 15,
+        "startChar": 29,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "fd874dad3875ea05ca3d89d586f7d799384f1120",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
