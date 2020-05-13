@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-export const htmlTemplate = Polymer.html`
+export let htmlTemplate = Polymer.html`
     <style include="shared-styles"></style>
     <style include="gr-table-styles"></style>
     <style>

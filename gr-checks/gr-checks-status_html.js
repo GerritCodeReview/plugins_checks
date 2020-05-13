@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-export const htmlTemplate = Polymer.html`
+export let htmlTemplate = Polymer.html`
       <style>
         :host {
           display: inline-block;
