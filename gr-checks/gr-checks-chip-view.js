@@ -114,9 +114,13 @@ class GrChecksChipView extends Polymer.GestureEventListeners(
     </style>
     <template is="dom-if" if="[[_hasChecks]]">
       Checks:
-      <span class$="[[_chipClasses]]">
+      <span
+        class$="[[_chipClasses]]"
+        role="button"
+      >
         <gr-checks-status
           status="[[_status]]"
+          aria-label="Open checks tab"
           downgrade-failure-to-warning="[[_downgradeFailureToWarning]]">
         </gr-checks-status>
         [[_statusString]]
