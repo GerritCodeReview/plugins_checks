@@ -4,7 +4,7 @@ load("//javatests/com/google/gerrit/acceptance:tests.bzl", "acceptance_tests")
 
 acceptance_tests(
     srcs = glob(["*Test.java"]),
-    group = "checks",
+    group = "checks_tests",
     deps = [
         "//java/com/google/gerrit/server/util/time",
         "//plugins/checks:checks__plugin",
