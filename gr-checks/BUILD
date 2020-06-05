@@ -18,6 +18,7 @@ polygerrit_plugin(
 rollup_bundle(
     name = "checks-bundle",
     srcs = glob(["*.js"]),
+    config_file = "//tools/node_tools:plugin.rollup.config.js",
     entry_point = "gr-checks.js",
     format = "iife",
     rollup_bin = "//tools/node_tools:rollup-bin",
