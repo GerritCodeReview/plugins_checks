@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5505b807_2b797b7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2020-06-23T13:20:08Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e \u003e Patch Set 1: Code-Review+1\n\u003e \u003e \n\u003e \u003e Is it possible to add a test for this?\n\u003e \n\u003e I\u0027m not too familiar with the test for the checks plugin but I\u0027ll see what I can find.\n\nActually I think I might need some help with the test-cases from someone more familiar with the checks-plugin tests. I\u0027m not able to reproduce the issue, and I have no idea why.",
+      "revId": "4381a946900d5290ac7c496e70a3272734e449a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
