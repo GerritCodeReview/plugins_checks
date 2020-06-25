@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d626ce_3ef37a03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105976
+      },
+      "writtenOn": "2020-06-25T11:11:48Z",
+      "side": 1,
+      "message": "It seems checks hasn\u0027t been successfully built by gerrit-ci since this was submitted?",
+      "revId": "75e72bdd05ea64cf1d71fc147f50a0226cc56f35",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
