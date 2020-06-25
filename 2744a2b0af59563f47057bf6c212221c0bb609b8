@@ -63,6 +63,24 @@
       "revId": "2744a2b0af59563f47057bf6c212221c0bb609b8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9a59add_5bf91616",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-06-25T19:40:39Z",
+      "side": 1,
+      "message": "Answering my question: the pipeline for checks plugin wasn\u0027t merged yet: [1].\n\nHowever, I noticed, that for code-owners plugins the pipeline was added to zuul/confg project, so may be we should rather add it there to the zuul.d/projects.yaml file?\n\n[1] https://gerrit-review.googlesource.com/c/plugins/checks/+/255215\n[2] https://gerrit-review.googlesource.com/c/zuul/config/+/267314",
+      "parentUuid": "9929d102_61dc140b",
+      "revId": "2744a2b0af59563f47057bf6c212221c0bb609b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
