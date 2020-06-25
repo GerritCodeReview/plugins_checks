@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41587e09_2fce7e6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-06-25T19:53:29Z",
+      "side": 1,
+      "message": "This seems to be staled and I even wrote this issue 13007.\n\nHowever, I noticed, that for code-owners plugins the pipeline was added to zuul/confg project, so may be we should rather add it there to the zuul.d/projects.yaml file for checks plugin as well?",
+      "revId": "b55f63621d7771022f6b18d3acb2e38673a0ce68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
