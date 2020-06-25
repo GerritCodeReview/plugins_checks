@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b921c612_2596d2e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1014252
+      },
+      "writtenOn": "2020-06-25T13:32:46Z",
+      "side": 1,
+      "message": "Why does Zuul post \"NOT_RELEVANT\" to the check? Are there no CI for stable-3.2?",
+      "revId": "94299325e8023b46595e3a3b51b56b70da3f406a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
