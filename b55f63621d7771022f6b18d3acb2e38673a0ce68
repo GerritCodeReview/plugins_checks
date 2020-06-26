@@ -51,6 +51,24 @@
       "revId": "b55f63621d7771022f6b18d3acb2e38673a0ce68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03b811d_573b31a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2020-06-26T08:00:07Z",
+      "side": 1,
+      "message": "Yeah, +1 to have all the config in one place (in zuul/config).",
+      "parentUuid": "11a3e9ef_afa7c8ce",
+      "revId": "b55f63621d7771022f6b18d3acb2e38673a0ce68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
