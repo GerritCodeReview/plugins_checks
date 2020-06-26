@@ -33,6 +33,24 @@
       "revId": "b55f63621d7771022f6b18d3acb2e38673a0ce68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11a3e9ef_afa7c8ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-06-26T07:10:48Z",
+      "side": 1,
+      "message": "Yes, exactly. Check pipeline for a plugin can be acivated in zuul/config as it was done in: [1] or in plugin directory itself like it is done here.\n\nGiven that James activated check pipeline for code-owners plugin recently in zuul/config and not in code-owners plugin, I prefer to do it consistently in the same place. (Unless I am missing something, why would we like to activate the check pipeline in different places for different plugins).",
+      "parentUuid": "036f1d98_54f8e8b4",
+      "revId": "b55f63621d7771022f6b18d3acb2e38673a0ce68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
