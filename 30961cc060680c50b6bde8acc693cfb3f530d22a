@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a742123a_82370f9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-06-26T08:52:34Z",
+      "side": 1,
+      "message": "Should we merge: [1] to activate change verification for checks plugin on Zuul-CI?\n\n[1] https://gerrit-review.googlesource.com/c/zuul/config/+/273292",
+      "revId": "30961cc060680c50b6bde8acc693cfb3f530d22a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
