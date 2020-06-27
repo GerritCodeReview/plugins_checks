@@ -1,11 +1,11 @@
 {
   "checks": {
     "zuul-check:plugins_checks": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "RUNNING",
+      "message": "Jobs have started running",
       "started": "2020-06-27T05:14:24Z",
       "created": "2020-06-26T08:12:24Z",
-      "updated": "2020-06-27T05:14:24Z"
+      "updated": "2020-06-27T05:14:27Z"
     }
   }
 }
