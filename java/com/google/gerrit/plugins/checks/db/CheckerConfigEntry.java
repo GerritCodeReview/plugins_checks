@@ -74,7 +74,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       config.setString(SECTION_NAME, null, super.keyName, checkerCreation.getCheckerUuid().get());
     }
 
@@ -104,7 +104,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       String checkerName = checkerCreation.getName();
       config.setString(SECTION_NAME, null, super.keyName, checkerName);
     }
@@ -139,7 +139,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       // Do nothing. Description key will be set by updateConfigValue.
     }
 
@@ -173,7 +173,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       // Do nothing. URL key will be set by updateConfigValue.
     }
 
@@ -214,7 +214,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       String repository = checkerCreation.getRepository().get();
       config.setString(SECTION_NAME, null, super.keyName, repository);
     }
@@ -247,7 +247,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       // New checkers default to enabled.
       config.setEnum(SECTION_NAME, null, super.keyName, CheckerStatus.ENABLED);
     }
@@ -269,7 +269,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       // Do nothing. Blocking conditions will be set by updateConfigValue.
     }
 
@@ -293,7 +293,7 @@ enum CheckerConfigEntry {
     }
 
     @Override
-    void initNewConfig(Config config, CheckerCreation checkerCreation) {
+    void setInConfig(Config config, CheckerCreation checkerCreation) {
       config.setString(SECTION_NAME, null, super.keyName, "status:open");
     }
 
@@ -378,7 +378,7 @@ enum CheckerConfigEntry {
    * @param checkerCreation an {@code CheckerCreation} detailing the initial value of mandatory
    *     checker properties
    */
-  abstract void initNewConfig(Config config, CheckerCreation checkerCreation);
+  abstract void setInConfig(Config config, CheckerCreation checkerCreation);
 
   /**
    * Updates the corresponding property of this {@code CheckerConfigEntry} in the given {@code

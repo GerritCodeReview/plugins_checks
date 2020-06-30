@@ -362,7 +362,7 @@ public class CheckerConfig extends VersionedMetaData {
     checkerCreation.ifPresent(
         checkerCreation ->
             Arrays.stream(CheckerConfigEntry.values())
-                .forEach(configEntry -> configEntry.initNewConfig(config, checkerCreation)));
+                .forEach(configEntry -> configEntry.setInConfig(config, checkerCreation)));
     checkerUpdate.ifPresent(
         checkerUpdate ->
             Arrays.stream(CheckerConfigEntry.values())
