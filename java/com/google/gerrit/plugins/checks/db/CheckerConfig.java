@@ -18,7 +18,6 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Strings;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.DuplicateKeyException;
 import com.google.gerrit.plugins.checks.Checker;
@@ -274,8 +273,6 @@ public class CheckerConfig extends VersionedMetaData {
       return false;
     }
 
-    ensureThatMandatoryPropertiesAreSet();
-
     // Commit timestamps are internally truncated to seconds. To return the correct 'created' time
     // for new checkers, we explicitly need to truncate the timestamp here.
     Timestamp commitTimestamp =
@@ -310,45 +307,8 @@ public class CheckerConfig extends VersionedMetaData {
     return checkerUuid.map(CheckerUuid::get).orElse(ref);
   }
 
-  private void ensureThatMandatoryPropertiesAreSet() throws ConfigInvalidException {
-    if (getNewName().equals(Optional.of(""))) {
-      throw new ConfigInvalidException(
-          String.format("Name of the checker %s must be defined", describeForError()));
-    }
-
-    if (getNewRepository().equals(Optional.of(""))) {
-      throw new ConfigInvalidException(
-          String.format("Repository of the checker %s must be defined", describeForError()));
-    }
-  }
-
   private void checkLoaded() {
     checkState(isLoaded, "Checker %s not loaded yet", describeForError());
-  }
-
-  private Optional<String> getNewName() {
-    if (checkerUpdate.isPresent()) {
-      return checkerUpdate.get().getName().map(Strings::nullToEmpty).map(String::trim);
-    }
-    if (checkerCreation.isPresent()) {
-      return Optional.of(Strings.nullToEmpty(checkerCreation.get().getName()).trim());
-    }
-    return Optional.empty();
-  }
-
-  private Optional<String> getNewRepository() {
-    if (checkerUpdate.isPresent()) {
-      return checkerUpdate
-          .get()
-          .getRepository()
-          .map(Project.NameKey::get)
-          .map(Strings::nullToEmpty)
-          .map(String::trim);
-    }
-    if (checkerCreation.isPresent()) {
-      return Optional.of(Strings.nullToEmpty(checkerCreation.get().getRepository().get()).trim());
-    }
-    return Optional.empty();
   }
 
   private Checker.Builder updateChecker(Config config, Timestamp commitTimestamp)

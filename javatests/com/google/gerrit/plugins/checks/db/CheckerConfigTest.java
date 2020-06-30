@@ -108,22 +108,6 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void nameOfNewCheckerMustNotBeEmpty() throws Exception {
-    CheckerCreation checkerCreation =
-        getPrefilledCheckerCreationBuilder().setName("").buildWithoutValidationForTesting();
-    CheckerConfig checkerConfig =
-        CheckerConfig.createForNewChecker(projectName, repository, checkerCreation);
-
-    try (MetaDataUpdate metaDataUpdate = createMetaDataUpdate()) {
-      Throwable thrown = assertThrows(Throwable.class, () -> checkerConfig.commit(metaDataUpdate));
-      assertThat(thrown).hasCauseThat().isInstanceOf(ConfigInvalidException.class);
-      assertThat(thrown)
-          .hasMessageThat()
-          .contains(String.format("Name of the checker %s must be defined", checkerUuid));
-    }
-  }
-
-  @Test
   public void descriptionDefaultsToOptionalEmpty() throws Exception {
     CheckerCreation checkerCreation =
         CheckerCreation.builder()
@@ -231,24 +215,6 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void repositoryOfNewCheckerMustNotBeEmpty() throws Exception {
-    CheckerCreation checkerCreation =
-        getPrefilledCheckerCreationBuilder()
-            .setRepository(Project.nameKey(""))
-            .buildWithoutValidationForTesting();
-    CheckerConfig checkerConfig =
-        CheckerConfig.createForNewChecker(projectName, repository, checkerCreation);
-
-    try (MetaDataUpdate metaDataUpdate = createMetaDataUpdate()) {
-      Throwable thrown = assertThrows(Throwable.class, () -> checkerConfig.commit(metaDataUpdate));
-      assertThat(thrown).hasCauseThat().isInstanceOf(ConfigInvalidException.class);
-      assertThat(thrown)
-          .hasMessageThat()
-          .contains(String.format("Repository of the checker %s must be defined", checkerUuid));
-    }
-  }
-
-  @Test
   public void createdDefaultsToNow() throws Exception {
     // Git timestamps are only precise to the second.
     Timestamp testStart = TimeUtil.truncateToSecond(TimeUtil.nowTs());
@@ -319,20 +285,6 @@ public class CheckerConfigTest {
   }
 
   @Test
-  public void nameCannotBeRemoved() throws Exception {
-    createArbitraryChecker(checkerUuid);
-
-    CheckerUpdate checkerUpdate =
-        CheckerUpdate.builder().setName("").buildWithoutValidationForTesting();
-
-    IOException thrown =
-        assertThrows(IOException.class, () -> updateChecker(checkerUuid, checkerUpdate));
-    assertThat(thrown)
-        .hasMessageThat()
-        .contains(String.format("Name of the checker %s must be defined", checkerUuid));
-  }
-
-  @Test
   public void descriptionCanBeUpdated() throws Exception {
     createArbitraryChecker(checkerUuid);
     String newDescription = "New description";
@@ -397,22 +349,6 @@ public class CheckerConfigTest {
     assertThat(checkerConfig).configStringList("repository").containsExactly(newRepository.get());
 
     assertThatCommitMessage(checkerUuid).isEqualTo("Update checker");
-  }
-
-  @Test
-  public void repositoryCannotBeRemoved() throws Exception {
-    createArbitraryChecker(checkerUuid);
-
-    CheckerUpdate checkerUpdate =
-        CheckerUpdate.builder()
-            .setRepository(Project.nameKey(""))
-            .buildWithoutValidationForTesting();
-
-    IOException thrown =
-        assertThrows(IOException.class, () -> updateChecker(checkerUuid, checkerUpdate));
-    assertThat(thrown)
-        .hasMessageThat()
-        .contains(String.format("Repository of the checker %s must be defined", checkerUuid));
   }
 
   @Test

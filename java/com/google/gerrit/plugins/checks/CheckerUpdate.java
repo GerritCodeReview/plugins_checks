@@ -17,7 +17,6 @@ package com.google.gerrit.plugins.checks;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.plugins.checks.api.BlockingCondition;
@@ -101,11 +100,6 @@ public abstract class CheckerUpdate {
       }
 
       return checkerUpdate;
-    }
-
-    @VisibleForTesting
-    public CheckerUpdate buildWithoutValidationForTesting() {
-      return autoBuild();
     }
   }
 }
