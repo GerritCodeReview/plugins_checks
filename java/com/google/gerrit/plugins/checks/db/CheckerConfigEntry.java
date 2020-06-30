@@ -117,8 +117,6 @@ enum CheckerConfigEntry {
               name -> {
                 if (!Strings.isNullOrEmpty(name)) {
                   config.setString(SECTION_NAME, null, super.keyName, name);
-                } else {
-                  config.unset(SECTION_NAME, null, super.keyName);
                 }
               });
     }
