@@ -16,6 +16,24 @@
       "revId": "7920c1b6012c52fbd82295efbb45469e69d7f3dc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcab0a81_9b0dc9d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085183
+      },
+      "writtenOn": "2020-09-24T09:09:30Z",
+      "side": 1,
+      "message": "I think it used to be \"isEqualTo\" to ensure that *only* those checkStateUpdate are contained, and no others. With this change, it no longer applies.\nI guess that\u0027s fine, since having the test brittle every time something minor changes in the footers would be worse.",
+      "parentUuid": "c1feeac0_59775ced",
+      "revId": "7920c1b6012c52fbd82295efbb45469e69d7f3dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
