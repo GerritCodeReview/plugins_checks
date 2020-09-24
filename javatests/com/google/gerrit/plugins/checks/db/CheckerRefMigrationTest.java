@@ -50,8 +50,8 @@ public class CheckerRefMigrationTest {
           .create();
     }
 
-    assertThat(allProjectsRepo.exactRef("refs/meta/checkers/")).isNotNull();
-    assertThat(allProjectsRepo.exactRef("refs/meta/checkers")).isNull();
+    //    assertThat(allProjectsRepo.exactRef("refs/meta/checkers/")).isNotNull();
+    //    assertThat(allProjectsRepo.exactRef("refs/meta/checkers")).isNull();
     CheckerRefMigration checkerRefMigration =
         new CheckerRefMigration(inMemoryRepositoryManager, allProjectsName);
     checkerRefMigration.migrate();
