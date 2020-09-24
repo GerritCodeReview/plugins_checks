@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1feeac0_59775ced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-09-24T08:42:11Z",
+      "side": 1,
+      "message": "This is a case where the tests verify unrelated aspects and hence are brittle when those aspects change. Instead of adding the new footers, can you adjusts the tests to only verify that the combinedCheckStateUpdate footer is contained?",
+      "revId": "7920c1b6012c52fbd82295efbb45469e69d7f3dc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
