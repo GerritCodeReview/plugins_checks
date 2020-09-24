@@ -1182,6 +1182,16 @@ public class ChecksEmailIT extends AbstractCheckersTest {
         + " <"
         + reviewer.email()
         + ">\n"
+        + "Gerrit-Attention: "
+        + ignoringReviewer.fullName()
+        + " <"
+        + ignoringReviewer.email()
+        + ">\n"
+        + "Gerrit-Attention: "
+        + reviewer.fullName()
+        + " <"
+        + reviewer.email()
+        + ">\n"
         + "Gerrit-MessageType: combinedCheckStateUpdate\n";
   }
 
@@ -1295,6 +1305,16 @@ public class ChecksEmailIT extends AbstractCheckersTest {
         + ignoringReviewer.email()
         + "&gt; </div>\n"
         + "<div style=\"display:none\"> Gerrit-Reviewer: "
+        + reviewer.fullName()
+        + " &lt;"
+        + reviewer.email()
+        + "&gt; </div>\n"
+        + "<div style=\"display:none\"> Gerrit-Attention: "
+        + ignoringReviewer.fullName()
+        + " &lt;"
+        + ignoringReviewer.email()
+        + "&gt; </div>\n"
+        + "<div style=\"display:none\"> Gerrit-Attention: "
         + reviewer.fullName()
         + " &lt;"
         + reviewer.email()
