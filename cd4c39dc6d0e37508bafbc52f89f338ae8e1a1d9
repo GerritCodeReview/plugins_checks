@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9240a79_6efc4f80",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-09-24T09:14:22Z",
+      "side": 1,
+      "message": "Typo: aren\u0027t\nOr: \"don\u0027t break\" instead of \"don\u0027t brittle\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "cd4c39dc6d0e37508bafbc52f89f338ae8e1a1d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
