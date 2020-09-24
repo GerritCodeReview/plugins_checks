@@ -570,18 +570,16 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.SUCCESSFUL)
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.SUCCESSFUL, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.SUCCESSFUL, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.SUCCESSFUL)
                 + allChecksOverviewHtml(
-                    ImmutableMap.of(CheckState.SUCCESSFUL, ImmutableList.of(checkerName)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.SUCCESSFUL, ImmutableList.of(checkerName))));
   }
 
   @Test
@@ -600,7 +598,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -609,11 +607,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".\n"
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerName
@@ -621,8 +618,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".</p>"
                 + allChecksOverviewHtml(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
   }
 
   @Test
@@ -649,7 +645,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -660,11 +656,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".\n"
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <a href=\""
                 + checkerUrl
@@ -674,8 +669,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".</p>"
                 + allChecksOverviewHtml(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
   }
 
   @Test
@@ -696,7 +690,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -707,11 +701,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + checkMessage
                 + "\n"
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerName
@@ -721,8 +714,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + checkMessage
                 + "</p>"
                 + allChecksOverviewHtml(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
   }
 
   @Test
@@ -743,7 +735,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -754,11 +746,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + checkUrl
                 + " ).\n"
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerName
@@ -769,8 +760,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + "</a>.</p>"
                 + allChecksOverviewHtml(
                     ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)),
-                    ImmutableMap.of(checkerName, checkUrl))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(checkerName, checkUrl)));
   }
 
   @Test
@@ -789,7 +779,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.WARNING)
                 + "\n"
                 + "Checker "
@@ -798,11 +788,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".\n"
                 + allChecksOverviewText(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.WARNING)
                 + "<p>Checker <strong>"
                 + checkerName
@@ -810,8 +799,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + CheckState.FAILED
                 + ".</p>"
                 + allChecksOverviewHtml(
-                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                    ImmutableMap.of(CheckState.FAILED, ImmutableList.of(checkerName))));
   }
 
   @Test
@@ -842,26 +830,24 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.WARNING)
                 + allChecksOverviewText(
                     ImmutableMap.of(
                         CheckState.SUCCESSFUL,
                         ImmutableList.of(checkerNameRequired),
                         CheckState.FAILED,
-                        ImmutableList.of(checkerNameOptional)))
-                + textEmailFooterForCombinedCheckStateUpdate());
+                        ImmutableList.of(checkerNameOptional))));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.WARNING)
                 + allChecksOverviewHtml(
                     ImmutableMap.of(
                         CheckState.SUCCESSFUL,
                         ImmutableList.of(checkerNameRequired),
                         CheckState.FAILED,
-                        ImmutableList.of(checkerNameOptional)))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                        ImmutableList.of(checkerNameOptional))));
   }
 
   @Test
@@ -897,7 +883,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -905,19 +891,17 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + " updated the check state to "
                 + CheckState.FAILED
                 + ".\n"
-                + allChecksOverviewText(expectedCheckersByState)
-                + textEmailFooterForCombinedCheckStateUpdate());
+                + allChecksOverviewText(expectedCheckersByState));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerNameFailed
                 + "</strong> updated the check state to "
                 + CheckState.FAILED
                 + ".</p>"
-                + allChecksOverviewHtml(expectedCheckersByState)
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                + allChecksOverviewHtml(expectedCheckersByState));
   }
 
   @Test
@@ -974,7 +958,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -982,19 +966,17 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + " updated the check state to "
                 + CheckState.FAILED
                 + ".\n"
-                + allChecksOverviewText(expectedCheckersByState)
-                + textEmailFooterForCombinedCheckStateUpdate());
+                + allChecksOverviewText(expectedCheckersByState));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerNameFailed
                 + "</strong> updated the check state to "
                 + CheckState.FAILED
                 + ".</p>"
-                + allChecksOverviewHtml(expectedCheckersByState)
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                + allChecksOverviewHtml(expectedCheckersByState));
   }
 
   @Test
@@ -1042,7 +1024,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
     Message message = messages.get(0);
     assertThat(message.body())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedText(CombinedCheckState.FAILED)
                 + "\n"
                 + "Checker "
@@ -1050,11 +1032,10 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + " updated the check state to "
                 + CheckState.FAILED
                 + ".\n"
-                + allChecksOverviewText(expectedCheckersByState)
-                + textEmailFooterForCombinedCheckStateUpdate());
+                + allChecksOverviewText(expectedCheckersByState));
 
     assertThat(message.htmlBody())
-        .isEqualTo(
+        .contains(
             combinedCheckStateUpdatedHtml(CombinedCheckState.FAILED)
                 + "<p>Checker <strong>"
                 + checkerNameFailed
@@ -1064,8 +1045,7 @@ public class ChecksEmailIT extends AbstractCheckersTest {
                 + allChecksOverviewHtml(
                     expectedCheckersByState,
                     ImmutableMap.of(
-                        checkerNameRunningFoo, checkUrlFoo, checkerNameRunningBar, checkUrlBar))
-                + htmlEmailFooterForCombinedCheckStateUpdate());
+                        checkerNameRunningFoo, checkUrlFoo, checkerNameRunningBar, checkUrlBar)));
   }
 
   @Test
@@ -1138,53 +1118,6 @@ public class ChecksEmailIT extends AbstractCheckersTest {
     return b.toString();
   }
 
-  private String textEmailFooterForCombinedCheckStateUpdate() {
-    return "\n"
-        + "Change subject: "
-        + change.getSubject()
-        + "\n"
-        + "......................................................................\n"
-        + "-- \n"
-        + "To view, visit "
-        + changeUrl(change)
-        + "\n"
-        + "To unsubscribe, or for help writing mail filters, visit "
-        + canonicalWebUrl.get()
-        + "settings\n"
-        + "\n"
-        + "Gerrit-Project: "
-        + project.get()
-        + "\n"
-        + "Gerrit-Branch: "
-        + change.getDest().shortName()
-        + "\n"
-        + "Gerrit-Change-Id: "
-        + change.getKey().get()
-        + "\n"
-        + "Gerrit-Change-Number: "
-        + change.getChangeId()
-        + "\n"
-        + "Gerrit-PatchSet: "
-        + patchSetId.get()
-        + "\n"
-        + "Gerrit-Owner: "
-        + owner.fullName()
-        + " <"
-        + owner.email()
-        + ">\n"
-        + "Gerrit-Reviewer: "
-        + ignoringReviewer.fullName()
-        + " <"
-        + ignoringReviewer.email()
-        + ">\n"
-        + "Gerrit-Reviewer: "
-        + reviewer.fullName()
-        + " <"
-        + reviewer.email()
-        + ">\n"
-        + "Gerrit-MessageType: combinedCheckStateUpdate\n";
-  }
-
   private String combinedCheckStateUpdatedHtml(CombinedCheckState combinedCheckState) {
     return "<p>The combined check state has been updated to <strong>"
         + combinedCheckState
@@ -1253,54 +1186,6 @@ public class ChecksEmailIT extends AbstractCheckersTest {
 
   private String htmlViewChangeButton() {
     return "<p><a href=\"" + changeUrl(change) + "\">View Change</a></p>";
-  }
-
-  private String htmlEmailFooterForCombinedCheckStateUpdate() {
-    return htmlViewChangeButton()
-        + "<p>To view, visit <a href=\""
-        + changeUrl(change)
-        + "\">change "
-        + change.getChangeId()
-        + "</a>."
-        + " To unsubscribe, or for help writing mail filters, visit <a href=\""
-        + canonicalWebUrl.get()
-        + "settings\">settings</a>.</p>"
-        + "<div itemscope itemtype=\"http://schema.org/EmailMessage\">"
-        + "<div itemscope itemprop=\"action\" itemtype=\"http://schema.org/ViewAction\">"
-        + "<link itemprop=\"url\" href=\""
-        + changeUrl(change)
-        + "\"/>"
-        + "<meta itemprop=\"name\" content=\"View Change\"/>"
-        + "</div>"
-        + "</div>\n\n"
-        + "<div style=\"display:none\"> Gerrit-Project: "
-        + project.get()
-        + " </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Branch: "
-        + change.getDest().shortName()
-        + " </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Change-Id: "
-        + change.getKey().get()
-        + " </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Change-Number: "
-        + change.getChangeId()
-        + " </div>\n"
-        + "<div style=\"display:none\"> Gerrit-PatchSet: "
-        + patchSetId.get()
-        + " </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Owner: Administrator &lt;admin@example.com&gt; </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Reviewer: "
-        + ignoringReviewer.fullName()
-        + " &lt;"
-        + ignoringReviewer.email()
-        + "&gt; </div>\n"
-        + "<div style=\"display:none\"> Gerrit-Reviewer: "
-        + reviewer.fullName()
-        + " &lt;"
-        + reviewer.email()
-        + "&gt; </div>\n"
-        + "<div style=\"display:none\"> Gerrit-MessageType: combinedCheckStateUpdate </div>\n"
-        + "\n";
   }
 
   private String changeUrl(Change change) {
