@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a30cba71_3b93562a",
+        "filename": "javatests/com/google/gerrit/plugins/checks/acceptance/api/ChecksEmailIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-09-24T09:14:22Z",
+      "side": 0,
+      "message": "Here and for the html version: Do we still have tests which ensure that the emails have this message type?",
+      "range": {
+        "startLine": 1185,
+        "startChar": 10,
+        "endLine": 1185,
+        "endChar": 59
+      },
+      "revId": "f508353fc5f93d35d07279857aba5d9cf38de658",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
