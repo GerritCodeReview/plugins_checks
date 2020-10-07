@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22849b07_28f4fc46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2020-10-07T08:59:39Z",
+      "side": 1,
+      "message": "The CI was switched to Java 11 and is now broken for plugins. Hence voting Verified+1 manually.",
+      "revId": "faa1669ceca21b4c7a0de5021663081770c16041",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
