@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceef41d8_5f693d72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2020-12-21T14:49:31Z",
+      "side": 1,
+      "message": "Check was sucessful now, but didn\u0027t update the vote.",
+      "revId": "e72bced948ea85dbf737afb1fc22494f1aa25d04",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
