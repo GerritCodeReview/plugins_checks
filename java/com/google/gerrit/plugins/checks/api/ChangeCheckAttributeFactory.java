@@ -14,13 +14,19 @@
 
 package com.google.gerrit.plugins.checks.api;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.extensions.common.PluginDefinedInfo;
 import com.google.gerrit.plugins.checks.CombinedCheckStateCache;
 import com.google.gerrit.server.DynamicOptions.BeanProvider;
 import com.google.gerrit.server.DynamicOptions.DynamicBean;
-import com.google.gerrit.server.change.ChangeAttributeFactory;
+import com.google.gerrit.server.change.ChangePluginDefinedInfoFactory;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.util.Collection;
+import java.util.Map;
+import java.util.stream.Collectors;
 import org.kohsuke.args4j.Option;
 
 /**
@@ -28,7 +34,7 @@ import org.kohsuke.args4j.Option;
  * a {@code ChangeInfo}.
  */
 @Singleton
-public class ChangeCheckAttributeFactory implements ChangeAttributeFactory {
+public class ChangeCheckAttributeFactory implements ChangePluginDefinedInfoFactory {
   private static final String COMBINED_OPTION_NAME = "--combined";
   private static final String COMBINED_OPTION_USAGE = "include combined check state";
 
@@ -50,15 +56,21 @@ public class ChangeCheckAttributeFactory implements ChangeAttributeFactory {
   }
 
   @Override
-  public ChangeCheckInfo create(ChangeData cd, BeanProvider beanProvider, String plugin) {
+  public Map<Change.Id, PluginDefinedInfo> createPluginDefinedInfos(
+      Collection<ChangeData> cds, BeanProvider beanProvider, String plugin) {
     DynamicBean opts = beanProvider.getDynamicBean(plugin);
     if (opts == null) {
-      return null;
+      return ImmutableMap.of();
     }
     if (opts instanceof GetChangeOptions) {
-      return forGetChange(cd, (GetChangeOptions) opts);
+      return cds.stream()
+          .collect(
+              Collectors.toMap(cd -> cd.getId(), cd -> forGetChange(cd, (GetChangeOptions) opts)));
     } else if (opts instanceof QueryChangesOptions) {
-      return forQueryChanges(cd, (QueryChangesOptions) opts);
+      return cds.stream()
+          .collect(
+              Collectors.toMap(
+                  cd -> cd.getId(), cd -> forQueryChanges(cd, (QueryChangesOptions) opts)));
     }
     throw new IllegalStateException("unexpected options type: " + opts);
   }
