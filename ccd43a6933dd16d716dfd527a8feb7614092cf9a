@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41823e7_e93a72a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108776
+      },
+      "writtenOn": "2021-01-21T20:12:29Z",
+      "side": 1,
+      "message": "@Milutin,could you look at this please - I believe this was introduced in 2a57f50b when moment.js was removed.",
+      "revId": "ccd43a6933dd16d716dfd527a8feb7614092cf9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
