@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2edc5270_3de439dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2021-01-22T14:58:21Z",
+      "side": 1,
+      "message": "Very nice catch! Thanks a lot for fix Jonas. The similar (but less problematic) bug is in gerrit as well, I will fix it ASAP.",
+      "revId": "2cc6ffc61bb2d33190d836d2b95bf51b901f079c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
