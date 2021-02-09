@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b2c779_c4dac806",
+        "filename": "gr-checks/gr-checks.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1083225
+      },
+      "writtenOn": "2021-02-09T14:52:48Z",
+      "side": 1,
+      "message": "2021 is here :D",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 49
+      },
+      "revId": "de9da1dfbd9661badeeb8ecf8c34215c032a393c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
