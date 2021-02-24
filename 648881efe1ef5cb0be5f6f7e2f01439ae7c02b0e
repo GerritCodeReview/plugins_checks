@@ -16,6 +16,24 @@
       "message": "The commit message could benefit from some more context :-)",
       "revId": "648881efe1ef5cb0be5f6f7e2f01439ae7c02b0e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f9ea0b_d63b2fea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-02-24T18:14:33Z",
+      "side": 1,
+      "message": "I agree, but I don\u0027t have that context :)",
+      "parentUuid": "8c8fccc6_9e519ead",
+      "revId": "648881efe1ef5cb0be5f6f7e2f01439ae7c02b0e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
