@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e22419b_00af3a51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1085182
+      },
+      "writtenOn": "2021-03-03T12:22:06Z",
+      "side": 1,
+      "message": ":) Sorry I haven\u0027t realized it when I was reviewing it last time.",
+      "revId": "72bf49fef32f805d972ad316aebf527306ed3f8e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
