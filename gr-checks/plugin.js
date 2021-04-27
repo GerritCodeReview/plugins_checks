@@ -14,11 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import './gr-checkers-list.js';
 import {computeDuration} from './util.js';
 
 class ChecksFetcher {
-  constructor(restApi) {
-    this.restApi = restApi;
+  constructor(plugin) {
+    this.plugin = plugin;
+    this.restApi = plugin.restApi();
   }
 
   async fetchCurrent() {
@@ -30,8 +32,18 @@ class ChecksFetcher {
     this.changeNumber = changeNumber;
     this.patchsetNumber = patchsetNumber;
     const checks = await this.apiGet('?o=CHECKER');
+    // We need to somehow pass on the `plugin` object to the popup of
+    // <gr-checkers-list>. Using a global window variable is obviously a hacky
+    // workaround. The best way to fix this properly is probably to change
+    // the plugin popup to retrieve the `plugin` object from the
+    // 'plugin-overlay' endpoint and then pass it on to all child elements.
+    window.__gerrit_checks_plugin = this.plugin;
     return {
       responseCode: 'OK',
+      actions: [{
+        name: 'Configure Checkers',
+        callback: () => this.plugin.popup('gr-checkers-list'),
+      }],
       runs: checks.map(check => this.convert(check)),
     };
   }
@@ -110,7 +122,7 @@ class ChecksFetcher {
 
 Gerrit.install(plugin => {
   const checksApi = plugin.checks();
-  const fetcher = new ChecksFetcher(plugin.restApi());
+  const fetcher = new ChecksFetcher(plugin);
   checksApi.register({
     fetch: data => fetcher.fetch(data),
   });
