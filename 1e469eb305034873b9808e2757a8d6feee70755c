@@ -63,6 +63,30 @@
       },
       "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ba6af87_0092a554",
+        "filename": "gr-checks/plugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-04-28T11:38:54Z",
+      "side": 1,
+      "message": "I must have overlooked it the first time, but the plugin popup actually sets the `plugin` object, so we can go for the proper solution right away. PTAL",
+      "parentUuid": "374b637e_a096c148",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
