@@ -39,6 +39,30 @@
       },
       "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374b637e_a096c148",
+        "filename": "gr-checks/plugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-04-28T11:09:39Z",
+      "side": 1,
+      "message": "Moved, but I would still prefer to pass `plugin` instead of `restApi`. I think it is the right abstraction level. We don\u0027t want to start passing *multiple* global variables. And the top-level plugin code does not really want to know, which parts of the `plugin` object is being used further down.\n\nAnyway, I will likely just go for the proper solution in a follow-up. So let\u0027s not optimize this hack too much. :-)",
+      "parentUuid": "f6a4006e_0c5996b0",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
