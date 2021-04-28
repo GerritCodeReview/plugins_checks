@@ -16,6 +16,23 @@
       "message": "Woohoo!!!!",
       "revId": "bc7cc22cb6a5282e088bf8ff4fb594456f1e5eee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88127e5d_e753eff1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-28T09:04:25Z",
+      "side": 1,
+      "message": "The CI failure in Java code seems to be unrelated. Checks plugin is broken on master?",
+      "revId": "bc7cc22cb6a5282e088bf8ff4fb594456f1e5eee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
