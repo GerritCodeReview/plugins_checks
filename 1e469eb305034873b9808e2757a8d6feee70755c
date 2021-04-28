@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bff8223_63aadcd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-28T09:11:17Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6a4006e_0c5996b0",
+        "filename": "gr-checks/plugin.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-28T09:11:17Z",
+      "side": 1,
+      "message": "Can this be done on line 125 below? Then we wouldn\u0027t need to pass in plugin object ChecksFetcher class and keep passing only restApi?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 0
+      },
+      "revId": "1e469eb305034873b9808e2757a8d6feee70755c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
