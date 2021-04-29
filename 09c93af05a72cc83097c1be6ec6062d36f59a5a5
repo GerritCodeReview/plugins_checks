@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc8402e2_afebb394",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-04-29T13:51:55Z",
+      "side": 1,
+      "message": "Now we have a problem. We don\u0027t have stable-3.4 branch yet for this plugin. However, the renaming change 301765 is only included on master. We also cannot create stable-3.4 branch, because we want the canges from the whole series, with checks UI refactoring and fix for issue 14336.\n\nI see two options:\n\n* 1. we cherry-pick the renaming change 301765 to stable-3.4 branch.\n* 2. we create stable-3.4 branch from the tip of master branch in checks plugin and revert this change on stable-3.4 branch.\n\nI would rather do plan 1. but we already published RC3 and actually we should\u0027t do any functional changes any more.",
+      "revId": "09c93af05a72cc83097c1be6ec6062d36f59a5a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
