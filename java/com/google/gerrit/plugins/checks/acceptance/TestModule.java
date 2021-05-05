@@ -20,11 +20,20 @@ import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckOperationsImpl
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerOperations;
 import com.google.gerrit.plugins.checks.acceptance.testsuite.CheckerOperationsImpl;
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
 
 public class TestModule extends AbstractModule {
+
+  private final Module module;
+
+  @Inject
+  TestModule(Module module) {
+    this.module = module;
+  }
+
   @Override
   public void configure() {
-    install(new Module());
+    install(module);
 
     // Only add bindings here that are specifically required for tests, in order to keep the Guice
     // setup in tests as realistic as possible by delegating to the original module.

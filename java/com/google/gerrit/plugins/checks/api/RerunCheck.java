@@ -35,6 +35,7 @@ import com.google.gerrit.plugins.checks.Checkers;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.plugins.checks.Checks.GetCheckOptions;
 import com.google.gerrit.plugins.checks.ChecksUpdate;
+import com.google.gerrit.plugins.checks.EnableTriggerRerunEvent;
 import com.google.gerrit.plugins.checks.events.RerunCheckEvent;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.UserInitiated;
@@ -54,6 +55,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 
 @Singleton
 public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
+  private final boolean enableTriggerRerunEvent;
   private final Provider<CurrentUser> self;
   private final Checks checks;
   private final Provider<ChecksUpdate> checksUpdate;
@@ -65,6 +67,7 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
 
   @Inject
   RerunCheck(
+      @EnableTriggerRerunEvent boolean enableTriggerRerunEvent,
       Provider<CurrentUser> self,
       Checks checks,
       @UserInitiated Provider<ChecksUpdate> checksUpdate,
@@ -73,6 +76,7 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
       EventFactory eventFactory,
       GitRepositoryManager repoManager,
       DynamicItem<EventDispatcher> eventDispatcher) {
+    this.enableTriggerRerunEvent = enableTriggerRerunEvent;
     this.self = self;
     this.checks = checks;
     this.checksUpdate = checksUpdate;
@@ -130,18 +134,19 @@ public class RerunCheck implements RestModifyView<CheckResource, RerunInput> {
       updatedCheck =
           checksUpdate.get().updateCheck(key, builder.build(), input.notify, input.notifyDetails);
 
-      RerunCheckEvent rerunCheckEvent =
-          new RerunCheckEvent(checkResource.getRevisionResource().getChange());
-      rerunCheckEvent.patchSet =
-          patchSetAttributeSupplier(checkResource.getRevisionResource().getChange(), ps);
-      rerunCheckEvent.checkerUuid = key.checkerUuid().get();
-      eventDispatcher.get().postEvent(rerunCheckEvent);
+      if (enableTriggerRerunEvent) {
+        RerunCheckEvent rerunCheckEvent =
+            new RerunCheckEvent(checkResource.getRevisionResource().getChange());
+        rerunCheckEvent.patchSet =
+            patchSetAttributeSupplier(checkResource.getRevisionResource().getChange(), ps);
+        rerunCheckEvent.checkerUuid = key.checkerUuid().get();
+        eventDispatcher.get().postEvent(rerunCheckEvent);
+      }
     }
     return Response.ok(checkJsonFactory.noOptions().format(updatedCheck));
   }
 
-  private Supplier<PatchSetAttribute> patchSetAttributeSupplier(
-      final Change change, PatchSet patchSet) {
+  private Supplier<PatchSetAttribute> patchSetAttributeSupplier(Change change, PatchSet patchSet) {
     return Suppliers.memoize(
         () -> {
           try (Repository repo = repoManager.openRepository(change.getProject());

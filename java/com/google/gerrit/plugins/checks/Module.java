@@ -17,6 +17,7 @@ package com.google.gerrit.plugins.checks;
 import static com.google.inject.Scopes.SINGLETON;
 
 import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.config.FactoryModule;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -34,15 +35,27 @@ import com.google.gerrit.server.ServerInitiated;
 import com.google.gerrit.server.UserInitiated;
 import com.google.gerrit.server.change.ChangeAttributeFactory;
 import com.google.gerrit.server.change.ChangeETagComputation;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.MergeValidationListener;
 import com.google.gerrit.server.git.validators.RefOperationValidationListener;
 import com.google.gerrit.server.restapi.change.GetChange;
 import com.google.gerrit.server.restapi.change.QueryChanges;
 import com.google.gerrit.sshd.commands.Query;
+import com.google.inject.Inject;
 import com.google.inject.Provides;
 
 public class Module extends FactoryModule {
+
+  private final boolean enableTriggerRerunEvent;
+
+  @Inject
+  public Module(PluginConfigFactory pluginCfgFactory, @PluginName String pluginName) {
+    PluginConfig cfg = pluginCfgFactory.getFromGerritConfig(pluginName);
+    this.enableTriggerRerunEvent = cfg.getBoolean("enableTriggerRerunEvent", false);
+  }
+
   @Override
   protected void configure() {
     factory(CheckJson.AssistedFactory.class);
@@ -78,6 +91,8 @@ public class Module extends FactoryModule {
     bind(DynamicOptions.DynamicBean.class)
         .annotatedWith(Exports.named(Query.class))
         .to(QueryChangesOptions.class);
+
+    bindConstant().annotatedWith(EnableTriggerRerunEvent.class).to(enableTriggerRerunEvent);
 
     install(new ApiModule());
     install(new ChecksSubmitRule.Module());
