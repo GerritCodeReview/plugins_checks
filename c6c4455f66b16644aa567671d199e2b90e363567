@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7470cbf1_72a61364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-05-10T13:30:55Z",
+      "side": 1,
+      "message": "I think this change is fine. Given that this plugin is being deprecated, I don\u0027t think we need the configuration option that is implemented in the follow-up change.",
+      "revId": "c6c4455f66b16644aa567671d199e2b90e363567",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46a195c7_59e4788e",
