@@ -63,6 +63,30 @@
       },
       "revId": "c6c4455f66b16644aa567671d199e2b90e363567",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f41d26_a71ca6a9",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2021-05-10T13:32:54Z",
+      "side": 1,
+      "message": "Thanks, I abandoned the follow-up change then.",
+      "parentUuid": "8cd526ea_92be5644",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 55
+      },
+      "revId": "c6c4455f66b16644aa567671d199e2b90e363567",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
