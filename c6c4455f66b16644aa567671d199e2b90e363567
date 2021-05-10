@@ -39,6 +39,30 @@
       },
       "revId": "c6c4455f66b16644aa567671d199e2b90e363567",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cd526ea_92be5644",
+        "filename": "java/com/google/gerrit/plugins/checks/api/RerunCheck.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-05-10T13:31:29Z",
+      "side": 1,
+      "message": "I don\u0027t think we actually need this to be configurable.",
+      "parentUuid": "46a195c7_59e4788e",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 55
+      },
+      "revId": "c6c4455f66b16644aa567671d199e2b90e363567",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
