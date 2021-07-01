@@ -97,13 +97,14 @@ class ChecksFetcher {
         }];
       }
     }
-    if (status !== 'RUNNING') {
-      run.actions = [{
-        name: 'Run',
-        primary: true,
-        callback: () => this.run(check.checker_uuid),
-      }];
-    }
+    // We also provide the "run" action for running checks, because the "/rerun"
+    // endpoint just updates the state to NOT_STARTED, which for running checks
+    // means that they are stopped and rerun.
+    run.actions = [{
+      name: 'Run',
+      primary: true,
+      callback: () => this.run(check.checker_uuid),
+    }];
     return run;
   }
 
