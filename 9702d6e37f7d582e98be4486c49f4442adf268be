@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6cb6c0_9314085d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2021-07-01T07:58:34Z",
+      "side": 1,
+      "message": "Thanks, Ben, for the quick turnaround and fix.",
+      "revId": "9702d6e37f7d582e98be4486c49f4442adf268be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
