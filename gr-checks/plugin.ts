@@ -14,58 +14,77 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import './gr-checkers-list.js';
-import {computeDuration} from './util.js';
+import './gr-checkers-list';
+import {computeDuration} from './util';
+import {PluginApi} from '@gerritcodereview/typescript-api/plugin';
+import {RestPluginApi} from '@gerritcodereview/typescript-api/rest';
+import '@gerritcodereview/typescript-api/gerrit';
+import {
+  Category,
+  ChangeData,
+  CheckRun,
+  ChecksProvider,
+  LinkIcon,
+  ResponseCode,
+  RunStatus,
+} from '@gerritcodereview/typescript-api/checks';
+import {Check} from './types';
 
-class ChecksFetcher {
-  constructor(plugin) {
-    this.plugin = plugin;
+class ChecksFetcher implements ChecksProvider {
+  private restApi: RestPluginApi;
+
+  private changeNumber?: number;
+
+  private patchsetNumber?: number;
+
+  constructor(private readonly plugin: PluginApi) {
     this.restApi = plugin.restApi();
   }
 
-  async fetchCurrent() {
-    return this.fetch(this.changeNumber, this.patchsetNumber);
-  }
-
-  async fetch(changeData) {
+  async fetch(changeData: ChangeData) {
     const {changeNumber, patchsetNumber} = changeData;
     this.changeNumber = changeNumber;
     this.patchsetNumber = patchsetNumber;
     const checks = await this.apiGet('?o=CHECKER');
     return {
-      responseCode: 'OK',
-      actions: [{
-        name: 'Configure Checkers',
-        primary: true,
-        callback: () => this.plugin.popup('gr-checkers-list'),
-      }],
+      responseCode: ResponseCode.OK,
+      actions: [
+        {
+          name: 'Configure Checkers',
+          primary: true,
+          callback: () => {
+            this.plugin.popup('gr-checkers-list');
+            return undefined;
+          },
+        },
+      ],
       runs: checks.map(check => this.convert(check)),
     };
   }
 
-  async apiGet(suffix) {
+  async apiGet(suffix: string): Promise<Check[]> {
     return this.restApi.get(
-        '/changes/' + this.changeNumber + '/revisions/' + this.patchsetNumber +
-        '/checks' + suffix);
+      `/changes/${this.changeNumber}/revisions/${this.patchsetNumber}/checks${suffix}`
+    );
   }
 
-  async apiPost(suffix) {
+  async apiPost(suffix: string) {
     return this.restApi.post(
-        '/changes/' + this.changeNumber + '/revisions/' + this.patchsetNumber +
-        '/checks' + suffix);
+      `/changes/${this.changeNumber}/revisions/${this.patchsetNumber}/checks${suffix}`
+    );
   }
 
   /**
    * Converts a Checks Plugin CheckInfo object into a Checks API Run object.
    */
-  convert(check) {
-    let status = 'RUNNABLE';
+  convert(check: Check) {
+    let status = RunStatus.RUNNABLE;
     if (check.state === 'RUNNING' || check.state === 'SCHEDULED') {
-      status = 'RUNNING';
+      status = RunStatus.RUNNING;
     } else if (check.state === 'FAILED' || check.state === 'SUCCESSFUL') {
-      status = 'COMPLETED';
+      status = RunStatus.COMPLETED;
     }
-    const run = {
+    const run: CheckRun = {
       checkName: check.checker_name,
       checkDescription: check.checker_description,
       externalId: check.checker_uuid,
@@ -86,21 +105,25 @@ class ChecksFetcher {
       }
     } else if (check.state === 'SUCCESSFUL') {
       run.statusDescription =
-          check.message || `Passed (${computeDuration(check)})`;
+        check.message || `Passed (${computeDuration(check)})`;
       if (check.url) {
         run.statusLink = check.url;
       }
     } else if (check.state === 'FAILED') {
-      run.results = [{
-        category: 'ERROR',
-        summary: check.message || `Failed (${computeDuration(check)})`,
-      }];
+      run.results = [
+        {
+          category: Category.ERROR,
+          summary: check.message || `Failed (${computeDuration(check)})`,
+        },
+      ];
       if (check.url) {
-        run.results[0].links = [{
-          url: check.url,
-          primary: true,
-          icon: 'external',
-        }];
+        run.results[0].links = [
+          {
+            url: check.url,
+            primary: true,
+            icon: LinkIcon.EXTERNAL,
+          },
+        ];
       }
     }
     // We also provide the "run" action for running checks, because the "/rerun"
@@ -109,26 +132,28 @@ class ChecksFetcher {
     let actionName = 'Run';
     if (status === 'RUNNING') actionName = 'Stop and Rerun';
     if (status === 'COMPLETED') actionName = 'Rerun';
-    run.actions = [{
-      name: actionName,
-      primary: true,
-      callback: () => this.run(check.checker_uuid),
-    }];
+    run.actions = [
+      {
+        name: actionName,
+        primary: true,
+        callback: () => this.run(check.checker_uuid),
+      },
+    ];
     return run;
   }
 
-  run(uuid) {
-    return this.apiPost('/' + uuid + '/rerun')
-        .then(_ => {
-          return {message: 'Run triggered.', shouldReload: true};
-        })
-        .catch(e => {
-          return {message: `Triggering the run failed: ${e.message}`};
-        });
+  run(uuid: string) {
+    return this.apiPost(`/${uuid}/rerun`)
+      .then(_ => {
+        return {message: 'Run triggered.', shouldReload: true};
+      })
+      .catch(e => {
+        return {message: `Triggering the run failed: ${e.message}`};
+      });
   }
 }
 
-Gerrit.install(plugin => {
+window.Gerrit.install(plugin => {
   const checksApi = plugin.checks();
   const fetcher = new ChecksFetcher(plugin);
   checksApi.register({
