@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig-plugins-base.json",
+  "compilerOptions": {
+    "outDir": "../../../.ts-out/plugins/checks", /* overridden by bazel */
+    "typeRoots": [
+      "../../../external/ui_dev_npm/node_modules/@types",
+      "../../../external/plugins_npm/node_modules/@types"
+    ],
+  },
+  "include": [
+    "**/*"
+  ]
+}
