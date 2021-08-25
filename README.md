@@ -9,6 +9,14 @@ When upgrading the plugin, please use init:
 
 More details about "init" in https://gerrit-review.googlesource.com/Documentation/pgm-init.html
 
+## Enable e-mail notifications
+
+To enable sending email notifications for `checks` status updates, you'll need to create the email templates in `<site_path>`/etc/mail. In the simplest form, simply rename the example templates:
+
+    cd "<your-site-path>"
+    mv etc/mail/CombinedCheckStateUpdated.soy{.example,}
+    mv etc/mail/CombinedCheckStateUpdatedHtml.soy{.example,}
+
 ## UI tests
 
 To run UI tests here will need install dependencies from both npm and bower.
