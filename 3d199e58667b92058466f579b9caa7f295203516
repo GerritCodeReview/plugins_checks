@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf8c3bd_8127b2ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140106
+      },
+      "writtenOn": "2021-09-09T23:15:31Z",
+      "side": 1,
+      "message": "Added some reviewers based on the most recent change in HEAD.",
+      "revId": "3d199e58667b92058466f579b9caa7f295203516",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
