@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "014f1117_3959e191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:58:19Z",
+      "side": 1,
+      "message": "One more question: Any reason to move files to js/? Could we keep the old directory ? js/ seems like a weird directory name. It doesn\u0027t offer much info and it\u0027s not even js code.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "844475c6_ea12547c",
