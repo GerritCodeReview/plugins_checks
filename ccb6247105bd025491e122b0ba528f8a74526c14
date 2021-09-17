@@ -524,6 +524,24 @@
       "parentUuid": "d64b392f_07066670",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9868562_3c208b7e",
+        "filename": "js/test/sinon.esm.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T22:35:51Z",
+      "side": 1,
+      "message": "sgtm",
+      "parentUuid": "4a2989e4_9f80732e",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
