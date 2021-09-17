@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "844475c6_ea12547c",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Why is this function async? It\u0027s just returning the promise.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8c4cc0b_689fb97d",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Why is this function async? It\u0027s just returning the promise.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa15197e_88ae41f7",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Fold into a helper function\n\nconst status \u003d computeStatus(check.state);",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff78218_ac701250",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "else if",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3597d6fe_c3a9687c",
+        "filename": "js/fetcher_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Could you add test cases for the other flows?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4a485c_c7a5968d",
+        "filename": "js/gr-checkers-list.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Does this also need an @cancel?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45211146_3ee25128",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "This class feels really big and has a lot of state. I wonder if we can split it up.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d2c743_318fdb9c",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "This section could be a different gr-component.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e604ee15_3859515c",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "This doesn\u0027t need a ?disabled check?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa705bb_7e92a49d",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Consider having a this.getUUID() as you also use it down below.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9147525_6ee99cf7",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "this.getUUID()",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e26f47_daf325e9",
+        "filename": "js/gr-create-checkers-dialog_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "This could use a little bit more tests.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff91055b_ffad6ddc",
+        "filename": "js/gr-repo-chip_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Test that clicking the button triggers handleRemove.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d64b392f_07066670",
+        "filename": "js/test/sinon.esm.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-17T14:57:45Z",
+      "side": 1,
+      "message": "Where are these types imported from?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
