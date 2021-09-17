@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbbaf5db_882256db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "I am happy to discuss the naming, will ask in our chat room. :-)\n\ngr-checks is also a weird name. That is nearly like checks/checks/.\n\njs/ is at least like java/. :-)\n\nI would like to establish a name that all plugins use. So it is worth to search for a good name.",
+      "parentUuid": "014f1117_3959e191",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "844475c6_ea12547c",
         "filename": "js/fetcher.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "Why is this function async? It\u0027s just returning the promise.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81c7391_06a3e366",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Isn\u0027t that essentially the same? :-)\n\nAnyway, I have added an `await`.",
+      "parentUuid": "844475c6_ea12547c",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -52,6 +88,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79258c77_b9cf0206",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8c4cc0b_689fb97d",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa15197e_88ae41f7",
@@ -65,6 +119,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "Fold into a helper function\n\nconst status \u003d computeStatus(check.state);",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ead063b2_6840cb6e",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa15197e_88ae41f7",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -86,6 +158,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e281c39a_eddddedc",
+        "filename": "js/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ff78218_ac701250",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3597d6fe_c3a9687c",
@@ -99,6 +189,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "Could you add test cases for the other flows?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb3eee1_758aedb8",
+        "filename": "js/fetcher_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3597d6fe_c3a9687c",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -120,6 +228,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d456370_7fba52fd",
+        "filename": "js/gr-checkers-list.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a4a485c_c7a5968d",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45211146_3ee25128",
@@ -133,6 +259,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "This class feels really big and has a lot of state. I wonder if we can split it up.",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe99727_a1f49378",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Sure, but\n\n1. I am just converting here, not re-writing the entire plugin from scratch.\n2. The expected lifetime of everything other than fetcher.ts is about one or two quarters.\n\nSo I would like to punt on this and potentially other comments below.",
+      "parentUuid": "45211146_3ee25128",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -154,6 +298,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2731ddd_848acdb8",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Yes, but see above.",
+      "parentUuid": "89d2c743_318fdb9c",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e604ee15_3859515c",
@@ -167,6 +329,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "This doesn\u0027t need a ?disabled check?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7330a763_7a96866a",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "No, I don\u0027t think so.",
+      "parentUuid": "e604ee15_3859515c",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -188,6 +368,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74893034_a948125d",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaa705bb_7e92a49d",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9147525_6ee99cf7",
@@ -201,6 +399,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "this.getUUID()",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6768ad16_2dab96e2",
+        "filename": "js/gr-create-checkers-dialog.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9147525_6ee99cf7",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -222,6 +438,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e66e751_19a7238d",
+        "filename": "js/gr-create-checkers-dialog_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Yes, but see above.",
+      "parentUuid": "d1e26f47_daf325e9",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff91055b_ffad6ddc",
@@ -239,6 +473,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a86fd3b_c199fde3",
+        "filename": "js/gr-repo-chip_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff91055b_ffad6ddc",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d64b392f_07066670",
@@ -252,6 +504,24 @@
       "writtenOn": "2021-09-17T14:57:45Z",
       "side": 1,
       "message": "Where are these types imported from?",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2989e4_9f80732e",
+        "filename": "js/test/sinon.esm.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-17T20:00:15Z",
+      "side": 1,
+      "message": "I have no idea. I was just copying stuff from polygerrit.\n\nYes, it would be nice to understand this better and add comments about it. But maybe in a later change?",
+      "parentUuid": "d64b392f_07066670",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
