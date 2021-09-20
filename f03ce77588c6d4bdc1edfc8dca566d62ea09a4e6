@@ -35,6 +35,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c094ce_3e47de69",
+        "filename": "web/fetcher.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09408b77_0d6dbba1",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfaf1a4c_28598066",
@@ -52,6 +70,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2e166b9_b1199432",
+        "filename": "web/test/test-setup.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:30:21Z",
+      "side": 1,
+      "message": "From the `typeRoots` in the `tsconfig.json` file, i.e. `node_modules/@types/sinon`.",
+      "parentUuid": "cfaf1a4c_28598066",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db4179aa_d9e7db15",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-09-20T10:13:13Z",
       "side": 1,
       "message": "No pluralization for secs and mins?",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edc4feec_a6a35c71",
+        "filename": "web/util.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:30:21Z",
+      "side": 1,
+      "message": "Yeah, I think this is WAI, because `min` and `sec` are abbreviations, while `hour`, `day`, `month` are not.",
+      "parentUuid": "db4179aa_d9e7db15",
       "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
