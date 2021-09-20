@@ -16,6 +16,24 @@
       "message": "How come you no longer need a package.json file?",
       "revId": "49478893c3452942ea6f5cb275e4055b85bf872a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc1d7eb_b2eaac8d",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:05:31Z",
+      "side": 0,
+      "message": "Individual plugins cannot define their own deps, because Bazel would not be able to cope with it (or I don\u0027t know how to implement that).\n\nJust for the sake of having a name and description I don\u0027t find a package.json file very useful.\n\nAlso all the relevant commands for building, testing, etc. are better placed in the README.md IMO.\n\nBut I could be convinced otherwise, if you think a package.json file would be good to have. :-)",
+      "parentUuid": "2b2615ca_2889aad6",
+      "revId": "49478893c3452942ea6f5cb275e4055b85bf872a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

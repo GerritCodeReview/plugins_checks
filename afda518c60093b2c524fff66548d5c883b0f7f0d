@@ -35,6 +35,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b631c53_74f402fc",
+        "filename": "js/gr-repo-chip.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a034952_ea30fb84",
+      "revId": "afda518c60093b2c524fff66548d5c883b0f7f0d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f29de10a_115d50c0",

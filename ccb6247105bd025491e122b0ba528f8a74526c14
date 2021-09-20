@@ -36,6 +36,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "425be35e_1db377e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:05:31Z",
+      "side": 1,
+      "message": "Discussion concluded. Between Frank, Milutin, Chris and me we have chosen `web/` as the winner.",
+      "parentUuid": "cbbaf5db_882256db",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "844475c6_ea12547c",
@@ -456,6 +474,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "917ae215_eecf7619",
+        "filename": "js/gr-repo-chip.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f29de10a_115d50c0",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff91055b_ffad6ddc",
@@ -540,6 +576,24 @@
       "side": 1,
       "message": "sgtm",
       "parentUuid": "4a2989e4_9f80732e",
+      "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00dfc1ad_6eece25c",
+        "filename": "js/test/sinon.esm.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-09-20T10:05:31Z",
+      "side": 1,
+      "message": "I have managed to do without this. :-)",
+      "parentUuid": "e9868562_3c208b7e",
       "revId": "ccb6247105bd025491e122b0ba528f8a74526c14",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
