@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5210df48_0949fa35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-20T10:13:13Z",
+      "side": 1,
+      "message": "Just some nits and an edification question.",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09408b77_0d6dbba1",
+        "filename": "web/fetcher.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-20T10:13:13Z",
+      "side": 1,
+      "message": "Nit: newline between function and class",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfaf1a4c_28598066",
+        "filename": "web/test/test-setup.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-20T10:13:13Z",
+      "side": 1,
+      "message": "Where is it pulling this from?",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db4179aa_d9e7db15",
+        "filename": "web/util.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-20T10:13:13Z",
+      "side": 1,
+      "message": "No pluralization for secs and mins?",
+      "revId": "f03ce77588c6d4bdc1edfc8dca566d62ea09a4e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

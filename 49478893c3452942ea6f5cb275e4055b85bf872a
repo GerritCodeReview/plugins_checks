@@ -34,6 +34,24 @@
       "parentUuid": "2b2615ca_2889aad6",
       "revId": "49478893c3452942ea6f5cb275e4055b85bf872a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "645303c5_ca1f0a7c",
+        "filename": "package.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1139611
+      },
+      "writtenOn": "2021-09-20T10:13:13Z",
+      "side": 0,
+      "message": "No strong opinion, I\u0027m not yet familiar enough with how plugins are built and deployed.",
+      "parentUuid": "1cc1d7eb_b2eaac8d",
+      "revId": "49478893c3452942ea6f5cb275e4055b85bf872a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
