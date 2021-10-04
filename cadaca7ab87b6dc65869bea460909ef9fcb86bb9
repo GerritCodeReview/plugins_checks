@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2c547b_c085d029",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2021-10-04T08:41:03Z",
+      "side": 1,
+      "message": "Zuul fails with a weird unrelated error message. Self-verify +1: I have actually run the compiled plugin and it works.",
+      "revId": "cadaca7ab87b6dc65869bea460909ef9fcb86bb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
