@@ -16,6 +16,7 @@ package com.google.gerrit.plugins.checks;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
@@ -90,6 +91,19 @@ public interface Checks {
    */
   boolean areAllRequiredCheckersPassing(Project.NameKey projectName, PatchSet.Id patchSetId)
       throws IOException, StorageException;
+
+  /**
+   * Returns a map with keys equal to the available {@link Check}s for the project and patch set
+   * parameters, and values as a boolean indicating if the check is required for submission.
+   *
+   * @param projectName the name of the project.
+   * @param patchSetId the ID of the patch set.
+   * @return
+   * @throws IOException if failed to check if all required checks have passed.
+   * @throws StorageException if failed to check if all required checks have passed.
+   */
+  ImmutableListMultimap<Check, Boolean> getChecksAndRequiredMap(
+      Project.NameKey projectName, PatchSet.Id patchSetId) throws IOException, StorageException;
 
   /**
    * Computes an ETag for the checks of the given change.
