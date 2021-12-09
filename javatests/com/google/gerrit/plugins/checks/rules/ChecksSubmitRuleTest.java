@@ -20,12 +20,18 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.gerrit.entities.Account;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.SubmitRecord;
+import com.google.gerrit.plugins.checks.Check;
+import com.google.gerrit.plugins.checks.Checker;
+import com.google.gerrit.plugins.checks.CheckerUuid;
 import com.google.gerrit.plugins.checks.Checks;
+import com.google.gerrit.plugins.checks.api.CheckerStatus;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.gerrit.server.util.time.TimeUtil;
 import java.io.IOException;
@@ -49,13 +55,26 @@ public class ChecksSubmitRuleTest {
 
   @Test
   public void getCombinedCheckStateFails() throws Exception {
+    Project.NameKey project = Project.nameKey("My-Project");
+    Change.Id changeId = Change.id(1);
+    PatchSet psId =
+        PatchSet.builder()
+            .id(PatchSet.id(changeId, 1))
+            .commitId(ObjectId.zeroId())
+            .uploader(Account.id(1000))
+            .createdOn(TimeUtil.nowTs())
+            .build();
+    Checker checker1 = newOptionalChecker("checker-1");
+
     Checks checks = mock(Checks.class);
     when(checks.areAllRequiredCheckersPassing(any(), any()))
         .thenThrow(new IOException("Fail for test"));
+    when(checks.getChecksAndRequiredMap(any(), any()))
+        .thenReturn(
+            ImmutableListMultimap.of(Check.newBackfilledCheck(project, psId, checker1), true));
 
     ChecksSubmitRule checksSubmitRule = new ChecksSubmitRule(checks);
 
-    Change.Id changeId = Change.id(1);
     ChangeData cd = mock(ChangeData.class);
     when(cd.project()).thenReturn(Project.nameKey("My-Project"));
     when(cd.getId()).thenReturn(Change.id(1));
@@ -72,11 +91,64 @@ public class ChecksSubmitRuleTest {
     assertErrorRecord(submitRecords, "failed to evaluate check states for change 1");
   }
 
+  @Test
+  public void returnsEmptySubmitRecordIfAllCheckersAreOptional() throws Exception {
+    Project.NameKey project = Project.nameKey("My-Project");
+    Change.Id changeId = Change.id(1);
+    PatchSet psId =
+        PatchSet.builder()
+            .id(PatchSet.id(changeId, 1))
+            .commitId(ObjectId.zeroId())
+            .uploader(Account.id(1000))
+            .createdOn(TimeUtil.nowTs())
+            .build();
+    Checker checker1 = newOptionalChecker("checker-1");
+    Checker checker2 = newOptionalChecker("checker-2");
+    Checks checks = mock(Checks.class);
+    when(checks.getChecksAndRequiredMap(any(), any()))
+        .thenReturn(
+            ImmutableListMultimap.of(
+                Check.newBackfilledCheck(project, psId, checker1),
+                false,
+                Check.newBackfilledCheck(project, psId, checker2),
+                false));
+
+    ChecksSubmitRule checksSubmitRule = new ChecksSubmitRule(checks);
+
+    ChangeData cd = mock(ChangeData.class);
+    when(cd.project()).thenReturn(Project.nameKey("My-Project"));
+    when(cd.getId()).thenReturn(Change.id(1));
+    when(cd.currentPatchSet())
+        .thenReturn(
+            PatchSet.builder()
+                .id(PatchSet.id(changeId, 1))
+                .commitId(ObjectId.zeroId())
+                .uploader(Account.id(1000))
+                .createdOn(TimeUtil.nowTs())
+                .build());
+
+    Optional<SubmitRecord> submitRecord = checksSubmitRule.evaluate(cd);
+    assertThat(submitRecord).isEmpty();
+  }
+
   private static void assertErrorRecord(
       Optional<SubmitRecord> submitRecord, String expectedErrorMessage) {
     assertThat(submitRecord).isPresent();
 
     assertThat(submitRecord.get().status).isEqualTo(SubmitRecord.Status.RULE_ERROR);
     assertThat(submitRecord.get().errorMessage).isEqualTo(expectedErrorMessage);
+  }
+
+  private Checker newOptionalChecker(String checkerName) {
+    return Checker.builder()
+        .setName(checkerName)
+        .setRepository(Project.nameKey("test-repo"))
+        .setStatus(CheckerStatus.ENABLED)
+        .setUuid(CheckerUuid.parse("schema:any-id"))
+        .setCreated(TimeUtil.nowTs())
+        .setUpdated(TimeUtil.nowTs())
+        .setRefState(ObjectId.zeroId())
+        .setBlockingConditions(ImmutableSortedSet.of())
+        .build();
   }
 }
