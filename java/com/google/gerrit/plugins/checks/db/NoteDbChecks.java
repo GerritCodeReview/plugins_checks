@@ -50,7 +50,6 @@ import java.util.stream.Stream;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevWalk;
 
 /** Class to read checks from NoteDb. */
 @Singleton
@@ -142,7 +141,10 @@ class NoteDbChecks implements Checks {
   public CombinedCheckState getCombinedCheckState(
       Project.NameKey projectName, PatchSet.Id patchSetId) throws IOException, StorageException {
     ImmutableListMultimap<CheckState, Boolean> statesAndRequired =
-        getStatesAndRequiredMap(projectName, patchSetId);
+        getChecksAndRequiredMap(projectName, patchSetId).entries().stream()
+            .collect(
+                ImmutableListMultimap.toImmutableListMultimap(
+                    e -> e.getKey().state(), e -> e.getValue()));
     return CombinedCheckState.combine(statesAndRequired);
   }
 
@@ -150,22 +152,17 @@ class NoteDbChecks implements Checks {
   public boolean areAllRequiredCheckersPassing(Project.NameKey projectName, PatchSet.Id patchSetId)
       throws IOException, StorageException {
     ImmutableListMultimap<CheckState, Boolean> statesAndRequired =
-        getStatesAndRequiredMap(projectName, patchSetId);
+        getChecksAndRequiredMap(projectName, patchSetId).entries().stream()
+            .collect(
+                ImmutableListMultimap.toImmutableListMultimap(
+                    e -> e.getKey().state(), e -> e.getValue()));
     CheckStateCount checkStateCount = CheckStateCount.create(statesAndRequired);
     return checkStateCount.failedRequiredCount() == 0
         && checkStateCount.inProgressRequiredCount() == 0;
   }
 
   @Override
-  public String getETag(Project.NameKey projectName, Change.Id changeId) throws IOException {
-    try (Repository repo = repoManager.openRepository(projectName);
-        RevWalk rw = new RevWalk(repo)) {
-      Ref checkRef = repo.getRefDatabase().exactRef(CheckerRef.checksRef(changeId));
-      return checkRef != null ? checkRef.getObjectId().getName() : ObjectId.zeroId().getName();
-    }
-  }
-
-  private ImmutableListMultimap<CheckState, Boolean> getStatesAndRequiredMap(
+  public ImmutableListMultimap<Check, Boolean> getChecksAndRequiredMap(
       Project.NameKey projectName, PatchSet.Id patchSetId) throws IOException, StorageException {
     ImmutableMap<String, Checker> allCheckersOfProject =
         checkers.checkersOf(projectName).stream()
@@ -177,7 +174,7 @@ class NoteDbChecks implements Checks {
         getChecks(projectName, patchSetId, GetCheckOptions.withBackfilling()).stream()
             .collect(ImmutableMap.toImmutableMap(c -> c.key().checkerUuid().get(), c -> c));
 
-    ImmutableListMultimap.Builder<CheckState, Boolean> statesAndRequired =
+    ImmutableListMultimap.Builder<Check, Boolean> statesAndRequired =
         ImmutableListMultimap.builder();
 
     for (Map.Entry<String, Check> entry : checks.entrySet()) {
@@ -187,15 +184,23 @@ class NoteDbChecks implements Checks {
       Checker checker = allCheckersOfProject.get(checkerUuid);
       if (checker == null) {
         // A not-relevant check.
-        statesAndRequired.put(check.state(), false);
+        statesAndRequired.put(check, false);
         continue;
       }
 
       boolean isRequired = isRequiredForSubmit(checker, patchSetId.changeId());
-      statesAndRequired.put(check.state(), isRequired);
+      statesAndRequired.put(check, isRequired);
     }
 
     return statesAndRequired.build();
+  }
+
+  @Override
+  public String getETag(Project.NameKey projectName, Change.Id changeId) throws IOException {
+    try (Repository repo = repoManager.openRepository(projectName)) {
+      Ref checkRef = repo.getRefDatabase().exactRef(CheckerRef.checksRef(changeId));
+      return checkRef != null ? checkRef.getObjectId().getName() : ObjectId.zeroId().getName();
+    }
   }
 
   @Override

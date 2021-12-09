@@ -15,6 +15,7 @@
 package com.google.gerrit.plugins.checks.rules;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.LegacySubmitRequirement;
@@ -22,7 +23,9 @@ import com.google.gerrit.entities.PatchSet;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.SubmitRecord;
 import com.google.gerrit.entities.SubmitRecord.Status;
+import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.plugins.checks.Check;
 import com.google.gerrit.plugins.checks.Checks;
 import com.google.gerrit.server.query.change.ChangeData;
 import com.google.gerrit.server.rules.SubmitRule;
@@ -75,6 +78,9 @@ public class ChecksSubmitRule implements SubmitRule {
 
     boolean areAllRequiredCheckersPassing;
     try {
+      if (allChecksAreOptional(project, currentPatchSetId)) {
+        return Optional.empty();
+      }
       areAllRequiredCheckersPassing =
           checks.areAllRequiredCheckersPassing(project, currentPatchSetId);
     } catch (IOException e) {
@@ -100,5 +106,16 @@ public class ChecksSubmitRule implements SubmitRule {
     submitRecord.errorMessage = reason;
     submitRecord.status = SubmitRecord.Status.RULE_ERROR;
     return Optional.of(submitRecord);
+  }
+
+  /**
+   * Returns true if all checks for the project and patch set are optional, that is all checks are
+   * not required for submit.
+   */
+  private boolean allChecksAreOptional(Project.NameKey project, PatchSet.Id patchSetId)
+      throws IOException, StorageException {
+    ImmutableListMultimap<Check, Boolean> checksAndRequired =
+        checks.getChecksAndRequiredMap(project, patchSetId);
+    return checksAndRequired.values().stream().allMatch(b -> !b);
   }
 }
