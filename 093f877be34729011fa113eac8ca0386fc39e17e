@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4af222_e472b1a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-12-10T11:35:51Z",
+      "side": 1,
+      "message": "This confused me. Actually we are returning an empty result from the submit rule (Optional#empty()), but not an empty submit record (SubmitRecord instance that is empty). Can you rephrase this here and below to avoid this confusion?",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57251307_7b246279",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-12-10T11:35:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure that it makes sense to expose this method in the API, maybe rather add the allCheckersAreOptional method here?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 96
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7a476d_7dda5430",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-12-10T11:35:51Z",
+      "side": 1,
+      "message": "nit: name needs to be changed now",
+      "range": {
+        "startLine": 177,
+        "startChar": 50,
+        "endLine": 177,
+        "endChar": 67
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1479bd_c39d3dd8",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-12-10T11:35:51Z",
+      "side": 1,
+      "message": "Should this rather be called allCheckersAreOptional, it\u0027s the checkers that are required or not, not the checks.",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

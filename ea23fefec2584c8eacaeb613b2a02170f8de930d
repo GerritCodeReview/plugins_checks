@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31edfda3_20adcfaa",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-12-10T11:35:51Z",
+      "side": 0,
+      "message": "Removing this seems like an unrelated change, should this be a separate change?",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 162,
+        "endChar": 38
+      },
+      "revId": "ea23fefec2584c8eacaeb613b2a02170f8de930d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
