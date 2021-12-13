@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb4fc27_80ea56d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-12-13T12:14:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e4af222_e472b1a7",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57251307_7b246279",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-10T11:35:51Z",
       "side": 1,
       "message": "I\u0027m not sure that it makes sense to expose this method in the API, maybe rather add the allCheckersAreOptional method here?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 96
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99d5724_05535c45",
+        "filename": "java/com/google/gerrit/plugins/checks/Checks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-12-13T12:14:24Z",
+      "side": 1,
+      "message": "OK, done.\n\nI did it that way since current code (which checks if all \"required\" checks are passing) joins the checks of the project/PS with the checkers [1]. I wanted to imitate that. Just looking for checkers looks reasonable to me.\n\nPlease resolve if the change state looks good for you.\n\n[1] https://gerrit.googlesource.com/plugins/checks/+/ea23fefec2584c8eacaeb613b2a02170f8de930d/java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java#183",
+      "parentUuid": "57251307_7b246279",
       "range": {
         "startLine": 105,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "076d7cc6_6c083a16",
+        "filename": "java/com/google/gerrit/plugins/checks/db/NoteDbChecks.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-12-13T12:14:24Z",
+      "side": 1,
+      "message": "This is now obsolete.",
+      "parentUuid": "2d7a476d_7dda5430",
+      "range": {
+        "startLine": 177,
+        "startChar": 50,
+        "endLine": 177,
+        "endChar": 67
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f1479bd_c39d3dd8",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-12-10T11:35:51Z",
       "side": 1,
       "message": "Should this rather be called allCheckersAreOptional, it\u0027s the checkers that are required or not, not the checks.",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "093f877be34729011fa113eac8ca0386fc39e17e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6023f7f8_c2f2e69a",
+        "filename": "java/com/google/gerrit/plugins/checks/rules/ChecksSubmitRule.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-12-13T12:14:24Z",
+      "side": 1,
+      "message": "Yes, checkers are the entities which provide the optional boolean. I mentioned in the other comment that I wanted to say: checkers for the checks available for this project/patchset are optional.\n\nI adapted according to the other comment.",
+      "parentUuid": "1f1479bd_c39d3dd8",
       "range": {
         "startLine": 115,
         "startChar": 18,
