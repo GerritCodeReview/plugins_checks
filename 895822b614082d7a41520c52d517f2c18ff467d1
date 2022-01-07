@@ -33,6 +33,24 @@
       "message": "This could be csanged as well in checks plugin?",
       "revId": "895822b614082d7a41520c52d517f2c18ff467d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d576e622_412f0315",
+        "filename": "java/com/google/gerrit/plugins/checks/CheckUpdate.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2022-01-07T07:57:12Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8038ee89_c852ecc8",
+      "revId": "895822b614082d7a41520c52d517f2c18ff467d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
