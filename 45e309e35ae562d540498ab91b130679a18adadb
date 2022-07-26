@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c32204a_13a02d0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2022-07-26T09:33:48Z",
+      "side": 1,
+      "message": "FYI, I verified locally. But let\u0027s wait a bit for zuul.\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nINFO: Elapsed time: 58.383s, Critical Path: 51.81s\nINFO: 51 processes: 33 internal, 10 linux-sandbox, 8 worker.\nINFO: Build completed successfully, 51 total actions\n//plugins/checks/javatests/com/google/gerrit/plugins/checks:checks_tests PASSED in 6.3s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/acceptance:checks PASSED in 23.5s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/acceptance/api:api_checker PASSED in 48.3s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/acceptance/db:get_combined_check_state PASSED in 16.9s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/acceptance/rules:checks_submit_rules PASSED in 22.7s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/acceptance/testsuite:checks PASSED in 28.8s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/api:api_tests PASSED in 1.0s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/db:db_tests  PASSED in 2.9s\n//plugins/checks/javatests/com/google/gerrit/plugins/checks/rules:rules_tests PASSED in 2.4s\n\nExecuted 9 out of 9 tests: 9 tests pass.\nINFO: Build completed successfully, 51 total actions",
+      "revId": "45e309e35ae562d540498ab91b130679a18adadb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
