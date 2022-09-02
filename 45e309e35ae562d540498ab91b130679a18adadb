@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t that function be deleted?",
       "revId": "45e309e35ae562d540498ab91b130679a18adadb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69099720_4e2eed50",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2022-09-02T17:09:21Z",
+      "side": 0,
+      "message": "it was removed in your change in the gerrit project, along with all other callers. So it should be removed here as well.\n\nhttps://gerrit-review.googlesource.com/c/gerrit/+/343774/5/java/com/google/gerrit/server/mail/send/ChangeEmail.java#b395",
+      "parentUuid": "ffaf3b2f_457cf75e",
+      "revId": "45e309e35ae562d540498ab91b130679a18adadb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
