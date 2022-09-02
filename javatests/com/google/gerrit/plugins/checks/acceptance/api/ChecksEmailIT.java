@@ -132,7 +132,6 @@ public class ChecksEmailIT extends AbstractCheckersTest {
     requestScopeOperations.setApiUser(admin.id());
     gApi.changes().id(patchSetId.changeId().get()).addReviewer(ignoringReviewer.username());
     requestScopeOperations.setApiUser(ignoringReviewer.id());
-    gApi.changes().id(patchSetId.changeId().get()).ignore(true);
 
     // Reset request scope to admin.
     requestScopeOperations.setApiUser(admin.id());
