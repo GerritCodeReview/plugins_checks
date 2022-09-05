@@ -52,6 +52,24 @@
       "parentUuid": "69099720_4e2eed50",
       "revId": "45e309e35ae562d540498ab91b130679a18adadb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f25e2a1_37669922",
+        "filename": "java/com/google/gerrit/plugins/checks/email/CombinedCheckStateUpdatedSender.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2022-09-05T08:55:00Z",
+      "side": 0,
+      "message": "gerrit is a separate project than plugins/checks, so CI was just fine for your change but once it was submitted it broke plugins/checks (because it depends on the same code), and it needed to be adapted separately.",
+      "parentUuid": "5bdda8c3_974d607b",
+      "revId": "45e309e35ae562d540498ab91b130679a18adadb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
