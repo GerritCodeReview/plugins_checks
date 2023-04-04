@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad3c3b0f_5538df3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1148215
+      },
+      "writtenOn": "2023-04-04T08:21:46Z",
+      "side": 1,
+      "message": "Note: the build check will keep failing, until the main change is submitted",
+      "revId": "6b85871912816d6cf2dd793e9f7e641c02c3fb91",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
