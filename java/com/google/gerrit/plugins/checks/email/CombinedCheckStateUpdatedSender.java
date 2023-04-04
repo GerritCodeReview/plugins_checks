@@ -85,15 +85,15 @@ public class CombinedCheckStateUpdatedSender extends ReplyToChangeSender {
     super.populateEmailContent();
 
     if (oldCombinedCheckState != null) {
-      soyContext.put("oldCombinedCheckState", oldCombinedCheckState.name());
+      addSoyParam("oldCombinedCheckState", oldCombinedCheckState.name());
     }
 
     if (newCombinedCheckState != null) {
-      soyContext.put("newCombinedCheckState", newCombinedCheckState.name());
+      addSoyParam("newCombinedCheckState", newCombinedCheckState.name());
     }
 
     if (checker != null && check != null) {
-      soyContext.put("checker", getCheckerData(checker, check));
+      addSoyParam("checker", getCheckerData(checker, check));
     }
 
     if (checksByChecker != null) {
@@ -103,7 +103,7 @@ public class CombinedCheckStateUpdatedSender extends ReplyToChangeSender {
             CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, checkState.name()),
             getCheckerDataForCheckState(checkState));
       }
-      soyContext.put("allCheckers", allCheckersData);
+      addSoyParam("allCheckers", allCheckersData);
     }
 
     ccAllApprovals();
