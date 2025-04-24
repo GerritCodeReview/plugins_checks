@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4318198b_0d89934e",
+        "filename": "web/web_test_runner.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2025-04-24T15:12:06Z",
+      "side": 1,
+      "message": "Typo?\nDid you actually run the tests?",
+      "range": {
+        "startLine": 7,
+        "startChar": 32,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "75d704d8_d8f02399",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "web/web_test_runner.sh",
+              "range": {
+                "startLine": 7,
+                "startChar": 0,
+                "endLine": 8,
+                "endChar": 0
+              },
+              "replacement": "  --type-config\u003d\"plugins/checks/web/tsconfig.json\"\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8957223bbd9876fc2e7c6432cf76e9d1a76595a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
