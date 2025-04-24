@@ -1,6 +1,6 @@
 load("//tools/bzl:plugin.bzl", "gerrit_plugin")
 load("//tools/js:eslint.bzl", "plugin_eslint")
-load("//tools/bzl:js.bzl", "gerrit_js_bundle", "karma_test")
+load("//tools/bzl:js.bzl", "gerrit_js_bundle", "web_test_runner")
 load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
 
 package_group(
@@ -57,8 +57,12 @@ gerrit_js_bundle(
 # Creates lint_test and lint_bin rules.
 plugin_eslint()
 
-karma_test(
-    name = "karma_test",
-    srcs = ["karma_test.sh"],
-    data = [":checks-ts-tests"],
+web_test_runner(
+    name = "web_test_runner",
+    srcs = ["web_test_runner.sh"],
+    data = [
+        ":tsconfig",
+        ":checks-ts-tests",
+        "@plugins_npm//:node_modules",
+    ],
 )

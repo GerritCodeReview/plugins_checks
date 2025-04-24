@@ -16,6 +16,7 @@
  */
 import './test/test-setup';
 import {pluralize, generateDurationString} from './util';
+import {assert} from '@open-wc/testing';
 
 suite('util tests', () => {
   test('pluralize', () => {

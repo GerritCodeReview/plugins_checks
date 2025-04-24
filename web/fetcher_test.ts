@@ -26,6 +26,8 @@ import {
 } from '@gerritcodereview/typescript-api/checks';
 import {Check} from './types';
 import {ChangeInfo} from '@gerritcodereview/typescript-api/rest-api';
+import {assert} from '@open-wc/testing';
+import sinon from 'sinon';
 
 const check1: Check = {
   state: 'SUCCESSFUL',

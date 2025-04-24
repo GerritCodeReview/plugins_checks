@@ -15,21 +15,17 @@
  * limitations under the License.
  */
 import './test/test-setup';
-import {queryAll, queryAndAssert} from './test/test-util';
 import './gr-create-checkers-dialog';
+import {queryAll, queryAndAssert} from './test/test-util';
 import {GrCreateCheckersDialog} from './gr-create-checkers-dialog';
+import {fixture, html, assert} from '@open-wc/testing';
 
 suite('gr-create-checkers-dialog tests', () => {
   let element: GrCreateCheckersDialog;
 
   setup(async () => {
-    element = document.createElement('gr-create-checkers-dialog');
-    document.body.appendChild(element);
+    element = await fixture(html`<gr-create-checkers-dialog></gr-create-checkers-dialog>`);
     await element.updateComplete;
-  });
-
-  teardown(() => {
-    document.body.removeChild(element);
   });
 
   test('all sections are rendered', () => {

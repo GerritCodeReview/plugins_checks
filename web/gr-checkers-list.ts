@@ -16,7 +16,7 @@
  */
 import './gr-create-checkers-dialog';
 import {css, CSSResult, html, LitElement} from 'lit';
-import {customElement, property, query, state} from 'lit/decorators';
+import {customElement, property, query, state} from 'lit/decorators.js';
 import {Checker} from './types';
 import {CancelEvent, GrCreateCheckersDialog} from './gr-create-checkers-dialog';
 import {value} from './util';
@@ -82,8 +82,8 @@ export class GrCheckersList extends LitElement {
   }
 
   static override styles = [
-    window.Gerrit.styles.table as CSSResult,
-    window.Gerrit.styles.modal as CSSResult,
+    window.Gerrit?.styles.table as CSSResult,
+    window.Gerrit?.styles.modal as CSSResult,
     css`
       #container {
         width: 80vw;

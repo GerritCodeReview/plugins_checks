@@ -15,21 +15,17 @@
  * limitations under the License.
  */
 import './test/test-setup';
-import {queryAndAssert} from './test/test-util';
 import './gr-repo-chip';
+import {queryAndAssert} from './test/test-util';
 import {GrRepoChip} from './gr-repo-chip';
+import {fixture, html, assert} from '@open-wc/testing';
 
 suite('gr-repo-chip tests', () => {
   let element: GrRepoChip;
 
   setup(async () => {
-    element = document.createElement('gr-repo-chip');
-    document.body.appendChild(element);
+    element = await fixture(html`<gr-repo-chip></gr-repo-chip>`);
     await element.updateComplete;
-  });
-
-  teardown(() => {
-    document.body.removeChild(element);
   });
 
   test('a button is rendered', () => {

@@ -20,6 +20,7 @@ import {GrCheckersList} from './gr-checkers-list';
 import {Checker} from './types';
 import {queryAll, queryAndAssert} from './test/test-util';
 import {PluginApi} from '@gerritcodereview/typescript-api/plugin';
+import {assert} from '@open-wc/testing';
 
 const CHECKERS = [
   {

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 import './gr-repo-chip';
-import {customElement, property, state} from 'lit/decorators';
+import {customElement, property, state} from 'lit/decorators.js';
 import {css, CSSResult, html, LitElement, PropertyValues} from 'lit';
 import {HttpMethod, RestPluginApi} from '@gerritcodereview/typescript-api/rest';
 import {Checker} from './types';
@@ -108,7 +108,7 @@ export class GrCreateCheckersDialog extends LitElement {
   }
 
   static override styles = [
-    window.Gerrit.styles.form as CSSResult,
+    window.Gerrit?.styles.form as CSSResult,
     css`
       :host {
         display: inline-block;
