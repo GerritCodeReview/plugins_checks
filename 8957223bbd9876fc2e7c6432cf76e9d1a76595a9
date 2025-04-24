@@ -40,6 +40,54 @@
       ],
       "revId": "8957223bbd9876fc2e7c6432cf76e9d1a76595a9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "316b3914_eea3e39b",
+        "filename": "web/web_test_runner.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2025-04-24T15:22:54Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "4318198b_0d89934e",
+      "range": {
+        "startLine": 7,
+        "startChar": 32,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "8957223bbd9876fc2e7c6432cf76e9d1a76595a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f0aae6_ecd2f194",
+        "filename": "web/web_test_runner.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2025-04-24T15:22:54Z",
+      "side": 1,
+      "message": "Fix applied.\n\nYeh i ran them locally. I saw failures which allowed me to fix it.\n\ne.g. `bazel test plugins/checks/web:web_test_runner` is how i ran it.\n\nOh i see i typo\u0027d the arg as well.\n\nAnd since we never supplied a default value it was just returning undefined. Which\ni guess is why it passed.\n\nI\u0027ve now tested with --ts-config and a supplied default and it works.",
+      "parentUuid": "4318198b_0d89934e",
+      "range": {
+        "startLine": 7,
+        "startChar": 32,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "8957223bbd9876fc2e7c6432cf76e9d1a76595a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
