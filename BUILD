@@ -2,14 +2,14 @@ package_group(
     name = "visibility",
     packages = ["//plugins/checks/..."],
 )
-
+(
 package(default_visibility = [":visibility"])
-
+(
 load(
     "//tools/bzl:plugin.bzl",
     "gerrit_plugin",
 )
-
+(
 gerrit_plugin(
     name = "checks",
     srcs = glob(["java/com/google/gerrit/plugins/checks/**/*.java"]),
@@ -24,3 +24,8 @@ gerrit_plugin(
     resources = glob(["resources/**/*"]),
     deps = ["//plugins/checks/proto:cache_java_proto"],
 )
+(
+
+
+
+  ...
