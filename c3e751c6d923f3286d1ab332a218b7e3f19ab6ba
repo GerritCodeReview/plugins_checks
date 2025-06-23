@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "df6c212e_5d2e0252",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1153382
+      },
+      "writtenOn": "2025-06-23T09:31:17Z",
+      "side": 1,
+      "message": "thanks a lot.\nI use calling announceUpdate to trigger the checks status refresh",
+      "parentUuid": "3d73cab4_7cc2d1ac",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 154
+      },
+      "revId": "c3e751c6d923f3286d1ab332a218b7e3f19ab6ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "76f5200f_de37fea0",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
