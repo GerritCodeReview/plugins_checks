@@ -157,6 +157,7 @@ export class ChecksFetcher implements ChecksProvider {
   run(uuid: string) {
     return this.apiPost(`/${uuid}/rerun`)
       .then(_ => {
+        document.dispatchEvent(new Event('visibilitychange'));
         return {message: 'Run triggered.', shouldReload: true};
       })
       .catch(e => {
