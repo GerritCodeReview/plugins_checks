@@ -33,6 +33,23 @@
       "message": "pls review, thanks",
       "revId": "e731ffb4da90b2995b27655fd3245fc5685a97cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15e3404_a371a6f3",
+        "filename": "web/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1013302
+      },
+      "writtenOn": "2025-06-24T13:26:53Z",
+      "side": 1,
+      "message": "`shouldReload: true` in the line below should have the same effect. If that is not the case, then maybe file a bug or debug the issue. The line that should take of this is https://cs.opensource.google/gerrit/gerrit/gerrit/+/master:polygerrit-ui/app/models/checks/checks-model.ts;l\u003d827;drc\u003d57014d5ba3e0b48e3372e3aa3c67463cb6e56bca",
+      "revId": "e731ffb4da90b2995b27655fd3245fc5685a97cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
