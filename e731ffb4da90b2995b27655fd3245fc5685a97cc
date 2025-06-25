@@ -137,6 +137,24 @@
       "message": "`shouldReload: true` in the line below should have the same effect. If that is not the case, then maybe file a bug or debug the issue. The line that should take of this is https://cs.opensource.google/gerrit/gerrit/gerrit/+/master:polygerrit-ui/app/models/checks/checks-model.ts;l\u003d827;drc\u003d57014d5ba3e0b48e3372e3aa3c67463cb6e56bca",
       "revId": "e731ffb4da90b2995b27655fd3245fc5685a97cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bef4a1a_07c87ad4",
+        "filename": "web/fetcher.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1153382
+      },
+      "writtenOn": "2025-06-25T06:25:16Z",
+      "side": 1,
+      "message": "I just reported an issue:\nhttps://issues.chromium.org/issues/427503508\n\nThanks",
+      "parentUuid": "f15e3404_a371a6f3",
+      "revId": "e731ffb4da90b2995b27655fd3245fc5685a97cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
