@@ -122,6 +122,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af7ce8f_7c9bd53d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4184636
+      },
+      "writtenOn": "2025-06-26T00:18:53Z",
+      "side": 1,
+      "message": "Marked as unresolved.From e731ffb4da90b2995b27655fd3245fc5685a97cc Mon Sep 17 00:00:00 2001\nFrom: sl g \u003cgsl1693142073@gmail.com\u003e\nDate: Sun, 22 Jun 2025 22:44:57 -0700\nSubject: [PATCH] fix bug: refresh checks state when trigger checks\n\nWhen the rerun button of checks is clicked, the state of checks is not refreshed. Therefore, the refresh is triggered by Checks API announceUpdate()\n\nChange-Id: Ic5b6595c28a83c9d4eb4372bbb30afc35039a425\n---\n\ndiff --git a/web/fetcher.ts b/web/fetcher.ts\nindex 11eee6a..4cb8a99 100644\n--- a/web/fetcher.ts\n+++ b/web/fetcher.ts\n@@ -157,6 +157,7 @@\n   run(uuid: string) {\n     return this.apiPost(`/${uuid}/rerun`)\n       .then(_ \u003d\u003e {\n+        this.plugin.checks().announceUpdate();\n         return {message: \u0027Run triggered.\u0027, shouldReload: true};\n       })\n       .catch(e \u003d\u003e {",
+      "revId": "e731ffb4da90b2995b27655fd3245fc5685a97cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f15e3404_a371a6f3",
