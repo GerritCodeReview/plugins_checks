@@ -16,6 +16,23 @@
       "message": "I\u0027m not sure how to do this any better. I\u0027ve done https://gerrit-review.googlesource.com/c/gerrit/+/569781 as well. Otherwise a new element gets created, after another.",
       "revId": "1901edf575ea17632da4c4f2312a600139dc3826",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d25fd3_69e25195",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-04-06T20:29:59Z",
+      "side": 1,
+      "message": "error is unrealted.",
+      "revId": "1901edf575ea17632da4c4f2312a600139dc3826",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
