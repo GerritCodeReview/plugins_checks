@@ -90,6 +90,30 @@
       },
       "revId": "1901edf575ea17632da4c4f2312a600139dc3826",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5fa4c37_938458c5",
+        "filename": "web/fetcher.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-04-08T19:22:50Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "f130fd0e_92dd372e",
+      "range": {
+        "startLine": 69,
+        "startChar": 55,
+        "endLine": 69,
+        "endChar": 58
+      },
+      "revId": "1901edf575ea17632da4c4f2312a600139dc3826",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
