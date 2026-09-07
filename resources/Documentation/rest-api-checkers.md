@@ -8,6 +8,43 @@ Please also take note of the general information on the
 
 ## <a id="checker-endpoints"> Checker Endpoints
 
+### <a id="list-checkers"> List Checkers
+_'GET /plugins/@PLUGIN@/checkers/'_
+
+Retrieves all checkers.
+
+Note that only users with the [Administrate
+Checkers](access-control.md#capability_administrateCheckers) global capability
+are permitted to list checkers.
+
+#### Request
+
+```
+  GET /plugins/@PLUGIN@/checkers/ HTTP/1.0
+```
+
+As response a list of [CheckerInfo](#checker-info) entities is returned that
+describes the checkers. The entries are sorted by checker [UUID](#checker-id).
+
+#### Response
+
+```
+  HTTP/1.1 200 OK
+  Content-Disposition: attachment
+  Content-Type: application/json; charset=UTF-8
+  )]}'
+  [
+    {
+      "uuid": "test:my-checker",
+      "name": "MyChecker",
+      "repository": "examples/Foo",
+      "blocking": [],
+      "description": "A simple checker.",
+      "created": "2019-01-31 09:59:32.126000000"
+    }
+  ]
+```
+
 ### <a id="get-checker"> Get Checker
 _'GET /plugins/@PLUGIN@/checkers/[\{checker-id\}](#checker-id)'_
 
