@@ -1,0 +1,17 @@
+{
+  "_comment": "Curated OpenAPI envelope for the checks plugin REST API. Operation summaries, descriptions and examples are mined from the plugin's rest-api*.md and composed in at build time (openapi_plugin_spec); this file supplies only the document-level metadata the generator cannot derive.",
+  "info": {
+    "title": "Gerrit Checks Plugin REST API",
+    "description": "REST endpoints contributed by the checks plugin. Paths, parameters and payload schemas are generated statically from the plugin's REST bindings; human-authored summaries, descriptions and examples are mined from the plugin's rest-api*.md and merged in at build time."
+  },
+  "tags": [
+    {
+      "name": "changes",
+      "description": "Checks reported on change revisions."
+    },
+    {
+      "name": "checkers",
+      "description": "Checker administration."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "_comment": "Plugin-scoped OpenAPI doc-entity aliases: spec/DTO class name -> the doc heading that documents its fields. Merged over the shared core table by override_extractor (--entity-aliases) at mine time. CheckerInput (used for both create and update) is documented in rest-api-checkers.md under CheckerCreateInput, which carries the full field set.",
+  "CheckerInput": "CheckerCreateInput"
+}
